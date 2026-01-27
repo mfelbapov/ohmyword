@@ -1254,4 +1254,198 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
   end
 
+  # ============================================================================
+  # ADDITIONAL EDGE CASES
+  # ============================================================================
+
+  describe "generate_forms/1 - reflexive possessive pronoun (svoj)" do
+    setup do
+      word = %Word{
+        term: "svoj",
+        part_of_speech: :pronoun,
+        gender: :masculine,
+        grammar_metadata: %{"pronoun_type" => "possessive"}
+      }
+
+      forms = Pronouns.generate_forms(word)
+      {:ok, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "nominative singular masculine is svoj", %{forms_map: fm} do
+      assert fm["nom_sg_m"] == "svoj"
+    end
+
+    test "genitive singular masculine is svog (contracted)", %{forms_map: fm} do
+      assert fm["gen_sg_m"] == "svog"
+    end
+
+    test "nominative singular feminine is svoja", %{forms_map: fm} do
+      assert fm["nom_sg_f"] == "svoja"
+    end
+
+    test "nominative singular neuter is svoje", %{forms_map: fm} do
+      assert fm["nom_sg_n"] == "svoje"
+    end
+  end
+
+  describe "generate_forms/1 - 3pl feminine (one) via oni paradigm" do
+    setup do
+      # The "one" form is handled through the "oni" paradigm which has gendered nominatives
+      word = %Word{
+        term: "oni",
+        part_of_speech: :pronoun,
+        gender: :masculine,
+        grammar_metadata: %{
+          "pronoun_type" => "personal",
+          "person" => 3,
+          "number" => "plural"
+        }
+      }
+
+      forms = Pronouns.generate_forms(word)
+      {:ok, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "nominative feminine is one", %{forms_map: fm} do
+      assert fm["nom_f"] == "one"
+    end
+
+    test "genitive is njih", %{forms_map: fm} do
+      assert fm["gen"] == "njih"
+    end
+
+    test "genitive clitic is ih", %{forms_map: fm} do
+      assert fm["gen_clitic"] == "ih"
+    end
+  end
+
+  describe "generate_forms/1 - indefinite pronoun some/anyone pattern via neko" do
+    # Tests the neko paradigm which follows the "ko" interrogative pattern with "ne-" prefix
+    setup do
+      word = %Word{
+        term: "neko",
+        part_of_speech: :pronoun,
+        gender: :masculine,
+        grammar_metadata: %{"pronoun_type" => "indefinite"}
+      }
+
+      forms = Pronouns.generate_forms(word)
+      {:ok, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "nominative is neko", %{forms_map: fm} do
+      assert fm["nom"] == "neko"
+    end
+
+    test "genitive is nekoga", %{forms_map: fm} do
+      assert fm["gen"] == "nekoga"
+    end
+
+    test "dative is nekome", %{forms_map: fm} do
+      assert fm["dat"] == "nekome"
+    end
+
+    test "accusative is nekoga", %{forms_map: fm} do
+      assert fm["acc"] == "nekoga"
+    end
+
+    test "instrumental is nekim", %{forms_map: fm} do
+      assert fm["ins"] == "nekim"
+    end
+  end
+
+  describe "generate_forms/1 - indefinite pronoun something pattern via nešto" do
+    # Tests the nešto paradigm which follows the "šta" interrogative pattern with "ne-" prefix
+    setup do
+      word = %Word{
+        term: "nešto",
+        part_of_speech: :pronoun,
+        gender: :neuter,
+        grammar_metadata: %{"pronoun_type" => "indefinite"}
+      }
+
+      forms = Pronouns.generate_forms(word)
+      {:ok, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "nominative is nešto", %{forms_map: fm} do
+      assert fm["nom"] == "nešto"
+    end
+
+    test "genitive is nečega", %{forms_map: fm} do
+      assert fm["gen"] == "nečega"
+    end
+
+    test "dative is nečemu", %{forms_map: fm} do
+      assert fm["dat"] == "nečemu"
+    end
+
+    test "accusative is nešto", %{forms_map: fm} do
+      assert fm["acc"] == "nešto"
+    end
+  end
+
+  describe "generate_forms/1 - adjective-like interrogative (kakav)" do
+    # Tests the "kakav" interrogative which uses fleeting-A pattern
+    setup do
+      word = %Word{
+        term: "kakav",
+        part_of_speech: :pronoun,
+        gender: :masculine,
+        grammar_metadata: %{"pronoun_type" => "interrogative"}
+      }
+
+      forms = Pronouns.generate_forms(word)
+      {:ok, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 42 forms", %{forms: forms} do
+      assert length(forms) == 42
+    end
+
+    test "nominative singular masculine is kakav", %{forms_map: fm} do
+      # The inflector returns the original term "kakav" for nom_sg_m
+      assert fm["nom_sg_m"] == "kakav"
+    end
+
+    test "nominative singular feminine is kakva", %{forms_map: fm} do
+      assert fm["nom_sg_f"] == "kakva"
+    end
+
+    test "nominative singular neuter is kakve", %{forms_map: fm} do
+      assert fm["nom_sg_n"] == "kakve"
+    end
+  end
+
+  describe "generate_forms/1 - demonstrative pronoun ovaj patterns" do
+    # Tests that the ovaj paradigm correctly generates demonstrative forms
+    setup do
+      word = %Word{
+        term: "ovaj",
+        part_of_speech: :pronoun,
+        gender: :masculine,
+        grammar_metadata: %{"pronoun_type" => "demonstrative"}
+      }
+
+      forms = Pronouns.generate_forms(word)
+      {:ok, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 42 forms", %{forms: forms} do
+      assert length(forms) == 42
+    end
+
+    test "nominative singular masculine is ovaj", %{forms_map: fm} do
+      assert fm["nom_sg_m"] == "ovaj"
+    end
+
+    test "nominative singular feminine is ova", %{forms_map: fm} do
+      assert fm["nom_sg_f"] == "ova"
+    end
+
+    test "nominative singular neuter is ovo", %{forms_map: fm} do
+      assert fm["nom_sg_n"] == "ovo"
+    end
+  end
+
 end

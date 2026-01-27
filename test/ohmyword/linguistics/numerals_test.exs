@@ -995,4 +995,260 @@ defmodule Ohmyword.Linguistics.NumeralsTest do
     end
   end
 
+  # ============================================================================
+  # ADDITIONAL EDGE CASES
+  # ============================================================================
+
+  describe "generate_forms/1 - ordinal 5th (peti)" do
+    setup do
+      word = %Word{
+        term: "peti",
+        part_of_speech: :numeral,
+        gender: :masculine,
+        animate: false,
+        grammar_metadata: %{
+          "numeral_type" => "ordinal",
+          "numeral_value" => 5
+        }
+      }
+
+      forms = Numerals.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 42 forms", %{forms: forms} do
+      assert length(forms) == 42
+    end
+
+    test "nominative singular masculine is peti", %{forms_map: fm} do
+      assert fm["nom_sg_m"] == "peti"
+    end
+
+    test "nominative singular feminine is peta", %{forms_map: fm} do
+      assert fm["nom_sg_f"] == "peta"
+    end
+
+    test "nominative singular neuter is peto", %{forms_map: fm} do
+      assert fm["nom_sg_n"] == "peto"
+    end
+
+    test "genitive singular masculine is petog", %{forms_map: fm} do
+      assert fm["gen_sg_m"] == "petog"
+    end
+  end
+
+  describe "generate_forms/1 - ordinal 6th (šesti)" do
+    setup do
+      word = %Word{
+        term: "šesti",
+        part_of_speech: :numeral,
+        gender: :masculine,
+        animate: false,
+        grammar_metadata: %{
+          "numeral_type" => "ordinal",
+          "numeral_value" => 6
+        }
+      }
+
+      forms = Numerals.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 42 forms", %{forms: forms} do
+      assert length(forms) == 42
+    end
+
+    test "nominative singular masculine is šesti", %{forms_map: fm} do
+      assert fm["nom_sg_m"] == "šesti"
+    end
+
+    test "nominative singular neuter is šesto", %{forms_map: fm} do
+      assert fm["nom_sg_n"] == "šesto"
+    end
+
+    test "genitive singular masculine is šestog", %{forms_map: fm} do
+      assert fm["gen_sg_m"] == "šestog"
+    end
+  end
+
+  describe "generate_forms/1 - ordinal 10th (deseti)" do
+    setup do
+      word = %Word{
+        term: "deseti",
+        part_of_speech: :numeral,
+        gender: :masculine,
+        animate: false,
+        grammar_metadata: %{
+          "numeral_type" => "ordinal",
+          "numeral_value" => 10
+        }
+      }
+
+      forms = Numerals.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "nominative singular masculine is deseti", %{forms_map: fm} do
+      assert fm["nom_sg_m"] == "deseti"
+    end
+
+    test "nominative singular neuter is deseto", %{forms_map: fm} do
+      assert fm["nom_sg_n"] == "deseto"
+    end
+  end
+
+  describe "generate_forms/1 - ordinal 100th (stoti)" do
+    setup do
+      word = %Word{
+        term: "stoti",
+        part_of_speech: :numeral,
+        gender: :masculine,
+        animate: false,
+        grammar_metadata: %{
+          "numeral_type" => "ordinal",
+          "numeral_value" => 100
+        }
+      }
+
+      forms = Numerals.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "nominative singular masculine is stoti", %{forms_map: fm} do
+      assert fm["nom_sg_m"] == "stoti"
+    end
+
+    test "nominative singular neuter is stoto", %{forms_map: fm} do
+      assert fm["nom_sg_n"] == "stoto"
+    end
+  end
+
+  describe "generate_forms/1 - ordinal 1000th (hiljaditi)" do
+    setup do
+      word = %Word{
+        term: "hiljaditi",
+        part_of_speech: :numeral,
+        gender: :masculine,
+        animate: false,
+        grammar_metadata: %{
+          "numeral_type" => "ordinal",
+          "numeral_value" => 1000
+        }
+      }
+
+      forms = Numerals.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "nominative singular masculine is hiljaditi", %{forms_map: fm} do
+      assert fm["nom_sg_m"] == "hiljaditi"
+    end
+
+    test "nominative singular neuter is hiljadito", %{forms_map: fm} do
+      assert fm["nom_sg_n"] == "hiljadito"
+    end
+  end
+
+  describe "generate_forms/1 - collective both (dvoje - already tested in main tests)" do
+    # Note: "oboje" is not in the hardcoded collective paradigms
+    # The test for dvoje already covers the collective numeral pattern
+    # This test documents the "oba/obe" gender-based pattern instead
+    setup do
+      word = %Word{
+        term: "oba",
+        part_of_speech: :numeral,
+        grammar_metadata: %{
+          "numeral_type" => "cardinal"
+        }
+      }
+
+      forms = Numerals.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 12 forms (6 cases x 2 genders)", %{forms: forms} do
+      assert length(forms) == 12
+    end
+
+    test "nominative masculine is oba", %{forms_map: fm} do
+      assert fm["nom_m"] == "oba"
+    end
+
+    test "nominative feminine is obe", %{forms_map: fm} do
+      assert fm["nom_f"] == "obe"
+    end
+  end
+
+  describe "generate_forms/1 - collective 6 (šestoro)" do
+    setup do
+      word = %Word{
+        term: "šestoro",
+        part_of_speech: :numeral,
+        grammar_metadata: %{
+          "numeral_type" => "collective",
+          "numeral_value" => 6
+        }
+      }
+
+      forms = Numerals.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 6 forms", %{forms: forms} do
+      assert length(forms) == 6
+    end
+
+    test "nominative is šestoro", %{forms_map: fm} do
+      assert fm["nom"] == "šestoro"
+    end
+
+    test "genitive is šestorga", %{forms_map: fm} do
+      assert fm["gen"] == "šestorga"
+    end
+  end
+
+  describe "generate_forms/1 - collective 8 (osmoro)" do
+    setup do
+      word = %Word{
+        term: "osmoro",
+        part_of_speech: :numeral,
+        grammar_metadata: %{
+          "numeral_type" => "collective",
+          "numeral_value" => 8
+        }
+      }
+
+      forms = Numerals.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 6 forms", %{forms: forms} do
+      assert length(forms) == 6
+    end
+
+    test "nominative is osmoro", %{forms_map: fm} do
+      assert fm["nom"] == "osmoro"
+    end
+
+    test "genitive is osmorga", %{forms_map: fm} do
+      assert fm["gen"] == "osmorga"
+    end
+  end
+
 end

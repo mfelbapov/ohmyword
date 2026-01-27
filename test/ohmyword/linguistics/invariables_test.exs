@@ -533,4 +533,239 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
       assert fm["super"] == "najviše"
     end
   end
+
+  # ============================================================================
+  # ADDITIONAL EDGE CASES
+  # ============================================================================
+
+  describe "generate_forms/1 - interrogative adverb (gde/gdje)" do
+    test "gde returns only base form" do
+      word = %Word{
+        term: "gde",
+        part_of_speech: :adverb
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"gde", "base"}]
+    end
+
+    test "gdje returns only base form (Ijekavian variant)" do
+      word = %Word{
+        term: "gdje",
+        part_of_speech: :adverb
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"gdje", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - interrogative adverb (kada)" do
+    test "returns only base form" do
+      word = %Word{
+        term: "kada",
+        part_of_speech: :adverb
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"kada", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - interrogative adverb (kako)" do
+    test "returns only base form" do
+      word = %Word{
+        term: "kako",
+        part_of_speech: :adverb
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"kako", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - interrogative adverb (zašto)" do
+    test "returns only base form" do
+      word = %Word{
+        term: "zašto",
+        part_of_speech: :adverb
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"zašto", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - frequency adverb with comparison (često)" do
+    setup do
+      word = %Word{
+        term: "često",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "češće",
+          "superlative" => "najčešće"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is često", %{forms_map: fm} do
+      assert fm["base"] == "često"
+    end
+
+    test "comparative is češće", %{forms_map: fm} do
+      assert fm["comp"] == "češće"
+    end
+
+    test "superlative is najčešće", %{forms_map: fm} do
+      assert fm["super"] == "najčešće"
+    end
+  end
+
+  describe "generate_forms/1 - manner adverb with irregular comparison (visoko)" do
+    setup do
+      word = %Word{
+        term: "visoko",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "više",
+          "superlative" => "najviše"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is visoko", %{forms_map: fm} do
+      assert fm["base"] == "visoko"
+    end
+
+    test "comparative is više", %{forms_map: fm} do
+      assert fm["comp"] == "više"
+    end
+
+    test "superlative is najviše", %{forms_map: fm} do
+      assert fm["super"] == "najviše"
+    end
+  end
+
+  describe "generate_forms/1 - manner adverb with comparison (nisko)" do
+    setup do
+      word = %Word{
+        term: "nisko",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "niže",
+          "superlative" => "najniže"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is nisko", %{forms_map: fm} do
+      assert fm["base"] == "nisko"
+    end
+
+    test "comparative is niže", %{forms_map: fm} do
+      assert fm["comp"] == "niže"
+    end
+
+    test "superlative is najniže", %{forms_map: fm} do
+      assert fm["super"] == "najniže"
+    end
+  end
+
+  describe "generate_forms/1 - temporal preposition (pre/prije)" do
+    test "pre returns only base form (Ekavian)" do
+      word = %Word{
+        term: "pre",
+        part_of_speech: :preposition,
+        grammar_metadata: %{"governs" => "genitive"}
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"pre", "base"}]
+    end
+
+    test "prije returns only base form (Ijekavian)" do
+      word = %Word{
+        term: "prije",
+        part_of_speech: :preposition,
+        grammar_metadata: %{"governs" => "genitive"}
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"prije", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - temporal preposition (posle/poslije)" do
+    test "posle returns only base form (Ekavian)" do
+      word = %Word{
+        term: "posle",
+        part_of_speech: :preposition,
+        grammar_metadata: %{"governs" => "genitive"}
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"posle", "base"}]
+    end
+
+    test "poslije returns only base form (Ijekavian)" do
+      word = %Word{
+        term: "poslije",
+        part_of_speech: :preposition,
+        grammar_metadata: %{"governs" => "genitive"}
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"poslije", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - modal adverb (možda)" do
+    test "returns only base form" do
+      word = %Word{
+        term: "možda",
+        part_of_speech: :adverb
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"možda", "base"}]
+    end
+  end
+
 end

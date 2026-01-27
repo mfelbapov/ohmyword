@@ -948,4 +948,377 @@ defmodule Ohmyword.Linguistics.NounsTest do
     end
   end
 
+  # ============================================================================
+  # ADDITIONAL EDGE CASES
+  # ============================================================================
+
+  describe "generate_forms/1 - feminine consonant-stem (noć)" do
+    setup do
+      word = %Word{
+        term: "noć",
+        part_of_speech: :noun,
+        gender: :feminine,
+        declension_class: "i-stem"
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative singular is unchanged", %{forms: forms} do
+      assert {"noć", "nom_sg"} in forms
+    end
+
+    test "genitive singular ends in -i", %{forms: forms} do
+      assert {"noći", "gen_sg"} in forms
+    end
+
+    test "instrumental singular ends in -i or -u", %{forms: forms} do
+      ins_sg = Enum.find(forms, fn {_, tag} -> tag == "ins_sg" end)
+      assert ins_sg != nil
+      {form, _} = ins_sg
+      assert form in ["noći", "noću"]
+    end
+
+    test "nominative plural ends in -i", %{forms: forms} do
+      assert {"noći", "nom_pl"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - feminine irregular (kći - daughter)" do
+    setup do
+      word = %Word{
+        term: "kći",
+        part_of_speech: :noun,
+        gender: :feminine,
+        declension_class: "i-stem",
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "gen_sg" => "kćeri",
+            "dat_sg" => "kćeri",
+            "acc_sg" => "kćer",
+            "voc_sg" => "kćeri",
+            "ins_sg" => "kćeri",
+            "loc_sg" => "kćeri",
+            "nom_pl" => "kćeri",
+            "gen_pl" => "kćeri",
+            "dat_pl" => "kćerima",
+            "acc_pl" => "kćeri",
+            "voc_pl" => "kćeri",
+            "ins_pl" => "kćerima",
+            "loc_pl" => "kćerima"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative singular is kći", %{forms: forms} do
+      assert {"kći", "nom_sg"} in forms
+    end
+
+    test "genitive singular is kćeri", %{forms: forms} do
+      assert {"kćeri", "gen_sg"} in forms
+    end
+
+    test "dative singular is kćeri", %{forms: forms} do
+      assert {"kćeri", "dat_sg"} in forms
+    end
+
+    test "dative/instrumental/locative plural is kćerima", %{forms: forms} do
+      assert {"kćerima", "dat_pl"} in forms
+      assert {"kćerima", "ins_pl"} in forms
+      assert {"kćerima", "loc_pl"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - neuter with irregular plural (dete → deca)" do
+    setup do
+      word = %Word{
+        term: "dete",
+        part_of_speech: :noun,
+        gender: :neuter,
+        declension_class: "e-stem",
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "nom_pl" => "deca",
+            "gen_pl" => "dece",
+            "dat_pl" => "deci",
+            "acc_pl" => "decu",
+            "voc_pl" => "deco",
+            "ins_pl" => "decom",
+            "loc_pl" => "deci"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative singular is dete", %{forms: forms} do
+      assert {"dete", "nom_sg"} in forms
+    end
+
+    test "nominative plural is deca (irregular)", %{forms: forms} do
+      assert {"deca", "nom_pl"} in forms
+    end
+
+    test "genitive plural is dece", %{forms: forms} do
+      assert {"dece", "gen_pl"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - neuter irregular plural (uho → uši)" do
+    setup do
+      word = %Word{
+        term: "uho",
+        part_of_speech: :noun,
+        gender: :neuter,
+        declension_class: "o-stem",
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "nom_pl" => "uši",
+            "gen_pl" => "ušiju",
+            "dat_pl" => "ušima",
+            "acc_pl" => "uši",
+            "voc_pl" => "uši",
+            "ins_pl" => "ušima",
+            "loc_pl" => "ušima"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative singular is uho", %{forms: forms} do
+      assert {"uho", "nom_sg"} in forms
+    end
+
+    test "nominative plural is uši (irregular)", %{forms: forms} do
+      assert {"uši", "nom_pl"} in forms
+    end
+
+    test "genitive plural is ušiju", %{forms: forms} do
+      assert {"ušiju", "gen_pl"} in forms
+    end
+
+    test "dative/instrumental/locative plural is ušima", %{forms: forms} do
+      assert {"ušima", "dat_pl"} in forms
+      assert {"ušima", "ins_pl"} in forms
+      assert {"ušima", "loc_pl"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - neuter -me/-ena stem (rame)" do
+    setup do
+      word = %Word{
+        term: "rame",
+        part_of_speech: :noun,
+        gender: :neuter,
+        declension_class: "e-stem",
+        grammar_metadata: %{
+          "stem_extension" => "n",
+          "irregular_forms" => %{
+            "gen_sg" => "ramena",
+            "dat_sg" => "ramenu",
+            "loc_sg" => "ramenu",
+            "nom_pl" => "ramena",
+            "gen_pl" => "ramena"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative singular is rame", %{forms: forms} do
+      assert {"rame", "nom_sg"} in forms
+    end
+
+    test "genitive singular is ramena", %{forms: forms} do
+      assert {"ramena", "gen_sg"} in forms
+    end
+
+    test "nominative plural is ramena", %{forms: forms} do
+      assert {"ramena", "nom_pl"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - neuter -me/-ena stem (ime)" do
+    setup do
+      word = %Word{
+        term: "ime",
+        part_of_speech: :noun,
+        gender: :neuter,
+        declension_class: "e-stem",
+        grammar_metadata: %{
+          "stem_extension" => "n",
+          "irregular_forms" => %{
+            "gen_sg" => "imena",
+            "dat_sg" => "imenu",
+            "loc_sg" => "imenu",
+            "nom_pl" => "imena",
+            "gen_pl" => "imena"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative singular is ime", %{forms: forms} do
+      assert {"ime", "nom_sg"} in forms
+    end
+
+    test "genitive singular is imena", %{forms: forms} do
+      assert {"imena", "gen_sg"} in forms
+    end
+
+    test "nominative plural is imena", %{forms: forms} do
+      assert {"imena", "nom_pl"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - neuter irregular plural (nebo → nebesa)" do
+    setup do
+      word = %Word{
+        term: "nebo",
+        part_of_speech: :noun,
+        gender: :neuter,
+        declension_class: "o-stem",
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "nom_pl" => "nebesa",
+            "gen_pl" => "nebesa",
+            "dat_pl" => "nebesima",
+            "acc_pl" => "nebesa",
+            "voc_pl" => "nebesa",
+            "ins_pl" => "nebesima",
+            "loc_pl" => "nebesima"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative singular is nebo", %{forms: forms} do
+      assert {"nebo", "nom_sg"} in forms
+    end
+
+    test "nominative plural is nebesa (irregular)", %{forms: forms} do
+      assert {"nebesa", "nom_pl"} in forms
+    end
+
+    test "genitive plural is nebesa", %{forms: forms} do
+      assert {"nebesa", "gen_pl"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - short masculine 2-letter stem (rak)" do
+    setup do
+      word = %Word{
+        term: "rak",
+        part_of_speech: :noun,
+        gender: :masculine,
+        animate: true,
+        declension_class: "consonant"
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative singular is rak", %{forms: forms} do
+      assert {"rak", "nom_sg"} in forms
+    end
+
+    test "nominative plural uses -ovi insert", %{forms: forms} do
+      assert {"rakovi", "nom_pl"} in forms
+    end
+
+    test "genitive plural uses -ova", %{forms: forms} do
+      assert {"rakova", "gen_pl"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - masculine short plural option (put)" do
+    setup do
+      word = %Word{
+        term: "put",
+        part_of_speech: :noun,
+        gender: :masculine,
+        animate: false,
+        declension_class: "consonant"
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative singular is put", %{forms: forms} do
+      assert {"put", "nom_sg"} in forms
+    end
+
+    test "nominative plural uses -evi or -ovi", %{forms: forms} do
+      nom_pl = Enum.find(forms, fn {_, tag} -> tag == "nom_pl" end)
+      assert nom_pl != nil
+      {form, _} = nom_pl
+      assert form in ["putevi", "putovi"]
+    end
+  end
+
+  describe "generate_forms/1 - masculine with -i plural (gost)" do
+    setup do
+      word = %Word{
+        term: "gost",
+        part_of_speech: :noun,
+        gender: :masculine,
+        animate: true,
+        declension_class: "consonant",
+        grammar_metadata: %{"irregular_plural" => "gost"}
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative singular is gost", %{forms: forms} do
+      assert {"gost", "nom_sg"} in forms
+    end
+
+    test "nominative plural is gosti (not gostovi)", %{forms: forms} do
+      assert {"gosti", "nom_pl"} in forms
+    end
+
+    test "genitive plural is gosta (animate)", %{forms: forms} do
+      assert {"gosta", "gen_pl"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - masculine consonant cluster (prst)" do
+    setup do
+      word = %Word{
+        term: "prst",
+        part_of_speech: :noun,
+        gender: :masculine,
+        animate: false,
+        declension_class: "consonant",
+        grammar_metadata: %{"irregular_plural" => "prst"}
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative singular is prst", %{forms: forms} do
+      assert {"prst", "nom_sg"} in forms
+    end
+
+    test "genitive singular is prsta", %{forms: forms} do
+      assert {"prsta", "gen_sg"} in forms
+    end
+
+    test "nominative plural is prsti", %{forms: forms} do
+      assert {"prsti", "nom_pl"} in forms
+    end
+  end
+
 end

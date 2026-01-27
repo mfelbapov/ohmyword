@@ -827,4 +827,333 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
   end
 
+  # ============================================================================
+  # ADDITIONAL EDGE CASES
+  # ============================================================================
+
+  describe "generate_forms/1 - irregular present stem (jesti)" do
+    setup do
+      word = %Word{
+        term: "jesti",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "e-verb",
+        grammar_metadata: %{
+          "present_stem" => "jed",
+          "irregular_forms" => %{
+            "past_m_sg" => "jeo",
+            "past_f_sg" => "jela",
+            "past_n_sg" => "jelo",
+            "past_m_pl" => "jeli",
+            "past_f_pl" => "jele",
+            "past_n_pl" => "jela"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present 1sg is jedem", %{forms: forms} do
+      assert {"jedem", "pres_1sg"} in forms
+    end
+
+    test "present 3pl is jedu", %{forms: forms} do
+      assert {"jedu", "pres_3pl"} in forms
+    end
+
+    test "past masculine singular is jeo", %{forms: forms} do
+      assert {"jeo", "past_m_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - short a-verb (dati)" do
+    setup do
+      word = %Word{
+        term: "dati",
+        part_of_speech: :verb,
+        verb_aspect: :perfective,
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "pres_1sg" => "dam",
+            "pres_2sg" => "daš",
+            "pres_3sg" => "da",
+            "pres_1pl" => "damo",
+            "pres_2pl" => "date",
+            "pres_3pl" => "daju",
+            "imp_2sg" => "daj",
+            "imp_1pl" => "dajmo",
+            "imp_2pl" => "dajte",
+            "past_m_sg" => "dao",
+            "past_f_sg" => "dala",
+            "past_n_sg" => "dalo",
+            "past_m_pl" => "dali",
+            "past_f_pl" => "dale",
+            "past_n_pl" => "dala"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present 1sg is dam", %{forms: forms} do
+      assert {"dam", "pres_1sg"} in forms
+    end
+
+    test "past masculine singular is dao", %{forms: forms} do
+      assert {"dao", "past_m_sg"} in forms
+    end
+
+    test "imperative 2sg is daj", %{forms: forms} do
+      assert {"daj", "imp_2sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - a-verb present (znati)" do
+    setup do
+      word = %Word{
+        term: "znati",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "a-verb"
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present 1sg is znam", %{forms: forms} do
+      assert {"znam", "pres_1sg"} in forms
+    end
+
+    test "present 3pl is znaju", %{forms: forms} do
+      assert {"znaju", "pres_3pl"} in forms
+    end
+
+    test "past masculine singular is znao", %{forms: forms} do
+      assert {"znao", "past_m_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - irregular present (spati → spavam)" do
+    setup do
+      word = %Word{
+        term: "spati",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "pres_1sg" => "spavam",
+            "pres_2sg" => "spavaš",
+            "pres_3sg" => "spava",
+            "pres_1pl" => "spavamo",
+            "pres_2pl" => "spavate",
+            "pres_3pl" => "spavaju",
+            "imp_2sg" => "spavaj",
+            "imp_1pl" => "spavajmo",
+            "imp_2pl" => "spavajte",
+            "past_m_sg" => "spavao",
+            "past_f_sg" => "spavala",
+            "past_n_sg" => "spavalo",
+            "past_m_pl" => "spavali",
+            "past_f_pl" => "spavale",
+            "past_n_pl" => "spavala"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present 1sg is spavam", %{forms: forms} do
+      assert {"spavam", "pres_1sg"} in forms
+    end
+
+    test "past masculine singular is spavao", %{forms: forms} do
+      assert {"spavao", "past_m_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - e-verb perfective (uzeti)" do
+    setup do
+      word = %Word{
+        term: "uzeti",
+        part_of_speech: :verb,
+        verb_aspect: :perfective,
+        conjugation_class: "e-verb",
+        grammar_metadata: %{
+          "present_stem" => "uzm",
+          "irregular_forms" => %{
+            "past_m_sg" => "uzeo",
+            "past_f_sg" => "uzela",
+            "past_n_sg" => "uzelo",
+            "past_m_pl" => "uzeli",
+            "past_f_pl" => "uzele",
+            "past_n_pl" => "uzela"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present 1sg is uzmem", %{forms: forms} do
+      assert {"uzmem", "pres_1sg"} in forms
+    end
+
+    test "past masculine singular is uzeo", %{forms: forms} do
+      assert {"uzeo", "past_m_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - i-verb with j (kriti)" do
+    setup do
+      word = %Word{
+        term: "kriti",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "je-verb"
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present 1sg is krijem", %{forms: forms} do
+      assert {"krijem", "pres_1sg"} in forms
+    end
+
+    test "present 3pl is kriju", %{forms: forms} do
+      assert {"kriju", "pres_3pl"} in forms
+    end
+
+    test "past masculine singular is krio", %{forms: forms} do
+      assert {"krio", "past_m_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - prefixed -ći verb (naći)" do
+    setup do
+      word = %Word{
+        term: "naći",
+        part_of_speech: :verb,
+        verb_aspect: :perfective,
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "pres_1sg" => "nađem",
+            "pres_2sg" => "nađeš",
+            "pres_3sg" => "nađe",
+            "pres_1pl" => "nađemo",
+            "pres_2pl" => "nađete",
+            "pres_3pl" => "nađu",
+            "imp_2sg" => "nađi",
+            "imp_1pl" => "nađimo",
+            "imp_2pl" => "nađite",
+            "past_m_sg" => "našao",
+            "past_f_sg" => "našla",
+            "past_n_sg" => "našlo",
+            "past_m_pl" => "našli",
+            "past_f_pl" => "našle",
+            "past_n_pl" => "našla"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present 1sg is nađem", %{forms: forms} do
+      assert {"nađem", "pres_1sg"} in forms
+    end
+
+    test "past masculine singular is našao", %{forms: forms} do
+      assert {"našao", "past_m_sg"} in forms
+    end
+
+    test "imperative 2sg is nađi", %{forms: forms} do
+      assert {"nađi", "imp_2sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - prefixed -ći verb (otići)" do
+    setup do
+      word = %Word{
+        term: "otići",
+        part_of_speech: :verb,
+        verb_aspect: :perfective,
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "pres_1sg" => "odem",
+            "pres_2sg" => "odeš",
+            "pres_3sg" => "ode",
+            "pres_1pl" => "odemo",
+            "pres_2pl" => "odete",
+            "pres_3pl" => "odu",
+            "imp_2sg" => "odi",
+            "imp_1pl" => "odimo",
+            "imp_2pl" => "odite",
+            "past_m_sg" => "otišao",
+            "past_f_sg" => "otišla",
+            "past_n_sg" => "otišlo",
+            "past_m_pl" => "otišli",
+            "past_f_pl" => "otišle",
+            "past_n_pl" => "otišla"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present 1sg is odem", %{forms: forms} do
+      assert {"odem", "pres_1sg"} in forms
+    end
+
+    test "past masculine singular is otišao", %{forms: forms} do
+      assert {"otišao", "past_m_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - irregular -ći verb (reći)" do
+    setup do
+      word = %Word{
+        term: "reći",
+        part_of_speech: :verb,
+        verb_aspect: :perfective,
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "pres_1sg" => "reknem",
+            "pres_2sg" => "rekneš",
+            "pres_3sg" => "rekne",
+            "pres_1pl" => "reknemo",
+            "pres_2pl" => "reknete",
+            "pres_3pl" => "reknu",
+            "imp_2sg" => "recni",
+            "imp_1pl" => "recnimo",
+            "imp_2pl" => "recnite",
+            "past_m_sg" => "rekao",
+            "past_f_sg" => "rekla",
+            "past_n_sg" => "reklo",
+            "past_m_pl" => "rekli",
+            "past_f_pl" => "rekle",
+            "past_n_pl" => "rekla"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present 1sg is reknem", %{forms: forms} do
+      assert {"reknem", "pres_1sg"} in forms
+    end
+
+    test "past masculine singular is rekao", %{forms: forms} do
+      assert {"rekao", "past_m_sg"} in forms
+    end
+
+    test "past feminine singular is rekla", %{forms: forms} do
+      assert {"rekla", "past_f_sg"} in forms
+    end
+  end
+
 end

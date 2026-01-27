@@ -687,4 +687,217 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
     end
   end
 
+  # ============================================================================
+  # ADDITIONAL EDGE CASES
+  # ============================================================================
+
+  describe "generate_forms/1 - soft stem -đ (tuđ)" do
+    setup do
+      word = %Word{
+        term: "tuđ",
+        part_of_speech: :adjective,
+        gender: :masculine,
+        animate: false,
+        grammar_metadata: %{"soft_stem" => true}
+      }
+
+      forms = Adjectives.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "nominative singular neuter uses -e (soft stem)", %{forms_map: fm} do
+      assert fm["indef_nom_sg_n"] == "tuđe"
+    end
+
+    test "definite genitive singular masculine uses soft ending", %{forms_map: fm} do
+      assert fm["def_gen_sg_m"] in ["tuđeg", "tuđog"]
+    end
+
+    test "nominative singular masculine is unchanged", %{forms_map: fm} do
+      assert fm["indef_nom_sg_m"] == "tuđ"
+    end
+
+    test "nominative singular feminine adds -a", %{forms_map: fm} do
+      assert fm["indef_nom_sg_f"] == "tuđa"
+    end
+  end
+
+  describe "generate_forms/1 - regular hard stem (plav)" do
+    setup do
+      word = %Word{
+        term: "plav",
+        part_of_speech: :adjective,
+        gender: :masculine,
+        animate: false
+      }
+
+      forms = Adjectives.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "nominative singular neuter uses -o (hard stem)", %{forms_map: fm} do
+      assert fm["indef_nom_sg_n"] == "plavo"
+    end
+
+    test "definite genitive singular masculine is plavog", %{forms_map: fm} do
+      assert fm["def_gen_sg_m"] == "plavog"
+    end
+
+    test "nominative singular feminine adds -a", %{forms_map: fm} do
+      assert fm["indef_nom_sg_f"] == "plava"
+    end
+  end
+
+  describe "generate_forms/1 - irregular comparative (velik → veći)" do
+    setup do
+      word = %Word{
+        term: "velik",
+        part_of_speech: :adjective,
+        gender: :masculine,
+        animate: false,
+        grammar_metadata: %{
+          "comparative_stem" => "već",
+          "superlative_stem" => "najveć"
+        }
+      }
+
+      forms = Adjectives.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 168 forms", %{forms: forms} do
+      assert length(forms) == 168
+    end
+
+    test "comparative nominative singular masculine is veći", %{forms_map: fm} do
+      assert fm["comp_nom_sg_m"] == "veći"
+    end
+
+    test "superlative nominative singular masculine is najveći", %{forms_map: fm} do
+      assert fm["super_nom_sg_m"] == "najveći"
+    end
+
+    test "comparative nominative singular neuter uses soft ending", %{forms_map: fm} do
+      assert fm["comp_nom_sg_n"] == "veće"
+    end
+  end
+
+  describe "generate_forms/1 - irregular comparative (mali → manji)" do
+    setup do
+      word = %Word{
+        term: "mali",
+        part_of_speech: :adjective,
+        gender: :masculine,
+        animate: false,
+        grammar_metadata: %{
+          "comparative_stem" => "manj",
+          "superlative_stem" => "najmanj"
+        }
+      }
+
+      forms = Adjectives.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "comparative nominative singular masculine is manji", %{forms_map: fm} do
+      assert fm["comp_nom_sg_m"] == "manji"
+    end
+
+    test "superlative nominative singular masculine is najmanji", %{forms_map: fm} do
+      assert fm["super_nom_sg_m"] == "najmanji"
+    end
+  end
+
+  describe "generate_forms/1 - irregular comparative (dug → duži)" do
+    setup do
+      word = %Word{
+        term: "dug",
+        part_of_speech: :adjective,
+        gender: :masculine,
+        animate: false,
+        grammar_metadata: %{
+          "comparative_stem" => "duž",
+          "superlative_stem" => "najduž"
+        }
+      }
+
+      forms = Adjectives.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "comparative nominative singular masculine is duži", %{forms_map: fm} do
+      assert fm["comp_nom_sg_m"] == "duži"
+    end
+
+    test "superlative nominative singular masculine is najduži", %{forms_map: fm} do
+      assert fm["super_nom_sg_m"] == "najduži"
+    end
+  end
+
+  describe "generate_forms/1 - irregular comparative (lak → lakši)" do
+    setup do
+      word = %Word{
+        term: "lak",
+        part_of_speech: :adjective,
+        gender: :masculine,
+        animate: false,
+        grammar_metadata: %{
+          "comparative_stem" => "lakš",
+          "superlative_stem" => "najlakš"
+        }
+      }
+
+      forms = Adjectives.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "comparative nominative singular masculine is lakši", %{forms_map: fm} do
+      assert fm["comp_nom_sg_m"] == "lakši"
+    end
+
+    test "superlative nominative singular masculine is najlakši", %{forms_map: fm} do
+      assert fm["super_nom_sg_m"] == "najlakši"
+    end
+  end
+
+  describe "generate_forms/1 - irregular comparative (mek → mekši)" do
+    setup do
+      word = %Word{
+        term: "mek",
+        part_of_speech: :adjective,
+        gender: :masculine,
+        animate: false,
+        grammar_metadata: %{
+          "comparative_stem" => "mekš",
+          "superlative_stem" => "najmekš"
+        }
+      }
+
+      forms = Adjectives.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "comparative nominative singular masculine is mekši", %{forms_map: fm} do
+      assert fm["comp_nom_sg_m"] == "mekši"
+    end
+
+    test "superlative nominative singular masculine is najmekši", %{forms_map: fm} do
+      assert fm["super_nom_sg_m"] == "najmekši"
+    end
+  end
+
 end
