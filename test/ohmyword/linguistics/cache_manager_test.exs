@@ -121,8 +121,8 @@ defmodule Ohmyword.Linguistics.CacheManagerTest do
       word2 = verb_fixture(%{term: "pisati"})
       word3 = word_fixture(%{term: "i", part_of_speech: :conjunction})
 
-      # noun: 14 forms, verb: 1 form (stub), conjunction: 1 form (stub) = 16 total
-      assert {:ok, %{words: 3, forms: 16}} = CacheManager.regenerate_all()
+      # noun: 14 forms, verb: 16 forms, conjunction: 1 form (stub) = 31 total
+      assert {:ok, %{words: 3, forms: 31}} = CacheManager.regenerate_all()
 
       # Verify each word has search terms
       for word <- [word1, word2, word3] do
@@ -147,8 +147,8 @@ defmodule Ohmyword.Linguistics.CacheManagerTest do
         |> Repo.insert()
 
       # Should still report 2 words processed
-      # noun: 14 forms, verb: 1 form (stub) = 15 total
-      assert {:ok, %{words: 2, forms: 15}} = CacheManager.regenerate_all()
+      # noun: 14 forms, verb: 16 forms = 30 total
+      assert {:ok, %{words: 2, forms: 30}} = CacheManager.regenerate_all()
     end
   end
 end
