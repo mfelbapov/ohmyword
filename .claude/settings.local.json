@@ -10,7 +10,8 @@
       "Bash(./docs/scripts/rename_project.sh:*)",
       "Bash(mix setup:*)",
       "Bash(tree:*)",
-      "Bash(mix ecto.reset:*)"
+      "Bash(mix ecto.reset:*)",
+      "Bash(mix format:*)"
     ],
     "deny": [],
     "ask": []
