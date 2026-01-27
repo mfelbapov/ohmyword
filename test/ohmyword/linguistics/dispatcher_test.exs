@@ -10,11 +10,14 @@ defmodule Ohmyword.Linguistics.DispatcherTest do
       assert Dispatcher.inflect(nil) == []
     end
 
-    test "returns forms for a noun using stub inflector" do
+    test "returns forms for a noun using Nouns inflector" do
       word = noun_fixture(%{term: "pas"})
       forms = Dispatcher.inflect(word)
 
-      assert [{"pas", "base"}] = forms
+      # Nouns module generates 14 forms (7 cases x 2 numbers)
+      assert length(forms) == 14
+      assert {"pas", "nom_sg"} in forms
+      assert {"pasa", "gen_sg"} in forms
     end
 
     test "returns forms for a verb using stub inflector" do
@@ -44,11 +47,11 @@ defmodule Ohmyword.Linguistics.DispatcherTest do
       assert Dispatcher.get_inflector(nil) == nil
     end
 
-    test "returns stub inflector for noun (real Nouns module not implemented yet)" do
+    test "returns Nouns inflector for noun" do
       word = noun_fixture()
       inflector = Dispatcher.get_inflector(word)
 
-      assert inflector == Ohmyword.Linguistics.StubInflector
+      assert inflector == Ohmyword.Linguistics.Nouns
     end
 
     test "returns stub inflector for verb (real Verbs module not implemented yet)" do
