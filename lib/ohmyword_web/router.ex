@@ -33,6 +33,10 @@ defmodule OhmywordWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+
+    live_session :public, on_mount: [{OhmywordWeb.UserAuth, :mount_current_scope}] do
+      live "/flashcards", FlashcardLive, :index
+    end
   end
 
   use Kaffy.Routes,

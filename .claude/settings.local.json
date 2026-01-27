@@ -8,7 +8,8 @@
       "Bash(mix compile:*)",
       "Bash(wc:*)",
       "Bash(./docs/scripts/rename_project.sh:*)",
-      "Bash(mix setup:*)"
+      "Bash(mix setup:*)",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": []
