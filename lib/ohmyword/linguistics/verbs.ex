@@ -77,7 +77,12 @@ defmodule Ohmyword.Linguistics.Verbs do
       generate_infinitive(word.term, reflexive) ++
         generate_present_forms(present_stem, word.conjugation_class, irregular_forms, reflexive) ++
         generate_past_forms(infinitive_stem, term, irregular_forms, reflexive) ++
-        generate_imperative_forms(present_stem, word.conjugation_class, irregular_forms, reflexive)
+        generate_imperative_forms(
+          present_stem,
+          word.conjugation_class,
+          irregular_forms,
+          reflexive
+        )
 
     # Apply any remaining irregular form overrides
     Enum.map(forms, fn {form, tag} ->

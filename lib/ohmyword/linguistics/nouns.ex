@@ -60,7 +60,15 @@ defmodule Ohmyword.Linguistics.Nouns do
   @consonant_sg_endings %{nom: "", gen: "a", dat: "u", acc: "", voc: "e", ins: "om", loc: "u"}
 
   # Consonant stem plural endings (without insert, used with -ov-/-ev- or directly)
-  @consonant_pl_endings %{nom: "i", gen: "a", dat: "ima", acc: "e", voc: "i", ins: "ima", loc: "ima"}
+  @consonant_pl_endings %{
+    nom: "i",
+    gen: "a",
+    dat: "ima",
+    acc: "e",
+    voc: "i",
+    ins: "ima",
+    loc: "ima"
+  }
 
   @impl true
   def applicable?(%Word{part_of_speech: :noun}), do: true
