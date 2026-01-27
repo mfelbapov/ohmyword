@@ -1,0 +1,84 @@
+# CI/CD Pipeline Implementation
+
+This spec documents the GitHub Actions CI/CD pipeline setup for the Boiler Phoenix application.
+
+## Overview
+
+The CI pipeline runs automated tests and code quality checks on every pull request to the main branch, ensuring code quality before merging.
+
+## Workflow Details
+
+**File**: `.github/workflows/ci.yml`
+
+**Triggers**:
+- Pull requests to `main` branch
+- Manual dispatch (via GitHub Actions UI)
+
+**Environment**:
+- Elixir: 1.17.x
+- OTP: 27.x
+- PostgreSQL: 16
+- OS: Ubuntu Latest
+
+**Pipeline Steps**:
+1. Checkout code
+2. Set up Elixir and OTP
+3. Install Mix dependencies
+4. Check code formatting
+5. Compile with warnings as errors
+6. Create and migrate test database
+7. Install and build assets (Tailwind + esbuild)
+8. Run full test suite
+
+## You can add instructions for a developer here:
+
+### Setting Up Local Development
+
+Before pushing changes, run the precommit checks locally:
+
+```bash
+mix precommit
+```
+
+This will:
+- Compile code with warnings as errors
+- Remove unused dependencies
+- Check code formatting
+- Run all tests
+
+### Working with CI
+
+1. **Creating Pull Requests**:
+   - CI will automatically run when you open a PR to `main`
+   - Ensure all checks pass before requesting review
+   - Fix any formatting issues with `mix format`
+
+2. **Manual CI Runs**:
+   - Go to Actions tab in GitHub
+   - Select "CI" workflow
+   - Click "Run workflow" button
+   - Select branch and run
+
+3. **Debugging CI Failures**:
+   - **Format Check Fails**: Run `mix format` locally and commit changes
+   - **Compilation Fails**: Run `mix compile --warnings-as-errors` to see warnings
+   - **Tests Fail**: Run `mix test` locally with PostgreSQL running
+   - **Asset Build Fails**: Run `mix assets.setup && mix assets.build`
+
+4. **Common Issues**:
+   - **Database connection errors**: Ensure PostgreSQL service is healthy (CI handles this automatically)
+   - **Dependency conflicts**: Run `mix deps.get` and `mix deps.unlock --unused`
+   - **Asset compilation errors**: Check that Node.js tools are properly installed
+
+### Maintenance
+
+- **Updating Elixir/OTP versions**: Edit `.github/workflows/ci.yml` and update the version numbers
+- **Changing PostgreSQL version**: Update the `postgres:16` image tag in the workflow file
+- **Adding new checks**: Add additional steps to the workflow file before the test step
+
+### Best Practices
+
+- Always run `mix precommit` before pushing
+- Keep your branch up to date with `main` to avoid CI surprises
+- Address CI failures promptly - don't let PRs sit with failing checks
+- Use `mix format` to auto-fix formatting issues

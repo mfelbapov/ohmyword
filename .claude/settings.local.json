@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(mix test:*)",
+      "Bash(iex -S mix:*)",
+      "Bash(mix ecto.gen.migration:*)",
+      "Bash(mix compile:*)",
+      "Bash(wc:*)",
+      "Bash(./docs/scripts/rename_project.sh:*)",
+      "Bash(mix setup:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

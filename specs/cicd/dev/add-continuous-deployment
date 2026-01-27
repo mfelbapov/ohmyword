@@ -1,0 +1,519 @@
+# Continuous Deployment to Fly.io - Setup Guide
+
+## Overview
+
+This guide walks you through setting up continuous deployment to Fly.io for the Boiler Phoenix application. After setup, deployments will be triggered automatically when you push version tags (e.g., `v1.0.0`).
+
+## What Was Implemented
+
+### 1. Updated GitHub Actions CI Workflow
+**File**: `.github/workflows/ci.yml`
+
+The CI workflow now runs in two scenarios:
+- **Pull Requests**: Tests run when PRs are opened against `main`
+- **Post-Merge**: Tests run again after PR is merged to `main` branch
+
+This ensures code quality at both PR review time and after merge, catching any integration issues.
+
+### 2. New Deployment Workflow
+**File**: `.github/workflows/deploy.yml`
+
+Deployment workflow triggers on version tags (e.g., `v1.0.0`, `v1.2.3`):
+1. Runs full test suite (formatting, compilation, tests)
+2. If tests pass, deploys to Fly.io production
+3. Fly.io automatically runs database migrations via release command
+
+### 3. Production Infrastructure Files
+- **Dockerfile**: Multi-stage build optimized for Phoenix/Elixir
+- **.dockerignore**: Excludes unnecessary files from Docker build
+- **fly.toml**: Fly.io application configuration
+- **lib/boiler/release.ex**: Handles database migrations in production
+- **rel/overlays/bin/migrate**: Migration script for releases
+- **rel/overlays/bin/server**: Server startup script
+
+## Prerequisites
+
+Before you begin, ensure you have:
+- Git installed and configured
+- GitHub repository with admin access
+- A valid credit card (required for Fly.io, free tier available)
+
+## Step 1: Install Fly.io CLI
+
+### macOS
+```bash
+brew install flyctl
+```
+
+### Linux
+```bash
+curl -L https://fly.io/install.sh | sh
+```
+
+### Windows
+```powershell
+pwsh -Command "iwr https://fly.io/install.ps1 -useb | iex"
+```
+
+Verify installation:
+```bash
+flyctl version
+```
+
+## Step 2: Create Fly.io Account and Login
+
+If you don't have a Fly.io account:
+```bash
+fly auth signup
+```
+
+If you already have an account:
+```bash
+fly auth login
+```
+
+This will open your browser for authentication.
+
+## Step 3: Create Fly.io Application
+
+Navigate to your project directory:
+```bash
+cd /Users/mfelbapov/Projects/boiler
+```
+
+Launch your app on Fly.io:
+```bash
+fly launch
+```
+
+The interactive launcher will ask you several questions:
+
+1. **App Name**: Choose a unique name (e.g., `boiler-production`)
+   - This will be your app's subdomain: `your-app-name.fly.dev`
+
+2. **Region**: Select the region closest to your users
+   - `iad` - Ashburn, Virginia (US East)
+   - `sjc` - San Jose, California (US West)
+   - `lhr` - London, United Kingdom
+   - `fra` - Frankfurt, Germany
+   - Full list: https://fly.io/docs/reference/regions/
+
+3. **PostgreSQL Database**: Answer `Yes`
+   - Choose configuration: **Development** (free tier)
+   - Database will be named `boiler-production-db` (or similar)
+
+4. **Deploy now?**: Answer `No` (we'll deploy via GitHub Actions)
+
+The launcher will:
+- Create your app on Fly.io
+- Generate/update `fly.toml` with your app name
+- Create a PostgreSQL database
+- Set `DATABASE_URL` secret automatically
+
+## Step 4: Update fly.toml Configuration
+
+After `fly launch`, update the generated `fly.toml`:
+
+```toml
+app = 'your-app-name'  # Updated by fly launch
+primary_region = 'iad'  # Your chosen region
+
+[env]
+  PHX_HOST = 'your-app-name.fly.dev'  # Update this!
+  PORT = '8080'
+
+# Rest of configuration is already set
+```
+
+**IMPORTANT**: Replace `your-app-name.fly.dev` with your actual Fly.io hostname.
+
+## Step 5: Set Required Secrets
+
+Generate and set the SECRET_KEY_BASE:
+
+```bash
+# Generate a secure secret key
+mix phx.gen.secret
+
+# Set it in Fly.io (paste the generated value)
+fly secrets set SECRET_KEY_BASE=<paste-generated-secret-here>
+```
+
+The `DATABASE_URL` secret should already be set by `fly launch`. Verify:
+```bash
+fly secrets list
+```
+
+You should see:
+- `DATABASE_URL` (set automatically)
+- `SECRET_KEY_BASE` (you just set this)
+
+## Step 6: Configure GitHub Secrets
+
+Get your Fly.io API token:
+```bash
+fly auth token
+```
+
+This will output a token like: `fo1_xxxxxxxxxxxx`
+
+Add it to GitHub:
+1. Go to your repository on GitHub
+2. Navigate to **Settings** ’ **Secrets and variables** ’ **Actions**
+3. Click **New repository secret**
+4. Name: `FLY_API_TOKEN`
+5. Value: Paste your token from the command above
+6. Click **Add secret**
+
+## Step 7: Commit and Push Configuration Files
+
+All the necessary files are already created. Commit them:
+
+```bash
+git add .
+git commit -m "Add continuous deployment to Fly.io
+
+- Add deployment workflow for version tags
+- Update CI to run on push to main
+- Add Dockerfile and fly.toml configuration
+- Add database migration support for releases
+
+> Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+
+git push origin add-continuous-deployment
+```
+
+## Step 8: Deploy Your First Version
+
+Once your PR is merged to main, create and push your first version tag:
+
+```bash
+# Make sure you're on main and up to date
+git checkout main
+git pull origin main
+
+# Create a version tag
+git tag v0.1.0
+
+# Push the tag to trigger deployment
+git push origin v0.1.0
+```
+
+This will:
+1. Trigger the deployment workflow
+2. Run full test suite
+3. Deploy to Fly.io if tests pass
+4. Run database migrations automatically
+5. Start your application
+
+## Step 9: Verify Deployment
+
+Monitor the deployment:
+
+**In GitHub**:
+- Go to **Actions** tab in your repository
+- Click on the running "Deploy to Fly.io" workflow
+- Watch the progress in real-time
+
+**Via Fly.io CLI**:
+```bash
+# Watch deployment status
+fly status
+
+# View recent logs
+fly logs
+
+# Open your app in browser
+fly open
+```
+
+Check your application:
+```bash
+curl https://your-app-name.fly.dev
+```
+
+## Deployment Workflow
+
+### Regular Development Flow
+
+1. **Create feature branch**:
+   ```bash
+   git checkout -b feature/new-feature
+   ```
+
+2. **Make changes and push**:
+   ```bash
+   git add .
+   git commit -m "Add new feature"
+   git push origin feature/new-feature
+   ```
+
+3. **Create Pull Request**:
+   - CI workflow runs automatically
+   - Tests must pass before merge
+
+4. **Merge to main**:
+   - CI workflow runs again on main branch
+   - Verifies integration
+
+5. **Deploy when ready**:
+   ```bash
+   git checkout main
+   git pull origin main
+   git tag v1.0.0
+   git push origin v1.0.0
+   ```
+   - Deployment workflow triggers
+   - Tests run one final time
+   - Deploys to production if tests pass
+
+### Version Tagging Best Practices
+
+Use [Semantic Versioning](https://semver.org/):
+- `v0.1.0` - Initial development versions
+- `v1.0.0` - First stable release
+- `v1.1.0` - New features (minor version)
+- `v1.1.1` - Bug fixes (patch version)
+- `v2.0.0` - Breaking changes (major version)
+
+## Managing Your Fly.io Application
+
+### View Application Status
+```bash
+fly status
+```
+
+### View Real-time Logs
+```bash
+fly logs
+```
+
+### SSH into Running Container
+```bash
+fly ssh console
+```
+
+### Run IEx Console in Production
+```bash
+fly ssh console -C "/app/bin/boiler remote"
+```
+
+### Scale Your Application
+
+**Vertically** (increase VM resources):
+```bash
+fly scale vm shared-cpu-2x --memory 2048
+```
+
+**Horizontally** (add more instances):
+```bash
+fly scale count 2
+```
+
+### View Current Scaling
+```bash
+fly scale show
+```
+
+## Database Management
+
+### Run Migrations Manually
+Migrations run automatically on deploy, but you can run them manually:
+
+```bash
+fly ssh console -C "/app/bin/migrate"
+```
+
+### Access Database Console
+```bash
+fly postgres connect -a boiler-production-db
+```
+
+### Create Database Backup
+```bash
+fly postgres backup create -a boiler-production-db
+```
+
+### List Backups
+```bash
+fly postgres backup list -a boiler-production-db
+```
+
+## Troubleshooting
+
+### Deployment Fails
+
+1. **Check GitHub Actions logs**:
+   - Go to Actions tab
+   - Click failed workflow
+   - Review error messages
+
+2. **Common issues**:
+   - Tests failing: Fix tests and push new tag
+   - Docker build failing: Check Dockerfile syntax
+   - Missing secrets: Verify `FLY_API_TOKEN` in GitHub secrets
+
+### Application Not Starting
+
+1. **Check application logs**:
+   ```bash
+   fly logs
+   ```
+
+2. **Common issues**:
+   - Missing `SECRET_KEY_BASE`: Set via `fly secrets set SECRET_KEY_BASE=...`
+   - Database connection issues: Verify `DATABASE_URL` is set
+   - Port configuration: Ensure `PORT=8080` in fly.toml
+
+### Database Migration Issues
+
+1. **View migration status**:
+   ```bash
+   fly ssh console -C "/app/bin/boiler eval 'Boiler.Release.migrate()'"
+   ```
+
+2. **Rollback migration**:
+   ```bash
+   fly ssh console -C "/app/bin/boiler eval 'Boiler.Release.rollback(Boiler.Repo, 20231108000000)'"
+   ```
+
+### Application Health Check Failing
+
+1. **Check health endpoint**:
+   ```bash
+   curl https://your-app-name.fly.dev/
+   ```
+
+2. **Adjust health check** in fly.toml if needed
+
+## Rollback Procedures
+
+### Rollback to Previous Version
+
+If a deployment introduces issues, rollback using Fly.io:
+
+```bash
+# List recent releases
+fly releases
+
+# Rollback to previous version (e.g., version 5)
+fly releases rollback 5
+```
+
+### Rollback via New Deployment
+
+Alternatively, deploy a previous version tag:
+
+```bash
+# Delete the problematic tag locally and remotely
+git tag -d v1.2.0
+git push origin :refs/tags/v1.2.0
+
+# Re-tag from a working commit
+git checkout <working-commit-sha>
+git tag v1.2.1
+git push origin v1.2.1
+```
+
+## Monitoring and Observability
+
+### View Metrics
+```bash
+fly dashboard
+```
+
+### Set Up Alerts
+
+1. Go to https://fly.io/dashboard
+2. Select your app
+3. Navigate to **Monitoring**
+4. Configure alerts for:
+   - Application downtime
+   - High memory usage
+   - Error rates
+
+## Cost Optimization
+
+### Free Tier Limits
+Fly.io provides:
+- Up to 3 shared-cpu-1x VMs with 256MB RAM (free)
+- 3GB persistent volume storage (free)
+- 160GB outbound data transfer (free)
+
+### Optimize Costs
+
+1. **Use auto-stop/auto-start** (already configured in fly.toml):
+   ```toml
+   auto_stop_machines = 'stop'
+   auto_start_machines = true
+   min_machines_running = 0
+   ```
+
+2. **Monitor usage**:
+   ```bash
+   fly dashboard
+   ```
+
+## Security Best Practices
+
+1. **Never commit secrets**:
+   - Use `fly secrets set` for sensitive values
+   - Use GitHub Secrets for `FLY_API_TOKEN`
+
+2. **Rotate secrets regularly**:
+   ```bash
+   # Generate new secret
+   mix phx.gen.secret
+
+   # Update in Fly.io
+   fly secrets set SECRET_KEY_BASE=<new-secret>
+   ```
+
+3. **Use HTTPS only** (already configured in fly.toml):
+   ```toml
+   force_https = true
+   ```
+
+4. **Review access logs**:
+   ```bash
+   fly logs | grep "GET\|POST\|PUT\|DELETE"
+   ```
+
+## Next Steps
+
+After successful deployment:
+
+1. **Set up custom domain**:
+   ```bash
+   fly certs create your-domain.com
+   fly certs create www.your-domain.com
+   ```
+
+2. **Configure DNS** for your domain (see Fly.io docs)
+
+3. **Set up monitoring** and alerts in Fly.io dashboard
+
+4. **Create staging environment** (optional):
+   - Repeat setup with different app name
+   - Use different database
+   - Deploy from `develop` branch instead of tags
+
+## Resources
+
+- [Fly.io Documentation](https://fly.io/docs/)
+- [Fly.io Phoenix Guide](https://fly.io/docs/elixir/getting-started/)
+- [Phoenix Deployment Guide](https://hexdocs.pm/phoenix/deployment.html)
+- [Fly.io Pricing](https://fly.io/docs/about/pricing/)
+
+## Support
+
+- **Fly.io Community**: https://community.fly.io/
+- **Fly.io Status**: https://status.flyio.net/
+- **GitHub Actions Docs**: https://docs.github.com/en/actions
+
+---
+
+**Last Updated**: November 2024
+**Maintained By**: Boiler Development Team
