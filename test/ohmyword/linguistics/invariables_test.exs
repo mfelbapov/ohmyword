@@ -1,0 +1,444 @@
+defmodule Ohmyword.Linguistics.InvariablesTest do
+  use ExUnit.Case, async: true
+
+  alias Ohmyword.Linguistics.Invariables
+  alias Ohmyword.Vocabulary.Word
+
+  describe "applicable?/1" do
+    test "returns true for adverbs" do
+      word = %Word{term: "brzo", part_of_speech: :adverb}
+      assert Invariables.applicable?(word)
+    end
+
+    test "returns true for prepositions" do
+      word = %Word{term: "u", part_of_speech: :preposition}
+      assert Invariables.applicable?(word)
+    end
+
+    test "returns true for conjunctions" do
+      word = %Word{term: "i", part_of_speech: :conjunction}
+      assert Invariables.applicable?(word)
+    end
+
+    test "returns true for interjections" do
+      word = %Word{term: "jao", part_of_speech: :interjection}
+      assert Invariables.applicable?(word)
+    end
+
+    test "returns true for particles" do
+      word = %Word{term: "li", part_of_speech: :particle}
+      assert Invariables.applicable?(word)
+    end
+
+    test "returns false for nouns" do
+      word = %Word{term: "kuća", part_of_speech: :noun, gender: :feminine}
+      refute Invariables.applicable?(word)
+    end
+
+    test "returns false for verbs" do
+      word = %Word{term: "raditi", part_of_speech: :verb}
+      refute Invariables.applicable?(word)
+    end
+
+    test "returns false for adjectives" do
+      word = %Word{term: "dobar", part_of_speech: :adjective, gender: :masculine}
+      refute Invariables.applicable?(word)
+    end
+
+    test "returns false for pronouns" do
+      word = %Word{term: "ja", part_of_speech: :pronoun, gender: :masculine}
+      refute Invariables.applicable?(word)
+    end
+
+    test "returns false for numerals" do
+      word = %Word{term: "jedan", part_of_speech: :numeral}
+      refute Invariables.applicable?(word)
+    end
+
+    test "returns false for non-word structs" do
+      refute Invariables.applicable?(%{})
+      refute Invariables.applicable?(nil)
+    end
+  end
+
+  describe "generate_forms/1 - simple adverb (ovde)" do
+    test "returns only base form" do
+      word = %Word{
+        term: "ovde",
+        part_of_speech: :adverb
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"ovde", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - adverb with comparison (brzo)" do
+    setup do
+      word = %Word{
+        term: "brzo",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "brže",
+          "superlative" => "najbrže",
+          "derived_from" => "brz"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is correct", %{forms_map: fm} do
+      assert fm["base"] == "brzo"
+    end
+
+    test "comparative form is correct", %{forms_map: fm} do
+      assert fm["comp"] == "brže"
+    end
+
+    test "superlative form is correct", %{forms_map: fm} do
+      assert fm["super"] == "najbrže"
+    end
+  end
+
+  describe "generate_forms/1 - irregular adverb comparison (dobro)" do
+    setup do
+      word = %Word{
+        term: "dobro",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "bolje",
+          "superlative" => "najbolje"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is correct", %{forms_map: fm} do
+      assert fm["base"] == "dobro"
+    end
+
+    test "comparative form is correct", %{forms_map: fm} do
+      assert fm["comp"] == "bolje"
+    end
+
+    test "superlative form is correct", %{forms_map: fm} do
+      assert fm["super"] == "najbolje"
+    end
+  end
+
+  describe "generate_forms/1 - preposition (u)" do
+    test "returns only base form" do
+      word = %Word{
+        term: "u",
+        part_of_speech: :preposition,
+        grammar_metadata: %{
+          "governs" => ["accusative", "locative"]
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"u", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - conjunction (i)" do
+    test "returns only base form" do
+      word = %Word{
+        term: "i",
+        part_of_speech: :conjunction
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"i", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - interjection (jao)" do
+    test "returns only base form" do
+      word = %Word{
+        term: "jao",
+        part_of_speech: :interjection
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"jao", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - particle (li)" do
+    test "returns only base form" do
+      word = %Word{
+        term: "li",
+        part_of_speech: :particle
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"li", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - multi-word preposition" do
+    test "handles multi-word expressions" do
+      word = %Word{
+        term: "bez obzira na",
+        part_of_speech: :preposition,
+        grammar_metadata: %{
+          "governs" => "accusative"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"bez obzira na", "base"}]
+    end
+  end
+
+  describe "edge cases" do
+    test "handles nil grammar_metadata for adverb" do
+      word = %Word{
+        term: "ovde",
+        part_of_speech: :adverb,
+        grammar_metadata: nil
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"ovde", "base"}]
+    end
+
+    test "handles empty grammar_metadata for adverb" do
+      word = %Word{
+        term: "ovde",
+        part_of_speech: :adverb,
+        grammar_metadata: %{}
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"ovde", "base"}]
+    end
+
+    test "handles nil term" do
+      word = %Word{
+        term: nil,
+        part_of_speech: :adverb
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == []
+    end
+
+    test "handles empty term" do
+      word = %Word{
+        term: "",
+        part_of_speech: :adverb
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == []
+    end
+
+    test "lowercases the term" do
+      word = %Word{
+        term: "BRZO",
+        part_of_speech: :adverb
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"brzo", "base"}]
+    end
+
+    test "lowercases comparative and superlative forms" do
+      word = %Word{
+        term: "BRZO",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "BRŽE",
+          "superlative" => "NAJBRŽE"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+      forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
+
+      assert forms_map["base"] == "brzo"
+      assert forms_map["comp"] == "brže"
+      assert forms_map["super"] == "najbrže"
+    end
+
+    test "handles adverb with only comparative" do
+      word = %Word{
+        term: "brzo",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "brže"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"brzo", "base"}, {"brže", "comp"}]
+    end
+
+    test "handles adverb with only superlative" do
+      word = %Word{
+        term: "brzo",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "superlative" => "najbrže"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"brzo", "base"}, {"najbrže", "super"}]
+    end
+
+    test "handles empty string comparative" do
+      word = %Word{
+        term: "brzo",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "",
+          "superlative" => "najbrže"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"brzo", "base"}, {"najbrže", "super"}]
+    end
+  end
+
+  describe "additional invariable examples" do
+    test "adverb: sada (now)" do
+      word = %Word{term: "sada", part_of_speech: :adverb}
+      assert Invariables.generate_forms(word) == [{"sada", "base"}]
+    end
+
+    test "adverb: uvek (always)" do
+      word = %Word{term: "uvek", part_of_speech: :adverb}
+      assert Invariables.generate_forms(word) == [{"uvek", "base"}]
+    end
+
+    test "preposition: na (on)" do
+      word = %Word{term: "na", part_of_speech: :preposition}
+      assert Invariables.generate_forms(word) == [{"na", "base"}]
+    end
+
+    test "preposition: kod (at, by)" do
+      word = %Word{term: "kod", part_of_speech: :preposition}
+      assert Invariables.generate_forms(word) == [{"kod", "base"}]
+    end
+
+    test "conjunction: ili (or)" do
+      word = %Word{term: "ili", part_of_speech: :conjunction}
+      assert Invariables.generate_forms(word) == [{"ili", "base"}]
+    end
+
+    test "conjunction: ali (but)" do
+      word = %Word{term: "ali", part_of_speech: :conjunction}
+      assert Invariables.generate_forms(word) == [{"ali", "base"}]
+    end
+
+    test "interjection: ej (hey)" do
+      word = %Word{term: "ej", part_of_speech: :interjection}
+      assert Invariables.generate_forms(word) == [{"ej", "base"}]
+    end
+
+    test "interjection: bravo" do
+      word = %Word{term: "bravo", part_of_speech: :interjection}
+      assert Invariables.generate_forms(word) == [{"bravo", "base"}]
+    end
+
+    test "particle: ne (no)" do
+      word = %Word{term: "ne", part_of_speech: :particle}
+      assert Invariables.generate_forms(word) == [{"ne", "base"}]
+    end
+
+    test "particle: zar (rhetorical question)" do
+      word = %Word{term: "zar", part_of_speech: :particle}
+      assert Invariables.generate_forms(word) == [{"zar", "base"}]
+    end
+  end
+
+  describe "adverbs with irregular comparison" do
+    test "loše -> gore -> najgore" do
+      word = %Word{
+        term: "loše",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "gore",
+          "superlative" => "najgore"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+      forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
+
+      assert forms_map["base"] == "loše"
+      assert forms_map["comp"] == "gore"
+      assert forms_map["super"] == "najgore"
+    end
+
+    test "daleko -> dalje -> najdalje" do
+      word = %Word{
+        term: "daleko",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "dalje",
+          "superlative" => "najdalje"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+      forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
+
+      assert forms_map["base"] == "daleko"
+      assert forms_map["comp"] == "dalje"
+      assert forms_map["super"] == "najdalje"
+    end
+
+    test "blizu -> bliže -> najbliže" do
+      word = %Word{
+        term: "blizu",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "bliže",
+          "superlative" => "najbliže"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+      forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
+
+      assert forms_map["base"] == "blizu"
+      assert forms_map["comp"] == "bliže"
+      assert forms_map["super"] == "najbliže"
+    end
+  end
+end
