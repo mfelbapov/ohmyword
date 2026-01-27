@@ -11,7 +11,13 @@
       "Bash(mix setup:*)",
       "Bash(tree:*)",
       "Bash(mix ecto.reset:*)",
-      "Bash(mix format:*)"
+      "Bash(mix format:*)",
+      "Bash(xargs ls:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(mix run:*)",
+      "Bash(mix precommit:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
