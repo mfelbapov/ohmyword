@@ -64,11 +64,11 @@ defmodule Ohmyword.Linguistics.DispatcherTest do
       assert inflector == Ohmyword.Linguistics.Verbs
     end
 
-    test "returns stub inflector for adverb" do
+    test "returns Invariables inflector for adverb" do
       word = word_fixture(%{part_of_speech: :adverb})
       inflector = Dispatcher.get_inflector(word)
 
-      assert inflector == Ohmyword.Linguistics.StubInflector
+      assert inflector == Ohmyword.Linguistics.Invariables
     end
   end
 

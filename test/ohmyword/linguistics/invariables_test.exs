@@ -441,4 +441,96 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
       assert forms_map["super"] == "najbliže"
     end
   end
+
+  # ============================================================================
+  # EDGE CASES
+  # ============================================================================
+
+  describe "generate_forms/1 - single-letter preposition (s)" do
+    test "returns base form" do
+      word = %Word{
+        term: "s",
+        part_of_speech: :preposition,
+        grammar_metadata: %{"governs" => "genitive"}
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"s", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - single-letter preposition (k)" do
+    test "returns base form" do
+      word = %Word{
+        term: "k",
+        part_of_speech: :preposition,
+        grammar_metadata: %{"governs" => "dative"}
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"k", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - single-letter conjunction (a)" do
+    test "returns base form" do
+      word = %Word{
+        term: "a",
+        part_of_speech: :conjunction
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"a", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - two-letter particle (da)" do
+    test "returns base form" do
+      word = %Word{
+        term: "da",
+        part_of_speech: :particle
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      assert forms == [{"da", "base"}]
+    end
+  end
+
+  describe "generate_forms/1 - adverb irregular comparison (mnogo)" do
+    setup do
+      word = %Word{
+        term: "mnogo",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "više",
+          "superlative" => "najviše"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is mnogo", %{forms_map: fm} do
+      assert fm["base"] == "mnogo"
+    end
+
+    test "comparative is više", %{forms_map: fm} do
+      assert fm["comp"] == "više"
+    end
+
+    test "superlative is najviše", %{forms_map: fm} do
+      assert fm["super"] == "najviše"
+    end
+  end
 end
