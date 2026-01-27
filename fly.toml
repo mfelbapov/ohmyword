@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for boiler
+# fly.toml app configuration file generated for ohmyword
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'boiler-production' # REPLACE THIS with your actual app name from fly.io
+app = 'ohmyword-production' # REPLACE THIS with your actual app name from fly.io
 primary_region = 'iad' # Change to your preferred region (iad=Virginia, sjc=San Jose, etc)
 kill_signal = 'SIGTERM'
 
@@ -13,7 +13,7 @@ kill_signal = 'SIGTERM'
   release_command = '/app/bin/migrate'
 
 [env]
-  PHX_HOST = 'boiler-production.fly.dev' # REPLACE with your actual fly.io hostname
+  PHX_HOST = 'ohmyword-production.fly.dev' # REPLACE with your actual fly.io hostname
   PORT = '8080'
 
 [http_service]
@@ -35,5 +35,5 @@ kill_signal = 'SIGTERM'
   cpus = 1
 
 [[statics]]
-  guest_path = '/app/lib/boiler-0.1.0/priv/static'
+  guest_path = '/app/lib/ohmyword-0.1.0/priv/static'
   url_prefix = '/'

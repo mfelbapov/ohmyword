@@ -1,9 +1,9 @@
-defmodule Boiler.MixProject do
+defmodule Ohmyword.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :boiler,
+      app: :ohmyword,
       version: "0.1.0",
       elixir: "~> 1.15",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -20,7 +20,7 @@ defmodule Boiler.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {Boiler.Application, []},
+      mod: {Ohmyword.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -88,11 +88,11 @@ defmodule Boiler.MixProject do
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
-      "assets.build": ["compile", "tailwind boiler", "esbuild boiler"],
+      "assets.build": ["compile", "tailwind ohmyword", "esbuild ohmyword"],
       "assets.deploy": [
         "compile",
-        "tailwind boiler --minify",
-        "esbuild boiler --minify",
+        "tailwind ohmyword --minify",
+        "esbuild ohmyword --minify",
         "phx.digest"
       ],
       precommit: ["compile --warning-as-errors", "deps.unlock --unused", "format", "test"]

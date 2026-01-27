@@ -1,4 +1,4 @@
-defmodule Boiler.Repo.Migrations.CreateUsersAuthTables do
+defmodule Ohmyword.Repo.Migrations.CreateUsersAuthTables do
   use Ecto.Migration
 
   def change do

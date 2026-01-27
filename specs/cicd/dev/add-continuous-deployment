@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide walks you through setting up continuous deployment to Fly.io for the Boiler Phoenix application. After setup, deployments will be triggered automatically when you push version tags (e.g., `v1.0.0`).
+This guide walks you through setting up continuous deployment to Fly.io for the Ohmyword Phoenix application. After setup, deployments will be triggered automatically when you push version tags (e.g., `v1.0.0`).
 
 ## What Was Implemented
 
@@ -27,7 +27,7 @@ Deployment workflow triggers on version tags (e.g., `v1.0.0`, `v1.2.3`):
 - **Dockerfile**: Multi-stage build optimized for Phoenix/Elixir
 - **.dockerignore**: Excludes unnecessary files from Docker build
 - **fly.toml**: Fly.io application configuration
-- **lib/boiler/release.ex**: Handles database migrations in production
+- **lib/ohmyword/release.ex**: Handles database migrations in production
 - **rel/overlays/bin/migrate**: Migration script for releases
 - **rel/overlays/bin/server**: Server startup script
 
@@ -78,7 +78,7 @@ This will open your browser for authentication.
 
 Navigate to your project directory:
 ```bash
-cd /Users/mfelbapov/Projects/boiler
+cd /Users/mfelbapov/Projects/ohmyword
 ```
 
 Launch your app on Fly.io:
@@ -88,7 +88,7 @@ fly launch
 
 The interactive launcher will ask you several questions:
 
-1. **App Name**: Choose a unique name (e.g., `boiler-production`)
+1. **App Name**: Choose a unique name (e.g., `ohmyword-production`)
    - This will be your app's subdomain: `your-app-name.fly.dev`
 
 2. **Region**: Select the region closest to your users
@@ -100,7 +100,7 @@ The interactive launcher will ask you several questions:
 
 3. **PostgreSQL Database**: Answer `Yes`
    - Choose configuration: **Development** (free tier)
-   - Database will be named `boiler-production-db` (or similar)
+   - Database will be named `ohmyword-production-db` (or similar)
 
 4. **Deploy now?**: Answer `No` (we'll deploy via GitHub Actions)
 
@@ -297,7 +297,7 @@ fly ssh console
 
 ### Run IEx Console in Production
 ```bash
-fly ssh console -C "/app/bin/boiler remote"
+fly ssh console -C "/app/bin/ohmyword remote"
 ```
 
 ### Scale Your Application
@@ -328,17 +328,17 @@ fly ssh console -C "/app/bin/migrate"
 
 ### Access Database Console
 ```bash
-fly postgres connect -a boiler-production-db
+fly postgres connect -a ohmyword-production-db
 ```
 
 ### Create Database Backup
 ```bash
-fly postgres backup create -a boiler-production-db
+fly postgres backup create -a ohmyword-production-db
 ```
 
 ### List Backups
 ```bash
-fly postgres backup list -a boiler-production-db
+fly postgres backup list -a ohmyword-production-db
 ```
 
 ## Troubleshooting
@@ -371,12 +371,12 @@ fly postgres backup list -a boiler-production-db
 
 1. **View migration status**:
    ```bash
-   fly ssh console -C "/app/bin/boiler eval 'Boiler.Release.migrate()'"
+   fly ssh console -C "/app/bin/ohmyword eval 'Ohmyword.Release.migrate()'"
    ```
 
 2. **Rollback migration**:
    ```bash
-   fly ssh console -C "/app/bin/boiler eval 'Boiler.Release.rollback(Boiler.Repo, 20231108000000)'"
+   fly ssh console -C "/app/bin/ohmyword eval 'Ohmyword.Release.rollback(Ohmyword.Repo, 20231108000000)'"
    ```
 
 ### Application Health Check Failing
@@ -516,4 +516,4 @@ After successful deployment:
 ---
 
 **Last Updated**: November 2024
-**Maintained By**: Boiler Development Team
+**Maintained By**: Ohmyword Development Team

@@ -14,7 +14,7 @@ Updated `config/runtime.exs` to configure the mailer for production:
 - **Sender**: Reads from `EMAIL_SENDER` environment variable, defaulting to `onboarding@resend.dev`
 
 ### 3. Email Sender
-Modified `lib/boiler/accounts/user_notifier.ex` to dynamically fetch the sender email address from the configuration. This ensures you can easily switch between the test domain and your production domain without changing code.
+Modified `lib/ohmyword/accounts/user_notifier.ex` to dynamically fetch the sender email address from the configuration. This ensures you can easily switch between the test domain and your production domain without changing code.
 
 ## Verification Steps
 

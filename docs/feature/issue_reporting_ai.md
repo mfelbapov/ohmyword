@@ -33,15 +33,15 @@ This feature allows authenticated users to submit feedback or report issues. Adm
 - `status`: Enum (e.g., `new`, `reviewed`, `archived`) - *Optional for V1*
 
 ### Frontend (Phoenix LiveView)
-1.  **User View**: `BoilerWeb.IssueLive.New`
+1.  **User View**: `OhmywordWeb.IssueLive.New`
     - Simple form with a text area.
     - Real-time validation (min length).
-2.  **Admin View**: `BoilerWeb.Admin.IssueInsightsLive`
+2.  **Admin View**: `OhmywordWeb.Admin.IssueInsightsLive`
     - **Chat Interface**: A chat-like UI where the admin types a prompt.
     - **Context Loading**: The backend fetches relevant (or recent) issues from the database to construct the prompt context for the LLM.
 
 ### AI Integration
-- **Service Module**: `Boiler.AI` context.
+- **Service Module**: `Ohmyword.AI` context.
 - **Provider**: OpenAI (GPT-4o/GPT-3.5), Anthropic (Claude), or Gemini.
 - **Mechanism**:
     - When Admin asks a question, the system retrieves the last $N$ issues (or issues within a timeframe).
@@ -65,4 +65,4 @@ To ensure a robust, maintainable, and scalable implementation, the following lib
 
 ### Data Management & Presentation: `flop` + `flop_phoenix`
 - **Decision**: Integrate `flop` for query composition and `flop_phoenix` for UI components.
-- **Rationale**: As the volume of reported issues grows, efficient data retrieval becomes critical. `flop` provides a declarative way to handle filtering, sorting, and pagination at the Ecto level without boilerplate. `flop_phoenix` complements this by offering pre-built, accessible LiveView components for data tables, ensuring a consistent and high-quality admin experience with minimal custom frontend code.
+- **Rationale**: As the volume of reported issues grows, efficient data retrieval becomes critical. `flop` provides a declarative way to handle filtering, sorting, and pagination at the Ecto level without ohmywordplate. `flop_phoenix` complements this by offering pre-built, accessible LiveView components for data tables, ensuring a consistent and high-quality admin experience with minimal custom frontend code.

@@ -4,7 +4,7 @@
 @import "tailwindcss";
 @source "../css";
 @source "../js";
-@source "../../lib/boiler_web";
+@source "../../lib/ohmyword_web";
 
 /* A Tailwind plugin that makes "hero-#{ICON}" classes available.
    The heroicons installation itself is managed by your mix.exs */

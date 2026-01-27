@@ -5,14 +5,14 @@
 # Inside the script, you can read and write to any of your
 # repositories directly:
 #
-#     Boiler.Repo.insert!(%Boiler.SomeSchema{})
+#     Ohmyword.Repo.insert!(%Ohmyword.SomeSchema{})
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
 
 if Mix.env() != :test do
-  alias Boiler.Accounts
-  alias Boiler.Repo
+  alias Ohmyword.Accounts
+  alias Ohmyword.Repo
 
   email = "a@a.a"
   password = "password"

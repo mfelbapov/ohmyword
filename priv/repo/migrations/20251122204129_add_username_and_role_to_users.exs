@@ -1,4 +1,4 @@
-defmodule Boiler.Repo.Migrations.AddUsernameAndRoleToUsers do
+defmodule Ohmyword.Repo.Migrations.AddUsernameAndRoleToUsers do
   use Ecto.Migration
 
   def up do
