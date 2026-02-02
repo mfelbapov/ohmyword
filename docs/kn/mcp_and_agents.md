@@ -36,7 +36,7 @@ Standard AI is "chat-only." It gives you a snippet, and you have to implement it
 You use an Agent to **offload the loop** of coding and testing.
 
 ### Example: Implementing the "Admin View" LiveView
-You need to build the `BoilerWeb.Admin.IssueInsightsLive` page.
+You need to build the `OhmywordWeb.Admin.IssueInsightsLive` page.
 
 *   **Without Agents (The Old Way):**
     1.  You ask: "Generate the LiveView code."

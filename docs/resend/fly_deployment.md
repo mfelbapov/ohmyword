@@ -37,7 +37,7 @@ fly secrets list
 To check what the running app sees (via SSH):
 ```bash
 fly ssh console
-/app/bin/boiler remote
+/app/bin/ohmyword remote
 System.get_env("RESEND_API_KEY")
 ```
 
@@ -49,19 +49,19 @@ Fly.io "Apps" are isolated. To have a Staging and Production environment, you cr
 
 ### Step 1: Create a Staging App
 ```bash
-fly apps create boiler-staging
+fly apps create ohmyword-staging
 ```
 
 ### Step 2: Set Secrets for Staging
 Use the `-a` flag to target the specific app:
 ```bash
-fly secrets set RESEND_API_KEY=re_... EMAIL_SENDER=onboarding@resend.dev -a boiler-staging
+fly secrets set RESEND_API_KEY=re_... EMAIL_SENDER=onboarding@resend.dev -a ohmyword-staging
 ```
 
 ### Step 3: Deploy to Staging
 Override the app name defined in `fly.toml` during deployment:
 ```bash
-fly deploy -a boiler-staging
+fly deploy -a ohmyword-staging
 ```
 
 **Pro Tip:** Create a `fly.staging.toml` if you need different configuration (like instance size or URL):

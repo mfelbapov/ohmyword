@@ -1,4 +1,4 @@
-defmodule Boiler.Repo.Migrations.CreateIssues do
+defmodule Ohmyword.Repo.Migrations.CreateIssues do
   use Ecto.Migration
 
   def change do

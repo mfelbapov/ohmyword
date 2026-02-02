@@ -7,32 +7,32 @@
 # General application configuration
 import Config
 
-config :boiler, :scopes,
+config :ohmyword, :scopes,
   user: [
     default: true,
-    module: Boiler.Accounts.Scope,
+    module: Ohmyword.Accounts.Scope,
     assign_key: :current_scope,
     access_path: [:user, :id],
     schema_key: :user_id,
     schema_type: :id,
     schema_table: :users,
-    test_data_fixture: Boiler.AccountsFixtures,
+    test_data_fixture: Ohmyword.AccountsFixtures,
     test_setup_helper: :register_and_log_in_user
   ]
 
-config :boiler,
-  ecto_repos: [Boiler.Repo],
+config :ohmyword,
+  ecto_repos: [Ohmyword.Repo],
   generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
-config :boiler, BoilerWeb.Endpoint,
+config :ohmyword, OhmywordWeb.Endpoint,
   url: [host: "localhost"],
   adapter: Bandit.PhoenixAdapter,
   render_errors: [
-    formats: [html: BoilerWeb.ErrorHTML, json: BoilerWeb.ErrorJSON],
+    formats: [html: OhmywordWeb.ErrorHTML, json: OhmywordWeb.ErrorJSON],
     layout: false
   ],
-  pubsub_server: Boiler.PubSub,
+  pubsub_server: Ohmyword.PubSub,
   live_view: [signing_salt: "FR10gPFP"]
 
 # Configures the mailer
@@ -42,12 +42,12 @@ config :boiler, BoilerWeb.Endpoint,
 #
 # For production it's recommended to configure a different adapter
 # at the `config/runtime.exs`.
-config :boiler, Boiler.Mailer, adapter: Swoosh.Adapters.Local
+config :ohmyword, Ohmyword.Mailer, adapter: Swoosh.Adapters.Local
 
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.25.4",
-  boiler: [
+  ohmyword: [
     args:
       ~w(js/app.js --bundle --target=es2022 --outdir=../priv/static/assets/js --external:/fonts/* --external:/images/* --alias:@=.),
     cd: Path.expand("../assets", __DIR__),
@@ -57,7 +57,7 @@ config :esbuild,
 # Configure tailwind (the version is required)
 config :tailwind,
   version: "4.1.7",
-  boiler: [
+  ohmyword: [
     args: ~w(
       --input=assets/css/app.css
       --output=priv/static/assets/css/app.css
@@ -74,10 +74,10 @@ config :logger, :default_formatter,
 config :phoenix, :json_library, Jason
 
 config :kaffy,
-  otp_app: :boiler,
-  ecto_repo: Boiler.Repo,
-  router: BoilerWeb.Router,
-  admin: BoilerWeb.Admin
+  otp_app: :ohmyword,
+  ecto_repo: Ohmyword.Repo,
+  router: OhmywordWeb.Router,
+  admin: OhmywordWeb.Admin
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

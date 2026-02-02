@@ -18,7 +18,7 @@ Resend is a modern email API service that provides a simple way to send transact
 1. Once logged in, navigate to the [API Keys page](https://resend.com/api-keys)
 2. Click "Create API Key"
 3. Configure the API key:
-   - **Name**: Give it a descriptive name (e.g., "Boiler Production" or "Boiler Development")
+   - **Name**: Give it a descriptive name (e.g., "Ohmyword Production" or "Ohmyword Development")
    - **Permissions**: Choose the appropriate permission level
      - **Full Access**: Can send emails and manage domains (recommended for production)
      - **Sending Access**: Can only send emails (more restrictive, good for security)
@@ -97,7 +97,7 @@ Value: feedback-smtp.resend.com
 
 ### Component 1: Dependencies
 
-#### [MODIFY] [mix.exs](file:///Users/mfelbapov/Projects/boiler/mix.exs)
+#### [MODIFY] [mix.exs](file:///Users/mfelbapov/Projects/ohmyword/mix.exs)
 
 **Current state**: Your app already has `{:swoosh, "~> 1.16"}` installed.
 
@@ -121,7 +121,7 @@ end
 
 ### Component 2: Configuration
 
-#### [MODIFY] [config/runtime.exs](file:///Users/mfelbapov/Projects/boiler/config/runtime.exs)
+#### [MODIFY] [config/runtime.exs](file:///Users/mfelbapov/Projects/ohmyword/config/runtime.exs)
 
 **Current state**: Lines 102-118 contain commented-out mailer configuration examples for Mailgun.
 
@@ -140,7 +140,7 @@ resend_api_key =
     Get your API key from https://resend.com/api-keys
     """
 
-config :boiler, Boiler.Mailer,
+config :ohmyword, Ohmyword.Mailer,
   adapter: Swoosh.Adapters.Resend,
   api_key: resend_api_key
 ```
@@ -159,9 +159,9 @@ config :boiler, Boiler.Mailer,
 
 ### Component 3: Email Sender Configuration
 
-#### [MODIFY] [lib/boiler/accounts/user_notifier.ex](file:///Users/mfelbapov/Projects/boiler/lib/boiler/accounts/user_notifier.ex)
+#### [MODIFY] [lib/ohmyword/accounts/user_notifier.ex](file:///Users/mfelbapov/Projects/ohmyword/lib/ohmyword/accounts/user_notifier.ex)
 
-**Current state**: Line 11 has `from({"Boiler", "contact@example.com"})`.
+**Current state**: Line 11 has `from({"Ohmyword", "contact@example.com"})`.
 
 **Required change**: Update the sender email.
 
@@ -172,7 +172,7 @@ defp deliver(recipient, subject, body) do
     new()
     |> to(recipient)
     # MUST use this exact address for the test domain to work
-    |> from({"Boiler", "onboarding@resend.dev"}) 
+    |> from({"Ohmyword", "onboarding@resend.dev"}) 
     |> subject(subject)
     |> text_body(body)
 # ...
@@ -185,7 +185,7 @@ defp deliver(recipient, subject, body) do
     new()
     |> to(recipient)
     # Use your verified domain
-    |> from({"Boiler", "noreply@yourdomain.com"}) 
+    |> from({"Ohmyword", "noreply@yourdomain.com"}) 
     |> subject(subject)
     |> text_body(body)
 # ...
@@ -195,19 +195,19 @@ defp deliver(recipient, subject, body) do
 
 ```elixir
 # In runtime.exs
-config :boiler, :email_sender, System.get_env("EMAIL_SENDER") || "onboarding@resend.dev"
+config :ohmyword, :email_sender, System.get_env("EMAIL_SENDER") || "onboarding@resend.dev"
 
 # In user_notifier.ex
-@sender Application.compile_env(:boiler, :email_sender)
+@sender Application.compile_env(:ohmyword, :email_sender)
 # ...
-|> from({"Boiler", @sender})
+|> from({"Ohmyword", @sender})
 ```
 
 ---
 
 ### Component 4: Swoosh Adapter Configuration
 
-#### [MODIFY] [config/prod.exs](file:///Users/mfelbapov/Projects/boiler/config/prod.exs)
+#### [MODIFY] [config/prod.exs](file:///Users/mfelbapov/Projects/ohmyword/config/prod.exs)
 
 **Current state**: Line 11 has `config :swoosh, api_client: Swoosh.ApiClient.Req`.
 
@@ -267,7 +267,7 @@ Instead of using the `resend` package directly, you can use Swoosh's built-in Re
 **Configuration** (if using Swoosh adapter):
 ```elixir
 # In config/runtime.exs (production block)
-config :boiler, Boiler.Mailer,
+config :ohmyword, Ohmyword.Mailer,
   adapter: Swoosh.Adapters.Resend,
   api_key: System.get_env("RESEND_API_KEY")
 ```

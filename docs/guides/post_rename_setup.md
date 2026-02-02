@@ -35,7 +35,7 @@ Use this if you want to start with a clean commit history for your new project.
     ```
 
 ### Option B: Keep History
-Use this if you want to preserve the history of the boilerplate.
+Use this if you want to preserve the history of the ohmywordplate.
 
 1.  **Rename the remote URL:**
     ```bash
@@ -94,7 +94,7 @@ fly deploy
 
 ## 3. Environment Variables Reference
 
-To match the "boiler" project's deployment level, ensure these environment variables are set.
+To match the "ohmyword" project's deployment level, ensure these environment variables are set.
 
 | Variable | Description | Required? | How to Set |
 | :--- | :--- | :--- | :--- |

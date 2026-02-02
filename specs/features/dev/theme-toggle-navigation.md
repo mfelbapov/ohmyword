@@ -6,7 +6,7 @@
 ## Technical Approach
 
 ### LiveView Components
-- [x] Existing `theme_toggle/1` component in `lib/boiler_web/components/layouts.ex` (lines 123-153)
+- [x] Existing `theme_toggle/1` component in `lib/ohmyword_web/components/layouts.ex` (lines 123-153)
 - No new components needed
 
 ### Schema/Context Changes
@@ -44,5 +44,5 @@
 Low - Simple component relocation, no new logic or dependencies required
 
 ## Files Modified
-- `lib/boiler_web/components/layouts/root.html.heex` (added theme toggle to navigation)
-- `lib/boiler_web/controllers/page_html/home.html.heex` (removed theme toggle from content)
+- `lib/ohmyword_web/components/layouts/root.html.heex` (added theme toggle to navigation)
+- `lib/ohmyword_web/controllers/page_html/home.html.heex` (removed theme toggle from content)

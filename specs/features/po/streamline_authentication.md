@@ -60,7 +60,7 @@ The default `mix phx.gen.auth` generates multiple authentication methods (passwo
 
 ### Core Changes Required
 
-#### 1. Accounts Context (`lib/boiler/accounts.ex`)
+#### 1. Accounts Context (`lib/ohmyword/accounts.ex`)
 - **Modified**: `get_user_by_email_and_password/2`
   - Now checks `confirmed_at` field
   - Returns `{:error, :unconfirmed}` for valid credentials but unconfirmed email
@@ -69,14 +69,14 @@ The default `mix phx.gen.auth` generates multiple authentication methods (passwo
 - **Kept**: `deliver_user_confirmation_instructions/2` for sending confirmation emails
 - **Kept**: `confirm_user/1` for confirming user accounts (made idempotent)
 
-#### 2. Session Controller (`lib/boiler_web/controllers/user_session_controller.ex`)
+#### 2. Session Controller (`lib/ohmyword_web/controllers/user_session_controller.ex`)
 - **Modified**: `create/2` action
   - Added case handling for `{:error, :unconfirmed}`
   - Redirects unconfirmed users to `/users/resend-confirmation`
   - Passes email in flash for pre-filling resend form
   - Shows appropriate error messages for each case
 
-#### 3. New LiveView (`lib/boiler_web/live/user_live/resend_confirmation.ex`)
+#### 3. New LiveView (`lib/ohmyword_web/live/user_live/resend_confirmation.ex`)
 - **Created**: New LiveView for resending confirmation emails
   - Form to enter email address
   - Sends new confirmation email via `deliver_user_confirmation_instructions/2`
@@ -84,7 +84,7 @@ The default `mix phx.gen.auth` generates multiple authentication methods (passwo
   - Shows local mail adapter notification in dev
   - Pre-fills email from flash when redirected from login
 
-#### 4. Router (`lib/boiler_web/router.ex`)
+#### 4. Router (`lib/ohmyword_web/router.ex`)
 - **Added**: `live "/users/resend-confirmation", UserLive.ResendConfirmation, :new`
 
 #### 5. UI Updates
@@ -112,19 +112,19 @@ The default `mix phx.gen.auth` generates multiple authentication methods (passwo
 
 ## Testing Requirements
 
-### Unit Tests (`test/boiler/accounts_test.exs`)
+### Unit Tests (`test/ohmyword/accounts_test.exs`)
 - [x] `get_user_by_email_and_password/2` returns error for unconfirmed user
 - [x] `get_user_by_email_and_password/2` returns user for confirmed user
 - [x] `confirm_user/1` is idempotent (can be called multiple times)
 - [x] All existing user tests pass
 
-### Controller Tests (`test/boiler_web/controllers/user_session_controller_test.exs`)
+### Controller Tests (`test/ohmyword_web/controllers/user_session_controller_test.exs`)
 - [x] Unconfirmed user login redirects to resend page
 - [x] Confirmed user login succeeds
 - [x] Invalid credentials show generic error
 - [x] All existing session tests pass
 
-### LiveView Tests (`test/boiler_web/live/user_live/resend_confirmation_test.exs`)
+### LiveView Tests (`test/ohmyword_web/live/user_live/resend_confirmation_test.exs`)
 - [x] Resend confirmation page renders correctly
 - [x] Resend sends email for unconfirmed user
 - [x] Resend shows appropriate message for confirmed user

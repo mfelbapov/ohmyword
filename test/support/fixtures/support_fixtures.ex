@@ -1,10 +1,10 @@
-defmodule Boiler.SupportFixtures do
+defmodule Ohmyword.SupportFixtures do
   @moduledoc """
   This module defines test helpers for creating
-  entities via the `Boiler.Support` context.
+  entities via the `Ohmyword.Support` context.
   """
 
-  alias Boiler.Support
+  alias Ohmyword.Support
 
   def valid_issue_attributes(attrs \\ %{}) do
     Enum.into(attrs, %{
@@ -14,7 +14,7 @@ defmodule Boiler.SupportFixtures do
   end
 
   def issue_fixture(attrs \\ %{}) do
-    user_scope = Boiler.AccountsFixtures.user_scope_fixture()
+    user_scope = Ohmyword.AccountsFixtures.user_scope_fixture()
 
     {:ok, issue} =
       attrs

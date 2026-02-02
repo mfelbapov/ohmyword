@@ -1,6 +1,6 @@
 # Setting Up Your GoDaddy Domain with Fly.io
 
-This guide outlines the steps to connect your GoDaddy domain to your Fly.io application (`boiler-production`) and enable SSL.
+This guide outlines the steps to connect your GoDaddy domain to your Fly.io application (`ohmyword-production`) and enable SSL.
 
 ## Prerequisites
 
@@ -78,7 +78,7 @@ Now, point your domain to Fly.io using GoDaddy's DNS management.
 2.  **Edit** or **Add** it:
     *   **Type**: `CNAME`
     *   **Name**: `www`
-    *   **Value**: `[Your App Name].fly.dev` (e.g., `boiler-production.fly.dev`)
+    *   **Value**: `[Your App Name].fly.dev` (e.g., `ohmyword-production.fly.dev`)
     *   **TTL**: `600`
 3.  Click **Save**.
 

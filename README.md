@@ -1,6 +1,6 @@
-# Boiler
+# Ohmyword
 
-**Boiler** is a production-ready Phoenix starter kit designed to jumpstart your Elixir development. It comes pre-configured with authentication, an admin interface, and modern frontend tooling.
+**Ohmyword** is a production-ready Phoenix starter kit designed to jumpstart your Elixir development. It comes pre-configured with authentication, an admin interface, and modern frontend tooling.
 
 ## Features
 

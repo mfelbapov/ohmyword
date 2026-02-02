@@ -81,7 +81,7 @@ DaisyUI is already installed and configured in the project, but the button compo
 - DaisyUI: Already installed via vendor plugin (`assets/vendor/daisyui.js`)
 - Tailwind v4: Latest version configured
 - Custom Themes: Light (Phoenix orange) and Dark (Elixir purple) themes defined
-- Component Location: `lib/boiler_web/components/core_components.ex`
+- Component Location: `lib/ohmyword_web/components/core_components.ex`
 - Current Variants: Only `primary` and `nil` (soft-primary)
 
 **Current Button Component** (`core_components.ex` lines 83-117):
@@ -100,7 +100,7 @@ variants = %{"primary" => "btn-primary", nil => "btn-primary btn-soft"}
 
 ### Implementation Steps
 
-#### 1. Update Button Component (`lib/boiler_web/components/core_components.ex`)
+#### 1. Update Button Component (`lib/ohmyword_web/components/core_components.ex`)
 
 **New Attribute Support**:
 ```elixir
@@ -143,10 +143,10 @@ end
 #### 2. Update Authentication Flow Files
 
 **Files to Update**:
-- `lib/boiler_web/live/user_live/login.ex`
-- `lib/boiler_web/live/user_live/registration.ex`
-- `lib/boiler_web/live/user_live/resend_confirmation.ex`
-- `lib/boiler_web/live/user_live/settings.ex`
+- `lib/ohmyword_web/live/user_live/login.ex`
+- `lib/ohmyword_web/live/user_live/registration.ex`
+- `lib/ohmyword_web/live/user_live/resend_confirmation.ex`
+- `lib/ohmyword_web/live/user_live/settings.ex`
 
 **Migration Pattern**:
 ```heex
@@ -167,7 +167,7 @@ end
 
 #### 3. Update Layout Navigation
 
-**File**: `lib/boiler_web/components/layouts.ex`
+**File**: `lib/ohmyword_web/components/layouts.ex`
 
 **Current Pattern**:
 ```heex
@@ -409,7 +409,7 @@ No database changes required - this is purely a component/UI update.
 - DaisyUI Buttons: https://daisyui.com/components/button/
 - Tailwind CSS v4: https://tailwindcss.com/docs
 - Phoenix Components: https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html
-- Current Implementation: `lib/boiler_web/components/core_components.ex:83-117`
+- Current Implementation: `lib/ohmyword_web/components/core_components.ex:83-117`
 
 ## Future Enhancements (Not in This Card)
 - Button loading spinner component
@@ -497,7 +497,7 @@ Each variant also has a corresponding `-content` variable for optimal text contr
 
 ### Color Source Reference
 
-All color values are defined in `/Users/mfelbapov/Projects/boiler/assets/css/app.css` using Tailwind CSS v4's `@theme` directive:
+All color values are defined in `/Users/mfelbapov/Projects/ohmyword/assets/css/app.css` using Tailwind CSS v4's `@theme` directive:
 
 ```css
 @theme {
@@ -551,7 +551,7 @@ The Flash component uses DaisyUI's alert variants to display toast notifications
 ### Flash Component Implementation
 
 ```elixir
-# In lib/boiler_web/components/core_components.ex
+# In lib/ohmyword_web/components/core_components.ex
 attr :kind, :atom, values: [:info, :success, :warning, :error]
 # Renders as:
 <div class="toast toast-top toast-end">
@@ -631,7 +631,7 @@ Form input components support DaisyUI variants for consistent styling and visual
 ### Input Component Implementation
 
 ```elixir
-# In lib/boiler_web/components/core_components.ex
+# In lib/ohmyword_web/components/core_components.ex
 attr :variant, :string, values: ~w(bordered ghost primary secondary accent info success warning error)
 attr :size, :string, default: "md", values: ~w(xs sm md lg)
 
@@ -723,7 +723,7 @@ Tables support size variants and modifier flags for flexible data display. Table
 ### Table Component Implementation
 
 ```elixir
-# In lib/boiler_web/components/core_components.ex
+# In lib/ohmyword_web/components/core_components.ex
 attr :size, :string, default: "md", values: ~w(xs sm md lg)
 attr :zebra, :boolean, default: true
 attr :pin_rows, :boolean, default: false
@@ -739,7 +739,7 @@ attr :pin_cols, :boolean, default: false
 
 ## Complete Theme Color Reference
 
-All component colors are defined in `/Users/mfelbapov/Projects/boiler/assets/css/app.css` using the `@theme` directive for Tailwind CSS v4.
+All component colors are defined in `/Users/mfelbapov/Projects/ohmyword/assets/css/app.css` using the `@theme` directive for Tailwind CSS v4.
 
 ### Base/Background Colors
 

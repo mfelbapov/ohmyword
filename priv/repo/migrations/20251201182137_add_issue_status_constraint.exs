@@ -1,4 +1,4 @@
-defmodule Boiler.Repo.Migrations.AddIssueStatusConstraint do
+defmodule Ohmyword.Repo.Migrations.AddIssueStatusConstraint do
   use Ecto.Migration
 
   def change do

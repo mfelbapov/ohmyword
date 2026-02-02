@@ -1,23 +1,23 @@
 ---
-description: Start a new project using this boilerplate
+description: Start a new project using this ohmywordplate
 ---
 
 # Start a New Project
 
-This workflow guides you through cloning the boilerplate, renaming it, and setting it up for development.
+This workflow guides you through cloning the ohmywordplate, renaming it, and setting it up for development.
 
-## 1. Clone the boilerplate
+## 1. Clone the ohmywordplate
 Clone the repository to a new directory with your desired project name.
 Replace `new_project_name` with your desired directory name.
 
 ```bash
-git clone https://github.com/your-repo/boiler.git new_project_name
+git clone https://github.com/your-repo/ohmyword.git new_project_name
 cd new_project_name
 ```
 
 ## 2. Rename the project
 // turbo
-Run the rename script to replace 'boiler' with your new application name.
+Run the rename script to replace 'ohmyword' with your new application name.
 Usage: `./docs/scripts/rename_project.sh <app_name_snake_case> <AppModuleCamelCase>`
 
 ```bash
@@ -26,13 +26,13 @@ Usage: `./docs/scripts/rename_project.sh <app_name_snake_case> <AppModuleCamelCa
 ```
 
 ## 3. Reset Git History (Optional but Recommended)
-If you want a fresh start without the boilerplate's commit history:
+If you want a fresh start without the ohmywordplate's commit history:
 
 ```bash
 rm -rf .git
 git init
 git add .
-git commit -m "Initial commit from boilerplate"
+git commit -m "Initial commit from ohmywordplate"
 ```
 
 ## 4. Setup Dependencies and Resources

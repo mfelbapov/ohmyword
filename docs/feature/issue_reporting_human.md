@@ -34,7 +34,7 @@ mix ecto.migrate
 **Production:**
 ```bash
 fly ssh console
-/app/bin/boiler eval "Boiler.Release.migrate"
+/app/bin/ohmyword eval "Ohmyword.Release.migrate"
 exit
 ```
 

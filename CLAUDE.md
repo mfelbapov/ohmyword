@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Boiler is a Phoenix 1.8+ web application built with Elixir 1.15+. It's a boilerplate/starter project with authentication functionality built-in using Phoenix LiveView and PostgreSQL.
+Ohmyword is a Phoenix 1.8+ web application built with Elixir 1.15+. It's a ohmywordplate/starter project with authentication functionality built-in using Phoenix LiveView and PostgreSQL.
 
 ## Development Commands
 
@@ -54,35 +54,35 @@ mix assets.deploy        # Build minified assets for production
 ### Application Structure
 
 The application follows Phoenix conventions with two main OTP applications:
-- `Boiler` - Core business logic (contexts, schemas, repo)
-- `BoilerWeb` - Web interface (controllers, LiveViews, components, router)
+- `Ohmyword` - Core business logic (contexts, schemas, repo)
+- `OhmywordWeb` - Web interface (controllers, LiveViews, components, router)
 
 ### Authentication & Authorization
 
 The app uses a custom scope-based authentication system:
 
-**Scope Pattern**: Instead of directly passing user structs, the app uses `Boiler.Accounts.Scope` (lib/boiler/accounts/scope.ex:1) which wraps user information. This allows for:
+**Scope Pattern**: Instead of directly passing user structs, the app uses `Ohmyword.Accounts.Scope` (lib/ohmyword/accounts/scope.ex:1) which wraps user information. This allows for:
 - Logging and audit trails
 - PubSub subscription scoping
 - Future extensibility for permissions/privileges
 
 **Key modules**:
-- `BoilerWeb.UserAuth` (lib/boiler_web/user_auth.ex:1) - Plugs and helpers for authentication
-- `Boiler.Accounts` (lib/boiler/accounts.ex:1) - User management context
-- `Boiler.Accounts.User` - User schema
-- `Boiler.Accounts.UserToken` - Session/email confirmation tokens
+- `OhmywordWeb.UserAuth` (lib/ohmyword_web/user_auth.ex:1) - Plugs and helpers for authentication
+- `Ohmyword.Accounts` (lib/ohmyword/accounts.ex:1) - User management context
+- `Ohmyword.Accounts.User` - User schema
+- `Ohmyword.Accounts.UserToken` - Session/email confirmation tokens
 
 **Authentication flow**:
-1. Router pipeline `:browser` includes `fetch_current_scope_for_user` plug (lib/boiler_web/router.ex:13)
+1. Router pipeline `:browser` includes `fetch_current_scope_for_user` plug (lib/ohmyword_web/router.ex:13)
 2. This assigns `:current_scope` to conn, containing wrapped user or nil
-3. Protected routes use `:require_authenticated_user` pipeline (lib/boiler_web/router.ex:51)
-4. LiveView routes use `on_mount: [{BoilerWeb.UserAuth, :require_authenticated}]` (lib/boiler_web/router.ex:54)
+3. Protected routes use `:require_authenticated_user` pipeline (lib/ohmyword_web/router.ex:51)
+4. LiveView routes use `on_mount: [{OhmywordWeb.UserAuth, :require_authenticated}]` (lib/ohmyword_web/router.ex:54)
 
 **Scope configuration**: Defined in config/config.exs:10-21 with metadata about how scopes map to schemas.
 
 ### LiveView Structure
 
-All user-facing auth pages are LiveViews in `lib/boiler_web/live/user_live/`:
+All user-facing auth pages are LiveViews in `lib/ohmyword_web/live/user_live/`:
 - `Login` - User login
 - `Registration` - User registration
 - `Settings` - User settings (email, password)
@@ -100,7 +100,7 @@ All user-facing auth pages are LiveViews in `lib/boiler_web/live/user_live/`:
 
 - **CSS**: Tailwind CSS 4.1.7 (configured in config/config.exs:58-66)
 - **JS Bundler**: esbuild 0.25.4 (configured in config/config.exs:47-55)
-- **Components**: lib/boiler_web/components/
+- **Components**: lib/ohmyword_web/components/
   - `core_components.ex` - Reusable UI components
   - `layouts.ex` - Layout components
 - **Icons**: Heroicons v2.2.0 (SVG icons)
@@ -108,10 +108,10 @@ All user-facing auth pages are LiveViews in `lib/boiler_web/live/user_live/`:
 ### Testing Infrastructure
 
 - **Test helpers**: test/support/ contains ConnCase and DataCase
-- **Fixtures**: Test data generation via `Boiler.AccountsFixtures`
+- **Fixtures**: Test data generation via `Ohmyword.AccountsFixtures`
 - **Test setup**: Use `setup :register_and_log_in_user` to create authenticated test context
 - **SQL Sandbox**: Enabled for database isolation between tests
-- **Async tests**: Safe for PostgreSQL with `use BoilerWeb.ConnCase, async: true`
+- **Async tests**: Safe for PostgreSQL with `use OhmywordWeb.ConnCase, async: true`
 
 ## Configuration Notes
 
@@ -125,18 +125,18 @@ All user-facing auth pages are LiveViews in `lib/boiler_web/live/user_live/`:
 
 - Remember-me cookie: 14 days validity
 - Session reissue: Every 7 days for active users
-- Cookie name: `_boiler_web_user_remember_me`
+- Cookie name: `_ohmyword_web_user_remember_me`
 
 ## Deployment
 
 The project includes:
 - Dockerfile for containerized deployments
 - fly.toml for Fly.io deployment
-- Release configuration in lib/boiler/release.ex
+- Release configuration in lib/ohmyword/release.ex
 
 ## Important Implementation Details
 
-1. **User confirmation required**: Users must confirm email before logging in (see Boiler.Accounts.get_user_by_email_and_password)
+1. **User confirmation required**: Users must confirm email before logging in (see Ohmyword.Accounts.get_user_by_email_and_password)
 2. **Token-based sessions**: Uses database-backed tokens (users_tokens table) for session management
 3. **Live socket disconnection**: On logout, broadcasts disconnect to user's live socket
 4. **Asset compilation**: Custom compilers configuration in mix.exs:13 includes phoenix_live_view compiler

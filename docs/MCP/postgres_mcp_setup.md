@@ -1,6 +1,6 @@
 # Postgres MCP Server Setup Guide
 
-This guide explains how to set up the Postgres MCP Server to allow your AI assistant to interact with your local `boiler_dev` database.
+This guide explains how to set up the Postgres MCP Server to allow your AI assistant to interact with your local `ohmyword_dev` database.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ This guide explains how to set up the Postgres MCP Server to allow your AI assis
 You can run the MCP server directly from your terminal to test it:
 
 ```bash
-npx -y @modelcontextprotocol/server-postgres "postgresql://postgres:postgres@localhost:5432/boiler_dev"
+npx -y @modelcontextprotocol/server-postgres "postgresql://postgres:postgres@localhost:5432/ohmyword_dev"
 ```
 
 ## Permanent Configuration (for IDEs/Agents)
@@ -31,7 +31,7 @@ Add this to your MCP configuration:
       "args": [
         "-y",
         "@modelcontextprotocol/server-postgres",
-        "postgresql://postgres:postgres@localhost:5432/boiler_dev"
+        "postgresql://postgres:postgres@localhost:5432/ohmyword_dev"
       ]
     }
   }

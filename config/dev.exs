@@ -1,11 +1,11 @@
 import Config
 
 # Configure your database
-config :boiler, Boiler.Repo,
+config :ohmyword, Ohmyword.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "boiler_dev",
+  database: "ohmyword_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -16,7 +16,7 @@ config :boiler, Boiler.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we can use it
 # to bundle .js and .css sources.
-config :boiler, BoilerWeb.Endpoint,
+config :ohmyword, OhmywordWeb.Endpoint,
   # Binding to loopback ipv4 address prevents access from other machines.
   # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
   http: [ip: {127, 0, 0, 1}, port: String.to_integer(System.get_env("PORT") || "4000")],
@@ -25,8 +25,8 @@ config :boiler, BoilerWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "3kKaJX6RMZmvXah1duF36KNgE+u6/6XiqVrcaiLidi7TTP2VG0YHDLR6XPGaGCeG",
   watchers: [
-    esbuild: {Esbuild, :install_and_run, [:boiler, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:boiler, ~w(--watch)]}
+    esbuild: {Esbuild, :install_and_run, [:ohmyword, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:ohmyword, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -53,18 +53,18 @@ config :boiler, BoilerWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :boiler, BoilerWeb.Endpoint,
+config :ohmyword, OhmywordWeb.Endpoint,
   live_reload: [
     web_console_logger: true,
     patterns: [
       ~r"priv/static/(?!uploads/).*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/boiler_web/(?:controllers|live|components|router)/?.*\.(ex|heex)$"
+      ~r"lib/ohmyword_web/(?:controllers|live|components|router)/?.*\.(ex|heex)$"
     ]
   ]
 
 # Enable dev routes for dashboard and mailbox
-config :boiler, dev_routes: true
+config :ohmyword, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :default_formatter, format: "[$level] $message\n"
@@ -89,6 +89,6 @@ config :swoosh, :api_client, false
 
 # Configure OpenAI for local development.
 # Set OPENAI_API_KEY environment variable or update this configuration:
-config :boiler, :openai,
+config :ohmyword, :openai,
   api_key: System.get_env("OPENAI_API_KEY"),
   organization_key: System.get_env("OPENAI_ORGANIZATION_KEY")
