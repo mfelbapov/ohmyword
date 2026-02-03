@@ -16,6 +16,7 @@ defmodule Ohmyword.Linguistics.Adjectives do
   @behaviour Ohmyword.Linguistics.Inflector
 
   alias Ohmyword.Vocabulary.Word
+  alias Ohmyword.Linguistics.SoundChanges
 
   # Cases in Serbian
   @cases [:nom, :gen, :dat, :acc, :voc, :ins, :loc]
@@ -109,12 +110,19 @@ defmodule Ohmyword.Linguistics.Adjectives do
     # First remove the masculine nominative ending (-i for definite form citation)
     stem = remove_nominative_ending(term)
 
+    # Then handle L-O alternation
+    stem = SoundChanges.resolve_l_o_alternation(stem)
+
     # Then handle fleeting A if applicable
-    if metadata["fleeting_a"] == true do
-      remove_fleeting_a(stem)
-    else
-      stem
-    end
+    stem =
+      if metadata["fleeting_a"] == true do
+        remove_fleeting_a(stem)
+      else
+        stem
+      end
+
+    # Handle voice assimilation (e.g., težak -> teška)
+    SoundChanges.assimilate_voice(stem)
   end
 
   # Remove the masculine nominative ending from citation form
@@ -204,10 +212,18 @@ defmodule Ohmyword.Linguistics.Adjectives do
 
   # Build a single indefinite form
   defp build_indefinite_form(stem, word, case_atom, number, gender, _metadata, soft, _form_tag) do
-    endings = if number == :sg, do: @indef_sg_endings, else: @indef_pl_endings
-    ending = endings[gender][case_atom]
+    # Special handling for Indefinite Nominative Singular Masculine
+    # If the input term appears to be indefinite (doesn't end in -i), maintain it as is
+    # to preserve the "unmodified" form (before L-O or Fleeting A removal)
+    if case_atom == :nom and number == :sg and gender == :m and
+         not String.ends_with?(word.term, "i") do
+      String.downcase(word.term)
+    else
+      endings = if number == :sg, do: @indef_sg_endings, else: @indef_pl_endings
+      ending = endings[gender][case_atom]
 
-    resolve_ending_and_build(stem, word, ending, case_atom, number, gender, soft, :indef)
+      resolve_ending_and_build(stem, word, ending, case_atom, number, gender, soft, :indef)
+    end
   end
 
   # Build a single definite form
@@ -245,8 +261,13 @@ defmodule Ohmyword.Linguistics.Adjectives do
         stem <> "a"
 
       {:sg, false, :indef} ->
-        # Inanimate singular indefinite: use nominative = stem
-        stem
+        # Inanimate singular indefinite: use nominative
+        # Use original term if it looks indefinite
+        if not String.ends_with?(word.term, "i") do
+          String.downcase(word.term)
+        else
+          stem
+        end
 
       {:sg, true, :def} ->
         # Animate singular definite: use genitive = stem + "og"
