@@ -23,7 +23,8 @@ defmodule OhmywordWeb.FlashcardLive do
         <:subtitle>Practice Serbian vocabulary</:subtitle>
       </.header>
 
-      <div class="mt-6 flex justify-end">
+      <div class="mt-6 flex justify-between">
+        <.direction_toggle direction_mode={@direction_mode} />
         <.script_toggle script_mode={@script_mode} />
       </div>
 
@@ -36,21 +37,32 @@ defmodule OhmywordWeb.FlashcardLive do
             <!-- Front of card -->
             <div class={"absolute inset-0 rounded-xl border-2 border-zinc-300 bg-white p-8 shadow-lg backface-hidden dark:border-zinc-700 dark:bg-zinc-900 #{if @flipped, do: "invisible", else: ""}"}>
               <div class="flex h-full flex-col items-center justify-center">
-                <div class="mb-4 flex flex-wrap gap-2 justify-center">
-                  <.pos_badge part_of_speech={@current_word.part_of_speech} />
-                  <%= if @current_word.gender do %>
-                    <.gender_badge gender={@current_word.gender} />
+                <%= if @direction_mode == :serbian_to_english do %>
+                  <div class="mb-4 flex flex-wrap gap-2 justify-center">
+                    <.pos_badge part_of_speech={@current_word.part_of_speech} />
+                    <%= if @current_word.gender do %>
+                      <.gender_badge gender={@current_word.gender} />
+                    <% end %>
+                    <%= if @current_word.verb_aspect do %>
+                      <.aspect_badge aspect={@current_word.verb_aspect} />
+                    <% end %>
+                    <%= if @current_word.animate do %>
+                      <.animate_badge />
+                    <% end %>
+                  </div>
+                  <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100">
+                    {display_term(@current_word.term, @script_mode)}
+                  </p>
+                <% else %>
+                  <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100">
+                    {@current_word.translation}
+                  </p>
+                  <%= if @current_word.translations != [] do %>
+                    <p class="mt-2 text-center text-lg text-zinc-600 dark:text-zinc-400">
+                      {Enum.join(@current_word.translations, ", ")}
+                    </p>
                   <% end %>
-                  <%= if @current_word.verb_aspect do %>
-                    <.aspect_badge aspect={@current_word.verb_aspect} />
-                  <% end %>
-                  <%= if @current_word.animate do %>
-                    <.animate_badge />
-                  <% end %>
-                </div>
-                <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100">
-                  {display_term(@current_word.term, @script_mode)}
-                </p>
+                <% end %>
                 <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
                   Click to reveal translation
                 </p>
@@ -60,12 +72,30 @@ defmodule OhmywordWeb.FlashcardLive do
     <!-- Back of card -->
             <div class={"absolute inset-0 rounded-xl border-2 border-zinc-300 bg-white p-8 shadow-lg backface-hidden rotate-y-180 dark:border-zinc-700 dark:bg-zinc-900 #{if not @flipped, do: "invisible", else: ""}"}>
               <div class="flex h-full flex-col items-center justify-center">
-                <p class="text-center text-3xl font-bold text-zinc-900 dark:text-zinc-100">
-                  {@current_word.translation}
-                </p>
-                <%= if @current_word.translations != [] do %>
-                  <p class="mt-2 text-center text-lg text-zinc-600 dark:text-zinc-400">
-                    {Enum.join(@current_word.translations, ", ")}
+                <%= if @direction_mode == :serbian_to_english do %>
+                  <p class="text-center text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+                    {@current_word.translation}
+                  </p>
+                  <%= if @current_word.translations != [] do %>
+                    <p class="mt-2 text-center text-lg text-zinc-600 dark:text-zinc-400">
+                      {Enum.join(@current_word.translations, ", ")}
+                    </p>
+                  <% end %>
+                <% else %>
+                  <div class="mb-4 flex flex-wrap gap-2 justify-center">
+                    <.pos_badge part_of_speech={@current_word.part_of_speech} />
+                    <%= if @current_word.gender do %>
+                      <.gender_badge gender={@current_word.gender} />
+                    <% end %>
+                    <%= if @current_word.verb_aspect do %>
+                      <.aspect_badge aspect={@current_word.verb_aspect} />
+                    <% end %>
+                    <%= if @current_word.animate do %>
+                      <.animate_badge />
+                    <% end %>
+                  </div>
+                  <p class="text-center text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+                    {display_term(@current_word.term, @script_mode)}
                   </p>
                 <% end %>
                 <%= if @current_word.example_sentence_rs do %>
@@ -174,7 +204,8 @@ defmodule OhmywordWeb.FlashcardLive do
      socket
      |> assign(current_word: word)
      |> assign(flipped: false)
-     |> assign(script_mode: :latin)}
+     |> assign(script_mode: :latin)
+     |> assign(direction_mode: :serbian_to_english)}
   end
 
   @impl true
@@ -190,6 +221,15 @@ defmodule OhmywordWeb.FlashcardLive do
   def handle_event("toggle_script", _params, socket) do
     new_mode = if socket.assigns.script_mode == :latin, do: :cyrillic, else: :latin
     {:noreply, assign(socket, script_mode: new_mode)}
+  end
+
+  def handle_event("toggle_direction", _params, socket) do
+    new_mode =
+      if socket.assigns.direction_mode == :serbian_to_english,
+        do: :english_to_serbian,
+        else: :serbian_to_english
+
+    {:noreply, assign(socket, direction_mode: new_mode)}
   end
 
   # Helper to convert text based on script mode

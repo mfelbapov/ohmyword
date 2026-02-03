@@ -586,6 +586,31 @@ defmodule OhmywordWeb.CoreComponents do
   end
 
   @doc """
+  Renders a toggle button for flashcard direction (Serbian to English or English to Serbian).
+
+  ## Examples
+
+      <.direction_toggle direction_mode={@direction_mode} />
+  """
+  attr :direction_mode, :atom, required: true, values: [:serbian_to_english, :english_to_serbian]
+
+  def direction_toggle(assigns) do
+    ~H"""
+    <button
+      phx-click="toggle_direction"
+      class="inline-flex items-center rounded-md bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+    >
+      <span class="mr-2">SR</span>
+      <span class="text-zinc-400 dark:text-zinc-500">↔</span>
+      <span class="ml-2">EN</span>
+      <span class="ml-2 rounded bg-zinc-200 px-1.5 py-0.5 text-xs dark:bg-zinc-700">
+        {if @direction_mode == :serbian_to_english, do: "SR→EN", else: "EN→SR"}
+      </span>
+    </button>
+    """
+  end
+
+  @doc """
   Translates an error message using gettext.
   """
   def translate_error({msg, opts}) do

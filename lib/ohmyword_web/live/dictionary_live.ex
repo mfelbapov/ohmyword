@@ -86,7 +86,8 @@ defmodule OhmywordWeb.DictionaryLive do
                       {humanize_form_tag(result.form_tag)}
                     </span>
                     <span class="text-sm text-zinc-500 dark:text-zinc-400">
-                      → <span class="font-mono">{display_term(result.matched_form, @script_mode)}</span>
+                      →
+                      <span class="font-mono">{display_term(result.matched_form, @script_mode)}</span>
                     </span>
                   </div>
                 <% end %>
@@ -247,14 +248,29 @@ defmodule OhmywordWeb.DictionaryLive do
 
   defp case_color_classes(form_tag) do
     cond do
-      String.contains?(form_tag, "nom") -> "bg-zinc-100 text-zinc-800 dark:bg-zinc-700 dark:text-zinc-200"
-      String.contains?(form_tag, "gen") -> "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
-      String.contains?(form_tag, "dat") -> "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
-      String.contains?(form_tag, "acc") -> "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200"
-      String.contains?(form_tag, "voc") -> "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200"
-      String.contains?(form_tag, "ins") -> "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
-      String.contains?(form_tag, "loc") -> "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200"
-      true -> "bg-zinc-100 text-zinc-800 dark:bg-zinc-700 dark:text-zinc-200"
+      String.contains?(form_tag, "nom") ->
+        "bg-zinc-100 text-zinc-800 dark:bg-zinc-700 dark:text-zinc-200"
+
+      String.contains?(form_tag, "gen") ->
+        "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
+
+      String.contains?(form_tag, "dat") ->
+        "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200"
+
+      String.contains?(form_tag, "acc") ->
+        "bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200"
+
+      String.contains?(form_tag, "voc") ->
+        "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200"
+
+      String.contains?(form_tag, "ins") ->
+        "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200"
+
+      String.contains?(form_tag, "loc") ->
+        "bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200"
+
+      true ->
+        "bg-zinc-100 text-zinc-800 dark:bg-zinc-700 dark:text-zinc-200"
     end
   end
 end
