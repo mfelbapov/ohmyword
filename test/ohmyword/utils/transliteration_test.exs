@@ -170,6 +170,41 @@ defmodule Ohmyword.Utils.TransliterationTest do
     end
   end
 
+  describe "strip_diacritics/1" do
+    test "strips č and ć to c" do
+      assert Transliteration.strip_diacritics("čovek") == "covek"
+      assert Transliteration.strip_diacritics("ćevapi") == "cevapi"
+    end
+
+    test "strips š to s" do
+      assert Transliteration.strip_diacritics("šuma") == "suma"
+    end
+
+    test "strips ž to z" do
+      assert Transliteration.strip_diacritics("žena") == "zena"
+    end
+
+    test "strips đ to dj" do
+      assert Transliteration.strip_diacritics("đak") == "djak"
+    end
+
+    test "handles uppercase diacritics" do
+      assert Transliteration.strip_diacritics("ČOVEK") == "COVEK"
+      assert Transliteration.strip_diacritics("Šuma") == "Suma"
+      assert Transliteration.strip_diacritics("ĐORĐE") == "DjORDjE"
+    end
+
+    test "preserves text without diacritics" do
+      assert Transliteration.strip_diacritics("hello") == "hello"
+      assert Transliteration.strip_diacritics("covek") == "covek"
+    end
+
+    test "handles mixed text with diacritics and plain ASCII" do
+      assert Transliteration.strip_diacritics("čestitam ti") == "cestitam ti"
+      assert Transliteration.strip_diacritics("Šta radiš?") == "Sta radis?"
+    end
+  end
+
   describe "round-trip conversion" do
     test "Latin -> Cyrillic -> Latin preserves text" do
       originals = [

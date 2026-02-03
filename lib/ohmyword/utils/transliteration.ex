@@ -191,6 +191,31 @@ defmodule Ohmyword.Utils.Transliteration do
     |> Enum.join()
   end
 
+  @doc """
+  Strips Serbian Latin diacritics to plain ASCII equivalents.
+  Useful for normalizing search queries.
+
+  ## Examples
+
+      iex> Ohmyword.Utils.Transliteration.strip_diacritics("čovek")
+      "covek"
+
+      iex> Ohmyword.Utils.Transliteration.strip_diacritics("ćevapi")
+      "cevapi"
+  """
+  @spec strip_diacritics(String.t()) :: String.t()
+  def strip_diacritics(text) when is_binary(text) do
+    text
+    |> String.replace(~r/[čć]/u, "c")
+    |> String.replace(~r/[ČĆ]/u, "C")
+    |> String.replace("š", "s")
+    |> String.replace("Š", "S")
+    |> String.replace("ž", "z")
+    |> String.replace("Ž", "Z")
+    |> String.replace("đ", "dj")
+    |> String.replace("Đ", "Dj")
+  end
+
   # Latin to Cyrillic conversion - must check digraphs first
   defp convert_latin_to_cyrillic("", acc), do: acc
 

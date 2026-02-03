@@ -53,10 +53,12 @@ defmodule Ohmyword.Search do
 
   # Normalizes search input:
   # 1. Convert Cyrillic to Latin
-  # 2. Lowercase
+  # 2. Strip diacritics (č→c, š→s, etc.)
+  # 3. Lowercase
   defp normalize_query(query) do
     query
     |> Transliteration.to_latin()
+    |> Transliteration.strip_diacritics()
     |> String.downcase()
   end
 end

@@ -767,5 +767,4 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
       assert forms == [{"možda", "base"}]
     end
   end
-
 end

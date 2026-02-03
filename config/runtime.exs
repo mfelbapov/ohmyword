@@ -117,11 +117,4 @@ if config_env() == :prod do
   #     config :swoosh, :api_client, Swoosh.ApiClient.Req
   #
   # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
-
-  # ## Configuring OpenAI
-  #
-  # For the AI-powered issue analysis feature, configure the OpenAI API key:
-  config :ohmyword, :openai,
-    api_key: System.get_env("OPENAI_API_KEY"),
-    organization_key: System.get_env("OPENAI_ORGANIZATION_KEY")
 end

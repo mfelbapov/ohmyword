@@ -2,22 +2,27 @@
   "permissions": {
     "allow": [
       "Bash(cat:*)",
-      "Bash(mix test:*)",
-      "Bash(iex -S mix:*)",
-      "Bash(mix ecto.gen.migration:*)",
-      "Bash(mix compile:*)",
-      "Bash(wc:*)",
-      "Bash(./docs/scripts/rename_project.sh:*)",
-      "Bash(mix setup:*)",
+      "Bash(ls:*)",
       "Bash(tree:*)",
-      "Bash(mix ecto.reset:*)",
-      "Bash(mix format:*)",
+      "Bash(wc:*)",
       "Bash(xargs ls:*)",
+      "Bash(./docs/scripts/rename_project.sh:*)",
+
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(mix run:*)",
+      "Bash(git push:*)",
+
+      "Bash(mix compile:*)",
+      "Bash(mix deps.clean:*)",
+      "Bash(mix deps.get:*)",
+      "Bash(mix ecto.gen.migration:*)",
+      "Bash(mix ecto.reset:*)",
+      "Bash(mix format:*)",
       "Bash(mix precommit:*)",
-      "Bash(git push:*)"
+      "Bash(mix run:*)",
+      "Bash(mix setup:*)",
+      "Bash(mix test:*)",
+      "Bash(iex -S mix:*)"
     ],
     "deny": [],
     "ask": []

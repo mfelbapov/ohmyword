@@ -1155,5 +1155,4 @@ defmodule Ohmyword.Linguistics.VerbsTest do
       assert {"rekla", "past_f_sg"} in forms
     end
   end
-
 end

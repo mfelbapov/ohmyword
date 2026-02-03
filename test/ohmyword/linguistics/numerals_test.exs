@@ -1250,5 +1250,4 @@ defmodule Ohmyword.Linguistics.NumeralsTest do
       assert fm["gen"] == "osmorga"
     end
   end
-
 end

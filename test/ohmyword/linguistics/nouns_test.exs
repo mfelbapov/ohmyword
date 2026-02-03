@@ -1320,5 +1320,4 @@ defmodule Ohmyword.Linguistics.NounsTest do
       assert {"prsti", "nom_pl"} in forms
     end
   end
-
 end

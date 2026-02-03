@@ -36,6 +36,7 @@ defmodule OhmywordWeb.Router do
 
     live_session :public, on_mount: [{OhmywordWeb.UserAuth, :mount_current_scope}] do
       live "/flashcards", FlashcardLive, :index
+      live "/dictionary", DictionaryLive, :index
     end
   end
 
@@ -74,7 +75,6 @@ defmodule OhmywordWeb.Router do
       on_mount: [{OhmywordWeb.UserAuth, :require_authenticated}] do
       live "/users/settings", UserLive.Settings, :edit
       live "/users/settings/confirm-email/:token", UserLive.Settings, :confirm_email
-      live "/issues/new", IssueLive.New, :new
     end
 
     post "/users/update-password", UserSessionController, :update_password
@@ -101,7 +101,6 @@ defmodule OhmywordWeb.Router do
     live_session :admin,
       on_mount: [{OhmywordWeb.UserAuth, :require_admin_user}] do
       live "/dashboard", AdminDashboardLive, :index
-      live "/issues", Admin.IssueInsightsLive, :index
     end
   end
 end
