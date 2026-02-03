@@ -14,6 +14,7 @@ defmodule Ohmyword.Linguistics.Nouns do
   @behaviour Ohmyword.Linguistics.Inflector
 
   alias Ohmyword.Vocabulary.Word
+  alias Ohmyword.Linguistics.SoundChanges
 
   # Cases in Serbian
   @cases [:nom, :gen, :dat, :acc, :voc, :ins, :loc]
@@ -126,7 +127,7 @@ defmodule Ohmyword.Linguistics.Nouns do
     case declension_class do
       "a-stem" -> decline_a_stem(term, case_atom, number)
       "o-stem" -> decline_o_stem(term, case_atom, number)
-      "e-stem" -> decline_e_stem(term, case_atom, number)
+      "e-stem" -> decline_e_stem(term, case_atom, number, metadata)
       "i-stem" -> decline_i_stem(term, case_atom, number)
       "consonant" -> decline_consonant(term, word, case_atom, number, metadata)
       _ -> decline_consonant(term, word, case_atom, number, metadata)
@@ -137,6 +138,15 @@ defmodule Ohmyword.Linguistics.Nouns do
   defp decline_a_stem(term, case_atom, number) do
     stem = remove_ending(term, "a")
     ending = @a_stem_endings[number][case_atom]
+
+    # Apply sibilarization for dative/locative singular
+    stem =
+      if number == :sg and case_atom in [:dat, :loc] do
+        SoundChanges.sibilarize(stem)
+      else
+        stem
+      end
+
     stem <> ending
   end
 
@@ -148,9 +158,23 @@ defmodule Ohmyword.Linguistics.Nouns do
   end
 
   # E-stem declension (neuter -e nouns)
-  defp decline_e_stem(term, case_atom, number) do
-    stem = remove_ending(term, "e")
+  defp decline_e_stem(term, case_atom, number, metadata) do
+    base_stem = remove_ending(term, "e")
     ending = @e_stem_endings[number][case_atom]
+
+    # Check for extended stem (et/en) in singular oblique cases and plural
+    # e.g., dete -> det-et-a
+    extended_stem = metadata["extended_stem"]
+
+    stem =
+      if extended_stem &&
+           (number == :pl ||
+              (number == :sg && case_atom != :nom && case_atom != :acc && case_atom != :voc)) do
+        base_stem <> extended_stem
+      else
+        base_stem
+      end
+
     stem <> ending
   end
 

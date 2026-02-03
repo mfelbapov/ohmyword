@@ -15,6 +15,7 @@ defmodule Ohmyword.Linguistics.Verbs do
   @behaviour Ohmyword.Linguistics.Inflector
 
   alias Ohmyword.Vocabulary.Word
+  alias Ohmyword.Linguistics.SoundChanges
 
   # Present tense endings by conjugation class
   @a_verb_present %{
@@ -145,15 +146,23 @@ defmodule Ohmyword.Linguistics.Verbs do
   end
 
   defp derive_present_stem(term, "je-verb") do
-    # JE-verbs: remove -ti to get infinitive stem, then add j
+    # JE-verbs: remove -ti or -ati to get stem, then apply iotation or add j
+    # e.g., pisati -> pis -> piš
     # e.g., piti -> pi -> pij
     stem =
       cond do
+        String.ends_with?(term, "ati") -> String.slice(term, 0..-4//1)
         String.ends_with?(term, "ti") -> String.slice(term, 0..-3//1)
         true -> term
       end
 
-    stem <> "j"
+    iotated = SoundChanges.iotate(stem)
+
+    if iotated != stem do
+      iotated
+    else
+      stem <> "j"
+    end
   end
 
   defp derive_present_stem(term, _) do
