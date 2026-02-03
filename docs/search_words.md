@@ -3,7 +3,7 @@
 ## Recommendation: Dedicated Dictionary Page
 
 **Route:** `/dictionary`
-**Navbar:** Add "Dictionary" link with magnifying glass icon
+**Navbar:** Add "Dictionary" link
 
 ### Rationale
 
