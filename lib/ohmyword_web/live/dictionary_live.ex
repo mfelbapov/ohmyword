@@ -24,17 +24,7 @@ defmodule OhmywordWeb.DictionaryLive do
       </.header>
 
       <div class="mt-6 flex justify-end">
-        <button
-          phx-click="toggle_script"
-          class="inline-flex items-center rounded-md bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
-        >
-          <span class="mr-2">Aa</span>
-          <span class="text-zinc-400 dark:text-zinc-500">↔</span>
-          <span class="ml-2">Аа</span>
-          <span class="ml-2 rounded bg-zinc-200 px-1.5 py-0.5 text-xs dark:bg-zinc-700">
-            {if @script_mode == :latin, do: "LAT", else: "ЋИР"}
-          </span>
-        </button>
+        <.script_toggle script_mode={@script_mode} />
       </div>
 
       <form phx-change="search" phx-submit="search" class="mt-6">

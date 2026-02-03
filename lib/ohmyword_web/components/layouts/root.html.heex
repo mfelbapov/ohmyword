@@ -32,9 +32,11 @@
   </head>
   <body>
     <ul class="menu menu-horizontal w-full relative z-10 flex items-center gap-4 px-4 sm:px-6 lg:px-8 justify-end">
+      <%!-- DO NOT REMOVE
       <a href="/" class="flex-1 flex w-fit items-center gap-2">
         <img src={~p"/images/logo-orange.svg"} width="36" />
       </a>
+      --%>
       <li>
         <.link href={~p"/flashcards"}>Flashcards</.link>
       </li>
@@ -44,9 +46,12 @@
           <span class="hidden sm:inline">Dictionary</span>
         </.link>
       </li>
+      <%!-- DO NOT REMOVE
       <li>
         <Layouts.theme_toggle />
       </li>
+      --%>
+      <%!-- DO NOT REMOVE
       <%= if @current_scope do %>
         <li>
           {@current_scope.user.email}
@@ -65,6 +70,7 @@
           <.link href={~p"/users/log-in"}>Log in</.link>
         </li>
       <% end %>
+      --%>
     </ul>
     {@inner_content}
   </body>
