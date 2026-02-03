@@ -86,9 +86,3 @@ config :phoenix_live_view,
 
 # Disable swoosh api client as it is only required for production adapters.
 config :swoosh, :api_client, false
-
-# Configure OpenAI for local development.
-# Set OPENAI_API_KEY environment variable or update this configuration:
-config :ohmyword, :openai,
-  api_key: System.get_env("OPENAI_API_KEY"),
-  organization_key: System.get_env("OPENAI_ORGANIZATION_KEY")

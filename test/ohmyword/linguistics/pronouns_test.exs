@@ -1447,5 +1447,4 @@ defmodule Ohmyword.Linguistics.PronounsTest do
       assert fm["nom_sg_n"] == "ovo"
     end
   end
-
 end

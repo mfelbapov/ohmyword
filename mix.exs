@@ -68,10 +68,7 @@ defmodule Ohmyword.MixProject do
       {:dns_cluster, "~> 0.2.0"},
       {:bandit, "~> 1.5"},
       {:kaffy, github: "aesmail/kaffy"},
-      {:let_me, "~> 1.2.5"},
-      {:openai, "~> 0.6.0"},
-      {:flop, "~> 0.25.0"},
-      {:flop_phoenix, "~> 0.25.3"}
+      {:let_me, "~> 1.2.5"}
     ]
   end
 

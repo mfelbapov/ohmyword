@@ -899,5 +899,4 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       assert fm["super_nom_sg_m"] == "najmekši"
     end
   end
-
 end
