@@ -36,6 +36,7 @@ defmodule OhmywordWeb.Router do
 
     live_session :public, on_mount: [{OhmywordWeb.UserAuth, :mount_current_scope}] do
       live "/flashcards", FlashcardLive, :index
+      live "/dictionary", DictionaryLive, :index
     end
   end
 

@@ -154,5 +154,40 @@ defmodule Ohmyword.SearchTest do
       assert length(results) == 1
       assert hd(results).word.term == "pas"
     end
+
+    test "finds word when searching with Latin diacritics" do
+      word = noun_fixture(%{term: "covek", translation: "man"})
+
+      {:ok, _} =
+        %SearchTerm{}
+        |> SearchTerm.changeset(%{term: "covek", form_tag: "nom_sg", word_id: word.id})
+        |> Repo.insert()
+
+      # Search with diacritic "č" should find "covek"
+      results = Search.lookup("čovek")
+
+      assert length(results) == 1
+      assert hd(results).word.id == word.id
+      assert hd(results).matched_form == "covek"
+    end
+
+    test "finds word with various Serbian diacritics" do
+      word1 = feminine_noun_fixture(%{term: "suma", translation: "forest"})
+      word2 = feminine_noun_fixture(%{term: "zena", translation: "woman"})
+
+      {:ok, _} =
+        %SearchTerm{}
+        |> SearchTerm.changeset(%{term: "suma", form_tag: "nom_sg", word_id: word1.id})
+        |> Repo.insert()
+
+      {:ok, _} =
+        %SearchTerm{}
+        |> SearchTerm.changeset(%{term: "zena", form_tag: "nom_sg", word_id: word2.id})
+        |> Repo.insert()
+
+      # Search with diacritics should find ASCII equivalents
+      assert length(Search.lookup("šuma")) == 1
+      assert length(Search.lookup("žena")) == 1
+    end
   end
 end

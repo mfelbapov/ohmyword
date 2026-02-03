@@ -36,6 +36,15 @@
         <img src={~p"/images/logo-orange.svg"} width="36" />
       </a>
       <li>
+        <.link href={~p"/flashcards"}>Flashcards</.link>
+      </li>
+      <li>
+        <.link href={~p"/dictionary"} class="flex items-center gap-1">
+          <.icon name="hero-magnifying-glass" class="size-4" />
+          <span class="hidden sm:inline">Dictionary</span>
+        </.link>
+      </li>
+      <li>
         <Layouts.theme_toggle />
       </li>
       <%= if @current_scope do %>
