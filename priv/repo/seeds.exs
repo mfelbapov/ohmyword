@@ -42,6 +42,7 @@ defmodule VocabularySeed do
   alias Ohmyword.Repo
   alias Ohmyword.Vocabulary.Word
   alias Ohmyword.Search.SearchTerm
+  alias Ohmyword.Linguistics.CacheManager
 
   def run do
     seed_file = Path.join(:code.priv_dir(:ohmyword), "repo/vocabulary_seed.json")
@@ -77,12 +78,19 @@ defmodule VocabularySeed do
 
     case %Word{} |> Word.changeset(attrs) |> Repo.insert() do
       {:ok, word} ->
-        # Insert search terms for each form
+        # Insert search terms for each form (locked)
         Enum.each(forms, fn form ->
           insert_search_term(word, form)
         end)
 
-        IO.puts("  Inserted: #{word.term}")
+        # Run engine to fill any gaps (won't touch locked forms)
+        {:ok, engine_count} = CacheManager.regenerate_word(word)
+
+        if engine_count > 0 do
+          IO.puts("  Inserted: #{word.term} (+#{engine_count} engine forms)")
+        else
+          IO.puts("  Inserted: #{word.term}")
+        end
 
       {:error, changeset} ->
         IO.puts("  ERROR inserting #{entry["term"]}: #{inspect(changeset.errors)}")
@@ -96,7 +104,7 @@ defmodule VocabularySeed do
       form_tag: String.downcase(form_tag),
       word_id: word.id,
       source: :seed,
-      locked: false
+      locked: true
     })
     |> Repo.insert()
   end

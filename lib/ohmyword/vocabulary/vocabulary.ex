@@ -10,6 +10,7 @@ defmodule Ohmyword.Vocabulary do
 
   alias Ohmyword.Repo
   alias Ohmyword.Vocabulary.Word
+  alias Ohmyword.Linguistics.CacheManager
 
   @doc """
   Lists words with optional filters.
@@ -93,6 +94,7 @@ defmodule Ohmyword.Vocabulary do
     %Word{}
     |> Word.changeset(attrs)
     |> Repo.insert()
+    |> maybe_regenerate_search_terms()
   end
 
   @doc """
@@ -110,6 +112,7 @@ defmodule Ohmyword.Vocabulary do
     word
     |> Word.changeset(attrs)
     |> Repo.update()
+    |> maybe_regenerate_search_terms()
   end
 
   @doc """
@@ -127,6 +130,13 @@ defmodule Ohmyword.Vocabulary do
   end
 
   # Private functions
+
+  defp maybe_regenerate_search_terms({:ok, word}) do
+    CacheManager.regenerate_word(word)
+    {:ok, word}
+  end
+
+  defp maybe_regenerate_search_terms({:error, _changeset} = error), do: error
 
   defp apply_filters(query, opts) do
     Enum.reduce(opts, query, fn
