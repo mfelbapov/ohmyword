@@ -201,5 +201,52 @@ defmodule OhmywordWeb.WordDetailLiveTest do
 
       assert html =~ "Inflected Forms"
     end
+
+    test "adverb with derived_from shows related adjective section", %{conn: conn} do
+      # Create the adjective that the adverb derives from
+      _adj =
+        adjective_fixture(%{term: "brz", translation: "fast", gender: :masculine})
+
+      # Create the adverb with derived_from metadata
+      adverb =
+        word_fixture(%{
+          term: "brzo",
+          translation: "quickly",
+          part_of_speech: :adverb,
+          grammar_metadata: %{"derived_from" => "brz"}
+        })
+
+      {:ok, _view, html} = live(conn, ~p"/dictionary/#{adverb.id}")
+
+      assert html =~ "Related Adjective"
+      assert html =~ "brz"
+      # Should show gender form badges
+      assert html =~ "M "
+      assert html =~ "F "
+      assert html =~ "N "
+    end
+
+    test "adverb without derived_from does not show related adjective section", %{conn: conn} do
+      adverb =
+        word_fixture(%{
+          term: "ovde",
+          translation: "here",
+          part_of_speech: :adverb,
+          grammar_metadata: %{}
+        })
+
+      {:ok, _view, html} = live(conn, ~p"/dictionary/#{adverb.id}")
+
+      refute html =~ "Related Adjective"
+    end
+
+    test "non-adverb words do not show related adjective section", %{conn: conn} do
+      word =
+        noun_fixture(%{term: "grad", translation: "city", gender: :masculine, animate: false})
+
+      {:ok, _view, html} = live(conn, ~p"/dictionary/#{word.id}")
+
+      refute html =~ "Related Adjective"
+    end
   end
 end

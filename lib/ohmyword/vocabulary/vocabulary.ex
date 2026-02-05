@@ -130,6 +130,25 @@ defmodule Ohmyword.Vocabulary do
   end
 
   @doc """
+  Gets a word by term and part of speech.
+
+  Returns `nil` if no word matches.
+
+  ## Examples
+
+      iex> Vocabulary.get_word_by_term_and_pos("lep", :adjective)
+      %Word{}
+
+      iex> Vocabulary.get_word_by_term_and_pos("nonexistent", :noun)
+      nil
+  """
+  def get_word_by_term_and_pos(term, part_of_speech) do
+    Word
+    |> where([w], w.term == ^term and w.part_of_speech == ^part_of_speech)
+    |> Repo.one()
+  end
+
+  @doc """
   Returns a sorted list of parts of speech that have at least one word.
 
   ## Examples

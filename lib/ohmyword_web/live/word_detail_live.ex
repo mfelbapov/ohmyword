@@ -67,6 +67,40 @@ defmodule OhmywordWeb.WordDetailLive do
         <% end %>
       </div>
 
+      <%!-- Related adjective (for adverbs) --%>
+      <%= if @related_adjective do %>
+        <div class="mt-6">
+          <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+            Related Adjective
+          </h2>
+          <div class="mt-2 rounded-lg bg-zinc-50 p-4 dark:bg-zinc-800">
+            <div class="flex items-center gap-2">
+              <.link
+                navigate={~p"/dictionary/#{@related_adjective.word.id}"}
+                class="text-base font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+              >
+                {display_term(@related_adjective.word.term, @script_mode)}
+                <.icon name="hero-arrow-right" class="ml-1 inline h-4 w-4" />
+              </.link>
+              <span class="text-sm text-zinc-500 dark:text-zinc-400">
+                {@related_adjective.word.translation}
+              </span>
+            </div>
+            <div class="mt-2 flex gap-3">
+              <span class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+                M {display_term(@related_adjective.nom_m, @script_mode)}
+              </span>
+              <span class="inline-flex items-center rounded-full bg-pink-100 px-2.5 py-0.5 text-xs font-medium text-pink-800 dark:bg-pink-900 dark:text-pink-200">
+                F {display_term(@related_adjective.nom_f, @script_mode)}
+              </span>
+              <span class="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 dark:bg-gray-800 dark:text-gray-200">
+                N {display_term(@related_adjective.nom_n, @script_mode)}
+              </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
       <%!-- Grammar details --%>
       <%= if has_grammar_details?(@word) do %>
         <div class="mt-6">
@@ -171,7 +205,8 @@ defmodule OhmywordWeb.WordDetailLive do
      |> assign(word: word)
      |> assign(forms: forms)
      |> assign(forms_map: forms_map)
-     |> assign(script_mode: :latin)}
+     |> assign(script_mode: :latin)
+     |> assign_related_adjective(word)}
   end
 
   @impl true
@@ -556,6 +591,37 @@ defmodule OhmywordWeb.WordDetailLive do
       </table>
     </div>
     """
+  end
+
+  defp assign_related_adjective(socket, %{part_of_speech: :adverb, grammar_metadata: meta})
+       when is_map(meta) do
+    case Map.get(meta, "derived_from") do
+      nil ->
+        assign(socket, related_adjective: nil)
+
+      adj_term ->
+        case Vocabulary.get_word_by_term_and_pos(adj_term, :adjective) do
+          nil ->
+            assign(socket, related_adjective: nil)
+
+          adj_word ->
+            adj_forms = Dispatcher.inflect(adj_word)
+            adj_forms_map = Map.new(adj_forms, fn {term, tag} -> {tag, term} end)
+
+            assign(socket,
+              related_adjective: %{
+                word: adj_word,
+                nom_m: adj_forms_map["indef_nom_sg_m"] || adj_word.term,
+                nom_f: adj_forms_map["indef_nom_sg_f"] || "-",
+                nom_n: adj_forms_map["indef_nom_sg_n"] || "-"
+              }
+            )
+        end
+    end
+  end
+
+  defp assign_related_adjective(socket, _word) do
+    assign(socket, related_adjective: nil)
   end
 
   defp has_grammar_details?(word) do

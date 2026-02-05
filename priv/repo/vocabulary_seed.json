@@ -2809,6 +2809,7 @@
     ],
     "grammar_metadata": {
       "comparative": "bolje",
+      "derived_from": "dobar",
       "superlative": "najbolje"
     },
     "part_of_speech": "adverb",
@@ -8139,6 +8140,7 @@
     ],
     "grammar_metadata": {
       "comparative": "lakse",
+      "derived_from": "lak",
       "superlative": "najlakse"
     },
     "part_of_speech": "adverb",
@@ -8438,9 +8440,21 @@
       {
         "form_tag": "base",
         "term": "lepo"
+      },
+      {
+        "form_tag": "comparative",
+        "term": "lepše"
+      },
+      {
+        "form_tag": "superlative",
+        "term": "najlepše"
       }
     ],
-    "grammar_metadata": {},
+    "grammar_metadata": {
+      "comparative": "lepše",
+      "derived_from": "lep",
+      "superlative": "najlepše"
+    },
     "part_of_speech": "adverb",
     "proficiency_level": 1,
     "term": "lepo",
@@ -14606,7 +14620,9 @@
       "straight ahead"
     ],
     "part_of_speech": "adverb",
-    "grammar_metadata": {},
+    "grammar_metadata": {
+      "derived_from": "prav"
+    },
     "categories": [
       "direction"
     ],
@@ -21677,9 +21693,21 @@
       {
         "form_tag": "base",
         "term": "tiho"
+      },
+      {
+        "form_tag": "comparative",
+        "term": "tiše"
+      },
+      {
+        "form_tag": "superlative",
+        "term": "najtiše"
       }
     ],
-    "grammar_metadata": {},
+    "grammar_metadata": {
+      "comparative": "tiše",
+      "derived_from": "tih",
+      "superlative": "najtiše"
+    },
     "part_of_speech": "adverb",
     "proficiency_level": 2,
     "term": "tiho",
@@ -24731,6 +24759,7 @@
     ],
     "grammar_metadata": {
       "comparative": "više",
+      "derived_from": "visok",
       "superlative": "najviše"
     },
     "part_of_speech": "adverb",
