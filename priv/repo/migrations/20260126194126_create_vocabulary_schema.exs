@@ -69,6 +69,7 @@ defmodule Ohmyword.Repo.Migrations.CreateVocabularySchema do
     # Create search_terms table
     create table(:search_terms) do
       add :term, :string, null: false
+      add :display_form, :string, null: false
       add :form_tag, :string, null: false
       add :word_id, references(:vocabulary_words, on_delete: :delete_all), null: false
       add :source, :search_term_source, null: false, default: "seed"

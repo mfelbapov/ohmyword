@@ -122,12 +122,14 @@ defmodule Ohmyword.VocabularyFixtures do
   """
   def search_term_fixture(attrs \\ %{}) do
     word = attrs[:word] || word_fixture()
+    default_term = "form#{System.unique_integer([:positive])}"
 
     {:ok, search_term} =
       %SearchTerm{}
       |> SearchTerm.changeset(
         Enum.into(attrs, %{
-          term: "form#{System.unique_integer([:positive])}",
+          term: default_term,
+          display_form: default_term,
           form_tag: "nom_sg",
           word_id: word.id
         })

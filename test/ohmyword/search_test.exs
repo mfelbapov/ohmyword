@@ -17,7 +17,12 @@ defmodule Ohmyword.SearchTest do
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "psa", form_tag: "gen_sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "psa",
+          display_form: "psa",
+          form_tag: "gen_sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       results = Search.lookup("psa")
@@ -35,7 +40,12 @@ defmodule Ohmyword.SearchTest do
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "psa", form_tag: "gen_sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "psa",
+          display_form: "psa",
+          form_tag: "gen_sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       # Uppercase input should find lowercase data
@@ -50,7 +60,12 @@ defmodule Ohmyword.SearchTest do
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "psa", form_tag: "gen_sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "psa",
+          display_form: "psa",
+          form_tag: "gen_sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       # Cyrillic "пса" should find Latin "psa"
@@ -67,12 +82,22 @@ defmodule Ohmyword.SearchTest do
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "kosa", form_tag: "nom_sg", word_id: word1.id})
+        |> SearchTerm.changeset(%{
+          term: "kosa",
+          display_form: "kosa",
+          form_tag: "nom_sg",
+          word_id: word1.id
+        })
         |> Repo.insert()
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "kosa", form_tag: "nom_sg", word_id: word2.id})
+        |> SearchTerm.changeset(%{
+          term: "kosa",
+          display_form: "kosa",
+          form_tag: "nom_sg",
+          word_id: word2.id
+        })
         |> Repo.insert()
 
       results = Search.lookup("kosa")
@@ -91,7 +116,12 @@ defmodule Ohmyword.SearchTest do
       for {term, tag} <- [{"pas", "nom_sg"}, {"psa", "gen_sg"}, {"psu", "dat_sg"}] do
         {:ok, _} =
           %SearchTerm{}
-          |> SearchTerm.changeset(%{term: term, form_tag: tag, word_id: word.id})
+          |> SearchTerm.changeset(%{
+            term: term,
+            display_form: term,
+            form_tag: tag,
+            word_id: word.id
+          })
           |> Repo.insert()
       end
 
@@ -108,12 +138,22 @@ defmodule Ohmyword.SearchTest do
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "pisati", form_tag: "inf", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "pisati",
+          display_form: "pisati",
+          form_tag: "inf",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "pisem", form_tag: "pres_1sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "pisem",
+          display_form: "pisem",
+          form_tag: "pres_1sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       results_inf = Search.lookup("pisati")
@@ -132,7 +172,12 @@ defmodule Ohmyword.SearchTest do
       for tag <- ["indef_nom_sg_m", "indef_voc_sg_m", "indef_acc_sg_m"] do
         {:ok, _} =
           %SearchTerm{}
-          |> SearchTerm.changeset(%{term: "sam", form_tag: tag, word_id: word.id})
+          |> SearchTerm.changeset(%{
+            term: "sam",
+            display_form: "sam",
+            form_tag: tag,
+            word_id: word.id
+          })
           |> Repo.insert()
       end
 
@@ -150,12 +195,22 @@ defmodule Ohmyword.SearchTest do
       # "pas" matches as both nom_sg and some other tag
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "pas", form_tag: "acc_sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "pas",
+          display_form: "pas",
+          form_tag: "acc_sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "pas", form_tag: "nom_sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "pas",
+          display_form: "pas",
+          form_tag: "nom_sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       results = Search.lookup("pas")
@@ -173,17 +228,32 @@ defmodule Ohmyword.SearchTest do
       # Same surface text "sam" for two different words
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "sam", form_tag: "indef_nom_sg_m", word_id: word1.id})
+        |> SearchTerm.changeset(%{
+          term: "sam",
+          display_form: "sam",
+          form_tag: "indef_nom_sg_m",
+          word_id: word1.id
+        })
         |> Repo.insert()
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "sam", form_tag: "indef_voc_sg_m", word_id: word1.id})
+        |> SearchTerm.changeset(%{
+          term: "sam",
+          display_form: "sam",
+          form_tag: "indef_voc_sg_m",
+          word_id: word1.id
+        })
         |> Repo.insert()
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "sam", form_tag: "pres_1sg", word_id: word2.id})
+        |> SearchTerm.changeset(%{
+          term: "sam",
+          display_form: "sam",
+          form_tag: "pres_1sg",
+          word_id: word2.id
+        })
         |> Repo.insert()
 
       results = Search.lookup("sam")
@@ -200,7 +270,12 @@ defmodule Ohmyword.SearchTest do
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "ljubav", form_tag: "nom_sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "ljubav",
+          display_form: "ljubav",
+          form_tag: "nom_sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       # Cyrillic "љубав" should find Latin "ljubav"
@@ -215,7 +290,12 @@ defmodule Ohmyword.SearchTest do
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "psa", form_tag: "gen_sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "psa",
+          display_form: "psa",
+          form_tag: "gen_sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       # Uppercase Cyrillic "ПСА" should find lowercase "psa"
@@ -226,36 +306,51 @@ defmodule Ohmyword.SearchTest do
     end
 
     test "finds word when searching with Latin diacritics" do
-      word = noun_fixture(%{term: "covek", translation: "man"})
+      word = noun_fixture(%{term: "čovek", translation: "man"})
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "covek", form_tag: "nom_sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "covek",
+          display_form: "čovek",
+          form_tag: "nom_sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
-      # Search with diacritic "č" should find "covek"
+      # Search with diacritic "č" should find via ASCII-stripped term
       results = Search.lookup("čovek")
 
       assert length(results) == 1
       assert hd(results).word.id == word.id
-      assert hd(results).matched_form == "covek"
+      assert hd(results).matched_form == "čovek"
     end
 
     test "finds word with various Serbian diacritics" do
-      word1 = feminine_noun_fixture(%{term: "suma", translation: "forest"})
-      word2 = feminine_noun_fixture(%{term: "zena", translation: "woman"})
+      word1 = feminine_noun_fixture(%{term: "šuma", translation: "forest"})
+      word2 = feminine_noun_fixture(%{term: "žena", translation: "woman"})
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "suma", form_tag: "nom_sg", word_id: word1.id})
+        |> SearchTerm.changeset(%{
+          term: "suma",
+          display_form: "šuma",
+          form_tag: "nom_sg",
+          word_id: word1.id
+        })
         |> Repo.insert()
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "zena", form_tag: "nom_sg", word_id: word2.id})
+        |> SearchTerm.changeset(%{
+          term: "zena",
+          display_form: "žena",
+          form_tag: "nom_sg",
+          word_id: word2.id
+        })
         |> Repo.insert()
 
-      # Search with diacritics should find ASCII equivalents
+      # Search with diacritics should find via ASCII-stripped term
       assert length(Search.lookup("šuma")) == 1
       assert length(Search.lookup("žena")) == 1
     end

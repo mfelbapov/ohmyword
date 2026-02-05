@@ -41,7 +41,7 @@ defmodule Ohmyword.Linguistics.DispatcherTest do
       word = word_fixture(%{term: "KUĆA", part_of_speech: :adverb})
       forms = Dispatcher.inflect(word)
 
-      assert [{"kuca", "base"}] = forms
+      assert [{"kuća", "base"}] = forms
     end
   end
 

@@ -11,6 +11,7 @@ defmodule Ohmyword.Search.SearchTermTest do
 
       attrs = %{
         term: "psa",
+        display_form: "psa",
         form_tag: "gen_sg",
         word_id: word.id
       }
@@ -23,6 +24,7 @@ defmodule Ohmyword.Search.SearchTermTest do
       changeset = SearchTerm.changeset(%SearchTerm{}, %{})
       refute changeset.valid?
       assert "can't be blank" in errors_on(changeset).term
+      assert "can't be blank" in errors_on(changeset).display_form
       assert "can't be blank" in errors_on(changeset).form_tag
       assert "can't be blank" in errors_on(changeset).word_id
     end
@@ -32,6 +34,7 @@ defmodule Ohmyword.Search.SearchTermTest do
 
       attrs = %{
         term: "PSA",
+        display_form: "psa",
         form_tag: "gen_sg",
         word_id: word.id
       }
@@ -41,11 +44,27 @@ defmodule Ohmyword.Search.SearchTermTest do
       assert get_change(changeset, :term) == "psa"
     end
 
+    test "display_form is lowercased" do
+      word = word_fixture()
+
+      attrs = %{
+        term: "psa",
+        display_form: "PSA",
+        form_tag: "gen_sg",
+        word_id: word.id
+      }
+
+      changeset = SearchTerm.changeset(%SearchTerm{}, attrs)
+      assert changeset.valid?
+      assert get_change(changeset, :display_form) == "psa"
+    end
+
     test "form_tag is lowercased" do
       word = word_fixture()
 
       attrs = %{
         term: "psa",
+        display_form: "psa",
         form_tag: "GEN_SG",
         word_id: word.id
       }
@@ -62,6 +81,7 @@ defmodule Ohmyword.Search.SearchTermTest do
         %SearchTerm{}
         |> SearchTerm.changeset(%{
           term: "psa",
+          display_form: "psa",
           form_tag: "gen_sg",
           word_id: word.id
         })
@@ -77,6 +97,7 @@ defmodule Ohmyword.Search.SearchTermTest do
         %SearchTerm{}
         |> SearchTerm.changeset(%{
           term: "psa",
+          display_form: "psa",
           form_tag: "gen_sg",
           word_id: word.id
         })
@@ -90,13 +111,23 @@ defmodule Ohmyword.Search.SearchTermTest do
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "psa", form_tag: "gen_sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "psa",
+          display_form: "psa",
+          form_tag: "gen_sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       # Same combination should fail
       {:error, changeset} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "psa", form_tag: "gen_sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "psa",
+          display_form: "psa",
+          form_tag: "gen_sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       errors = errors_on(changeset)
@@ -111,12 +142,22 @@ defmodule Ohmyword.Search.SearchTermTest do
 
       {:ok, _} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "psa", form_tag: "gen_sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "psa",
+          display_form: "psa",
+          form_tag: "gen_sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       {:ok, search_term} =
         %SearchTerm{}
-        |> SearchTerm.changeset(%{term: "psa", form_tag: "acc_sg", word_id: word.id})
+        |> SearchTerm.changeset(%{
+          term: "psa",
+          display_form: "psa",
+          form_tag: "acc_sg",
+          word_id: word.id
+        })
         |> Repo.insert()
 
       assert search_term.term == "psa"

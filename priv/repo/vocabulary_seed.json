@@ -7,7 +7,7 @@
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The dog barks at the cat.",
-    "example_sentence_rs": "Pas laje na macku.",
+    "example_sentence_rs": "Pas laje na mačku.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -191,7 +191,7 @@
       },
       {
         "form_tag": "voc_sg",
-        "term": "junace"
+        "term": "junače"
       },
       {
         "form_tag": "nom_pl",
@@ -238,69 +238,69 @@
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "The woman reads a book.",
-    "example_sentence_rs": "Zena cita knjigu.",
+    "example_sentence_rs": "Žena čita knjigu.",
     "forms": [
       {
         "form_tag": "nom_sg",
-        "term": "zena"
+        "term": "žena"
       },
       {
         "form_tag": "gen_sg",
-        "term": "zene"
+        "term": "žene"
       },
       {
         "form_tag": "acc_sg",
-        "term": "zenu"
+        "term": "ženu"
       },
       {
         "form_tag": "dat_sg",
-        "term": "zeni"
+        "term": "ženi"
       },
       {
         "form_tag": "loc_sg",
-        "term": "zeni"
+        "term": "ženi"
       },
       {
         "form_tag": "ins_sg",
-        "term": "zenom"
+        "term": "ženom"
       },
       {
         "form_tag": "voc_sg",
-        "term": "zeno"
+        "term": "ženo"
       },
       {
         "form_tag": "nom_pl",
-        "term": "zene"
+        "term": "žene"
       },
       {
         "form_tag": "gen_pl",
-        "term": "zena"
+        "term": "žena"
       },
       {
         "form_tag": "dat_pl",
-        "term": "zenama"
+        "term": "ženama"
       },
       {
         "form_tag": "acc_pl",
-        "term": "zene"
+        "term": "žene"
       },
       {
         "form_tag": "voc_pl",
-        "term": "zene"
+        "term": "žene"
       },
       {
         "form_tag": "ins_pl",
-        "term": "zenama"
+        "term": "ženama"
       },
       {
         "form_tag": "loc_pl",
-        "term": "zenama"
+        "term": "ženama"
       }
     ],
     "gender": "feminine",
     "part_of_speech": "noun",
     "proficiency_level": 1,
-    "term": "zena",
+    "term": "žena",
     "translation": "woman",
     "translations": [
       "wife"
@@ -382,7 +382,7 @@
     ],
     "declension_class": "o-stem",
     "example_sentence_en": "I live in a small village.",
-    "example_sentence_rs": "Zivim u malom selu.",
+    "example_sentence_rs": "Živim u malom selu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -524,7 +524,7 @@
     ],
     "declension_class": "e-stem",
     "example_sentence_en": "The child is playing.",
-    "example_sentence_rs": "Dete se igra.",
+    "example_sentence_rs": "Dete se igra u parku.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -638,43 +638,43 @@
       },
       {
         "form_tag": "nom_pl",
-        "term": "oci"
+        "term": "oči"
       },
       {
         "form_tag": "gen_pl",
-        "term": "ociju"
+        "term": "očiju"
       },
       {
         "form_tag": "dat_pl",
-        "term": "ocima"
+        "term": "očima"
       },
       {
         "form_tag": "acc_pl",
-        "term": "oci"
+        "term": "oči"
       },
       {
         "form_tag": "voc_pl",
-        "term": "oci"
+        "term": "oči"
       },
       {
         "form_tag": "ins_pl",
-        "term": "ocima"
+        "term": "očima"
       },
       {
         "form_tag": "loc_pl",
-        "term": "ocima"
+        "term": "očima"
       }
     ],
     "gender": "neuter",
     "grammar_metadata": {
       "irregular_forms": {
-        "acc_pl": "oci",
-        "dat_pl": "ocima",
-        "gen_pl": "ociju",
-        "ins_pl": "ocima",
-        "loc_pl": "ocima",
-        "nom_pl": "oci",
-        "voc_pl": "oci"
+        "acc_pl": "oči",
+        "dat_pl": "očima",
+        "gen_pl": "očiju",
+        "ins_pl": "očima",
+        "loc_pl": "očima",
+        "nom_pl": "oči",
+        "voc_pl": "oči"
       }
     },
     "part_of_speech": "noun",
@@ -689,35 +689,35 @@
     ],
     "declension_class": "consonant",
     "example_sentence_en": "A man walks down the street.",
-    "example_sentence_rs": "Covek hoda ulicom.",
+    "example_sentence_rs": "Čovek hoda ulicom.",
     "forms": [
       {
         "form_tag": "nom_sg",
-        "term": "covek"
+        "term": "čovek"
       },
       {
         "form_tag": "gen_sg",
-        "term": "coveka"
+        "term": "čoveka"
       },
       {
         "form_tag": "acc_sg",
-        "term": "coveka"
+        "term": "čoveka"
       },
       {
         "form_tag": "dat_sg",
-        "term": "coveku"
+        "term": "čoveku"
       },
       {
         "form_tag": "loc_sg",
-        "term": "coveku"
+        "term": "čoveku"
       },
       {
         "form_tag": "ins_sg",
-        "term": "covekom"
+        "term": "čovekom"
       },
       {
         "form_tag": "voc_sg",
-        "term": "covece"
+        "term": "čoveče"
       },
       {
         "form_tag": "nom_pl",
@@ -763,7 +763,7 @@
     },
     "part_of_speech": "noun",
     "proficiency_level": 1,
-    "term": "covek",
+    "term": "čovek",
     "translation": "man",
     "translations": [
       "person",
@@ -778,7 +778,7 @@
     ],
     "conjugation_class": "e-verb",
     "example_sentence_en": "I am writing a letter.",
-    "example_sentence_rs": "Pisem pismo.",
+    "example_sentence_rs": "Pišem pismo.",
     "forms": [
       {
         "form_tag": "inf",
@@ -786,39 +786,39 @@
       },
       {
         "form_tag": "pres_1sg",
-        "term": "pisem"
+        "term": "pišem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "pises"
+        "term": "pišeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "pise"
+        "term": "piše"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "pisemo"
+        "term": "pišemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "pisete"
+        "term": "pišete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "pisu"
+        "term": "pišu"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "pisi"
+        "term": "piši"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "pisimo"
+        "term": "pišimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "pisite"
+        "term": "pišite"
       },
       {
         "form_tag": "past_m_sg",
@@ -846,7 +846,7 @@
       }
     ],
     "grammar_metadata": {
-      "present_stem": "pis"
+      "present_stem": "piš"
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
@@ -870,39 +870,39 @@
       },
       {
         "form_tag": "pres_1sg",
-        "term": "napisem"
+        "term": "napišem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "napises"
+        "term": "napišeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "napise"
+        "term": "napiše"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "napisemo"
+        "term": "napišemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "napisete"
+        "term": "napišete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "napisu"
+        "term": "napišu"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "napisi"
+        "term": "napiši"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "napisimo"
+        "term": "napišimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "napisite"
+        "term": "napišite"
       },
       {
         "form_tag": "past_m_sg",
@@ -930,7 +930,7 @@
       }
     ],
     "grammar_metadata": {
-      "present_stem": "napis"
+      "present_stem": "napiš"
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
@@ -950,77 +950,77 @@
     ],
     "conjugation_class": "a-verb",
     "example_sentence_en": "I am reading a book.",
-    "example_sentence_rs": "Citam knjigu.",
+    "example_sentence_rs": "Čitam zanimljivu knjigu.",
     "forms": [
       {
         "form_tag": "inf",
-        "term": "citati"
+        "term": "čitati"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "citam"
+        "term": "čitam"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "citas"
+        "term": "čitaš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "cita"
+        "term": "čita"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "citamo"
+        "term": "čitamo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "citate"
+        "term": "čitate"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "citaju"
+        "term": "čitaju"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "citaj"
+        "term": "čitaj"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "citajmo"
+        "term": "čitajmo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "citajte"
+        "term": "čitajte"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "citao"
+        "term": "čitao"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "citala"
+        "term": "čitala"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "citalo"
+        "term": "čitalo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "citali"
+        "term": "čitali"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "citale"
+        "term": "čitale"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "citala"
+        "term": "čitala"
       }
     ],
     "part_of_speech": "verb",
     "proficiency_level": 1,
     "reflexive": false,
-    "term": "citati",
+    "term": "čitati",
     "transitive": true,
     "translation": "to read",
     "verb_aspect": "imperfective"
@@ -1043,7 +1043,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "govoris"
+        "term": "govoriš"
       },
       {
         "form_tag": "pres_3sg",
@@ -1211,7 +1211,7 @@
     ],
     "conjugation_class": "irregular",
     "example_sentence_en": "I want to eat.",
-    "example_sentence_rs": "Hocu da jedem.",
+    "example_sentence_rs": "Hoću da učim.",
     "forms": [
       {
         "form_tag": "inf",
@@ -1219,27 +1219,27 @@
       },
       {
         "form_tag": "pres_1sg",
-        "term": "hocu"
+        "term": "hoću"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "hoces"
+        "term": "hoćeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "hoce"
+        "term": "hoće"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "hocemo"
+        "term": "hoćemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "hocete"
+        "term": "hoćete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "hoce"
+        "term": "hoće"
       },
       {
         "form_tag": "past_m_sg",
@@ -1269,12 +1269,12 @@
     "grammar_metadata": {
       "auxiliary": true,
       "irregular_forms": {
-        "pres_1pl": "hocemo",
-        "pres_1sg": "hocu",
-        "pres_2pl": "hocete",
-        "pres_2sg": "hoces",
-        "pres_3pl": "hoce",
-        "pres_3sg": "hoce"
+        "pres_1pl": "hoćemo",
+        "pres_1sg": "hoću",
+        "pres_2pl": "hoćete",
+        "pres_2sg": "hoćeš",
+        "pres_3pl": "hoće",
+        "pres_3sg": "hoće"
       }
     },
     "part_of_speech": "verb",
@@ -1291,7 +1291,7 @@
     ],
     "conjugation_class": "je-verb",
     "example_sentence_en": "The children are laughing.",
-    "example_sentence_rs": "Deca se smeju.",
+    "example_sentence_rs": "Deca se smeju u parku.",
     "forms": [
       {
         "form_tag": "inf",
@@ -1303,7 +1303,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "smejes"
+        "term": "smeješ"
       },
       {
         "form_tag": "pres_3sg",
@@ -1364,11 +1364,11 @@
     ],
     "conjugation_class": "irregular",
     "example_sentence_en": "I am going to school.",
-    "example_sentence_rs": "Idem u skolu.",
+    "example_sentence_rs": "Idem u školu.",
     "forms": [
       {
         "form_tag": "inf",
-        "term": "ici"
+        "term": "ići"
       },
       {
         "form_tag": "pres_1sg",
@@ -1376,7 +1376,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "ides"
+        "term": "ideš"
       },
       {
         "form_tag": "pres_3sg",
@@ -1439,7 +1439,7 @@
     "part_of_speech": "verb",
     "proficiency_level": 1,
     "reflexive": false,
-    "term": "ici",
+    "term": "ići",
     "transitive": false,
     "translation": "to go",
     "verb_aspect": "imperfective"
@@ -1528,32 +1528,32 @@
       },
       {
         "form_tag": "comp_nom_sg_m",
-        "term": "veci"
+        "term": "veći"
       },
       {
         "form_tag": "comp_nom_sg_f",
-        "term": "veca"
+        "term": "veća"
       },
       {
         "form_tag": "comp_nom_sg_n",
-        "term": "vece"
+        "term": "veće"
       },
       {
         "form_tag": "super_nom_sg_m",
-        "term": "najveci"
+        "term": "najveći"
       },
       {
         "form_tag": "super_nom_sg_f",
-        "term": "najveca"
+        "term": "najveća"
       },
       {
         "form_tag": "super_nom_sg_n",
-        "term": "najvece"
+        "term": "najveće"
       }
     ],
     "gender": "masculine",
     "grammar_metadata": {
-      "comparative_stem": "vec"
+      "comparative_stem": "već"
     },
     "part_of_speech": "adjective",
     "proficiency_level": 1,
@@ -2102,7 +2102,7 @@
     ],
     "declension_class": "i-stem",
     "example_sentence_en": "Love is beautiful.",
-    "example_sentence_rs": "Ljubav je lepa.",
+    "example_sentence_rs": "Ljubav je večna.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -2149,7 +2149,7 @@
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "I am reading an interesting book.",
-    "example_sentence_rs": "Citam zanimljivu knjigu.",
+    "example_sentence_rs": "Čitam zanimljivu knjigu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -2724,54 +2724,54 @@
       },
       {
         "form_tag": "voc_sg",
-        "term": "oce"
+        "term": "oče"
       },
       {
         "form_tag": "nom_pl",
-        "term": "ocevi"
+        "term": "očevi"
       },
       {
         "form_tag": "gen_pl",
-        "term": "oceva"
+        "term": "očeva"
       },
       {
         "form_tag": "dat_pl",
-        "term": "ocevima"
+        "term": "očevima"
       },
       {
         "form_tag": "acc_pl",
-        "term": "oceve"
+        "term": "očeve"
       },
       {
         "form_tag": "voc_pl",
-        "term": "ocevi"
+        "term": "očevi"
       },
       {
         "form_tag": "ins_pl",
-        "term": "ocevima"
+        "term": "očevima"
       },
       {
         "form_tag": "loc_pl",
-        "term": "ocevima"
+        "term": "očevima"
       }
     ],
     "gender": "masculine",
     "grammar_metadata": {
       "fleeting_a": true,
       "irregular_forms": {
-        "acc_pl": "oceve",
+        "acc_pl": "očeve",
         "acc_sg": "oca",
-        "dat_pl": "ocevima",
+        "dat_pl": "očevima",
         "dat_sg": "ocu",
-        "gen_pl": "oceva",
+        "gen_pl": "očeva",
         "gen_sg": "oca",
-        "ins_pl": "ocevima",
+        "ins_pl": "očevima",
         "ins_sg": "ocem",
-        "loc_pl": "ocevima",
+        "loc_pl": "očevima",
         "loc_sg": "ocu",
-        "nom_pl": "ocevi",
-        "voc_pl": "ocevi",
-        "voc_sg": "oce"
+        "nom_pl": "očevi",
+        "voc_pl": "očevi",
+        "voc_sg": "oče"
       },
       "palatalization": true
     },
@@ -3011,65 +3011,65 @@
     "forms": [
       {
         "form_tag": "nom_sg",
-        "term": "skola"
+        "term": "škola"
       },
       {
         "form_tag": "gen_sg",
-        "term": "skole"
+        "term": "škole"
       },
       {
         "form_tag": "acc_sg",
-        "term": "skolu"
+        "term": "školu"
       },
       {
         "form_tag": "dat_sg",
-        "term": "skoli"
+        "term": "školi"
       },
       {
         "form_tag": "loc_sg",
-        "term": "skoli"
+        "term": "školi"
       },
       {
         "form_tag": "ins_sg",
-        "term": "skolom"
+        "term": "školom"
       },
       {
         "form_tag": "voc_sg",
-        "term": "skolo"
+        "term": "školo"
       },
       {
         "form_tag": "nom_pl",
-        "term": "skole"
+        "term": "škole"
       },
       {
         "form_tag": "gen_pl",
-        "term": "skola"
+        "term": "škola"
       },
       {
         "form_tag": "dat_pl",
-        "term": "skolama"
+        "term": "školama"
       },
       {
         "form_tag": "acc_pl",
-        "term": "skole"
+        "term": "škole"
       },
       {
         "form_tag": "voc_pl",
-        "term": "skole"
+        "term": "škole"
       },
       {
         "form_tag": "ins_pl",
-        "term": "skolama"
+        "term": "školama"
       },
       {
         "form_tag": "loc_pl",
-        "term": "skolama"
+        "term": "školama"
       }
     ],
     "gender": "feminine",
     "part_of_speech": "noun",
     "proficiency_level": 1,
-    "term": "skola",
+    "term": "škola",
     "translation": "school"
   },
   {
@@ -3229,65 +3229,65 @@
     "forms": [
       {
         "form_tag": "nom_sg",
-        "term": "kuca"
+        "term": "kuća"
       },
       {
         "form_tag": "gen_sg",
-        "term": "kuce"
+        "term": "kuće"
       },
       {
         "form_tag": "acc_sg",
-        "term": "kucu"
+        "term": "kuću"
       },
       {
         "form_tag": "dat_sg",
-        "term": "kuci"
+        "term": "kući"
       },
       {
         "form_tag": "loc_sg",
-        "term": "kuci"
+        "term": "kući"
       },
       {
         "form_tag": "ins_sg",
-        "term": "kucom"
+        "term": "kućom"
       },
       {
         "form_tag": "voc_sg",
-        "term": "kuco"
+        "term": "kućo"
       },
       {
         "form_tag": "nom_pl",
-        "term": "kuce"
+        "term": "kuće"
       },
       {
         "form_tag": "gen_pl",
-        "term": "kuca"
+        "term": "kuća"
       },
       {
         "form_tag": "dat_pl",
-        "term": "kucama"
+        "term": "kućama"
       },
       {
         "form_tag": "acc_pl",
-        "term": "kuce"
+        "term": "kuće"
       },
       {
         "form_tag": "voc_pl",
-        "term": "kuce"
+        "term": "kuće"
       },
       {
         "form_tag": "ins_pl",
-        "term": "kucama"
+        "term": "kućama"
       },
       {
         "form_tag": "loc_pl",
-        "term": "kucama"
+        "term": "kućama"
       }
     ],
     "gender": "feminine",
     "part_of_speech": "noun",
     "proficiency_level": 1,
-    "term": "kuca",
+    "term": "kuća",
     "translation": "house",
     "translations": [
       "home"
@@ -3302,59 +3302,59 @@
     "forms": [
       {
         "form_tag": "nom_sg",
-        "term": "noc"
+        "term": "noć"
       },
       {
         "form_tag": "gen_sg",
-        "term": "noci"
+        "term": "noći"
       },
       {
         "form_tag": "acc_sg",
-        "term": "noc"
+        "term": "noć"
       },
       {
         "form_tag": "dat_sg",
-        "term": "noci"
+        "term": "noći"
       },
       {
         "form_tag": "loc_sg",
-        "term": "noci"
+        "term": "noći"
       },
       {
         "form_tag": "ins_sg",
-        "term": "nocu"
+        "term": "noću"
       },
       {
         "form_tag": "voc_sg",
-        "term": "noci"
+        "term": "noći"
       },
       {
         "form_tag": "nom_pl",
-        "term": "noci"
+        "term": "noći"
       },
       {
         "form_tag": "gen_pl",
-        "term": "noci"
+        "term": "noći"
       },
       {
         "form_tag": "dat_pl",
-        "term": "nocima"
+        "term": "noćima"
       },
       {
         "form_tag": "acc_pl",
-        "term": "noci"
+        "term": "noći"
       },
       {
         "form_tag": "voc_pl",
-        "term": "noci"
+        "term": "noći"
       },
       {
         "form_tag": "ins_pl",
-        "term": "nocima"
+        "term": "noćima"
       },
       {
         "form_tag": "loc_pl",
-        "term": "nocima"
+        "term": "noćima"
       }
     ],
     "gender": "feminine",
@@ -3363,7 +3363,7 @@
     },
     "part_of_speech": "noun",
     "proficiency_level": 1,
-    "term": "noc",
+    "term": "noć",
     "translation": "night"
   },
   {
@@ -3394,7 +3394,7 @@
       },
       {
         "form_tag": "ins_sg",
-        "term": "koscu"
+        "term": "kosću"
       },
       {
         "form_tag": "voc_sg",
@@ -3843,7 +3843,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "imas"
+        "term": "imaš"
       },
       {
         "form_tag": "pres_3sg",
@@ -3922,7 +3922,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "znas"
+        "term": "znaš"
       },
       {
         "form_tag": "pres_3sg",
@@ -3993,73 +3993,73 @@
     "forms": [
       {
         "form_tag": "inf",
-        "term": "cekati"
+        "term": "čekati"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "cekam"
+        "term": "čekam"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "cekas"
+        "term": "čekaš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "ceka"
+        "term": "čeka"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "cekamo"
+        "term": "čekamo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "cekate"
+        "term": "čekate"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "cekaju"
+        "term": "čekaju"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "cekaj"
+        "term": "čekaj"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "cekajmo"
+        "term": "čekajmo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "cekajte"
+        "term": "čekajte"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "cekao"
+        "term": "čekao"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "cekala"
+        "term": "čekala"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "cekalo"
+        "term": "čekalo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "cekali"
+        "term": "čekali"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "cekale"
+        "term": "čekale"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "cekala"
+        "term": "čekala"
       }
     ],
     "part_of_speech": "verb",
     "proficiency_level": 1,
     "reflexive": false,
-    "term": "cekati",
+    "term": "čekati",
     "transitive": true,
     "translation": "to wait",
     "verb_aspect": "imperfective"
@@ -4081,7 +4081,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "gledas"
+        "term": "gledaš"
       },
       {
         "form_tag": "pres_3sg",
@@ -4164,7 +4164,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "radis"
+        "term": "radiš"
       },
       {
         "form_tag": "pres_3sg",
@@ -4243,7 +4243,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "vidis"
+        "term": "vidiš"
       },
       {
         "form_tag": "pres_3sg",
@@ -4322,7 +4322,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "volis"
+        "term": "voliš"
       },
       {
         "form_tag": "pres_3sg",
@@ -4401,7 +4401,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "mislis"
+        "term": "misliš"
       },
       {
         "form_tag": "pres_3sg",
@@ -4480,7 +4480,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "nosis"
+        "term": "nosiš"
       },
       {
         "form_tag": "pres_3sg",
@@ -4563,7 +4563,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "jedes"
+        "term": "jedeš"
       },
       {
         "form_tag": "pres_3sg",
@@ -4647,7 +4647,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "pijes"
+        "term": "piješ"
       },
       {
         "form_tag": "pres_3sg",
@@ -4722,27 +4722,27 @@
     "forms": [
       {
         "form_tag": "inf",
-        "term": "moci"
+        "term": "moći"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "mozem"
+        "term": "možem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "mozes"
+        "term": "možeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "moze"
+        "term": "može"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "mozemo"
+        "term": "možemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "mozete"
+        "term": "možete"
       },
       {
         "form_tag": "pres_3pl",
@@ -4750,15 +4750,15 @@
       },
       {
         "form_tag": "imp_2sg",
-        "term": "mozi"
+        "term": "moži"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "mozimo"
+        "term": "možimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "mozite"
+        "term": "možite"
       },
       {
         "form_tag": "past_m_sg",
@@ -4791,12 +4791,12 @@
       },
       "past_stem": "mog",
       "present_conjugation_class": "e-verb",
-      "present_stem": "moz"
+      "present_stem": "mož"
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
     "reflexive": false,
-    "term": "moci",
+    "term": "moći",
     "transitive": false,
     "translation": "to be able",
     "translations": [
@@ -4820,7 +4820,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "das"
+        "term": "daš"
       },
       {
         "form_tag": "pres_3sg",
@@ -4896,43 +4896,43 @@
     "forms": [
       {
         "form_tag": "inf",
-        "term": "doci"
+        "term": "doći"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "dodjem"
+        "term": "dođem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "dodjes"
+        "term": "dođeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "dodje"
+        "term": "dođe"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "dodjemo"
+        "term": "dođemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "dodjete"
+        "term": "dođete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "dodju"
+        "term": "dođu"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "dodji"
+        "term": "dođi"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "dodjimo"
+        "term": "dođimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "dodjite"
+        "term": "dođite"
       },
       {
         "form_tag": "past_m_sg",
@@ -4962,12 +4962,12 @@
     "grammar_metadata": {
       "past_stem": "dos",
       "present_conjugation_class": "e-verb",
-      "present_stem": "dodj"
+      "present_stem": "dođ"
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
     "reflexive": false,
-    "term": "doci",
+    "term": "doći",
     "transitive": false,
     "translation": "to come",
     "verb_aspect": "perfective"
@@ -4980,27 +4980,27 @@
     "forms": [
       {
         "form_tag": "inf",
-        "term": "reci"
+        "term": "reći"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "recem"
+        "term": "rečem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "reces"
+        "term": "rečeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "rece"
+        "term": "reče"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "recemo"
+        "term": "rečemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "recete"
+        "term": "rečete"
       },
       {
         "form_tag": "pres_3pl",
@@ -5008,15 +5008,15 @@
       },
       {
         "form_tag": "imp_2sg",
-        "term": "reci"
+        "term": "reči"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "recimo"
+        "term": "rečimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "recite"
+        "term": "rečite"
       },
       {
         "form_tag": "past_m_sg",
@@ -5049,12 +5049,12 @@
       },
       "past_stem": "rek",
       "present_conjugation_class": "e-verb",
-      "present_stem": "rec"
+      "present_stem": "reč"
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
     "reflexive": false,
-    "term": "reci",
+    "term": "reći",
     "transitive": true,
     "translation": "to say",
     "translations": [
@@ -5078,7 +5078,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "bojis"
+        "term": "bojiš"
       },
       {
         "form_tag": "pres_3sg",
@@ -5164,7 +5164,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "kupujes"
+        "term": "kupuješ"
       },
       {
         "form_tag": "pres_3sg",
@@ -5421,32 +5421,32 @@
       },
       {
         "form_tag": "comp_nom_sg_m",
-        "term": "mladji"
+        "term": "mlađi"
       },
       {
         "form_tag": "comp_nom_sg_f",
-        "term": "mladja"
+        "term": "mlađa"
       },
       {
         "form_tag": "comp_nom_sg_n",
-        "term": "mladje"
+        "term": "mlađe"
       },
       {
         "form_tag": "super_nom_sg_m",
-        "term": "najmladji"
+        "term": "najmlađi"
       },
       {
         "form_tag": "super_nom_sg_f",
-        "term": "najmladja"
+        "term": "najmlađa"
       },
       {
         "form_tag": "super_nom_sg_n",
-        "term": "najmladje"
+        "term": "najmlađe"
       }
     ],
     "gender": "masculine",
     "grammar_metadata": {
-      "comparative_stem": "mladj"
+      "comparative_stem": "mlađ"
     },
     "part_of_speech": "adjective",
     "proficiency_level": 1,
@@ -5505,32 +5505,32 @@
       },
       {
         "form_tag": "comp_nom_sg_m",
-        "term": "duzi"
+        "term": "duži"
       },
       {
         "form_tag": "comp_nom_sg_f",
-        "term": "duza"
+        "term": "duža"
       },
       {
         "form_tag": "comp_nom_sg_n",
-        "term": "duze"
+        "term": "duže"
       },
       {
         "form_tag": "super_nom_sg_m",
-        "term": "najduzi"
+        "term": "najduži"
       },
       {
         "form_tag": "super_nom_sg_f",
-        "term": "najduza"
+        "term": "najduža"
       },
       {
         "form_tag": "super_nom_sg_n",
-        "term": "najduze"
+        "term": "najduže"
       }
     ],
     "gender": "masculine",
     "grammar_metadata": {
-      "comparative_stem": "duz"
+      "comparative_stem": "duž"
     },
     "part_of_speech": "adjective",
     "proficiency_level": 2,
@@ -5560,32 +5560,32 @@
       },
       {
         "form_tag": "comp_nom_sg_m",
-        "term": "jaci"
+        "term": "jači"
       },
       {
         "form_tag": "comp_nom_sg_f",
-        "term": "jaca"
+        "term": "jača"
       },
       {
         "form_tag": "comp_nom_sg_n",
-        "term": "jace"
+        "term": "jače"
       },
       {
         "form_tag": "super_nom_sg_m",
-        "term": "najjaci"
+        "term": "najjači"
       },
       {
         "form_tag": "super_nom_sg_f",
-        "term": "najjaca"
+        "term": "najjača"
       },
       {
         "form_tag": "super_nom_sg_n",
-        "term": "najjace"
+        "term": "najjače"
       }
     ],
     "gender": "masculine",
     "grammar_metadata": {
-      "comparative_stem": "jac"
+      "comparative_stem": "jač"
     },
     "part_of_speech": "adjective",
     "proficiency_level": 2,
@@ -5631,19 +5631,19 @@
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
-        "term": "los"
+        "term": "loš"
       },
       {
         "form_tag": "indef_nom_sg_f",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "indef_nom_sg_n",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "def_nom_sg_m",
-        "term": "losi"
+        "term": "loši"
       },
       {
         "form_tag": "comp_nom_sg_m",
@@ -5677,7 +5677,7 @@
     },
     "part_of_speech": "adjective",
     "proficiency_level": 1,
-    "term": "los",
+    "term": "loš",
     "translation": "bad"
   },
   {
@@ -6087,27 +6087,27 @@
     "forms": [
       {
         "form_tag": "nom_sg",
-        "term": "sta"
+        "term": "šta"
       },
       {
         "form_tag": "gen_sg",
-        "term": "cega"
+        "term": "čega"
       },
       {
         "form_tag": "dat_sg",
-        "term": "cemu"
+        "term": "čemu"
       },
       {
         "form_tag": "acc_sg",
-        "term": "sta"
+        "term": "šta"
       },
       {
         "form_tag": "ins_sg",
-        "term": "cim"
+        "term": "čim"
       },
       {
         "form_tag": "loc_sg",
-        "term": "cemu"
+        "term": "čemu"
       }
     ],
     "gender": "neuter",
@@ -6116,7 +6116,7 @@
     },
     "part_of_speech": "pronoun",
     "proficiency_level": 1,
-    "term": "sta",
+    "term": "šta",
     "translation": "what"
   },
   {
@@ -6850,7 +6850,7 @@
       },
       {
         "form_tag": "voc_sg",
-        "term": "vuce"
+        "term": "vuče"
       },
       {
         "form_tag": "ins_sg",
@@ -6892,7 +6892,7 @@
     "gender": "masculine",
     "grammar_metadata": {
       "irregular_forms": {
-        "voc_sg": "vuce"
+        "voc_sg": "vuče"
       }
     },
     "part_of_speech": "noun",
@@ -8031,7 +8031,7 @@
       },
       {
         "form_tag": "ins_sg",
-        "term": "vlascu"
+        "term": "vlasću"
       },
       {
         "form_tag": "loc_sg",
@@ -8314,7 +8314,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "pitas"
+        "term": "pitaš"
       },
       {
         "form_tag": "pres_3sg",
@@ -8393,7 +8393,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "igras"
+        "term": "igraš"
       },
       {
         "form_tag": "pres_3sg",
@@ -8472,7 +8472,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "pevas"
+        "term": "pevaš"
       },
       {
         "form_tag": "pres_3sg",
@@ -8551,7 +8551,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "spavas"
+        "term": "spavaš"
       },
       {
         "form_tag": "pres_3sg",
@@ -8622,73 +8622,73 @@
     "forms": [
       {
         "form_tag": "inf",
-        "term": "slusati"
+        "term": "slušati"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "slusam"
+        "term": "slušam"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "slusas"
+        "term": "slušaš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "slusa"
+        "term": "sluša"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "slusamo"
+        "term": "slušamo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "slusate"
+        "term": "slušate"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "slusaju"
+        "term": "slušaju"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "slusao"
+        "term": "slušao"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "slusala"
+        "term": "slušala"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "slusalo"
+        "term": "slušalo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "slusali"
+        "term": "slušali"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "slusale"
+        "term": "slušale"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "slusala"
+        "term": "slušala"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "slusaj"
+        "term": "slušaj"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "slusajmo"
+        "term": "slušajmo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "slusajte"
+        "term": "slušajte"
       }
     ],
     "grammar_metadata": {},
     "part_of_speech": "verb",
     "proficiency_level": 1,
-    "term": "slusati",
+    "term": "slušati",
     "translation": "to listen",
     "verb_aspect": "imperfective"
   },
@@ -8700,73 +8700,73 @@
     "forms": [
       {
         "form_tag": "inf",
-        "term": "uciti"
+        "term": "učiti"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "ucim"
+        "term": "učim"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "ucis"
+        "term": "učiš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "uci"
+        "term": "uči"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "ucimo"
+        "term": "učimo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "ucite"
+        "term": "učite"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "uce"
+        "term": "uče"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "ucio"
+        "term": "učio"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "ucila"
+        "term": "učila"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "ucilo"
+        "term": "učilo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "ucili"
+        "term": "učili"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "ucile"
+        "term": "učile"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "ucila"
+        "term": "učila"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "uci"
+        "term": "uči"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "ucimo"
+        "term": "učimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "ucite"
+        "term": "učite"
       }
     ],
     "grammar_metadata": {},
     "part_of_speech": "verb",
     "proficiency_level": 1,
-    "term": "uciti",
+    "term": "učiti",
     "translation": "to learn",
     "translations": [
       "to study",
@@ -8791,7 +8791,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "molis"
+        "term": "moliš"
       },
       {
         "form_tag": "pres_3sg",
@@ -8865,73 +8865,73 @@
     "forms": [
       {
         "form_tag": "inf",
-        "term": "traziti"
+        "term": "tražiti"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "trazim"
+        "term": "tražim"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "trazis"
+        "term": "tražiš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "trazi"
+        "term": "traži"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "trazimo"
+        "term": "tražimo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "trazite"
+        "term": "tražite"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "traze"
+        "term": "traže"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "trazio"
+        "term": "tražio"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "trazila"
+        "term": "tražila"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "trazilo"
+        "term": "tražilo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "trazili"
+        "term": "tražili"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "trazile"
+        "term": "tražile"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "trazila"
+        "term": "tražila"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "trazi"
+        "term": "traži"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "trazimo"
+        "term": "tražimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "trazite"
+        "term": "tražite"
       }
     ],
     "grammar_metadata": {},
     "part_of_speech": "verb",
     "proficiency_level": 1,
-    "term": "traziti",
+    "term": "tražiti",
     "translation": "to seek",
     "translations": [
       "to look for",
@@ -8955,7 +8955,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "pustis"
+        "term": "pustiš"
       },
       {
         "form_tag": "pres_3sg",
@@ -9037,7 +9037,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "javis"
+        "term": "javiš"
       },
       {
         "form_tag": "pres_3sg",
@@ -9116,27 +9116,27 @@
       },
       {
         "form_tag": "pres_1sg",
-        "term": "rezem"
+        "term": "režem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "rezes"
+        "term": "režeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "reze"
+        "term": "reže"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "rezemo"
+        "term": "režemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "rezete"
+        "term": "režete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "rezu"
+        "term": "režu"
       },
       {
         "form_tag": "past_m_sg",
@@ -9164,15 +9164,15 @@
       },
       {
         "form_tag": "imp_2sg",
-        "term": "rezi"
+        "term": "reži"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "rezimo"
+        "term": "režimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "rezite"
+        "term": "režite"
       }
     ],
     "grammar_metadata": {},
@@ -9195,27 +9195,27 @@
       },
       {
         "form_tag": "pres_1sg",
-        "term": "mazem"
+        "term": "mažem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "mazes"
+        "term": "mažeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "maze"
+        "term": "maže"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "mazemo"
+        "term": "mažemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "mazete"
+        "term": "mažete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "mazu"
+        "term": "mažu"
       },
       {
         "form_tag": "past_m_sg",
@@ -9243,15 +9243,15 @@
       },
       {
         "form_tag": "imp_2sg",
-        "term": "mazi"
+        "term": "maži"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "mazimo"
+        "term": "mažimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "mazite"
+        "term": "mažite"
       }
     ],
     "grammar_metadata": {},
@@ -9276,27 +9276,27 @@
       },
       {
         "form_tag": "pres_1sg",
-        "term": "lazem"
+        "term": "lažem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "lazes"
+        "term": "lažeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "laze"
+        "term": "laže"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "lazemo"
+        "term": "lažemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "lazete"
+        "term": "lažete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "lazu"
+        "term": "lažu"
       },
       {
         "form_tag": "past_m_sg",
@@ -9324,15 +9324,15 @@
       },
       {
         "form_tag": "imp_2sg",
-        "term": "lazi"
+        "term": "laži"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "lazimo"
+        "term": "lažimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "lazite"
+        "term": "lažite"
       }
     ],
     "grammar_metadata": {},
@@ -9362,7 +9362,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "uzmes"
+        "term": "uzmeš"
       },
       {
         "form_tag": "pres_3sg",
@@ -9435,75 +9435,75 @@
     "forms": [
       {
         "form_tag": "inf",
-        "term": "poceti"
+        "term": "početi"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "pocnem"
+        "term": "počnem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "pocnes"
+        "term": "počneš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "pocne"
+        "term": "počne"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "pocnemo"
+        "term": "počnemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "pocnete"
+        "term": "počnete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "pocnu"
+        "term": "počnu"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "poceo"
+        "term": "počeo"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "pocela"
+        "term": "počela"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "pocelo"
+        "term": "počelo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "poceli"
+        "term": "počeli"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "pocele"
+        "term": "počele"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "pocela"
+        "term": "počela"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "pocni"
+        "term": "počni"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "pocnimo"
+        "term": "počnimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "pocnite"
+        "term": "počnite"
       }
     ],
     "grammar_metadata": {
-      "present_stem": "pocn"
+      "present_stem": "počn"
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
-    "term": "poceti",
+    "term": "početi",
     "translation": "to begin",
     "translations": [
       "to start"
@@ -13868,27 +13868,27 @@
     "forms": [
       {
         "form_tag": "acc",
-        "term": "cetiri"
+        "term": "četiri"
       },
       {
         "form_tag": "dat",
-        "term": "cetirima"
+        "term": "četirima"
       },
       {
         "form_tag": "gen",
-        "term": "cetiriju"
+        "term": "četiriju"
       },
       {
         "form_tag": "ins",
-        "term": "cetirima"
+        "term": "četirima"
       },
       {
         "form_tag": "loc",
-        "term": "cetirima"
+        "term": "četirima"
       },
       {
         "form_tag": "nom",
-        "term": "cetiri"
+        "term": "četiri"
       }
     ],
     "gender": "masculine",
@@ -13898,7 +13898,7 @@
     },
     "part_of_speech": "numeral",
     "proficiency_level": 1,
-    "term": "cetiri",
+    "term": "četiri",
     "translation": "four"
   },
   {
@@ -13908,7 +13908,7 @@
     "forms": [
       {
         "form_tag": "base",
-        "term": "sest"
+        "term": "šest"
       }
     ],
     "gender": "masculine",
@@ -13918,7 +13918,7 @@
     },
     "part_of_speech": "numeral",
     "proficiency_level": 1,
-    "term": "sest",
+    "term": "šest",
     "translation": "six"
   },
   {
@@ -14429,13 +14429,13 @@
     "forms": [
       {
         "form_tag": "invariable",
-        "term": "izmedju"
+        "term": "između"
       }
     ],
     "grammar_metadata": {},
     "part_of_speech": "preposition",
     "proficiency_level": 2,
-    "term": "izmedju",
+    "term": "između",
     "translation": "between",
     "translations": [
       "among"
@@ -14771,7 +14771,7 @@
     "forms": [
       {
         "form_tag": "base",
-        "term": "tesko"
+        "term": "teško"
       },
       {
         "form_tag": "comparative",
@@ -14788,7 +14788,7 @@
     },
     "part_of_speech": "adverb",
     "proficiency_level": 2,
-    "term": "tesko",
+    "term": "teško",
     "translation": "with difficulty",
     "translations": [
       "hard",
@@ -14922,13 +14922,13 @@
     "forms": [
       {
         "form_tag": "invariable",
-        "term": "bas"
+        "term": "baš"
       }
     ],
     "grammar_metadata": {},
     "part_of_speech": "particle",
     "proficiency_level": 2,
-    "term": "bas",
+    "term": "baš",
     "translation": "exactly",
     "translations": [
       "really",
@@ -14942,13 +14942,13 @@
     "forms": [
       {
         "form_tag": "invariable",
-        "term": "cak"
+        "term": "čak"
       }
     ],
     "grammar_metadata": {},
     "part_of_speech": "particle",
     "proficiency_level": 2,
-    "term": "cak",
+    "term": "čak",
     "translation": "even"
   },
   {
@@ -15090,7 +15090,7 @@
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "My sister lives in Belgrade.",
-    "example_sentence_rs": "Moja sestra zivi u Beogradu.",
+    "example_sentence_rs": "Sestra čita knjigu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -15166,7 +15166,7 @@
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "Put the books in the bag.",
-    "example_sentence_rs": "Stavi knjige u torbu.",
+    "example_sentence_rs": "Torba je teška.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -15319,7 +15319,7 @@
     ],
     "declension_class": "o-stem",
     "example_sentence_en": "I want one beer.",
-    "example_sentence_rs": "Zelim jedno pivo.",
+    "example_sentence_rs": "Pivo je hladno.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -15395,7 +15395,7 @@
     ],
     "declension_class": "o-stem",
     "example_sentence_en": "The child drinks milk.",
-    "example_sentence_rs": "Dete pije mleko.",
+    "example_sentence_rs": "Mleko je sveže.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -15446,63 +15446,63 @@
     ],
     "declension_class": "consonant",
     "example_sentence_en": "Where is the key?",
-    "example_sentence_rs": "Gde je kljuc?",
+    "example_sentence_rs": "Ključ je na stolu.",
     "forms": [
       {
         "form_tag": "nom_sg",
-        "term": "kljuc"
+        "term": "ključ"
       },
       {
         "form_tag": "gen_sg",
-        "term": "kljuca"
+        "term": "ključa"
       },
       {
         "form_tag": "dat_sg",
-        "term": "kljucu"
+        "term": "ključu"
       },
       {
         "form_tag": "acc_sg",
-        "term": "kljuc"
+        "term": "ključ"
       },
       {
         "form_tag": "voc_sg",
-        "term": "kljuce"
+        "term": "ključe"
       },
       {
         "form_tag": "ins_sg",
-        "term": "kljucom"
+        "term": "ključom"
       },
       {
         "form_tag": "loc_sg",
-        "term": "kljucu"
+        "term": "ključu"
       },
       {
         "form_tag": "nom_pl",
-        "term": "kljucevi"
+        "term": "ključevi"
       },
       {
         "form_tag": "gen_pl",
-        "term": "kljuceva"
+        "term": "ključeva"
       },
       {
         "form_tag": "dat_pl",
-        "term": "kljucevima"
+        "term": "ključevima"
       },
       {
         "form_tag": "acc_pl",
-        "term": "kljuceve"
+        "term": "ključeve"
       },
       {
         "form_tag": "voc_pl",
-        "term": "kljucevi"
+        "term": "ključevi"
       },
       {
         "form_tag": "ins_pl",
-        "term": "kljucevima"
+        "term": "ključevima"
       },
       {
         "form_tag": "loc_pl",
-        "term": "kljucevima"
+        "term": "ključevima"
       }
     ],
     "gender": "masculine",
@@ -15620,7 +15620,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "kuvas"
+        "term": "kuvaš"
       },
       {
         "form_tag": "pres_3sg",
@@ -15692,71 +15692,71 @@
     ],
     "conjugation_class": "i-verb",
     "example_sentence_en": "Children are running in the park.",
-    "example_sentence_rs": "Deca trce u parku.",
+    "example_sentence_rs": "Trčim svaki dan.",
     "forms": [
       {
         "form_tag": "inf",
-        "term": "trcati"
+        "term": "trčati"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "trcim"
+        "term": "trčim"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "trcis"
+        "term": "trčiš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "trci"
+        "term": "trči"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "trcimo"
+        "term": "trčimo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "trcite"
+        "term": "trčite"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "trce"
+        "term": "trče"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "trcao"
+        "term": "trčao"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "trcala"
+        "term": "trčala"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "trcalo"
+        "term": "trčalo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "trcali"
+        "term": "trčali"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "trcale"
+        "term": "trčale"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "trcala"
+        "term": "trčala"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "trci"
+        "term": "trči"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "trcimo"
+        "term": "trčimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "trcite"
+        "term": "trčite"
       }
     ],
     "grammar_metadata": {
@@ -15792,7 +15792,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "letis"
+        "term": "letiš"
       },
       {
         "form_tag": "pres_3sg",
@@ -15862,7 +15862,7 @@
       "location"
     ],
     "example_sentence_en": "The cat is behind the house.",
-    "example_sentence_rs": "Macka je iza kuce.",
+    "example_sentence_rs": "Mačka je iza kuće.",
     "forms": [
       {
         "form_tag": "invariable",
@@ -15882,7 +15882,7 @@
       "location"
     ],
     "example_sentence_en": "Stand in front of the school.",
-    "example_sentence_rs": "Stani ispred skole.",
+    "example_sentence_rs": "Stani ispred škole.",
     "forms": [
       {
         "form_tag": "invariable",
@@ -15945,11 +15945,11 @@
       "uncertainty"
     ],
     "example_sentence_en": "Maybe I'll come tomorrow.",
-    "example_sentence_rs": "Mozda dodjem sutra.",
+    "example_sentence_rs": "Možda ćemo ići sutra.",
     "forms": [
       {
         "form_tag": "base",
-        "term": "mozda"
+        "term": "možda"
       }
     ],
     "part_of_speech": "adverb",
@@ -15988,35 +15988,35 @@
     ],
     "conjugation_class": "e-verb",
     "example_sentence_en": "Mom is baking bread.",
-    "example_sentence_rs": "Mama pece hleb.",
+    "example_sentence_rs": "Pečem hleb.",
     "forms": [
       {
         "form_tag": "inf",
-        "term": "peci"
+        "term": "peći"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "pecem"
+        "term": "pečem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "peces"
+        "term": "pečeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "pece"
+        "term": "peče"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "pecemo"
+        "term": "pečemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "pecete"
+        "term": "pečete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "pecu"
+        "term": "peču"
       },
       {
         "form_tag": "past_m_sg",
@@ -16044,15 +16044,15 @@
       },
       {
         "form_tag": "imp_2sg",
-        "term": "peci"
+        "term": "peči"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "pecimo"
+        "term": "pečimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "pecite"
+        "term": "pečite"
       }
     ],
     "grammar_metadata": {
@@ -16076,35 +16076,35 @@
     ],
     "conjugation_class": "e-verb",
     "example_sentence_en": "Water flows down the hill.",
-    "example_sentence_rs": "Voda tece niz brdo.",
+    "example_sentence_rs": "Reka teče brzo.",
     "forms": [
       {
         "form_tag": "inf",
-        "term": "teci"
+        "term": "teći"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "tecem"
+        "term": "tečem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "teces"
+        "term": "tečeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "tece"
+        "term": "teče"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "tecemo"
+        "term": "tečemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "tecete"
+        "term": "tečete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "tecu"
+        "term": "teču"
       },
       {
         "form_tag": "past_m_sg",
@@ -16132,15 +16132,15 @@
       },
       {
         "form_tag": "imp_2sg",
-        "term": "teci"
+        "term": "teči"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "tecimo"
+        "term": "tečimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "tecite"
+        "term": "tečite"
       }
     ],
     "grammar_metadata": {
@@ -16164,71 +16164,71 @@
     ],
     "conjugation_class": "e-verb",
     "example_sentence_en": "Go down the stairs.",
-    "example_sentence_rs": "Sidji niz stepenice.",
+    "example_sentence_rs": "Sišao sam niz stepenice.",
     "forms": [
       {
         "form_tag": "inf",
-        "term": "sici"
+        "term": "sići"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "sidjem"
+        "term": "siđem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "sidjes"
+        "term": "siđeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "sidje"
+        "term": "siđe"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "sidjemo"
+        "term": "siđemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "sidjete"
+        "term": "siđete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "sidju"
+        "term": "siđu"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "sisao"
+        "term": "sišao"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "sisla"
+        "term": "sišla"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "sislo"
+        "term": "sišlo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "sisli"
+        "term": "sišli"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "sisle"
+        "term": "sišle"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "sisla"
+        "term": "sišla"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "sidji"
+        "term": "siđi"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "sidjimo"
+        "term": "siđimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "sidjite"
+        "term": "siđite"
       }
     ],
     "grammar_metadata": {
@@ -16256,71 +16256,71 @@
     ],
     "conjugation_class": "a-verb",
     "example_sentence_en": "We are walking around the park.",
-    "example_sentence_rs": "Setamo se po parku.",
+    "example_sentence_rs": "Šetam pored reke.",
     "forms": [
       {
         "form_tag": "inf",
-        "term": "setati"
+        "term": "šetati"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "setam"
+        "term": "šetam"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "setas"
+        "term": "šetaš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "seta"
+        "term": "šeta"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "setamo"
+        "term": "šetamo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "setate"
+        "term": "šetate"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "setaju"
+        "term": "šetaju"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "setao"
+        "term": "šetao"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "setala"
+        "term": "šetala"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "setalo"
+        "term": "šetalo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "setali"
+        "term": "šetali"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "setale"
+        "term": "šetale"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "setala"
+        "term": "šetala"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "setaj"
+        "term": "šetaj"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "setajmo"
+        "term": "šetajmo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "setajte"
+        "term": "šetajte"
       }
     ],
     "part_of_speech": "verb",
@@ -16342,7 +16342,7 @@
     ],
     "declension_class": "consonant",
     "example_sentence_en": "Guests are coming tonight.",
-    "example_sentence_rs": "Gosti dolaze veceras.",
+    "example_sentence_rs": "Gost je došao.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -16429,7 +16429,7 @@
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The soldier guards the border.",
-    "example_sentence_rs": "Vojnik cuva granicu.",
+    "example_sentence_rs": "Vojnik čuva granicu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -16449,7 +16449,7 @@
       },
       {
         "form_tag": "voc_sg",
-        "term": "vojnice"
+        "term": "vojniče"
       },
       {
         "form_tag": "ins_sg",
@@ -16509,7 +16509,7 @@
     ],
     "declension_class": "e-stem",
     "example_sentence_en": "The chick runs around the yard.",
-    "example_sentence_rs": "Pile trci po dvoristu.",
+    "example_sentence_rs": "Pile traži hranu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -16588,63 +16588,63 @@
     ],
     "declension_class": "i-stem",
     "example_sentence_en": "A word is powerful.",
-    "example_sentence_rs": "Rec je mocna.",
+    "example_sentence_rs": "Reč je moćna.",
     "forms": [
       {
         "form_tag": "nom_sg",
-        "term": "rec"
+        "term": "reč"
       },
       {
         "form_tag": "gen_sg",
-        "term": "reci"
+        "term": "reči"
       },
       {
         "form_tag": "dat_sg",
-        "term": "reci"
+        "term": "reči"
       },
       {
         "form_tag": "acc_sg",
-        "term": "rec"
+        "term": "reč"
       },
       {
         "form_tag": "voc_sg",
-        "term": "reci"
+        "term": "reči"
       },
       {
         "form_tag": "ins_sg",
-        "term": "recju"
+        "term": "rečju"
       },
       {
         "form_tag": "loc_sg",
-        "term": "reci"
+        "term": "reči"
       },
       {
         "form_tag": "nom_pl",
-        "term": "reci"
+        "term": "reči"
       },
       {
         "form_tag": "gen_pl",
-        "term": "reci"
+        "term": "reči"
       },
       {
         "form_tag": "dat_pl",
-        "term": "recima"
+        "term": "rečima"
       },
       {
         "form_tag": "acc_pl",
-        "term": "reci"
+        "term": "reči"
       },
       {
         "form_tag": "voc_pl",
-        "term": "reci"
+        "term": "reči"
       },
       {
         "form_tag": "ins_pl",
-        "term": "recima"
+        "term": "rečima"
       },
       {
         "form_tag": "loc_pl",
-        "term": "recima"
+        "term": "rečima"
       }
     ],
     "gender": "feminine",
@@ -16670,175 +16670,175 @@
       "description"
     ],
     "example_sentence_en": "The tea is hot.",
-    "example_sentence_rs": "Caj je vruc.",
+    "example_sentence_rs": "Čaj je vrući.",
     "forms": [
       {
         "form_tag": "def_nom_sg_m",
-        "term": "vruci"
+        "term": "vrući"
       },
       {
         "form_tag": "def_gen_sg_m",
-        "term": "vruceg"
+        "term": "vrućeg"
       },
       {
         "form_tag": "def_dat_sg_m",
-        "term": "vrucem"
+        "term": "vrućem"
       },
       {
         "form_tag": "def_acc_sg_m",
-        "term": "vruci"
+        "term": "vrući"
       },
       {
         "form_tag": "def_voc_sg_m",
-        "term": "vruci"
+        "term": "vrući"
       },
       {
         "form_tag": "def_ins_sg_m",
-        "term": "vrucim"
+        "term": "vrućim"
       },
       {
         "form_tag": "def_loc_sg_m",
-        "term": "vrucem"
+        "term": "vrućem"
       },
       {
         "form_tag": "def_nom_sg_f",
-        "term": "vruca"
+        "term": "vruća"
       },
       {
         "form_tag": "def_gen_sg_f",
-        "term": "vruce"
+        "term": "vruće"
       },
       {
         "form_tag": "def_dat_sg_f",
-        "term": "vrucoj"
+        "term": "vrućoj"
       },
       {
         "form_tag": "def_acc_sg_f",
-        "term": "vrucu"
+        "term": "vruću"
       },
       {
         "form_tag": "def_voc_sg_f",
-        "term": "vruca"
+        "term": "vruća"
       },
       {
         "form_tag": "def_ins_sg_f",
-        "term": "vrucom"
+        "term": "vrućom"
       },
       {
         "form_tag": "def_loc_sg_f",
-        "term": "vrucoj"
+        "term": "vrućoj"
       },
       {
         "form_tag": "def_nom_sg_n",
-        "term": "vruce"
+        "term": "vruće"
       },
       {
         "form_tag": "def_gen_sg_n",
-        "term": "vruceg"
+        "term": "vrućeg"
       },
       {
         "form_tag": "def_dat_sg_n",
-        "term": "vrucem"
+        "term": "vrućem"
       },
       {
         "form_tag": "def_acc_sg_n",
-        "term": "vruce"
+        "term": "vruće"
       },
       {
         "form_tag": "def_voc_sg_n",
-        "term": "vruce"
+        "term": "vruće"
       },
       {
         "form_tag": "def_ins_sg_n",
-        "term": "vrucim"
+        "term": "vrućim"
       },
       {
         "form_tag": "def_loc_sg_n",
-        "term": "vrucem"
+        "term": "vrućem"
       },
       {
         "form_tag": "def_nom_pl_m",
-        "term": "vruci"
+        "term": "vrući"
       },
       {
         "form_tag": "def_gen_pl_m",
-        "term": "vrucih"
+        "term": "vrućih"
       },
       {
         "form_tag": "def_dat_pl_m",
-        "term": "vrucim"
+        "term": "vrućim"
       },
       {
         "form_tag": "def_acc_pl_m",
-        "term": "vruce"
+        "term": "vruće"
       },
       {
         "form_tag": "def_voc_pl_m",
-        "term": "vruci"
+        "term": "vrući"
       },
       {
         "form_tag": "def_ins_pl_m",
-        "term": "vrucim"
+        "term": "vrućim"
       },
       {
         "form_tag": "def_loc_pl_m",
-        "term": "vrucim"
+        "term": "vrućim"
       },
       {
         "form_tag": "def_nom_pl_f",
-        "term": "vruce"
+        "term": "vruće"
       },
       {
         "form_tag": "def_gen_pl_f",
-        "term": "vrucih"
+        "term": "vrućih"
       },
       {
         "form_tag": "def_dat_pl_f",
-        "term": "vrucim"
+        "term": "vrućim"
       },
       {
         "form_tag": "def_acc_pl_f",
-        "term": "vruce"
+        "term": "vruće"
       },
       {
         "form_tag": "def_voc_pl_f",
-        "term": "vruce"
+        "term": "vruće"
       },
       {
         "form_tag": "def_ins_pl_f",
-        "term": "vrucim"
+        "term": "vrućim"
       },
       {
         "form_tag": "def_loc_pl_f",
-        "term": "vrucim"
+        "term": "vrućim"
       },
       {
         "form_tag": "def_nom_pl_n",
-        "term": "vruca"
+        "term": "vruća"
       },
       {
         "form_tag": "def_gen_pl_n",
-        "term": "vrucih"
+        "term": "vrućih"
       },
       {
         "form_tag": "def_dat_pl_n",
-        "term": "vrucim"
+        "term": "vrućim"
       },
       {
         "form_tag": "def_acc_pl_n",
-        "term": "vruca"
+        "term": "vruća"
       },
       {
         "form_tag": "def_voc_pl_n",
-        "term": "vruca"
+        "term": "vruća"
       },
       {
         "form_tag": "def_ins_pl_n",
-        "term": "vrucim"
+        "term": "vrućim"
       },
       {
         "form_tag": "def_loc_pl_n",
-        "term": "vrucim"
+        "term": "vrućim"
       }
     ],
     "gender": "masculine",
@@ -16860,343 +16860,343 @@
       "description"
     ],
     "example_sentence_en": "That is a bad movie.",
-    "example_sentence_rs": "To je los film.",
+    "example_sentence_rs": "Danas je loš dan.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
-        "term": "los"
+        "term": "loš"
       },
       {
         "form_tag": "indef_gen_sg_m",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "indef_dat_sg_m",
-        "term": "losu"
+        "term": "lošu"
       },
       {
         "form_tag": "indef_acc_sg_m",
-        "term": "los"
+        "term": "loš"
       },
       {
         "form_tag": "indef_voc_sg_m",
-        "term": "los"
+        "term": "loš"
       },
       {
         "form_tag": "indef_ins_sg_m",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "indef_loc_sg_m",
-        "term": "losu"
+        "term": "lošu"
       },
       {
         "form_tag": "indef_nom_sg_f",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "indef_gen_sg_f",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "indef_dat_sg_f",
-        "term": "losoj"
+        "term": "lošoj"
       },
       {
         "form_tag": "indef_acc_sg_f",
-        "term": "losu"
+        "term": "lošu"
       },
       {
         "form_tag": "indef_voc_sg_f",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "indef_ins_sg_f",
-        "term": "losom"
+        "term": "lošom"
       },
       {
         "form_tag": "indef_loc_sg_f",
-        "term": "losoj"
+        "term": "lošoj"
       },
       {
         "form_tag": "indef_nom_sg_n",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "indef_gen_sg_n",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "indef_dat_sg_n",
-        "term": "losu"
+        "term": "lošu"
       },
       {
         "form_tag": "indef_acc_sg_n",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "indef_voc_sg_n",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "indef_ins_sg_n",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "indef_loc_sg_n",
-        "term": "losu"
+        "term": "lošu"
       },
       {
         "form_tag": "indef_nom_pl_m",
-        "term": "losi"
+        "term": "loši"
       },
       {
         "form_tag": "indef_gen_pl_m",
-        "term": "losih"
+        "term": "loših"
       },
       {
         "form_tag": "indef_dat_pl_m",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "indef_acc_pl_m",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "indef_voc_pl_m",
-        "term": "losi"
+        "term": "loši"
       },
       {
         "form_tag": "indef_ins_pl_m",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "indef_loc_pl_m",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "indef_nom_pl_f",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "indef_gen_pl_f",
-        "term": "losih"
+        "term": "loših"
       },
       {
         "form_tag": "indef_dat_pl_f",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "indef_acc_pl_f",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "indef_voc_pl_f",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "indef_ins_pl_f",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "indef_loc_pl_f",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "indef_nom_pl_n",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "indef_gen_pl_n",
-        "term": "losih"
+        "term": "loših"
       },
       {
         "form_tag": "indef_dat_pl_n",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "indef_acc_pl_n",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "indef_voc_pl_n",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "indef_ins_pl_n",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "indef_loc_pl_n",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "def_nom_sg_m",
-        "term": "losi"
+        "term": "loši"
       },
       {
         "form_tag": "def_gen_sg_m",
-        "term": "loseg"
+        "term": "lošeg"
       },
       {
         "form_tag": "def_dat_sg_m",
-        "term": "losem"
+        "term": "lošem"
       },
       {
         "form_tag": "def_acc_sg_m",
-        "term": "losi"
+        "term": "loši"
       },
       {
         "form_tag": "def_voc_sg_m",
-        "term": "losi"
+        "term": "loši"
       },
       {
         "form_tag": "def_ins_sg_m",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "def_loc_sg_m",
-        "term": "losem"
+        "term": "lošem"
       },
       {
         "form_tag": "def_nom_sg_f",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "def_gen_sg_f",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "def_dat_sg_f",
-        "term": "losoj"
+        "term": "lošoj"
       },
       {
         "form_tag": "def_acc_sg_f",
-        "term": "losu"
+        "term": "lošu"
       },
       {
         "form_tag": "def_voc_sg_f",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "def_ins_sg_f",
-        "term": "losom"
+        "term": "lošom"
       },
       {
         "form_tag": "def_loc_sg_f",
-        "term": "losoj"
+        "term": "lošoj"
       },
       {
         "form_tag": "def_nom_sg_n",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "def_gen_sg_n",
-        "term": "loseg"
+        "term": "lošeg"
       },
       {
         "form_tag": "def_dat_sg_n",
-        "term": "losem"
+        "term": "lošem"
       },
       {
         "form_tag": "def_acc_sg_n",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "def_voc_sg_n",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "def_ins_sg_n",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "def_loc_sg_n",
-        "term": "losem"
+        "term": "lošem"
       },
       {
         "form_tag": "def_nom_pl_m",
-        "term": "losi"
+        "term": "loši"
       },
       {
         "form_tag": "def_gen_pl_m",
-        "term": "losih"
+        "term": "loših"
       },
       {
         "form_tag": "def_dat_pl_m",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "def_acc_pl_m",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "def_voc_pl_m",
-        "term": "losi"
+        "term": "loši"
       },
       {
         "form_tag": "def_ins_pl_m",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "def_loc_pl_m",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "def_nom_pl_f",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "def_gen_pl_f",
-        "term": "losih"
+        "term": "loših"
       },
       {
         "form_tag": "def_dat_pl_f",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "def_acc_pl_f",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "def_voc_pl_f",
-        "term": "lose"
+        "term": "loše"
       },
       {
         "form_tag": "def_ins_pl_f",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "def_loc_pl_f",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "def_nom_pl_n",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "def_gen_pl_n",
-        "term": "losih"
+        "term": "loših"
       },
       {
         "form_tag": "def_dat_pl_n",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "def_acc_pl_n",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "def_voc_pl_n",
-        "term": "losa"
+        "term": "loša"
       },
       {
         "form_tag": "def_ins_pl_n",
-        "term": "losim"
+        "term": "lošim"
       },
       {
         "form_tag": "def_loc_pl_n",
-        "term": "losim"
+        "term": "lošim"
       }
     ],
     "gender": "masculine",
@@ -17216,343 +17216,343 @@
       "food"
     ],
     "example_sentence_en": "The bread is fresh.",
-    "example_sentence_rs": "Hleb je svez.",
+    "example_sentence_rs": "Hleb je svež.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
-        "term": "svez"
+        "term": "svež"
       },
       {
         "form_tag": "indef_gen_sg_m",
-        "term": "sveza"
+        "term": "sveža"
       },
       {
         "form_tag": "indef_dat_sg_m",
-        "term": "svezu"
+        "term": "svežu"
       },
       {
         "form_tag": "indef_acc_sg_m",
-        "term": "svez"
+        "term": "svež"
       },
       {
         "form_tag": "indef_voc_sg_m",
-        "term": "svez"
+        "term": "svež"
       },
       {
         "form_tag": "indef_ins_sg_m",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "indef_loc_sg_m",
-        "term": "svezu"
+        "term": "svežu"
       },
       {
         "form_tag": "indef_nom_sg_f",
-        "term": "sveza"
+        "term": "sveža"
       },
       {
         "form_tag": "indef_gen_sg_f",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "indef_dat_sg_f",
-        "term": "svezoj"
+        "term": "svežoj"
       },
       {
         "form_tag": "indef_acc_sg_f",
-        "term": "svezu"
+        "term": "svežu"
       },
       {
         "form_tag": "indef_voc_sg_f",
-        "term": "sveza"
+        "term": "sveža"
       },
       {
         "form_tag": "indef_ins_sg_f",
-        "term": "svezom"
+        "term": "svežom"
       },
       {
         "form_tag": "indef_loc_sg_f",
-        "term": "svezoj"
+        "term": "svežoj"
       },
       {
         "form_tag": "indef_nom_sg_n",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "indef_gen_sg_n",
-        "term": "sveza"
+        "term": "sveža"
       },
       {
         "form_tag": "indef_dat_sg_n",
-        "term": "svezu"
+        "term": "svežu"
       },
       {
         "form_tag": "indef_acc_sg_n",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "indef_voc_sg_n",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "indef_ins_sg_n",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "indef_loc_sg_n",
-        "term": "svezu"
+        "term": "svežu"
       },
       {
         "form_tag": "indef_nom_pl_m",
-        "term": "svezi"
+        "term": "sveži"
       },
       {
         "form_tag": "indef_gen_pl_m",
-        "term": "svezih"
+        "term": "svežih"
       },
       {
         "form_tag": "indef_dat_pl_m",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "indef_acc_pl_m",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "indef_voc_pl_m",
-        "term": "svezi"
+        "term": "sveži"
       },
       {
         "form_tag": "indef_ins_pl_m",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "indef_loc_pl_m",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "indef_nom_pl_f",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "indef_gen_pl_f",
-        "term": "svezih"
+        "term": "svežih"
       },
       {
         "form_tag": "indef_dat_pl_f",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "indef_acc_pl_f",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "indef_voc_pl_f",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "indef_ins_pl_f",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "indef_loc_pl_f",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "indef_nom_pl_n",
-        "term": "sveza"
+        "term": "sveža"
       },
       {
         "form_tag": "indef_gen_pl_n",
-        "term": "svezih"
+        "term": "svežih"
       },
       {
         "form_tag": "indef_dat_pl_n",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "indef_acc_pl_n",
-        "term": "sveza"
+        "term": "sveža"
       },
       {
         "form_tag": "indef_voc_pl_n",
-        "term": "sveza"
+        "term": "sveža"
       },
       {
         "form_tag": "indef_ins_pl_n",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "indef_loc_pl_n",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "def_nom_sg_m",
-        "term": "svezi"
+        "term": "sveži"
       },
       {
         "form_tag": "def_gen_sg_m",
-        "term": "svezeg"
+        "term": "svežeg"
       },
       {
         "form_tag": "def_dat_sg_m",
-        "term": "svezem"
+        "term": "svežem"
       },
       {
         "form_tag": "def_acc_sg_m",
-        "term": "svezi"
+        "term": "sveži"
       },
       {
         "form_tag": "def_voc_sg_m",
-        "term": "svezi"
+        "term": "sveži"
       },
       {
         "form_tag": "def_ins_sg_m",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "def_loc_sg_m",
-        "term": "svezem"
+        "term": "svežem"
       },
       {
         "form_tag": "def_nom_sg_f",
-        "term": "sveza"
+        "term": "sveža"
       },
       {
         "form_tag": "def_gen_sg_f",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "def_dat_sg_f",
-        "term": "svezoj"
+        "term": "svežoj"
       },
       {
         "form_tag": "def_acc_sg_f",
-        "term": "svezu"
+        "term": "svežu"
       },
       {
         "form_tag": "def_voc_sg_f",
-        "term": "sveza"
+        "term": "sveža"
       },
       {
         "form_tag": "def_ins_sg_f",
-        "term": "svezom"
+        "term": "svežom"
       },
       {
         "form_tag": "def_loc_sg_f",
-        "term": "svezoj"
+        "term": "svežoj"
       },
       {
         "form_tag": "def_nom_sg_n",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "def_gen_sg_n",
-        "term": "svezeg"
+        "term": "svežeg"
       },
       {
         "form_tag": "def_dat_sg_n",
-        "term": "svezem"
+        "term": "svežem"
       },
       {
         "form_tag": "def_acc_sg_n",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "def_voc_sg_n",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "def_ins_sg_n",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "def_loc_sg_n",
-        "term": "svezem"
+        "term": "svežem"
       },
       {
         "form_tag": "def_nom_pl_m",
-        "term": "svezi"
+        "term": "sveži"
       },
       {
         "form_tag": "def_gen_pl_m",
-        "term": "svezih"
+        "term": "svežih"
       },
       {
         "form_tag": "def_dat_pl_m",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "def_acc_pl_m",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "def_voc_pl_m",
-        "term": "svezi"
+        "term": "sveži"
       },
       {
         "form_tag": "def_ins_pl_m",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "def_loc_pl_m",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "def_nom_pl_f",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "def_gen_pl_f",
-        "term": "svezih"
+        "term": "svežih"
       },
       {
         "form_tag": "def_dat_pl_f",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "def_acc_pl_f",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "def_voc_pl_f",
-        "term": "sveze"
+        "term": "sveže"
       },
       {
         "form_tag": "def_ins_pl_f",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "def_loc_pl_f",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "def_nom_pl_n",
-        "term": "sveza"
+        "term": "sveža"
       },
       {
         "form_tag": "def_gen_pl_n",
-        "term": "svezih"
+        "term": "svežih"
       },
       {
         "form_tag": "def_dat_pl_n",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "def_acc_pl_n",
-        "term": "sveza"
+        "term": "sveža"
       },
       {
         "form_tag": "def_voc_pl_n",
-        "term": "sveza"
+        "term": "sveža"
       },
       {
         "form_tag": "def_ins_pl_n",
-        "term": "svezim"
+        "term": "svežim"
       },
       {
         "form_tag": "def_loc_pl_n",
-        "term": "svezim"
+        "term": "svežim"
       }
     ],
     "gender": "masculine",
@@ -17571,175 +17571,175 @@
       "description"
     ],
     "example_sentence_en": "Don't touch other people's things.",
-    "example_sentence_rs": "Ne diraj tudje stvari.",
+    "example_sentence_rs": "To je tuđi problem.",
     "forms": [
       {
         "form_tag": "def_nom_sg_m",
-        "term": "tudji"
+        "term": "tuđi"
       },
       {
         "form_tag": "def_gen_sg_m",
-        "term": "tudjeg"
+        "term": "tuđeg"
       },
       {
         "form_tag": "def_dat_sg_m",
-        "term": "tudjem"
+        "term": "tuđem"
       },
       {
         "form_tag": "def_acc_sg_m",
-        "term": "tudji"
+        "term": "tuđi"
       },
       {
         "form_tag": "def_voc_sg_m",
-        "term": "tudji"
+        "term": "tuđi"
       },
       {
         "form_tag": "def_ins_sg_m",
-        "term": "tudjim"
+        "term": "tuđim"
       },
       {
         "form_tag": "def_loc_sg_m",
-        "term": "tudjem"
+        "term": "tuđem"
       },
       {
         "form_tag": "def_nom_sg_f",
-        "term": "tudja"
+        "term": "tuđa"
       },
       {
         "form_tag": "def_gen_sg_f",
-        "term": "tudje"
+        "term": "tuđe"
       },
       {
         "form_tag": "def_dat_sg_f",
-        "term": "tudjoj"
+        "term": "tuđoj"
       },
       {
         "form_tag": "def_acc_sg_f",
-        "term": "tudju"
+        "term": "tuđu"
       },
       {
         "form_tag": "def_voc_sg_f",
-        "term": "tudja"
+        "term": "tuđa"
       },
       {
         "form_tag": "def_ins_sg_f",
-        "term": "tudjom"
+        "term": "tuđom"
       },
       {
         "form_tag": "def_loc_sg_f",
-        "term": "tudjoj"
+        "term": "tuđoj"
       },
       {
         "form_tag": "def_nom_sg_n",
-        "term": "tudje"
+        "term": "tuđe"
       },
       {
         "form_tag": "def_gen_sg_n",
-        "term": "tudjeg"
+        "term": "tuđeg"
       },
       {
         "form_tag": "def_dat_sg_n",
-        "term": "tudjem"
+        "term": "tuđem"
       },
       {
         "form_tag": "def_acc_sg_n",
-        "term": "tudje"
+        "term": "tuđe"
       },
       {
         "form_tag": "def_voc_sg_n",
-        "term": "tudje"
+        "term": "tuđe"
       },
       {
         "form_tag": "def_ins_sg_n",
-        "term": "tudjim"
+        "term": "tuđim"
       },
       {
         "form_tag": "def_loc_sg_n",
-        "term": "tudjem"
+        "term": "tuđem"
       },
       {
         "form_tag": "def_nom_pl_m",
-        "term": "tudji"
+        "term": "tuđi"
       },
       {
         "form_tag": "def_gen_pl_m",
-        "term": "tudjih"
+        "term": "tuđih"
       },
       {
         "form_tag": "def_dat_pl_m",
-        "term": "tudjim"
+        "term": "tuđim"
       },
       {
         "form_tag": "def_acc_pl_m",
-        "term": "tudje"
+        "term": "tuđe"
       },
       {
         "form_tag": "def_voc_pl_m",
-        "term": "tudji"
+        "term": "tuđi"
       },
       {
         "form_tag": "def_ins_pl_m",
-        "term": "tudjim"
+        "term": "tuđim"
       },
       {
         "form_tag": "def_loc_pl_m",
-        "term": "tudjim"
+        "term": "tuđim"
       },
       {
         "form_tag": "def_nom_pl_f",
-        "term": "tudje"
+        "term": "tuđe"
       },
       {
         "form_tag": "def_gen_pl_f",
-        "term": "tudjih"
+        "term": "tuđih"
       },
       {
         "form_tag": "def_dat_pl_f",
-        "term": "tudjim"
+        "term": "tuđim"
       },
       {
         "form_tag": "def_acc_pl_f",
-        "term": "tudje"
+        "term": "tuđe"
       },
       {
         "form_tag": "def_voc_pl_f",
-        "term": "tudje"
+        "term": "tuđe"
       },
       {
         "form_tag": "def_ins_pl_f",
-        "term": "tudjim"
+        "term": "tuđim"
       },
       {
         "form_tag": "def_loc_pl_f",
-        "term": "tudjim"
+        "term": "tuđim"
       },
       {
         "form_tag": "def_nom_pl_n",
-        "term": "tudja"
+        "term": "tuđa"
       },
       {
         "form_tag": "def_gen_pl_n",
-        "term": "tudjih"
+        "term": "tuđih"
       },
       {
         "form_tag": "def_dat_pl_n",
-        "term": "tudjim"
+        "term": "tuđim"
       },
       {
         "form_tag": "def_acc_pl_n",
-        "term": "tudja"
+        "term": "tuđa"
       },
       {
         "form_tag": "def_voc_pl_n",
-        "term": "tudja"
+        "term": "tuđa"
       },
       {
         "form_tag": "def_ins_pl_n",
-        "term": "tudjim"
+        "term": "tuđim"
       },
       {
         "form_tag": "def_loc_pl_n",
-        "term": "tudjim"
+        "term": "tuđim"
       }
     ],
     "gender": "masculine",
@@ -18642,7 +18642,7 @@
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "Sing me a song.",
-    "example_sentence_rs": "Pevaj mi pesmu.",
+    "example_sentence_rs": "Pesma je lepa.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -18735,7 +18735,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "putujes"
+        "term": "putuješ"
       },
       {
         "form_tag": "pres_3sg",
@@ -18810,71 +18810,71 @@
     ],
     "conjugation_class": "i-verb",
     "example_sentence_en": "I live in Belgrade.",
-    "example_sentence_rs": "Zivim u Beogradu.",
+    "example_sentence_rs": "Živim u Beogradu.",
     "forms": [
       {
         "form_tag": "inf",
-        "term": "ziveti"
+        "term": "živeti"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "zivim"
+        "term": "živim"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "zivis"
+        "term": "živiš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "zivi"
+        "term": "živi"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "zivimo"
+        "term": "živimo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "zivite"
+        "term": "živite"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "zive"
+        "term": "žive"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "ziveo"
+        "term": "živeo"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "zivela"
+        "term": "živela"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "zivelo"
+        "term": "živelo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "ziveli"
+        "term": "živeli"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "zivele"
+        "term": "živele"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "zivela"
+        "term": "živela"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "zivi"
+        "term": "živi"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "zivimo"
+        "term": "živimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "zivite"
+        "term": "živite"
       }
     ],
     "part_of_speech": "verb",
@@ -18894,19 +18894,19 @@
       "time"
     ],
     "example_sentence_en": "I often go to the cinema.",
-    "example_sentence_rs": "Cesto idem u bioskop.",
+    "example_sentence_rs": "Često čitam knjige.",
     "forms": [
       {
         "form_tag": "base",
-        "term": "cesto"
+        "term": "često"
       },
       {
         "form_tag": "comparative",
-        "term": "cesce"
+        "term": "češće"
       },
       {
         "form_tag": "superlative",
-        "term": "najcesce"
+        "term": "najčešće"
       }
     ],
     "grammar_metadata": {
@@ -20861,7 +20861,7 @@
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The horse runs across the field.",
-    "example_sentence_rs": "Konj trci po polju.",
+    "example_sentence_rs": "Konj trči po polju.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -20959,7 +20959,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "moras"
+        "term": "moraš"
       },
       {
         "form_tag": "pres_3sg",
@@ -21044,7 +21044,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "verujes"
+        "term": "veruješ"
       },
       {
         "form_tag": "pres_3sg",
@@ -21127,11 +21127,11 @@
       },
       {
         "form_tag": "comparative",
-        "term": "vise"
+        "term": "više"
       },
       {
         "form_tag": "superlative",
-        "term": "najvise"
+        "term": "najviše"
       }
     ],
     "grammar_metadata": {
@@ -22040,7 +22040,7 @@
     ],
     "conjugation_class": "je-verb",
     "example_sentence_en": "I'm sending you a message.",
-    "example_sentence_rs": "Saljem ti poruku.",
+    "example_sentence_rs": "Šaljem pismo.",
     "forms": [
       {
         "form_tag": "inf",
@@ -22048,27 +22048,27 @@
       },
       {
         "form_tag": "pres_1sg",
-        "term": "saljem"
+        "term": "šaljem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "saljes"
+        "term": "šalješ"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "salje"
+        "term": "šalje"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "saljemo"
+        "term": "šaljemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "saljete"
+        "term": "šaljete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "salju"
+        "term": "šalju"
       },
       {
         "form_tag": "past_m_sg",
@@ -22096,15 +22096,15 @@
       },
       {
         "form_tag": "imp_2sg",
-        "term": "salji"
+        "term": "šalji"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "saljimo"
+        "term": "šaljimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "saljite"
+        "term": "šaljite"
       }
     ],
     "grammar_metadata": {
@@ -22127,7 +22127,7 @@
     ],
     "conjugation_class": "je-verb",
     "example_sentence_en": "The child is crying.",
-    "example_sentence_rs": "Dete place.",
+    "example_sentence_rs": "Dete plače.",
     "forms": [
       {
         "form_tag": "inf",
@@ -22135,27 +22135,27 @@
       },
       {
         "form_tag": "pres_1sg",
-        "term": "placem"
+        "term": "plačem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "places"
+        "term": "plačeš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "place"
+        "term": "plače"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "placemo"
+        "term": "plačemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "placete"
+        "term": "plačete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "placu"
+        "term": "plaču"
       },
       {
         "form_tag": "past_m_sg",
@@ -22183,15 +22183,15 @@
       },
       {
         "form_tag": "imp_2sg",
-        "term": "placi"
+        "term": "plači"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "placimo"
+        "term": "plačimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "placite"
+        "term": "plačite"
       }
     ],
     "part_of_speech": "verb",
@@ -22212,7 +22212,7 @@
     ],
     "conjugation_class": "i-verb",
     "example_sentence_en": "Throw me the ball.",
-    "example_sentence_rs": "Baci mi loptu.",
+    "example_sentence_rs": "Bacio sam loptu.",
     "forms": [
       {
         "form_tag": "inf",
@@ -22224,7 +22224,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "bacis"
+        "term": "baciš"
       },
       {
         "form_tag": "pres_3sg",
@@ -22373,7 +22373,7 @@
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The young man waits for the girl.",
-    "example_sentence_rs": "Momak ceka devojku.",
+    "example_sentence_rs": "Momak je visok.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -22393,7 +22393,7 @@
       },
       {
         "form_tag": "voc_sg",
-        "term": "momce"
+        "term": "momče"
       },
       {
         "form_tag": "ins_sg",
@@ -22551,7 +22551,7 @@
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "The girl reads a book.",
-    "example_sentence_rs": "Devojka cita knjigu.",
+    "example_sentence_rs": "Devojka čita knjigu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -22705,7 +22705,7 @@
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "Dad came home.",
-    "example_sentence_rs": "Tata je dosao kuci.",
+    "example_sentence_rs": "Tata je došao kući.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -22858,63 +22858,63 @@
     ],
     "declension_class": "i-stem",
     "example_sentence_en": "The stove heats the room.",
-    "example_sentence_rs": "Pec greje sobu.",
+    "example_sentence_rs": "Peć je topla.",
     "forms": [
       {
         "form_tag": "nom_sg",
-        "term": "pec"
+        "term": "peć"
       },
       {
         "form_tag": "gen_sg",
-        "term": "peci"
+        "term": "peći"
       },
       {
         "form_tag": "dat_sg",
-        "term": "peci"
+        "term": "peći"
       },
       {
         "form_tag": "acc_sg",
-        "term": "pec"
+        "term": "peć"
       },
       {
         "form_tag": "voc_sg",
-        "term": "peci"
+        "term": "peći"
       },
       {
         "form_tag": "ins_sg",
-        "term": "pecu"
+        "term": "peću"
       },
       {
         "form_tag": "loc_sg",
-        "term": "peci"
+        "term": "peći"
       },
       {
         "form_tag": "nom_pl",
-        "term": "peci"
+        "term": "peći"
       },
       {
         "form_tag": "gen_pl",
-        "term": "peci"
+        "term": "peći"
       },
       {
         "form_tag": "dat_pl",
-        "term": "pecima"
+        "term": "pećima"
       },
       {
         "form_tag": "acc_pl",
-        "term": "peci"
+        "term": "peći"
       },
       {
         "form_tag": "voc_pl",
-        "term": "peci"
+        "term": "peći"
       },
       {
         "form_tag": "ins_pl",
-        "term": "pecima"
+        "term": "pećima"
       },
       {
         "form_tag": "loc_pl",
-        "term": "pecima"
+        "term": "pećima"
       }
     ],
     "gender": "feminine",
@@ -23013,71 +23013,71 @@
     ],
     "conjugation_class": "i-verb",
     "example_sentence_en": "I want to go home.",
-    "example_sentence_rs": "Zelim da idem kuci.",
+    "example_sentence_rs": "Želim da putujem.",
     "forms": [
       {
         "form_tag": "inf",
-        "term": "zeleti"
+        "term": "želeti"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "zelim"
+        "term": "želim"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "zelis"
+        "term": "želiš"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "zeli"
+        "term": "želi"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "zelimo"
+        "term": "želimo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "zelite"
+        "term": "želite"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "zele"
+        "term": "žele"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "zeleo"
+        "term": "želeo"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "zelela"
+        "term": "želela"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "zelelo"
+        "term": "želelo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "zeleli"
+        "term": "želeli"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "zelele"
+        "term": "želele"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "zelela"
+        "term": "želela"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "zeli"
+        "term": "želi"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "zelimo"
+        "term": "želimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "zelite"
+        "term": "želite"
       }
     ],
     "part_of_speech": "verb",
@@ -23110,7 +23110,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "sednes"
+        "term": "sedneš"
       },
       {
         "form_tag": "pres_3sg",
@@ -23200,7 +23200,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "otvoris"
+        "term": "otvoriš"
       },
       {
         "form_tag": "pres_3sg",
@@ -23613,339 +23613,339 @@
       },
       {
         "form_tag": "comp_nom_sg_m",
-        "term": "laksi"
+        "term": "lakši"
       },
       {
         "form_tag": "comp_gen_sg_m",
-        "term": "lakseg"
+        "term": "lakšeg"
       },
       {
         "form_tag": "comp_dat_sg_m",
-        "term": "laksem"
+        "term": "lakšem"
       },
       {
         "form_tag": "comp_acc_sg_m",
-        "term": "laksi"
+        "term": "lakši"
       },
       {
         "form_tag": "comp_voc_sg_m",
-        "term": "laksi"
+        "term": "lakši"
       },
       {
         "form_tag": "comp_ins_sg_m",
-        "term": "laksim"
+        "term": "lakšim"
       },
       {
         "form_tag": "comp_loc_sg_m",
-        "term": "laksem"
+        "term": "lakšem"
       },
       {
         "form_tag": "comp_nom_sg_f",
-        "term": "laksa"
+        "term": "lakša"
       },
       {
         "form_tag": "comp_gen_sg_f",
-        "term": "lakse"
+        "term": "lakše"
       },
       {
         "form_tag": "comp_dat_sg_f",
-        "term": "laksoj"
+        "term": "lakšoj"
       },
       {
         "form_tag": "comp_acc_sg_f",
-        "term": "laksu"
+        "term": "lakšu"
       },
       {
         "form_tag": "comp_voc_sg_f",
-        "term": "laksa"
+        "term": "lakša"
       },
       {
         "form_tag": "comp_ins_sg_f",
-        "term": "laksom"
+        "term": "lakšom"
       },
       {
         "form_tag": "comp_loc_sg_f",
-        "term": "laksoj"
+        "term": "lakšoj"
       },
       {
         "form_tag": "comp_nom_sg_n",
-        "term": "lakse"
+        "term": "lakše"
       },
       {
         "form_tag": "comp_gen_sg_n",
-        "term": "lakseg"
+        "term": "lakšeg"
       },
       {
         "form_tag": "comp_dat_sg_n",
-        "term": "laksem"
+        "term": "lakšem"
       },
       {
         "form_tag": "comp_acc_sg_n",
-        "term": "lakse"
+        "term": "lakše"
       },
       {
         "form_tag": "comp_voc_sg_n",
-        "term": "lakse"
+        "term": "lakše"
       },
       {
         "form_tag": "comp_ins_sg_n",
-        "term": "laksim"
+        "term": "lakšim"
       },
       {
         "form_tag": "comp_loc_sg_n",
-        "term": "laksem"
+        "term": "lakšem"
       },
       {
         "form_tag": "comp_nom_pl_m",
-        "term": "laksi"
+        "term": "lakši"
       },
       {
         "form_tag": "comp_gen_pl_m",
-        "term": "laksih"
+        "term": "lakših"
       },
       {
         "form_tag": "comp_dat_pl_m",
-        "term": "laksim"
+        "term": "lakšim"
       },
       {
         "form_tag": "comp_acc_pl_m",
-        "term": "lakse"
+        "term": "lakše"
       },
       {
         "form_tag": "comp_voc_pl_m",
-        "term": "laksi"
+        "term": "lakši"
       },
       {
         "form_tag": "comp_ins_pl_m",
-        "term": "laksim"
+        "term": "lakšim"
       },
       {
         "form_tag": "comp_loc_pl_m",
-        "term": "laksim"
+        "term": "lakšim"
       },
       {
         "form_tag": "comp_nom_pl_f",
-        "term": "lakse"
+        "term": "lakše"
       },
       {
         "form_tag": "comp_gen_pl_f",
-        "term": "laksih"
+        "term": "lakših"
       },
       {
         "form_tag": "comp_dat_pl_f",
-        "term": "laksim"
+        "term": "lakšim"
       },
       {
         "form_tag": "comp_acc_pl_f",
-        "term": "lakse"
+        "term": "lakše"
       },
       {
         "form_tag": "comp_voc_pl_f",
-        "term": "lakse"
+        "term": "lakše"
       },
       {
         "form_tag": "comp_ins_pl_f",
-        "term": "laksim"
+        "term": "lakšim"
       },
       {
         "form_tag": "comp_loc_pl_f",
-        "term": "laksim"
+        "term": "lakšim"
       },
       {
         "form_tag": "comp_nom_pl_n",
-        "term": "laksa"
+        "term": "lakša"
       },
       {
         "form_tag": "comp_gen_pl_n",
-        "term": "laksih"
+        "term": "lakših"
       },
       {
         "form_tag": "comp_dat_pl_n",
-        "term": "laksim"
+        "term": "lakšim"
       },
       {
         "form_tag": "comp_acc_pl_n",
-        "term": "laksa"
+        "term": "lakša"
       },
       {
         "form_tag": "comp_voc_pl_n",
-        "term": "laksa"
+        "term": "lakša"
       },
       {
         "form_tag": "comp_ins_pl_n",
-        "term": "laksim"
+        "term": "lakšim"
       },
       {
         "form_tag": "comp_loc_pl_n",
-        "term": "laksim"
+        "term": "lakšim"
       },
       {
         "form_tag": "super_nom_sg_m",
-        "term": "najlaksi"
+        "term": "najlakši"
       },
       {
         "form_tag": "super_gen_sg_m",
-        "term": "najlakseg"
+        "term": "najlakšeg"
       },
       {
         "form_tag": "super_dat_sg_m",
-        "term": "najlaksem"
+        "term": "najlakšem"
       },
       {
         "form_tag": "super_acc_sg_m",
-        "term": "najlaksi"
+        "term": "najlakši"
       },
       {
         "form_tag": "super_voc_sg_m",
-        "term": "najlaksi"
+        "term": "najlakši"
       },
       {
         "form_tag": "super_ins_sg_m",
-        "term": "najlaksim"
+        "term": "najlakšim"
       },
       {
         "form_tag": "super_loc_sg_m",
-        "term": "najlaksem"
+        "term": "najlakšem"
       },
       {
         "form_tag": "super_nom_sg_f",
-        "term": "najlaksa"
+        "term": "najlakša"
       },
       {
         "form_tag": "super_gen_sg_f",
-        "term": "najlakse"
+        "term": "najlakše"
       },
       {
         "form_tag": "super_dat_sg_f",
-        "term": "najlaksoj"
+        "term": "najlakšoj"
       },
       {
         "form_tag": "super_acc_sg_f",
-        "term": "najlaksu"
+        "term": "najlakšu"
       },
       {
         "form_tag": "super_voc_sg_f",
-        "term": "najlaksa"
+        "term": "najlakša"
       },
       {
         "form_tag": "super_ins_sg_f",
-        "term": "najlaksom"
+        "term": "najlakšom"
       },
       {
         "form_tag": "super_loc_sg_f",
-        "term": "najlaksoj"
+        "term": "najlakšoj"
       },
       {
         "form_tag": "super_nom_sg_n",
-        "term": "najlakse"
+        "term": "najlakše"
       },
       {
         "form_tag": "super_gen_sg_n",
-        "term": "najlakseg"
+        "term": "najlakšeg"
       },
       {
         "form_tag": "super_dat_sg_n",
-        "term": "najlaksem"
+        "term": "najlakšem"
       },
       {
         "form_tag": "super_acc_sg_n",
-        "term": "najlakse"
+        "term": "najlakše"
       },
       {
         "form_tag": "super_voc_sg_n",
-        "term": "najlakse"
+        "term": "najlakše"
       },
       {
         "form_tag": "super_ins_sg_n",
-        "term": "najlaksim"
+        "term": "najlakšim"
       },
       {
         "form_tag": "super_loc_sg_n",
-        "term": "najlaksem"
+        "term": "najlakšem"
       },
       {
         "form_tag": "super_nom_pl_m",
-        "term": "najlaksi"
+        "term": "najlakši"
       },
       {
         "form_tag": "super_gen_pl_m",
-        "term": "najlaksih"
+        "term": "najlakših"
       },
       {
         "form_tag": "super_dat_pl_m",
-        "term": "najlaksim"
+        "term": "najlakšim"
       },
       {
         "form_tag": "super_acc_pl_m",
-        "term": "najlakse"
+        "term": "najlakše"
       },
       {
         "form_tag": "super_voc_pl_m",
-        "term": "najlaksi"
+        "term": "najlakši"
       },
       {
         "form_tag": "super_ins_pl_m",
-        "term": "najlaksim"
+        "term": "najlakšim"
       },
       {
         "form_tag": "super_loc_pl_m",
-        "term": "najlaksim"
+        "term": "najlakšim"
       },
       {
         "form_tag": "super_nom_pl_f",
-        "term": "najlakse"
+        "term": "najlakše"
       },
       {
         "form_tag": "super_gen_pl_f",
-        "term": "najlaksih"
+        "term": "najlakših"
       },
       {
         "form_tag": "super_dat_pl_f",
-        "term": "najlaksim"
+        "term": "najlakšim"
       },
       {
         "form_tag": "super_acc_pl_f",
-        "term": "najlakse"
+        "term": "najlakše"
       },
       {
         "form_tag": "super_voc_pl_f",
-        "term": "najlakse"
+        "term": "najlakše"
       },
       {
         "form_tag": "super_ins_pl_f",
-        "term": "najlaksim"
+        "term": "najlakšim"
       },
       {
         "form_tag": "super_loc_pl_f",
-        "term": "najlaksim"
+        "term": "najlakšim"
       },
       {
         "form_tag": "super_nom_pl_n",
-        "term": "najlaksa"
+        "term": "najlakša"
       },
       {
         "form_tag": "super_gen_pl_n",
-        "term": "najlaksih"
+        "term": "najlakših"
       },
       {
         "form_tag": "super_dat_pl_n",
-        "term": "najlaksim"
+        "term": "najlakšim"
       },
       {
         "form_tag": "super_acc_pl_n",
-        "term": "najlaksa"
+        "term": "najlakša"
       },
       {
         "form_tag": "super_voc_pl_n",
-        "term": "najlaksa"
+        "term": "najlakša"
       },
       {
         "form_tag": "super_ins_pl_n",
-        "term": "najlaksim"
+        "term": "najlakšim"
       },
       {
         "form_tag": "super_loc_pl_n",
-        "term": "najlaksim"
+        "term": "najlakšim"
       }
     ],
     "gender": "masculine",
@@ -23966,11 +23966,11 @@
       "time"
     ],
     "example_sentence_en": "Yesterday was a nice day.",
-    "example_sentence_rs": "Juce je bio lep dan.",
+    "example_sentence_rs": "Juče sam bio u školi.",
     "forms": [
       {
         "form_tag": "base",
-        "term": "juce"
+        "term": "juče"
       }
     ],
     "part_of_speech": "adverb",
@@ -24090,7 +24090,7 @@
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The teacher teaches mathematics.",
-    "example_sentence_rs": "Nastavnik predaje matematiku.",
+    "example_sentence_rs": "Nastavnik objašnjava lekciju.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -24110,7 +24110,7 @@
       },
       {
         "form_tag": "voc_sg",
-        "term": "nastavnice"
+        "term": "nastavniče"
       },
       {
         "form_tag": "ins_sg",
@@ -24484,7 +24484,7 @@
       },
       {
         "form_tag": "pres_2sg",
-        "term": "zatvoris"
+        "term": "zatvoriš"
       },
       {
         "form_tag": "pres_3sg",
@@ -24556,71 +24556,71 @@
     ],
     "conjugation_class": "je-verb",
     "example_sentence_en": "Do you hear me?",
-    "example_sentence_rs": "Cujes li me?",
+    "example_sentence_rs": "Čujem muziku.",
     "forms": [
       {
         "form_tag": "inf",
-        "term": "cuti"
+        "term": "čuti"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "cujem"
+        "term": "čujem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "cujes"
+        "term": "čuješ"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "cuje"
+        "term": "čuje"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "cujemo"
+        "term": "čujemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "cujete"
+        "term": "čujete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "cuju"
+        "term": "čuju"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "cuo"
+        "term": "čuo"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "cula"
+        "term": "čula"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "culo"
+        "term": "čulo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "culi"
+        "term": "čuli"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "cule"
+        "term": "čule"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "cula"
+        "term": "čula"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "cuj"
+        "term": "čuj"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "cujmo"
+        "term": "čujmo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "cujte"
+        "term": "čujte"
       }
     ],
     "grammar_metadata": {
@@ -24643,679 +24643,679 @@
       "size"
     ],
     "example_sentence_en": "The street is wide.",
-    "example_sentence_rs": "Ulica je siroka.",
+    "example_sentence_rs": "Put je širok.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
-        "term": "sirok"
+        "term": "širok"
       },
       {
         "form_tag": "indef_gen_sg_m",
-        "term": "siroka"
+        "term": "široka"
       },
       {
         "form_tag": "indef_dat_sg_m",
-        "term": "siroku"
+        "term": "široku"
       },
       {
         "form_tag": "indef_acc_sg_m",
-        "term": "sirok"
+        "term": "širok"
       },
       {
         "form_tag": "indef_voc_sg_m",
-        "term": "sirok"
+        "term": "širok"
       },
       {
         "form_tag": "indef_ins_sg_m",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "indef_loc_sg_m",
-        "term": "siroku"
+        "term": "široku"
       },
       {
         "form_tag": "indef_nom_sg_f",
-        "term": "siroka"
+        "term": "široka"
       },
       {
         "form_tag": "indef_gen_sg_f",
-        "term": "siroke"
+        "term": "široke"
       },
       {
         "form_tag": "indef_dat_sg_f",
-        "term": "sirokoj"
+        "term": "širokoj"
       },
       {
         "form_tag": "indef_acc_sg_f",
-        "term": "siroku"
+        "term": "široku"
       },
       {
         "form_tag": "indef_voc_sg_f",
-        "term": "siroka"
+        "term": "široka"
       },
       {
         "form_tag": "indef_ins_sg_f",
-        "term": "sirokom"
+        "term": "širokom"
       },
       {
         "form_tag": "indef_loc_sg_f",
-        "term": "sirokoj"
+        "term": "širokoj"
       },
       {
         "form_tag": "indef_nom_sg_n",
-        "term": "siroko"
+        "term": "široko"
       },
       {
         "form_tag": "indef_gen_sg_n",
-        "term": "siroka"
+        "term": "široka"
       },
       {
         "form_tag": "indef_dat_sg_n",
-        "term": "siroku"
+        "term": "široku"
       },
       {
         "form_tag": "indef_acc_sg_n",
-        "term": "siroko"
+        "term": "široko"
       },
       {
         "form_tag": "indef_voc_sg_n",
-        "term": "siroko"
+        "term": "široko"
       },
       {
         "form_tag": "indef_ins_sg_n",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "indef_loc_sg_n",
-        "term": "siroku"
+        "term": "široku"
       },
       {
         "form_tag": "indef_nom_pl_m",
-        "term": "siroki"
+        "term": "široki"
       },
       {
         "form_tag": "indef_gen_pl_m",
-        "term": "sirokih"
+        "term": "širokih"
       },
       {
         "form_tag": "indef_dat_pl_m",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "indef_acc_pl_m",
-        "term": "siroke"
+        "term": "široke"
       },
       {
         "form_tag": "indef_voc_pl_m",
-        "term": "siroki"
+        "term": "široki"
       },
       {
         "form_tag": "indef_ins_pl_m",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "indef_loc_pl_m",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "indef_nom_pl_f",
-        "term": "siroke"
+        "term": "široke"
       },
       {
         "form_tag": "indef_gen_pl_f",
-        "term": "sirokih"
+        "term": "širokih"
       },
       {
         "form_tag": "indef_dat_pl_f",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "indef_acc_pl_f",
-        "term": "siroke"
+        "term": "široke"
       },
       {
         "form_tag": "indef_voc_pl_f",
-        "term": "siroke"
+        "term": "široke"
       },
       {
         "form_tag": "indef_ins_pl_f",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "indef_loc_pl_f",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "indef_nom_pl_n",
-        "term": "siroka"
+        "term": "široka"
       },
       {
         "form_tag": "indef_gen_pl_n",
-        "term": "sirokih"
+        "term": "širokih"
       },
       {
         "form_tag": "indef_dat_pl_n",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "indef_acc_pl_n",
-        "term": "siroka"
+        "term": "široka"
       },
       {
         "form_tag": "indef_voc_pl_n",
-        "term": "siroka"
+        "term": "široka"
       },
       {
         "form_tag": "indef_ins_pl_n",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "indef_loc_pl_n",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "def_nom_sg_m",
-        "term": "siroki"
+        "term": "široki"
       },
       {
         "form_tag": "def_gen_sg_m",
-        "term": "sirokog"
+        "term": "širokog"
       },
       {
         "form_tag": "def_dat_sg_m",
-        "term": "sirokom"
+        "term": "širokom"
       },
       {
         "form_tag": "def_acc_sg_m",
-        "term": "siroki"
+        "term": "široki"
       },
       {
         "form_tag": "def_voc_sg_m",
-        "term": "siroki"
+        "term": "široki"
       },
       {
         "form_tag": "def_ins_sg_m",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "def_loc_sg_m",
-        "term": "sirokom"
+        "term": "širokom"
       },
       {
         "form_tag": "def_nom_sg_f",
-        "term": "siroka"
+        "term": "široka"
       },
       {
         "form_tag": "def_gen_sg_f",
-        "term": "siroke"
+        "term": "široke"
       },
       {
         "form_tag": "def_dat_sg_f",
-        "term": "sirokoj"
+        "term": "širokoj"
       },
       {
         "form_tag": "def_acc_sg_f",
-        "term": "siroku"
+        "term": "široku"
       },
       {
         "form_tag": "def_voc_sg_f",
-        "term": "siroka"
+        "term": "široka"
       },
       {
         "form_tag": "def_ins_sg_f",
-        "term": "sirokom"
+        "term": "širokom"
       },
       {
         "form_tag": "def_loc_sg_f",
-        "term": "sirokoj"
+        "term": "širokoj"
       },
       {
         "form_tag": "def_nom_sg_n",
-        "term": "siroko"
+        "term": "široko"
       },
       {
         "form_tag": "def_gen_sg_n",
-        "term": "sirokog"
+        "term": "širokog"
       },
       {
         "form_tag": "def_dat_sg_n",
-        "term": "sirokom"
+        "term": "širokom"
       },
       {
         "form_tag": "def_acc_sg_n",
-        "term": "siroko"
+        "term": "široko"
       },
       {
         "form_tag": "def_voc_sg_n",
-        "term": "siroko"
+        "term": "široko"
       },
       {
         "form_tag": "def_ins_sg_n",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "def_loc_sg_n",
-        "term": "sirokom"
+        "term": "širokom"
       },
       {
         "form_tag": "def_nom_pl_m",
-        "term": "siroki"
+        "term": "široki"
       },
       {
         "form_tag": "def_gen_pl_m",
-        "term": "sirokih"
+        "term": "širokih"
       },
       {
         "form_tag": "def_dat_pl_m",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "def_acc_pl_m",
-        "term": "siroke"
+        "term": "široke"
       },
       {
         "form_tag": "def_voc_pl_m",
-        "term": "siroki"
+        "term": "široki"
       },
       {
         "form_tag": "def_ins_pl_m",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "def_loc_pl_m",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "def_nom_pl_f",
-        "term": "siroke"
+        "term": "široke"
       },
       {
         "form_tag": "def_gen_pl_f",
-        "term": "sirokih"
+        "term": "širokih"
       },
       {
         "form_tag": "def_dat_pl_f",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "def_acc_pl_f",
-        "term": "siroke"
+        "term": "široke"
       },
       {
         "form_tag": "def_voc_pl_f",
-        "term": "siroke"
+        "term": "široke"
       },
       {
         "form_tag": "def_ins_pl_f",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "def_loc_pl_f",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "def_nom_pl_n",
-        "term": "siroka"
+        "term": "široka"
       },
       {
         "form_tag": "def_gen_pl_n",
-        "term": "sirokih"
+        "term": "širokih"
       },
       {
         "form_tag": "def_dat_pl_n",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "def_acc_pl_n",
-        "term": "siroka"
+        "term": "široka"
       },
       {
         "form_tag": "def_voc_pl_n",
-        "term": "siroka"
+        "term": "široka"
       },
       {
         "form_tag": "def_ins_pl_n",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "def_loc_pl_n",
-        "term": "sirokim"
+        "term": "širokim"
       },
       {
         "form_tag": "comp_nom_sg_m",
-        "term": "siri"
+        "term": "širi"
       },
       {
         "form_tag": "comp_gen_sg_m",
-        "term": "sireg"
+        "term": "šireg"
       },
       {
         "form_tag": "comp_dat_sg_m",
-        "term": "sirem"
+        "term": "širem"
       },
       {
         "form_tag": "comp_acc_sg_m",
-        "term": "siri"
+        "term": "širi"
       },
       {
         "form_tag": "comp_voc_sg_m",
-        "term": "siri"
+        "term": "širi"
       },
       {
         "form_tag": "comp_ins_sg_m",
-        "term": "sirim"
+        "term": "širim"
       },
       {
         "form_tag": "comp_loc_sg_m",
-        "term": "sirem"
+        "term": "širem"
       },
       {
         "form_tag": "comp_nom_sg_f",
-        "term": "sira"
+        "term": "šira"
       },
       {
         "form_tag": "comp_gen_sg_f",
-        "term": "sire"
+        "term": "šire"
       },
       {
         "form_tag": "comp_dat_sg_f",
-        "term": "siroj"
+        "term": "široj"
       },
       {
         "form_tag": "comp_acc_sg_f",
-        "term": "siru"
+        "term": "širu"
       },
       {
         "form_tag": "comp_voc_sg_f",
-        "term": "sira"
+        "term": "šira"
       },
       {
         "form_tag": "comp_ins_sg_f",
-        "term": "sirom"
+        "term": "širom"
       },
       {
         "form_tag": "comp_loc_sg_f",
-        "term": "siroj"
+        "term": "široj"
       },
       {
         "form_tag": "comp_nom_sg_n",
-        "term": "sire"
+        "term": "šire"
       },
       {
         "form_tag": "comp_gen_sg_n",
-        "term": "sireg"
+        "term": "šireg"
       },
       {
         "form_tag": "comp_dat_sg_n",
-        "term": "sirem"
+        "term": "širem"
       },
       {
         "form_tag": "comp_acc_sg_n",
-        "term": "sire"
+        "term": "šire"
       },
       {
         "form_tag": "comp_voc_sg_n",
-        "term": "sire"
+        "term": "šire"
       },
       {
         "form_tag": "comp_ins_sg_n",
-        "term": "sirim"
+        "term": "širim"
       },
       {
         "form_tag": "comp_loc_sg_n",
-        "term": "sirem"
+        "term": "širem"
       },
       {
         "form_tag": "comp_nom_pl_m",
-        "term": "siri"
+        "term": "širi"
       },
       {
         "form_tag": "comp_gen_pl_m",
-        "term": "sirih"
+        "term": "širih"
       },
       {
         "form_tag": "comp_dat_pl_m",
-        "term": "sirim"
+        "term": "širim"
       },
       {
         "form_tag": "comp_acc_pl_m",
-        "term": "sire"
+        "term": "šire"
       },
       {
         "form_tag": "comp_voc_pl_m",
-        "term": "siri"
+        "term": "širi"
       },
       {
         "form_tag": "comp_ins_pl_m",
-        "term": "sirim"
+        "term": "širim"
       },
       {
         "form_tag": "comp_loc_pl_m",
-        "term": "sirim"
+        "term": "širim"
       },
       {
         "form_tag": "comp_nom_pl_f",
-        "term": "sire"
+        "term": "šire"
       },
       {
         "form_tag": "comp_gen_pl_f",
-        "term": "sirih"
+        "term": "širih"
       },
       {
         "form_tag": "comp_dat_pl_f",
-        "term": "sirim"
+        "term": "širim"
       },
       {
         "form_tag": "comp_acc_pl_f",
-        "term": "sire"
+        "term": "šire"
       },
       {
         "form_tag": "comp_voc_pl_f",
-        "term": "sire"
+        "term": "šire"
       },
       {
         "form_tag": "comp_ins_pl_f",
-        "term": "sirim"
+        "term": "širim"
       },
       {
         "form_tag": "comp_loc_pl_f",
-        "term": "sirim"
+        "term": "širim"
       },
       {
         "form_tag": "comp_nom_pl_n",
-        "term": "sira"
+        "term": "šira"
       },
       {
         "form_tag": "comp_gen_pl_n",
-        "term": "sirih"
+        "term": "širih"
       },
       {
         "form_tag": "comp_dat_pl_n",
-        "term": "sirim"
+        "term": "širim"
       },
       {
         "form_tag": "comp_acc_pl_n",
-        "term": "sira"
+        "term": "šira"
       },
       {
         "form_tag": "comp_voc_pl_n",
-        "term": "sira"
+        "term": "šira"
       },
       {
         "form_tag": "comp_ins_pl_n",
-        "term": "sirim"
+        "term": "širim"
       },
       {
         "form_tag": "comp_loc_pl_n",
-        "term": "sirim"
+        "term": "širim"
       },
       {
         "form_tag": "super_nom_sg_m",
-        "term": "najsiri"
+        "term": "najširi"
       },
       {
         "form_tag": "super_gen_sg_m",
-        "term": "najsireg"
+        "term": "najšireg"
       },
       {
         "form_tag": "super_dat_sg_m",
-        "term": "najsirem"
+        "term": "najširem"
       },
       {
         "form_tag": "super_acc_sg_m",
-        "term": "najsiri"
+        "term": "najširi"
       },
       {
         "form_tag": "super_voc_sg_m",
-        "term": "najsiri"
+        "term": "najširi"
       },
       {
         "form_tag": "super_ins_sg_m",
-        "term": "najsirim"
+        "term": "najširim"
       },
       {
         "form_tag": "super_loc_sg_m",
-        "term": "najsirem"
+        "term": "najširem"
       },
       {
         "form_tag": "super_nom_sg_f",
-        "term": "najsira"
+        "term": "najšira"
       },
       {
         "form_tag": "super_gen_sg_f",
-        "term": "najsire"
+        "term": "najšire"
       },
       {
         "form_tag": "super_dat_sg_f",
-        "term": "najsiroj"
+        "term": "najširoj"
       },
       {
         "form_tag": "super_acc_sg_f",
-        "term": "najsiru"
+        "term": "najširu"
       },
       {
         "form_tag": "super_voc_sg_f",
-        "term": "najsira"
+        "term": "najšira"
       },
       {
         "form_tag": "super_ins_sg_f",
-        "term": "najsirom"
+        "term": "najširom"
       },
       {
         "form_tag": "super_loc_sg_f",
-        "term": "najsiroj"
+        "term": "najširoj"
       },
       {
         "form_tag": "super_nom_sg_n",
-        "term": "najsire"
+        "term": "najšire"
       },
       {
         "form_tag": "super_gen_sg_n",
-        "term": "najsireg"
+        "term": "najšireg"
       },
       {
         "form_tag": "super_dat_sg_n",
-        "term": "najsirem"
+        "term": "najširem"
       },
       {
         "form_tag": "super_acc_sg_n",
-        "term": "najsire"
+        "term": "najšire"
       },
       {
         "form_tag": "super_voc_sg_n",
-        "term": "najsire"
+        "term": "najšire"
       },
       {
         "form_tag": "super_ins_sg_n",
-        "term": "najsirim"
+        "term": "najširim"
       },
       {
         "form_tag": "super_loc_sg_n",
-        "term": "najsirem"
+        "term": "najširem"
       },
       {
         "form_tag": "super_nom_pl_m",
-        "term": "najsiri"
+        "term": "najširi"
       },
       {
         "form_tag": "super_gen_pl_m",
-        "term": "najsirih"
+        "term": "najširih"
       },
       {
         "form_tag": "super_dat_pl_m",
-        "term": "najsirim"
+        "term": "najširim"
       },
       {
         "form_tag": "super_acc_pl_m",
-        "term": "najsire"
+        "term": "najšire"
       },
       {
         "form_tag": "super_voc_pl_m",
-        "term": "najsiri"
+        "term": "najširi"
       },
       {
         "form_tag": "super_ins_pl_m",
-        "term": "najsirim"
+        "term": "najširim"
       },
       {
         "form_tag": "super_loc_pl_m",
-        "term": "najsirim"
+        "term": "najširim"
       },
       {
         "form_tag": "super_nom_pl_f",
-        "term": "najsire"
+        "term": "najšire"
       },
       {
         "form_tag": "super_gen_pl_f",
-        "term": "najsirih"
+        "term": "najširih"
       },
       {
         "form_tag": "super_dat_pl_f",
-        "term": "najsirim"
+        "term": "najširim"
       },
       {
         "form_tag": "super_acc_pl_f",
-        "term": "najsire"
+        "term": "najšire"
       },
       {
         "form_tag": "super_voc_pl_f",
-        "term": "najsire"
+        "term": "najšire"
       },
       {
         "form_tag": "super_ins_pl_f",
-        "term": "najsirim"
+        "term": "najširim"
       },
       {
         "form_tag": "super_loc_pl_f",
-        "term": "najsirim"
+        "term": "najširim"
       },
       {
         "form_tag": "super_nom_pl_n",
-        "term": "najsira"
+        "term": "najšira"
       },
       {
         "form_tag": "super_gen_pl_n",
-        "term": "najsirih"
+        "term": "najširih"
       },
       {
         "form_tag": "super_dat_pl_n",
-        "term": "najsirim"
+        "term": "najširim"
       },
       {
         "form_tag": "super_acc_pl_n",
-        "term": "najsira"
+        "term": "najšira"
       },
       {
         "form_tag": "super_voc_pl_n",
-        "term": "najsira"
+        "term": "najšira"
       },
       {
         "form_tag": "super_ins_pl_n",
-        "term": "najsirim"
+        "term": "najširim"
       },
       {
         "form_tag": "super_loc_pl_n",
-        "term": "najsirim"
+        "term": "najširim"
       }
     ],
     "gender": "masculine",
@@ -25336,11 +25336,11 @@
       "time"
     ],
     "example_sentence_en": "I've already arrived.",
-    "example_sentence_rs": "Vec sam stigao.",
+    "example_sentence_rs": "Već sam završio.",
     "forms": [
       {
         "form_tag": "base",
-        "term": "vec"
+        "term": "već"
       }
     ],
     "part_of_speech": "adverb",

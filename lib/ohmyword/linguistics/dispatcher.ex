@@ -7,7 +7,6 @@ defmodule Ohmyword.Linguistics.Dispatcher do
   """
 
   alias Ohmyword.Vocabulary.Word
-  alias Ohmyword.Linguistics.Transliteration
 
   @inflectors [
     Ohmyword.Linguistics.Nouns,
@@ -46,9 +45,6 @@ defmodule Ohmyword.Linguistics.Dispatcher do
 
       inflector ->
         inflector.generate_forms(word)
-        |> Enum.map(fn {form, tag} ->
-          {Transliteration.strip_diacritics(form), tag}
-        end)
     end
   end
 
