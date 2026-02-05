@@ -11642,346 +11642,346 @@
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
-        "term": "suh"
+        "term": "suv"
       },
       {
         "form_tag": "indef_gen_sg_m",
-        "term": "suha"
+        "term": "suva"
       },
       {
         "form_tag": "indef_dat_sg_m",
-        "term": "suhu"
+        "term": "suvu"
       },
       {
         "form_tag": "indef_acc_sg_m",
-        "term": "suh"
+        "term": "suv"
       },
       {
         "form_tag": "indef_voc_sg_m",
-        "term": "suh"
+        "term": "suv"
       },
       {
         "form_tag": "indef_ins_sg_m",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "indef_loc_sg_m",
-        "term": "suhu"
+        "term": "suvu"
       },
       {
         "form_tag": "indef_nom_sg_f",
-        "term": "suha"
+        "term": "suva"
       },
       {
         "form_tag": "indef_gen_sg_f",
-        "term": "suhe"
+        "term": "suve"
       },
       {
         "form_tag": "indef_dat_sg_f",
-        "term": "suhoj"
+        "term": "suvoj"
       },
       {
         "form_tag": "indef_acc_sg_f",
-        "term": "suhu"
+        "term": "suvu"
       },
       {
         "form_tag": "indef_voc_sg_f",
-        "term": "suha"
+        "term": "suva"
       },
       {
         "form_tag": "indef_ins_sg_f",
-        "term": "suhom"
+        "term": "suvom"
       },
       {
         "form_tag": "indef_loc_sg_f",
-        "term": "suhoj"
+        "term": "suvoj"
       },
       {
         "form_tag": "indef_nom_sg_n",
-        "term": "suho"
+        "term": "suvo"
       },
       {
         "form_tag": "indef_gen_sg_n",
-        "term": "suha"
+        "term": "suva"
       },
       {
         "form_tag": "indef_dat_sg_n",
-        "term": "suhu"
+        "term": "suvu"
       },
       {
         "form_tag": "indef_acc_sg_n",
-        "term": "suho"
+        "term": "suvo"
       },
       {
         "form_tag": "indef_voc_sg_n",
-        "term": "suho"
+        "term": "suvo"
       },
       {
         "form_tag": "indef_ins_sg_n",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "indef_loc_sg_n",
-        "term": "suhu"
+        "term": "suvu"
       },
       {
         "form_tag": "indef_nom_pl_m",
-        "term": "suhi"
+        "term": "suvi"
       },
       {
         "form_tag": "indef_gen_pl_m",
-        "term": "suhih"
+        "term": "suvih"
       },
       {
         "form_tag": "indef_dat_pl_m",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "indef_acc_pl_m",
-        "term": "suhe"
+        "term": "suve"
       },
       {
         "form_tag": "indef_voc_pl_m",
-        "term": "suhi"
+        "term": "suvi"
       },
       {
         "form_tag": "indef_ins_pl_m",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "indef_loc_pl_m",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "indef_nom_pl_f",
-        "term": "suhe"
+        "term": "suve"
       },
       {
         "form_tag": "indef_gen_pl_f",
-        "term": "suhih"
+        "term": "suvih"
       },
       {
         "form_tag": "indef_dat_pl_f",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "indef_acc_pl_f",
-        "term": "suhe"
+        "term": "suve"
       },
       {
         "form_tag": "indef_voc_pl_f",
-        "term": "suhe"
+        "term": "suve"
       },
       {
         "form_tag": "indef_ins_pl_f",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "indef_loc_pl_f",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "indef_nom_pl_n",
-        "term": "suha"
+        "term": "suva"
       },
       {
         "form_tag": "indef_gen_pl_n",
-        "term": "suhih"
+        "term": "suvih"
       },
       {
         "form_tag": "indef_dat_pl_n",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "indef_acc_pl_n",
-        "term": "suha"
+        "term": "suva"
       },
       {
         "form_tag": "indef_voc_pl_n",
-        "term": "suha"
+        "term": "suva"
       },
       {
         "form_tag": "indef_ins_pl_n",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "indef_loc_pl_n",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "def_nom_sg_m",
-        "term": "suhi"
+        "term": "suvi"
       },
       {
         "form_tag": "def_gen_sg_m",
-        "term": "suhog"
+        "term": "suvog"
       },
       {
         "form_tag": "def_dat_sg_m",
-        "term": "suhom"
+        "term": "suvom"
       },
       {
         "form_tag": "def_acc_sg_m",
-        "term": "suhi"
+        "term": "suvi"
       },
       {
         "form_tag": "def_voc_sg_m",
-        "term": "suhi"
+        "term": "suvi"
       },
       {
         "form_tag": "def_ins_sg_m",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "def_loc_sg_m",
-        "term": "suhom"
+        "term": "suvom"
       },
       {
         "form_tag": "def_nom_sg_f",
-        "term": "suha"
+        "term": "suva"
       },
       {
         "form_tag": "def_gen_sg_f",
-        "term": "suhe"
+        "term": "suve"
       },
       {
         "form_tag": "def_dat_sg_f",
-        "term": "suhoj"
+        "term": "suvoj"
       },
       {
         "form_tag": "def_acc_sg_f",
-        "term": "suhu"
+        "term": "suvu"
       },
       {
         "form_tag": "def_voc_sg_f",
-        "term": "suha"
+        "term": "suva"
       },
       {
         "form_tag": "def_ins_sg_f",
-        "term": "suhom"
+        "term": "suvom"
       },
       {
         "form_tag": "def_loc_sg_f",
-        "term": "suhoj"
+        "term": "suvoj"
       },
       {
         "form_tag": "def_nom_sg_n",
-        "term": "suho"
+        "term": "suvo"
       },
       {
         "form_tag": "def_gen_sg_n",
-        "term": "suhog"
+        "term": "suvog"
       },
       {
         "form_tag": "def_dat_sg_n",
-        "term": "suhom"
+        "term": "suvom"
       },
       {
         "form_tag": "def_acc_sg_n",
-        "term": "suho"
+        "term": "suvo"
       },
       {
         "form_tag": "def_voc_sg_n",
-        "term": "suho"
+        "term": "suvo"
       },
       {
         "form_tag": "def_ins_sg_n",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "def_loc_sg_n",
-        "term": "suhom"
+        "term": "suvom"
       },
       {
         "form_tag": "def_nom_pl_m",
-        "term": "suhi"
+        "term": "suvi"
       },
       {
         "form_tag": "def_gen_pl_m",
-        "term": "suhih"
+        "term": "suvih"
       },
       {
         "form_tag": "def_dat_pl_m",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "def_acc_pl_m",
-        "term": "suhe"
+        "term": "suve"
       },
       {
         "form_tag": "def_voc_pl_m",
-        "term": "suhi"
+        "term": "suvi"
       },
       {
         "form_tag": "def_ins_pl_m",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "def_loc_pl_m",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "def_nom_pl_f",
-        "term": "suhe"
+        "term": "suve"
       },
       {
         "form_tag": "def_gen_pl_f",
-        "term": "suhih"
+        "term": "suvih"
       },
       {
         "form_tag": "def_dat_pl_f",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "def_acc_pl_f",
-        "term": "suhe"
+        "term": "suve"
       },
       {
         "form_tag": "def_voc_pl_f",
-        "term": "suhe"
+        "term": "suve"
       },
       {
         "form_tag": "def_ins_pl_f",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "def_loc_pl_f",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "def_nom_pl_n",
-        "term": "suha"
+        "term": "suva"
       },
       {
         "form_tag": "def_gen_pl_n",
-        "term": "suhih"
+        "term": "suvih"
       },
       {
         "form_tag": "def_dat_pl_n",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "def_acc_pl_n",
-        "term": "suha"
+        "term": "suva"
       },
       {
         "form_tag": "def_voc_pl_n",
-        "term": "suha"
+        "term": "suva"
       },
       {
         "form_tag": "def_ins_pl_n",
-        "term": "suhim"
+        "term": "suvim"
       },
       {
         "form_tag": "def_loc_pl_n",
-        "term": "suhim"
+        "term": "suvim"
       }
     ],
     "gender": "masculine",
     "grammar_metadata": {},
     "part_of_speech": "adjective",
     "proficiency_level": 1,
-    "term": "suh",
+    "term": "suv",
     "translation": "dry"
   },
   {
