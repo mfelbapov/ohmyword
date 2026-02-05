@@ -63,11 +63,7 @@ defmodule Ohmyword.Linguistics.Verbs do
   def generate_forms(%Word{} = word) do
     metadata = word.grammar_metadata || %{}
     irregular_forms = metadata["irregular_forms"] || %{}
-    reflexive = word.reflexive == true
-
-    # Extract base term (without "se" for reflexive verbs)
-    base_term = extract_base_term(word.term, reflexive)
-    term = String.downcase(base_term)
+    term = String.downcase(word.term)
 
     # Get stems
     infinitive_stem = get_infinitive_stem(term)
@@ -76,34 +72,20 @@ defmodule Ohmyword.Linguistics.Verbs do
 
     # Generate all forms
     forms =
-      generate_infinitive(word.term, reflexive) ++
-        generate_present_forms(present_stem, present_conj_class, irregular_forms, reflexive) ++
-        generate_past_forms(infinitive_stem, term, metadata, irregular_forms, reflexive) ++
-        generate_imperative_forms(
-          present_stem,
-          present_conj_class,
-          irregular_forms,
-          reflexive
-        )
+      generate_infinitive(word.term) ++
+        generate_present_forms(present_stem, present_conj_class, irregular_forms) ++
+        generate_past_forms(infinitive_stem, term, metadata, irregular_forms) ++
+        generate_imperative_forms(present_stem, present_conj_class, irregular_forms)
 
     # Apply any remaining irregular form overrides
     Enum.map(forms, fn {form, tag} ->
       if override = Map.get(irregular_forms, tag) do
-        {maybe_add_reflexive(String.downcase(override), reflexive), tag}
+        {String.downcase(override), tag}
       else
         {form, tag}
       end
     end)
   end
-
-  # Extract base term without "se" for reflexive verbs
-  defp extract_base_term(term, true) do
-    term
-    |> String.trim_trailing(" se")
-    |> String.trim()
-  end
-
-  defp extract_base_term(term, false), do: term
 
   # Get infinitive stem by removing -ti or -ći/-ci
   defp get_infinitive_stem(term) do
@@ -178,13 +160,12 @@ defmodule Ohmyword.Linguistics.Verbs do
   end
 
   # Generate infinitive form
-  # Note: For reflexive verbs, the term already includes "se", so don't add it again
-  defp generate_infinitive(term, _reflexive) do
+  defp generate_infinitive(term) do
     [{String.downcase(term), "inf"}]
   end
 
   # Generate present tense forms
-  defp generate_present_forms(stem, conjugation_class, irregular_forms, reflexive) do
+  defp generate_present_forms(stem, conjugation_class, irregular_forms) do
     endings = get_present_endings(conjugation_class)
 
     ["1sg", "2sg", "3sg", "1pl", "2pl", "3pl"]
@@ -198,7 +179,7 @@ defmodule Ohmyword.Linguistics.Verbs do
           stem <> Map.get(endings, person, "")
         end
 
-      {maybe_add_reflexive(form, reflexive), tag}
+      {form, tag}
     end)
   end
 
@@ -209,7 +190,7 @@ defmodule Ohmyword.Linguistics.Verbs do
   defp get_present_endings(_), do: @a_verb_present
 
   # Generate past participle (L-participle) forms
-  defp generate_past_forms(infinitive_stem, term, metadata, irregular_forms, reflexive) do
+  defp generate_past_forms(infinitive_stem, term, metadata, irregular_forms) do
     # Determine the L-participle stem (use metadata override if present)
     l_stem =
       case metadata["past_stem"] do
@@ -229,7 +210,7 @@ defmodule Ohmyword.Linguistics.Verbs do
           build_past_form(l_stem, gender_number, ending)
         end
 
-      {maybe_add_reflexive(form, reflexive), tag}
+      {form, tag}
     end)
   end
 
@@ -260,7 +241,7 @@ defmodule Ohmyword.Linguistics.Verbs do
   end
 
   # Generate imperative forms
-  defp generate_imperative_forms(present_stem, conjugation_class, irregular_forms, reflexive) do
+  defp generate_imperative_forms(present_stem, conjugation_class, irregular_forms) do
     endings = get_imperative_endings(present_stem, conjugation_class)
 
     [{"2sg", "imp_2sg"}, {"1pl", "imp_1pl"}, {"2pl", "imp_2pl"}]
@@ -272,7 +253,7 @@ defmodule Ohmyword.Linguistics.Verbs do
           present_stem <> Map.get(endings, person, "")
         end
 
-      {maybe_add_reflexive(form, reflexive), tag}
+      {form, tag}
     end)
   end
 
@@ -305,7 +286,4 @@ defmodule Ohmyword.Linguistics.Verbs do
     end
   end
 
-  # Add "se" suffix for reflexive verbs
-  defp maybe_add_reflexive(form, true), do: form <> " se"
-  defp maybe_add_reflexive(form, false), do: form
 end

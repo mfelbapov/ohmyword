@@ -1295,55 +1295,55 @@
     "forms": [
       {
         "form_tag": "inf",
-        "term": "smejati se"
+        "term": "smejati"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "smejem se"
+        "term": "smejem"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "smejes se"
+        "term": "smejes"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "smeje se"
+        "term": "smeje"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "smejemo se"
+        "term": "smejemo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "smejete se"
+        "term": "smejete"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "smeju se"
+        "term": "smeju"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "smejao se"
+        "term": "smejao"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "smejala se"
+        "term": "smejala"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "smejalo se"
+        "term": "smejalo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "smejali se"
+        "term": "smejali"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "smejale se"
+        "term": "smejale"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "smejala se"
+        "term": "smejala"
       }
     ],
     "grammar_metadata": {
@@ -1352,7 +1352,7 @@
     "part_of_speech": "verb",
     "proficiency_level": 2,
     "reflexive": true,
-    "term": "smejati se",
+    "term": "smejati",
     "transitive": false,
     "translation": "to laugh",
     "verb_aspect": "imperfective"
@@ -5070,67 +5070,67 @@
     "forms": [
       {
         "form_tag": "inf",
-        "term": "bojati se"
+        "term": "bojati"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "bojim se"
+        "term": "bojim"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "bojis se"
+        "term": "bojis"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "boji se"
+        "term": "boji"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "bojimo se"
+        "term": "bojimo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "bojite se"
+        "term": "bojite"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "boje se"
+        "term": "boje"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "boji se"
+        "term": "boji"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "bojimo se"
+        "term": "bojimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "bojite se"
+        "term": "bojite"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "bojao se"
+        "term": "bojao"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "bojala se"
+        "term": "bojala"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "bojalo se"
+        "term": "bojalo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "bojali se"
+        "term": "bojali"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "bojale se"
+        "term": "bojale"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "bojala se"
+        "term": "bojala"
       }
     ],
     "grammar_metadata": {
@@ -5139,7 +5139,7 @@
     "part_of_speech": "verb",
     "proficiency_level": 2,
     "reflexive": true,
-    "term": "bojati se",
+    "term": "bojati",
     "transitive": false,
     "translation": "to fear",
     "translations": [
@@ -16260,73 +16260,73 @@
     "forms": [
       {
         "form_tag": "inf",
-        "term": "setati se"
+        "term": "setati"
       },
       {
         "form_tag": "pres_1sg",
-        "term": "setam se"
+        "term": "setam"
       },
       {
         "form_tag": "pres_2sg",
-        "term": "setas se"
+        "term": "setas"
       },
       {
         "form_tag": "pres_3sg",
-        "term": "seta se"
+        "term": "seta"
       },
       {
         "form_tag": "pres_1pl",
-        "term": "setamo se"
+        "term": "setamo"
       },
       {
         "form_tag": "pres_2pl",
-        "term": "setate se"
+        "term": "setate"
       },
       {
         "form_tag": "pres_3pl",
-        "term": "setaju se"
+        "term": "setaju"
       },
       {
         "form_tag": "past_m_sg",
-        "term": "setao se"
+        "term": "setao"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "setala se"
+        "term": "setala"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "setalo se"
+        "term": "setalo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "setali se"
+        "term": "setali"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "setale se"
+        "term": "setale"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "setala se"
+        "term": "setala"
       },
       {
         "form_tag": "imp_2sg",
-        "term": "setaj se"
+        "term": "setaj"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "setajmo se"
+        "term": "setajmo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "setajte se"
+        "term": "setajte"
       }
     ],
     "part_of_speech": "verb",
     "proficiency_level": 2,
     "reflexive": true,
-    "term": "šetati se",
+    "term": "šetati",
     "translation": "to take a walk",
     "translations": [
       "to stroll",
