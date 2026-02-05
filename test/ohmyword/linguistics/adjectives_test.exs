@@ -285,7 +285,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
     end
 
     test "comparative genitive singular masculine", %{forms_map: fm} do
-      assert fm["comp_gen_sg_m"] == "boljog"
+      assert fm["comp_gen_sg_m"] == "boljeg"
     end
 
     test "superlative is auto-generated with naj- prefix", %{forms_map: fm} do

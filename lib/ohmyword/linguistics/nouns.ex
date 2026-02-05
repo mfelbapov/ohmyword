@@ -265,6 +265,9 @@ defmodule Ohmyword.Linguistics.Nouns do
     palatalization = metadata["palatalization"] == true
     extended_stem = metadata["extended_stem"]
 
+    # Determine the base stem (with fleeting A removed if applicable)
+    base_stem = if fleeting_a, do: remove_fleeting_a(term), else: term
+
     # Determine the plural stem
     plural_stem =
       cond do
@@ -275,15 +278,18 @@ defmodule Ohmyword.Linguistics.Nouns do
 
         # Palatalization nouns: sibilarize for nom/voc_pl, no -ov-/-ev- insert
         palatalization && case_atom in [:nom, :voc] ->
-          SoundChanges.sibilarize(term)
+          SoundChanges.sibilarize(base_stem)
 
         # Palatalization nouns: sibilarize for dat/ins/loc_pl
         palatalization && case_atom in [:dat, :ins, :loc] ->
-          SoundChanges.sibilarize(term)
+          SoundChanges.sibilarize(base_stem)
 
-        # Palatalization nouns: gen/acc_pl use base stem (no insert)
-        palatalization ->
+        # Palatalization nouns: gen_pl restores fleeting A, acc_pl uses base stem
+        palatalization && case_atom == :gen ->
           term
+
+        palatalization ->
+          base_stem
 
         # For fleeting A nouns with gen_pl, use the original term (with A)
         fleeting_a && case_atom == :gen ->
@@ -291,12 +297,15 @@ defmodule Ohmyword.Linguistics.Nouns do
 
         # For fleeting A nouns (non-gen), use stem without A
         fleeting_a ->
-          remove_fleeting_a(term)
+          base_stem
 
-        # Regular consonant stem with -ov-/-ev- insert
-        true ->
+        # Regular consonant stem: monosyllabic gets -ov-/-ev- insert, polysyllabic does not
+        monosyllabic?(term) ->
           insert = get_plural_insert(term)
           term <> insert
+
+        true ->
+          term
       end
 
     # Get the ending
@@ -350,6 +359,12 @@ defmodule Ohmyword.Linguistics.Nouns do
   defp is_consonant?(char) when is_binary(char) do
     vowels = ~w(a e i o u)
     char not in vowels
+  end
+
+  # Check if a term is monosyllabic (has exactly one vowel)
+  defp monosyllabic?(term) do
+    vowel_count = term |> String.graphemes() |> Enum.count(&(&1 in ~w(a e i o u)))
+    vowel_count <= 1
   end
 
   # Determine plural insert: -ov-, -ev-, or nothing
