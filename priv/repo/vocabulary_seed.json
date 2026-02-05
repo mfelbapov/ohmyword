@@ -1,0 +1,922 @@
+[
+  {
+    "term": "pas",
+    "translation": "dog",
+    "translations": ["hound", "canine"],
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "gender": "masculine",
+    "animate": true,
+    "declension_class": "consonant",
+    "grammar_metadata": {
+      "fleeting_a": true
+    },
+    "categories": ["animals", "pets"],
+    "example_sentence_rs": "Pas laje na macku.",
+    "example_sentence_en": "The dog barks at the cat.",
+    "forms": [
+      {"term": "pas", "form_tag": "nom_sg"},
+      {"term": "psa", "form_tag": "gen_sg"},
+      {"term": "psa", "form_tag": "acc_sg"},
+      {"term": "psu", "form_tag": "dat_sg"},
+      {"term": "psu", "form_tag": "loc_sg"},
+      {"term": "psom", "form_tag": "ins_sg"},
+      {"term": "pse", "form_tag": "voc_sg"},
+      {"term": "psi", "form_tag": "nom_pl"},
+      {"term": "pasa", "form_tag": "gen_pl"},
+      {"term": "psima", "form_tag": "dat_pl"},
+      {"term": "pse", "form_tag": "acc_pl"},
+      {"term": "psi", "form_tag": "voc_pl"},
+      {"term": "psima", "form_tag": "ins_pl"},
+      {"term": "psima", "form_tag": "loc_pl"}
+    ]
+  },
+  {
+    "term": "sto",
+    "translation": "table",
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "gender": "masculine",
+    "animate": false,
+    "declension_class": "o-stem",
+    "categories": ["furniture", "household"],
+    "example_sentence_rs": "Knjiga je na stolu.",
+    "example_sentence_en": "The book is on the table.",
+    "forms": [
+      {"term": "sto", "form_tag": "nom_sg"},
+      {"term": "stola", "form_tag": "gen_sg"},
+      {"term": "sto", "form_tag": "acc_sg"},
+      {"term": "stolu", "form_tag": "dat_sg"},
+      {"term": "stolu", "form_tag": "loc_sg"},
+      {"term": "stolom", "form_tag": "ins_sg"},
+      {"term": "stole", "form_tag": "voc_sg"},
+      {"term": "stolovi", "form_tag": "nom_pl"},
+      {"term": "stolova", "form_tag": "gen_pl"},
+      {"term": "stolovima", "form_tag": "dat_pl"},
+      {"term": "stolove", "form_tag": "acc_pl"},
+      {"term": "stolovi", "form_tag": "voc_pl"},
+      {"term": "stolovima", "form_tag": "ins_pl"},
+      {"term": "stolovima", "form_tag": "loc_pl"}
+    ]
+  },
+  {
+    "term": "junak",
+    "translation": "hero",
+    "part_of_speech": "noun",
+    "proficiency_level": 2,
+    "gender": "masculine",
+    "animate": true,
+    "declension_class": "consonant",
+    "grammar_metadata": {
+      "palatalization": true
+    },
+    "categories": ["people"],
+    "forms": [
+      {"term": "junak", "form_tag": "nom_sg"},
+      {"term": "junaka", "form_tag": "gen_sg"},
+      {"term": "junaka", "form_tag": "acc_sg"},
+      {"term": "junaku", "form_tag": "dat_sg"},
+      {"term": "junaku", "form_tag": "loc_sg"},
+      {"term": "junakom", "form_tag": "ins_sg"},
+      {"term": "junace", "form_tag": "voc_sg"},
+      {"term": "junaci", "form_tag": "nom_pl"},
+      {"term": "junaka", "form_tag": "gen_pl"},
+      {"term": "junacima", "form_tag": "dat_pl"},
+      {"term": "junake", "form_tag": "acc_pl"},
+      {"term": "junaci", "form_tag": "voc_pl"},
+      {"term": "junacima", "form_tag": "ins_pl"},
+      {"term": "junacima", "form_tag": "loc_pl"}
+    ]
+  },
+  {
+    "term": "zena",
+    "translation": "woman",
+    "translations": ["wife"],
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "categories": ["people", "family"],
+    "example_sentence_rs": "Zena cita knjigu.",
+    "example_sentence_en": "The woman reads a book.",
+    "forms": [
+      {"term": "zena", "form_tag": "nom_sg"},
+      {"term": "zene", "form_tag": "gen_sg"},
+      {"term": "zenu", "form_tag": "acc_sg"},
+      {"term": "zeni", "form_tag": "dat_sg"},
+      {"term": "zeni", "form_tag": "loc_sg"},
+      {"term": "zenom", "form_tag": "ins_sg"},
+      {"term": "zeno", "form_tag": "voc_sg"},
+      {"term": "zene", "form_tag": "nom_pl"},
+      {"term": "zena", "form_tag": "gen_pl"},
+      {"term": "zenama", "form_tag": "dat_pl"},
+      {"term": "zene", "form_tag": "acc_pl"},
+      {"term": "zene", "form_tag": "voc_pl"},
+      {"term": "zenama", "form_tag": "ins_pl"},
+      {"term": "zenama", "form_tag": "loc_pl"}
+    ]
+  },
+  {
+    "term": "stvar",
+    "translation": "thing",
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "gender": "feminine",
+    "declension_class": "i-stem",
+    "categories": ["abstract"],
+    "forms": [
+      {"term": "stvar", "form_tag": "nom_sg"},
+      {"term": "stvari", "form_tag": "gen_sg"},
+      {"term": "stvar", "form_tag": "acc_sg"},
+      {"term": "stvari", "form_tag": "dat_sg"},
+      {"term": "stvari", "form_tag": "loc_sg"},
+      {"term": "stvari", "form_tag": "ins_sg"},
+      {"term": "stvari", "form_tag": "voc_sg"},
+      {"term": "stvari", "form_tag": "nom_pl"},
+      {"term": "stvari", "form_tag": "gen_pl"},
+      {"term": "stvarima", "form_tag": "dat_pl"},
+      {"term": "stvari", "form_tag": "acc_pl"},
+      {"term": "stvari", "form_tag": "voc_pl"},
+      {"term": "stvarima", "form_tag": "ins_pl"},
+      {"term": "stvarima", "form_tag": "loc_pl"}
+    ]
+  },
+  {
+    "term": "selo",
+    "translation": "village",
+    "part_of_speech": "noun",
+    "proficiency_level": 2,
+    "gender": "neuter",
+    "declension_class": "o-stem",
+    "categories": ["places", "geography"],
+    "example_sentence_rs": "Zivim u malom selu.",
+    "example_sentence_en": "I live in a small village.",
+    "forms": [
+      {"term": "selo", "form_tag": "nom_sg"},
+      {"term": "sela", "form_tag": "gen_sg"},
+      {"term": "selo", "form_tag": "acc_sg"},
+      {"term": "selu", "form_tag": "dat_sg"},
+      {"term": "selu", "form_tag": "loc_sg"},
+      {"term": "selom", "form_tag": "ins_sg"},
+      {"term": "selo", "form_tag": "voc_sg"},
+      {"term": "sela", "form_tag": "nom_pl"},
+      {"term": "sela", "form_tag": "gen_pl"},
+      {"term": "selima", "form_tag": "dat_pl"},
+      {"term": "sela", "form_tag": "acc_pl"},
+      {"term": "sela", "form_tag": "voc_pl"},
+      {"term": "selima", "form_tag": "ins_pl"},
+      {"term": "selima", "form_tag": "loc_pl"}
+    ]
+  },
+  {
+    "term": "polje",
+    "translation": "field",
+    "part_of_speech": "noun",
+    "proficiency_level": 2,
+    "gender": "neuter",
+    "declension_class": "e-stem",
+    "categories": ["nature", "geography"],
+    "forms": [
+      {"term": "polje", "form_tag": "nom_sg"},
+      {"term": "polja", "form_tag": "gen_sg"},
+      {"term": "polje", "form_tag": "acc_sg"},
+      {"term": "polju", "form_tag": "dat_sg"},
+      {"term": "polju", "form_tag": "loc_sg"},
+      {"term": "poljem", "form_tag": "ins_sg"},
+      {"term": "polje", "form_tag": "voc_sg"},
+      {"term": "polja", "form_tag": "nom_pl"},
+      {"term": "polja", "form_tag": "gen_pl"},
+      {"term": "poljima", "form_tag": "dat_pl"},
+      {"term": "polja", "form_tag": "acc_pl"},
+      {"term": "polja", "form_tag": "voc_pl"},
+      {"term": "poljima", "form_tag": "ins_pl"},
+      {"term": "poljima", "form_tag": "loc_pl"}
+    ]
+  },
+  {
+    "term": "dete",
+    "translation": "child",
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "gender": "neuter",
+    "declension_class": "e-stem",
+    "grammar_metadata": {
+      "irregular_plural": "deca"
+    },
+    "categories": ["people", "family"],
+    "example_sentence_rs": "Dete se igra.",
+    "example_sentence_en": "The child is playing.",
+    "forms": [
+      {"term": "dete", "form_tag": "nom_sg"},
+      {"term": "deteta", "form_tag": "gen_sg"},
+      {"term": "dete", "form_tag": "acc_sg"},
+      {"term": "detetu", "form_tag": "dat_sg"},
+      {"term": "detetu", "form_tag": "loc_sg"},
+      {"term": "detetom", "form_tag": "ins_sg"},
+      {"term": "dete", "form_tag": "voc_sg"},
+      {"term": "deca", "form_tag": "nom_pl"},
+      {"term": "dece", "form_tag": "gen_pl"},
+      {"term": "deci", "form_tag": "dat_pl"},
+      {"term": "decu", "form_tag": "acc_pl"},
+      {"term": "deco", "form_tag": "voc_pl"},
+      {"term": "decom", "form_tag": "ins_pl"},
+      {"term": "deci", "form_tag": "loc_pl"}
+    ]
+  },
+  {
+    "term": "oko",
+    "translation": "eye",
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "gender": "neuter",
+    "declension_class": "o-stem",
+    "grammar_metadata": {
+      "irregular_forms": {
+        "gen_pl": "ociju"
+      }
+    },
+    "categories": ["body"],
+    "forms": [
+      {"term": "oko", "form_tag": "nom_sg"},
+      {"term": "oka", "form_tag": "gen_sg"},
+      {"term": "oko", "form_tag": "acc_sg"},
+      {"term": "oku", "form_tag": "dat_sg"},
+      {"term": "oku", "form_tag": "loc_sg"},
+      {"term": "okom", "form_tag": "ins_sg"},
+      {"term": "oko", "form_tag": "voc_sg"},
+      {"term": "oci", "form_tag": "nom_pl"},
+      {"term": "ociju", "form_tag": "gen_pl"},
+      {"term": "ocima", "form_tag": "dat_pl"},
+      {"term": "oci", "form_tag": "acc_pl"},
+      {"term": "oci", "form_tag": "voc_pl"},
+      {"term": "ocima", "form_tag": "ins_pl"},
+      {"term": "ocima", "form_tag": "loc_pl"}
+    ]
+  },
+  {
+    "term": "covek",
+    "translation": "man",
+    "translations": ["person", "human"],
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "gender": "masculine",
+    "animate": true,
+    "declension_class": "consonant",
+    "grammar_metadata": {
+      "irregular_plural": "ljudi"
+    },
+    "categories": ["people"],
+    "example_sentence_rs": "Covek hoda ulicom.",
+    "example_sentence_en": "A man walks down the street.",
+    "forms": [
+      {"term": "covek", "form_tag": "nom_sg"},
+      {"term": "coveka", "form_tag": "gen_sg"},
+      {"term": "coveka", "form_tag": "acc_sg"},
+      {"term": "coveku", "form_tag": "dat_sg"},
+      {"term": "coveku", "form_tag": "loc_sg"},
+      {"term": "covekom", "form_tag": "ins_sg"},
+      {"term": "covece", "form_tag": "voc_sg"},
+      {"term": "ljudi", "form_tag": "nom_pl"},
+      {"term": "ljudi", "form_tag": "gen_pl"},
+      {"term": "ljudima", "form_tag": "dat_pl"},
+      {"term": "ljude", "form_tag": "acc_pl"},
+      {"term": "ljudi", "form_tag": "voc_pl"},
+      {"term": "ljudima", "form_tag": "ins_pl"},
+      {"term": "ljudima", "form_tag": "loc_pl"}
+    ]
+  },
+  {
+    "term": "pisati",
+    "translation": "to write",
+    "part_of_speech": "verb",
+    "proficiency_level": 1,
+    "verb_aspect": "imperfective",
+    "conjugation_class": "e-verb",
+    "reflexive": false,
+    "transitive": true,
+    "grammar_metadata": {
+      "present_stem": "pis"
+    },
+    "categories": ["communication", "actions"],
+    "example_sentence_rs": "Pisem pismo.",
+    "example_sentence_en": "I am writing a letter.",
+    "aspect_pair_term": "napisati",
+    "forms": [
+      {"term": "pisati", "form_tag": "inf"},
+      {"term": "pisem", "form_tag": "pres_1sg"},
+      {"term": "pises", "form_tag": "pres_2sg"},
+      {"term": "pise", "form_tag": "pres_3sg"},
+      {"term": "pisemo", "form_tag": "pres_1pl"},
+      {"term": "pisete", "form_tag": "pres_2pl"},
+      {"term": "pisu", "form_tag": "pres_3pl"},
+      {"term": "pisi", "form_tag": "imp_2sg"},
+      {"term": "pisimo", "form_tag": "imp_1pl"},
+      {"term": "pisite", "form_tag": "imp_2pl"},
+      {"term": "pisao", "form_tag": "past_m_sg"},
+      {"term": "pisala", "form_tag": "past_f_sg"},
+      {"term": "pisalo", "form_tag": "past_n_sg"},
+      {"term": "pisali", "form_tag": "past_m_pl"},
+      {"term": "pisale", "form_tag": "past_f_pl"},
+      {"term": "pisala", "form_tag": "past_n_pl"}
+    ]
+  },
+  {
+    "term": "napisati",
+    "translation": "to write",
+    "translations": ["to finish writing"],
+    "part_of_speech": "verb",
+    "proficiency_level": 1,
+    "verb_aspect": "perfective",
+    "conjugation_class": "e-verb",
+    "reflexive": false,
+    "transitive": true,
+    "grammar_metadata": {
+      "present_stem": "napis"
+    },
+    "categories": ["communication", "actions"],
+    "aspect_pair_term": "pisati",
+    "forms": [
+      {"term": "napisati", "form_tag": "inf"},
+      {"term": "napisem", "form_tag": "pres_1sg"},
+      {"term": "napises", "form_tag": "pres_2sg"},
+      {"term": "napise", "form_tag": "pres_3sg"},
+      {"term": "napisemo", "form_tag": "pres_1pl"},
+      {"term": "napisete", "form_tag": "pres_2pl"},
+      {"term": "napisu", "form_tag": "pres_3pl"},
+      {"term": "napisi", "form_tag": "imp_2sg"},
+      {"term": "napisimo", "form_tag": "imp_1pl"},
+      {"term": "napisite", "form_tag": "imp_2pl"},
+      {"term": "napisao", "form_tag": "past_m_sg"},
+      {"term": "napisala", "form_tag": "past_f_sg"},
+      {"term": "napisalo", "form_tag": "past_n_sg"},
+      {"term": "napisali", "form_tag": "past_m_pl"},
+      {"term": "napisale", "form_tag": "past_f_pl"},
+      {"term": "napisala", "form_tag": "past_n_pl"}
+    ]
+  },
+  {
+    "term": "citati",
+    "translation": "to read",
+    "part_of_speech": "verb",
+    "proficiency_level": 1,
+    "verb_aspect": "imperfective",
+    "conjugation_class": "a-verb",
+    "reflexive": false,
+    "transitive": true,
+    "categories": ["communication", "actions"],
+    "example_sentence_rs": "Citam knjigu.",
+    "example_sentence_en": "I am reading a book.",
+    "forms": [
+      {"term": "citati", "form_tag": "inf"},
+      {"term": "citam", "form_tag": "pres_1sg"},
+      {"term": "citas", "form_tag": "pres_2sg"},
+      {"term": "cita", "form_tag": "pres_3sg"},
+      {"term": "citamo", "form_tag": "pres_1pl"},
+      {"term": "citate", "form_tag": "pres_2pl"},
+      {"term": "citaju", "form_tag": "pres_3pl"},
+      {"term": "citaj", "form_tag": "imp_2sg"},
+      {"term": "citajmo", "form_tag": "imp_1pl"},
+      {"term": "citajte", "form_tag": "imp_2pl"},
+      {"term": "citao", "form_tag": "past_m_sg"},
+      {"term": "citala", "form_tag": "past_f_sg"},
+      {"term": "citalo", "form_tag": "past_n_sg"},
+      {"term": "citali", "form_tag": "past_m_pl"},
+      {"term": "citale", "form_tag": "past_f_pl"},
+      {"term": "citala", "form_tag": "past_n_pl"}
+    ]
+  },
+  {
+    "term": "govoriti",
+    "translation": "to speak",
+    "translations": ["to talk"],
+    "part_of_speech": "verb",
+    "proficiency_level": 1,
+    "verb_aspect": "imperfective",
+    "conjugation_class": "i-verb",
+    "reflexive": false,
+    "transitive": true,
+    "categories": ["communication"],
+    "example_sentence_rs": "Govorim srpski.",
+    "example_sentence_en": "I speak Serbian.",
+    "forms": [
+      {"term": "govoriti", "form_tag": "inf"},
+      {"term": "govorim", "form_tag": "pres_1sg"},
+      {"term": "govoris", "form_tag": "pres_2sg"},
+      {"term": "govori", "form_tag": "pres_3sg"},
+      {"term": "govorimo", "form_tag": "pres_1pl"},
+      {"term": "govorite", "form_tag": "pres_2pl"},
+      {"term": "govore", "form_tag": "pres_3pl"},
+      {"term": "govori", "form_tag": "imp_2sg"},
+      {"term": "govorimo", "form_tag": "imp_1pl"},
+      {"term": "govorite", "form_tag": "imp_2pl"},
+      {"term": "govorio", "form_tag": "past_m_sg"},
+      {"term": "govorila", "form_tag": "past_f_sg"},
+      {"term": "govorilo", "form_tag": "past_n_sg"},
+      {"term": "govorili", "form_tag": "past_m_pl"},
+      {"term": "govorile", "form_tag": "past_f_pl"},
+      {"term": "govorila", "form_tag": "past_n_pl"}
+    ]
+  },
+  {
+    "term": "biti",
+    "translation": "to be",
+    "part_of_speech": "verb",
+    "proficiency_level": 1,
+    "verb_aspect": "imperfective",
+    "conjugation_class": "irregular",
+    "reflexive": false,
+    "grammar_metadata": {
+      "auxiliary": true,
+      "irregular_forms": {
+        "pres_1sg": "sam",
+        "pres_2sg": "si",
+        "pres_3sg": "je",
+        "pres_1pl": "smo",
+        "pres_2pl": "ste",
+        "pres_3pl": "su"
+      }
+    },
+    "categories": ["grammar", "auxiliaries"],
+    "example_sentence_rs": "Ja sam ucenik.",
+    "example_sentence_en": "I am a student.",
+    "forms": [
+      {"term": "biti", "form_tag": "inf"},
+      {"term": "sam", "form_tag": "pres_1sg"},
+      {"term": "si", "form_tag": "pres_2sg"},
+      {"term": "je", "form_tag": "pres_3sg"},
+      {"term": "smo", "form_tag": "pres_1pl"},
+      {"term": "ste", "form_tag": "pres_2pl"},
+      {"term": "su", "form_tag": "pres_3pl"},
+      {"term": "budi", "form_tag": "imp_2sg"},
+      {"term": "budimo", "form_tag": "imp_1pl"},
+      {"term": "budite", "form_tag": "imp_2pl"},
+      {"term": "bio", "form_tag": "past_m_sg"},
+      {"term": "bila", "form_tag": "past_f_sg"},
+      {"term": "bilo", "form_tag": "past_n_sg"},
+      {"term": "bili", "form_tag": "past_m_pl"},
+      {"term": "bile", "form_tag": "past_f_pl"},
+      {"term": "bila", "form_tag": "past_n_pl"}
+    ]
+  },
+  {
+    "term": "hteti",
+    "translation": "to want",
+    "part_of_speech": "verb",
+    "proficiency_level": 1,
+    "verb_aspect": "imperfective",
+    "conjugation_class": "irregular",
+    "reflexive": false,
+    "grammar_metadata": {
+      "auxiliary": true,
+      "irregular_forms": {
+        "pres_1sg": "hocu",
+        "pres_2sg": "hoces",
+        "pres_3sg": "hoce",
+        "pres_1pl": "hocemo",
+        "pres_2pl": "hocete",
+        "pres_3pl": "hoce"
+      }
+    },
+    "categories": ["grammar", "auxiliaries"],
+    "example_sentence_rs": "Hocu da jedem.",
+    "example_sentence_en": "I want to eat.",
+    "forms": [
+      {"term": "hteti", "form_tag": "inf"},
+      {"term": "hocu", "form_tag": "pres_1sg"},
+      {"term": "hoces", "form_tag": "pres_2sg"},
+      {"term": "hoce", "form_tag": "pres_3sg"},
+      {"term": "hocemo", "form_tag": "pres_1pl"},
+      {"term": "hocete", "form_tag": "pres_2pl"},
+      {"term": "hoce", "form_tag": "pres_3pl"},
+      {"term": "hteo", "form_tag": "past_m_sg"},
+      {"term": "htela", "form_tag": "past_f_sg"},
+      {"term": "htelo", "form_tag": "past_n_sg"},
+      {"term": "hteli", "form_tag": "past_m_pl"},
+      {"term": "htele", "form_tag": "past_f_pl"},
+      {"term": "htela", "form_tag": "past_n_pl"}
+    ]
+  },
+  {
+    "term": "smejati se",
+    "translation": "to laugh",
+    "part_of_speech": "verb",
+    "proficiency_level": 2,
+    "verb_aspect": "imperfective",
+    "conjugation_class": "a-verb",
+    "reflexive": true,
+    "transitive": false,
+    "categories": ["emotions", "actions"],
+    "example_sentence_rs": "Deca se smeju.",
+    "example_sentence_en": "The children are laughing.",
+    "forms": [
+      {"term": "smejati se", "form_tag": "inf"},
+      {"term": "smejem se", "form_tag": "pres_1sg"},
+      {"term": "smejes se", "form_tag": "pres_2sg"},
+      {"term": "smeje se", "form_tag": "pres_3sg"},
+      {"term": "smejemo se", "form_tag": "pres_1pl"},
+      {"term": "smejete se", "form_tag": "pres_2pl"},
+      {"term": "smeju se", "form_tag": "pres_3pl"},
+      {"term": "smejao se", "form_tag": "past_m_sg"},
+      {"term": "smejala se", "form_tag": "past_f_sg"},
+      {"term": "smejalo se", "form_tag": "past_n_sg"},
+      {"term": "smejali se", "form_tag": "past_m_pl"},
+      {"term": "smejale se", "form_tag": "past_f_pl"},
+      {"term": "smejala se", "form_tag": "past_n_pl"}
+    ]
+  },
+  {
+    "term": "ici",
+    "translation": "to go",
+    "part_of_speech": "verb",
+    "proficiency_level": 1,
+    "verb_aspect": "imperfective",
+    "conjugation_class": "irregular",
+    "reflexive": false,
+    "transitive": false,
+    "grammar_metadata": {
+      "present_stem": "id"
+    },
+    "categories": ["movement", "actions"],
+    "example_sentence_rs": "Idem u skolu.",
+    "example_sentence_en": "I am going to school.",
+    "forms": [
+      {"term": "ici", "form_tag": "inf"},
+      {"term": "idem", "form_tag": "pres_1sg"},
+      {"term": "ides", "form_tag": "pres_2sg"},
+      {"term": "ide", "form_tag": "pres_3sg"},
+      {"term": "idemo", "form_tag": "pres_1pl"},
+      {"term": "idete", "form_tag": "pres_2pl"},
+      {"term": "idu", "form_tag": "pres_3pl"},
+      {"term": "idi", "form_tag": "imp_2sg"},
+      {"term": "idimo", "form_tag": "imp_1pl"},
+      {"term": "idite", "form_tag": "imp_2pl"},
+      {"term": "isao", "form_tag": "past_m_sg"},
+      {"term": "isla", "form_tag": "past_f_sg"},
+      {"term": "islo", "form_tag": "past_n_sg"},
+      {"term": "isli", "form_tag": "past_m_pl"},
+      {"term": "isle", "form_tag": "past_f_pl"},
+      {"term": "isla", "form_tag": "past_n_pl"}
+    ]
+  },
+  {
+    "term": "dobar",
+    "translation": "good",
+    "part_of_speech": "adjective",
+    "proficiency_level": 1,
+    "gender": "masculine",
+    "grammar_metadata": {
+      "comparative_stem": "bolj",
+      "superlative_stem": "najbolji",
+      "irregular_forms": {
+        "comp_nom_sg_m": "bolji",
+        "super_nom_sg_m": "najbolji"
+      }
+    },
+    "categories": ["description", "quality"],
+    "example_sentence_rs": "On je dobar covek.",
+    "example_sentence_en": "He is a good man.",
+    "forms": [
+      {"term": "dobar", "form_tag": "indef_nom_sg_m"},
+      {"term": "dobra", "form_tag": "indef_nom_sg_f"},
+      {"term": "dobro", "form_tag": "indef_nom_sg_n"},
+      {"term": "dobri", "form_tag": "def_nom_sg_m"},
+      {"term": "bolji", "form_tag": "comp_nom_sg_m"},
+      {"term": "bolja", "form_tag": "comp_nom_sg_f"},
+      {"term": "bolje", "form_tag": "comp_nom_sg_n"},
+      {"term": "najbolji", "form_tag": "super_nom_sg_m"},
+      {"term": "najbolja", "form_tag": "super_nom_sg_f"},
+      {"term": "najbolje", "form_tag": "super_nom_sg_n"}
+    ]
+  },
+  {
+    "term": "velik",
+    "translation": "big",
+    "translations": ["large", "great"],
+    "part_of_speech": "adjective",
+    "proficiency_level": 1,
+    "gender": "masculine",
+    "grammar_metadata": {
+      "irregular_forms": {
+        "comp_nom_sg_m": "veci"
+      }
+    },
+    "categories": ["description", "size"],
+    "forms": [
+      {"term": "velik", "form_tag": "indef_nom_sg_m"},
+      {"term": "velika", "form_tag": "indef_nom_sg_f"},
+      {"term": "veliko", "form_tag": "indef_nom_sg_n"},
+      {"term": "veliki", "form_tag": "def_nom_sg_m"},
+      {"term": "veci", "form_tag": "comp_nom_sg_m"},
+      {"term": "veca", "form_tag": "comp_nom_sg_f"},
+      {"term": "vece", "form_tag": "comp_nom_sg_n"},
+      {"term": "najveci", "form_tag": "super_nom_sg_m"},
+      {"term": "najveca", "form_tag": "super_nom_sg_f"},
+      {"term": "najvece", "form_tag": "super_nom_sg_n"}
+    ]
+  },
+  {
+    "term": "lep",
+    "translation": "beautiful",
+    "translations": ["pretty", "handsome"],
+    "part_of_speech": "adjective",
+    "proficiency_level": 1,
+    "gender": "masculine",
+    "categories": ["description", "appearance"],
+    "forms": [
+      {"term": "lep", "form_tag": "indef_nom_sg_m"},
+      {"term": "lepa", "form_tag": "indef_nom_sg_f"},
+      {"term": "lepo", "form_tag": "indef_nom_sg_n"},
+      {"term": "lepi", "form_tag": "def_nom_sg_m"},
+      {"term": "lepsi", "form_tag": "comp_nom_sg_m"},
+      {"term": "lepsa", "form_tag": "comp_nom_sg_f"},
+      {"term": "lepse", "form_tag": "comp_nom_sg_n"},
+      {"term": "najlepsi", "form_tag": "super_nom_sg_m"},
+      {"term": "najlepsa", "form_tag": "super_nom_sg_f"},
+      {"term": "najlepse", "form_tag": "super_nom_sg_n"}
+    ]
+  },
+  {
+    "term": "bez",
+    "translation": "beige",
+    "part_of_speech": "adjective",
+    "proficiency_level": 3,
+    "gender": "masculine",
+    "grammar_metadata": {
+      "indeclinable": true
+    },
+    "categories": ["colors"],
+    "usage_notes": "Foreign adjective, does not decline",
+    "forms": [
+      {"term": "bez", "form_tag": "invariable"}
+    ]
+  },
+  {
+    "term": "ja",
+    "translation": "I",
+    "part_of_speech": "pronoun",
+    "proficiency_level": 1,
+    "gender": "masculine",
+    "grammar_metadata": {
+      "pronoun_type": "personal",
+      "clitic_forms": {
+        "acc_sg": "me",
+        "dat_sg": "mi",
+        "gen_sg": "me"
+      }
+    },
+    "categories": ["grammar", "pronouns"],
+    "forms": [
+      {"term": "ja", "form_tag": "nom_sg"},
+      {"term": "mene", "form_tag": "gen_sg"},
+      {"term": "me", "form_tag": "gen_sg_clitic"},
+      {"term": "meni", "form_tag": "dat_sg"},
+      {"term": "mi", "form_tag": "dat_sg_clitic"},
+      {"term": "mene", "form_tag": "acc_sg"},
+      {"term": "me", "form_tag": "acc_sg_clitic"},
+      {"term": "mnom", "form_tag": "ins_sg"},
+      {"term": "meni", "form_tag": "loc_sg"}
+    ]
+  },
+  {
+    "term": "on",
+    "translation": "he",
+    "part_of_speech": "pronoun",
+    "proficiency_level": 1,
+    "gender": "masculine",
+    "grammar_metadata": {
+      "pronoun_type": "personal",
+      "clitic_forms": {
+        "acc_sg": "ga",
+        "dat_sg": "mu",
+        "gen_sg": "ga"
+      }
+    },
+    "categories": ["grammar", "pronouns"],
+    "forms": [
+      {"term": "on", "form_tag": "nom_sg"},
+      {"term": "njega", "form_tag": "gen_sg"},
+      {"term": "ga", "form_tag": "gen_sg_clitic"},
+      {"term": "njemu", "form_tag": "dat_sg"},
+      {"term": "mu", "form_tag": "dat_sg_clitic"},
+      {"term": "njega", "form_tag": "acc_sg"},
+      {"term": "ga", "form_tag": "acc_sg_clitic"},
+      {"term": "njim", "form_tag": "ins_sg"},
+      {"term": "njemu", "form_tag": "loc_sg"}
+    ]
+  },
+  {
+    "term": "ovaj",
+    "translation": "this",
+    "part_of_speech": "pronoun",
+    "proficiency_level": 1,
+    "gender": "masculine",
+    "grammar_metadata": {
+      "pronoun_type": "demonstrative"
+    },
+    "categories": ["grammar", "pronouns"],
+    "forms": [
+      {"term": "ovaj", "form_tag": "nom_sg_m"},
+      {"term": "ova", "form_tag": "nom_sg_f"},
+      {"term": "ovo", "form_tag": "nom_sg_n"},
+      {"term": "ovog", "form_tag": "gen_sg_m"},
+      {"term": "ove", "form_tag": "gen_sg_f"},
+      {"term": "ovog", "form_tag": "gen_sg_n"}
+    ]
+  },
+  {
+    "term": "ko",
+    "translation": "who",
+    "part_of_speech": "pronoun",
+    "proficiency_level": 1,
+    "gender": "masculine",
+    "grammar_metadata": {
+      "pronoun_type": "interrogative"
+    },
+    "categories": ["grammar", "pronouns", "questions"],
+    "forms": [
+      {"term": "ko", "form_tag": "nom_sg"},
+      {"term": "koga", "form_tag": "gen_sg"},
+      {"term": "kome", "form_tag": "dat_sg"},
+      {"term": "koga", "form_tag": "acc_sg"},
+      {"term": "kim", "form_tag": "ins_sg"},
+      {"term": "kome", "form_tag": "loc_sg"}
+    ]
+  },
+  {
+    "term": "dva",
+    "translation": "two",
+    "part_of_speech": "numeral",
+    "proficiency_level": 1,
+    "grammar_metadata": {
+      "numeral_type": "cardinal",
+      "governs": "gen_sg",
+      "gender_forms": true
+    },
+    "categories": ["numbers"],
+    "forms": [
+      {"term": "dva", "form_tag": "nom_m"},
+      {"term": "dve", "form_tag": "nom_f"},
+      {"term": "dva", "form_tag": "nom_n"},
+      {"term": "dvaju", "form_tag": "gen"},
+      {"term": "dvama", "form_tag": "dat"},
+      {"term": "dva", "form_tag": "acc_m"},
+      {"term": "dve", "form_tag": "acc_f"},
+      {"term": "dvama", "form_tag": "ins"},
+      {"term": "dvama", "form_tag": "loc"}
+    ]
+  },
+  {
+    "term": "u",
+    "translation": "in",
+    "translations": ["into", "at"],
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "grammar_metadata": {
+      "governs": ["accusative", "locative"],
+      "notes": "acc = motion toward, loc = static location"
+    },
+    "categories": ["grammar", "prepositions"],
+    "usage_notes": "Takes accusative for motion (idem u skolu), locative for location (u skoli sam)",
+    "forms": [
+      {"term": "u", "form_tag": "invariable"}
+    ]
+  },
+  {
+    "term": "i",
+    "translation": "and",
+    "part_of_speech": "conjunction",
+    "proficiency_level": 1,
+    "categories": ["grammar", "conjunctions"],
+    "forms": [
+      {"term": "i", "form_tag": "invariable"}
+    ]
+  },
+  {
+    "term": "brzo",
+    "translation": "quickly",
+    "translations": ["fast"],
+    "part_of_speech": "adverb",
+    "proficiency_level": 1,
+    "grammar_metadata": {
+      "comparative": "brze",
+      "superlative": "najbrze",
+      "derived_from": "brz"
+    },
+    "categories": ["description", "manner"],
+    "forms": [
+      {"term": "brzo", "form_tag": "base"},
+      {"term": "brze", "form_tag": "comparative"},
+      {"term": "najbrze", "form_tag": "superlative"}
+    ]
+  },
+  {
+    "term": "da",
+    "translation": "yes",
+    "translations": ["that"],
+    "part_of_speech": "particle",
+    "proficiency_level": 1,
+    "categories": ["grammar", "particles"],
+    "usage_notes": "As particle means 'yes', as conjunction means 'that' or introduces subjunctive",
+    "forms": [
+      {"term": "da", "form_tag": "invariable"}
+    ]
+  },
+  {
+    "term": "kosa",
+    "translation": "hair",
+    "part_of_speech": "noun",
+    "proficiency_level": 2,
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "categories": ["body"],
+    "forms": [
+      {"term": "kosa", "form_tag": "nom_sg"},
+      {"term": "kose", "form_tag": "gen_sg"},
+      {"term": "kosu", "form_tag": "acc_sg"},
+      {"term": "kosi", "form_tag": "dat_sg"},
+      {"term": "kosi", "form_tag": "loc_sg"},
+      {"term": "kosom", "form_tag": "ins_sg"}
+    ]
+  },
+  {
+    "term": "kosa",
+    "translation": "scythe",
+    "part_of_speech": "noun",
+    "proficiency_level": 4,
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "categories": ["tools", "agriculture"],
+    "usage_notes": "Homograph with kosa (hair)",
+    "forms": [
+      {"term": "kosa", "form_tag": "nom_sg"},
+      {"term": "kose", "form_tag": "gen_sg"},
+      {"term": "kosu", "form_tag": "acc_sg"},
+      {"term": "kosi", "form_tag": "dat_sg"},
+      {"term": "kosi", "form_tag": "loc_sg"},
+      {"term": "kosom", "form_tag": "ins_sg"}
+    ]
+  },
+  {
+    "term": "sam",
+    "translation": "alone",
+    "translations": ["by oneself"],
+    "part_of_speech": "adjective",
+    "proficiency_level": 2,
+    "gender": "masculine",
+    "categories": ["description"],
+    "usage_notes": "Also a form of 'biti' (to be) - 'ja sam' means 'I am'",
+    "forms": [
+      {"term": "sam", "form_tag": "indef_nom_sg_m"},
+      {"term": "sama", "form_tag": "indef_nom_sg_f"},
+      {"term": "samo", "form_tag": "indef_nom_sg_n"},
+      {"term": "sami", "form_tag": "def_nom_sg_m"}
+    ]
+  },
+  {
+    "term": "ljubav",
+    "translation": "love",
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "gender": "feminine",
+    "declension_class": "i-stem",
+    "categories": ["emotions", "abstract"],
+    "example_sentence_rs": "Ljubav je lepa.",
+    "example_sentence_en": "Love is beautiful.",
+    "forms": [
+      {"term": "ljubav", "form_tag": "nom_sg"},
+      {"term": "ljubavi", "form_tag": "gen_sg"},
+      {"term": "ljubav", "form_tag": "acc_sg"},
+      {"term": "ljubavi", "form_tag": "dat_sg"},
+      {"term": "ljubavi", "form_tag": "loc_sg"},
+      {"term": "ljubavlju", "form_tag": "ins_sg"},
+      {"term": "ljubavi", "form_tag": "voc_sg"}
+    ]
+  },
+  {
+    "term": "knjiga",
+    "translation": "book",
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "categories": ["education", "objects"],
+    "example_sentence_rs": "Citam zanimljivu knjigu.",
+    "example_sentence_en": "I am reading an interesting book.",
+    "forms": [
+      {"term": "knjiga", "form_tag": "nom_sg"},
+      {"term": "knjige", "form_tag": "gen_sg"},
+      {"term": "knjigu", "form_tag": "acc_sg"},
+      {"term": "knjizi", "form_tag": "dat_sg"},
+      {"term": "knjizi", "form_tag": "loc_sg"},
+      {"term": "knjigom", "form_tag": "ins_sg"},
+      {"term": "knjigo", "form_tag": "voc_sg"},
+      {"term": "knjige", "form_tag": "nom_pl"},
+      {"term": "knjiga", "form_tag": "gen_pl"},
+      {"term": "knjigama", "form_tag": "dat_pl"},
+      {"term": "knjige", "form_tag": "acc_pl"},
+      {"term": "knjige", "form_tag": "voc_pl"},
+      {"term": "knjigama", "form_tag": "ins_pl"},
+      {"term": "knjigama", "form_tag": "loc_pl"}
+    ]
+  }
+]

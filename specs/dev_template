@@ -1,0 +1,43 @@
+# [Feature Name] - Technical Implementation
+
+## Parent Story
+[Link to Tier 1 card]
+
+## Technical Approach
+
+### LiveView Components
+- [ ] Component 1: [purpose]
+- [ ] Component 2: [purpose]
+
+### Schema/Context Changes
+- [ ] Schema: [changes needed]
+- [ ] Context functions: [list functions]
+- [ ] Migrations: [describe]
+
+### Frontend (LiveView/HEEX)
+- [ ] Template changes
+- [ ] Event handlers needed
+- [ ] JS Hooks (if any)
+
+### Backend Logic
+- [ ] Business logic location
+- [ ] Validations needed
+- [ ] Side effects (emails, jobs, etc.)
+
+## Testing Strategy
+- [ ] Unit tests: [what to test]
+- [ ] Integration tests: [scenarios]
+- [ ] LiveView tests: [user flows]
+
+## Technical Considerations
+- Performance implications
+- Security concerns
+- Dependencies/libraries needed
+
+## Implementation Steps
+1. Step 1
+2. Step 2
+3. Step 3
+
+## Estimated Complexity
+[Low/Medium/High] - [reasoning]
