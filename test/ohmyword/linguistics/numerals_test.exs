@@ -1221,6 +1221,98 @@ defmodule Ohmyword.Linguistics.NumeralsTest do
     end
   end
 
+  describe "generate_forms/1 - teen ordinal (jedanaesti)" do
+    setup do
+      word = %Word{
+        term: "jedanaesti",
+        part_of_speech: :numeral,
+        gender: :masculine,
+        animate: false,
+        grammar_metadata: %{
+          "numeral_type" => "ordinal",
+          "numeral_value" => 11
+        }
+      }
+
+      forms = Numerals.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 42 adjective forms", %{forms: forms} do
+      assert length(forms) == 42
+    end
+
+    test "nominative singular masculine", %{forms_map: fm} do
+      assert fm["nom_sg_m"] == "jedanaesti"
+    end
+
+    test "nominative singular feminine", %{forms_map: fm} do
+      assert fm["nom_sg_f"] == "jedanaesta"
+    end
+
+    test "nominative singular neuter (hard stem)", %{forms_map: fm} do
+      assert fm["nom_sg_n"] == "jedanaesto"
+    end
+
+    test "genitive singular masculine", %{forms_map: fm} do
+      assert fm["gen_sg_m"] == "jedanaestog"
+    end
+
+    test "genitive singular feminine", %{forms_map: fm} do
+      assert fm["gen_sg_f"] == "jedanaeste"
+    end
+  end
+
+  describe "generate_forms/1 - teen ordinal inferred (devetnaesti)" do
+    test "infers ordinal type for devetnaesti" do
+      word = %Word{
+        term: "devetnaesti",
+        part_of_speech: :numeral,
+        animate: false
+      }
+
+      forms = Numerals.generate_forms(word)
+      assert length(forms) == 42
+    end
+  end
+
+  describe "generate_forms/1 - new invariable cardinals" do
+    test "jedanaest returns only base form" do
+      word = %Word{
+        term: "jedanaest",
+        part_of_speech: :numeral,
+        grammar_metadata: %{"numeral_type" => "cardinal", "numeral_value" => 11}
+      }
+
+      forms = Numerals.generate_forms(word)
+      assert forms == [{"jedanaest", "base"}]
+    end
+
+    test "hiljada returns only base form" do
+      word = %Word{
+        term: "hiljada",
+        part_of_speech: :numeral,
+        grammar_metadata: %{"numeral_type" => "cardinal", "numeral_value" => 1000}
+      }
+
+      forms = Numerals.generate_forms(word)
+      assert forms == [{"hiljada", "base"}]
+    end
+
+    test "nula returns only base form" do
+      word = %Word{
+        term: "nula",
+        part_of_speech: :numeral,
+        grammar_metadata: %{"numeral_type" => "cardinal", "numeral_value" => 0}
+      }
+
+      forms = Numerals.generate_forms(word)
+      assert forms == [{"nula", "base"}]
+    end
+  end
+
   describe "generate_forms/1 - collective 8 (osmoro)" do
     setup do
       word = %Word{

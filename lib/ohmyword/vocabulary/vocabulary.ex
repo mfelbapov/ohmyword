@@ -129,6 +129,22 @@ defmodule Ohmyword.Vocabulary do
     Repo.delete(word)
   end
 
+  @doc """
+  Returns a sorted list of parts of speech that have at least one word.
+
+  ## Examples
+
+      iex> Vocabulary.list_available_parts_of_speech()
+      [:adjective, :noun, :verb]
+  """
+  def list_available_parts_of_speech do
+    Word
+    |> select([w], w.part_of_speech)
+    |> distinct(true)
+    |> Repo.all()
+    |> Enum.sort()
+  end
+
   # Private functions
 
   defp maybe_regenerate_search_terms({:ok, word}) do

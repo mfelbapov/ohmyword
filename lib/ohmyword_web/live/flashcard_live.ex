@@ -24,8 +24,9 @@ defmodule OhmywordWeb.FlashcardLive do
         <:subtitle>Practice Serbian vocabulary</:subtitle>
       </.header>
 
-      <div class="mt-6 flex justify-between">
+      <div class="mt-6 flex items-center justify-between gap-2">
         <.direction_toggle direction_mode={@direction_mode} />
+        <.pos_filter pos_filter={@pos_filter} available_pos={@available_pos} />
         <.script_toggle script_mode={@script_mode} />
       </div>
 
@@ -125,9 +126,11 @@ defmodule OhmywordWeb.FlashcardLive do
       <% else %>
         <div class="mt-8 rounded-lg border-2 border-dashed border-zinc-300 p-12 text-center dark:border-zinc-700">
           <.icon name="hero-book-open" class="mx-auto h-12 w-12 text-zinc-400" />
-          <h3 class="mt-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">No vocabulary</h3>
+          <h3 class="mt-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            {empty_state_title(@pos_filter)}
+          </h3>
           <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-            No words in the database. Run seeds to populate vocabulary.
+            {empty_state_message(@pos_filter)}
           </p>
         </div>
       <% end %>
@@ -144,7 +147,9 @@ defmodule OhmywordWeb.FlashcardLive do
      |> assign(current_word: word)
      |> assign(flipped: false)
      |> assign(script_mode: :latin)
-     |> assign(direction_mode: :serbian_to_english)}
+     |> assign(direction_mode: :serbian_to_english)
+     |> assign(pos_filter: :all)
+     |> assign(available_pos: Vocabulary.list_available_parts_of_speech())}
   end
 
   @impl true
@@ -153,7 +158,7 @@ defmodule OhmywordWeb.FlashcardLive do
   end
 
   def handle_event("next", _params, socket) do
-    word = Vocabulary.get_random_word()
+    word = get_filtered_word(socket.assigns.pos_filter)
     {:noreply, socket |> assign(current_word: word) |> assign(flipped: false)}
   end
 
@@ -170,4 +175,34 @@ defmodule OhmywordWeb.FlashcardLive do
 
     {:noreply, assign(socket, direction_mode: new_mode)}
   end
+
+  def handle_event("filter_pos", %{"pos" => pos_value}, socket) do
+    pos_filter =
+      case pos_value do
+        "all" -> :all
+        pos -> String.to_existing_atom(pos)
+      end
+
+    word = get_filtered_word(pos_filter)
+
+    {:noreply,
+     socket
+     |> assign(pos_filter: pos_filter)
+     |> assign(current_word: word)
+     |> assign(flipped: false)}
+  end
+
+  defp get_filtered_word(:all), do: Vocabulary.get_random_word()
+  defp get_filtered_word(pos), do: Vocabulary.get_random_word(part_of_speech: pos)
+
+  defp empty_state_title(:all), do: "No vocabulary"
+
+  defp empty_state_title(pos),
+    do: "No #{Phoenix.Naming.humanize(pos)} words"
+
+  defp empty_state_message(:all),
+    do: "No words in the database. Run seeds to populate vocabulary."
+
+  defp empty_state_message(_pos),
+    do: "No words match the current filter. Try a different type."
 end

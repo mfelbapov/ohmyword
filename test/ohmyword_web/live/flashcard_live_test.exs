@@ -137,5 +137,40 @@ defmodule OhmywordWeb.FlashcardLiveTest do
       {:ok, _view, html} = live(conn, ~p"/flashcards")
       assert html =~ "Anim"
     end
+
+    test "POS filter dropdown renders with available types", %{conn: conn} do
+      noun_fixture(%{term: "pas", translation: "dog"})
+      verb_fixture(%{term: "pisati", translation: "to write"})
+
+      {:ok, _view, html} = live(conn, ~p"/flashcards")
+
+      assert html =~ "All types"
+      assert html =~ "Noun"
+      assert html =~ "Verb"
+    end
+
+    test "POS filter changes loaded word to matching type", %{conn: conn} do
+      noun_fixture(%{term: "uniquenoun", translation: "a noun"})
+      verb_fixture(%{term: "uniqueverb", translation: "a verb"})
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      # Filter to noun only
+      html = view |> element("form") |> render_change(%{"pos" => "noun"})
+
+      assert html =~ "uniquenoun"
+    end
+
+    test "empty state shows POS name when filtered", %{conn: conn} do
+      noun_fixture(%{term: "pas", translation: "dog"})
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      # Filter to numeral (no numeral words exist)
+      html = view |> element("form") |> render_change(%{"pos" => "numeral"})
+
+      assert html =~ "No Numeral words"
+      assert html =~ "No words match the current filter"
+    end
   end
 end
