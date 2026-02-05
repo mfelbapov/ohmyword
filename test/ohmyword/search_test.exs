@@ -125,6 +125,76 @@ defmodule Ohmyword.SearchTest do
       assert hd(results_pres).form_tag == "pres_1sg"
     end
 
+    test "deduplicates multiple forms of the same word with same surface text" do
+      word = noun_fixture(%{term: "sam", translation: "alone"})
+
+      # Three different form tags but same surface text "sam"
+      for tag <- ["indef_nom_sg_m", "indef_voc_sg_m", "indef_acc_sg_m"] do
+        {:ok, _} =
+          %SearchTerm{}
+          |> SearchTerm.changeset(%{term: "sam", form_tag: tag, word_id: word.id})
+          |> Repo.insert()
+      end
+
+      results = Search.lookup("sam")
+
+      # Should return only one result, not three
+      assert length(results) == 1
+      assert hd(results).word.id == word.id
+      assert hd(results).matched_form == "sam"
+    end
+
+    test "deduplication preserves base form match" do
+      word = noun_fixture(%{term: "pas", translation: "dog"})
+
+      # "pas" matches as both nom_sg and some other tag
+      {:ok, _} =
+        %SearchTerm{}
+        |> SearchTerm.changeset(%{term: "pas", form_tag: "acc_sg", word_id: word.id})
+        |> Repo.insert()
+
+      {:ok, _} =
+        %SearchTerm{}
+        |> SearchTerm.changeset(%{term: "pas", form_tag: "nom_sg", word_id: word.id})
+        |> Repo.insert()
+
+      results = Search.lookup("pas")
+
+      assert length(results) == 1
+      # Should prefer the base form match (matched_form == word.term)
+      assert hd(results).word.term == "pas"
+      assert hd(results).matched_form == "pas"
+    end
+
+    test "deduplication still returns multiple results for different words" do
+      word1 = noun_fixture(%{term: "sam", translation: "alone"})
+      word2 = verb_fixture(%{term: "biti", translation: "to be"})
+
+      # Same surface text "sam" for two different words
+      {:ok, _} =
+        %SearchTerm{}
+        |> SearchTerm.changeset(%{term: "sam", form_tag: "indef_nom_sg_m", word_id: word1.id})
+        |> Repo.insert()
+
+      {:ok, _} =
+        %SearchTerm{}
+        |> SearchTerm.changeset(%{term: "sam", form_tag: "indef_voc_sg_m", word_id: word1.id})
+        |> Repo.insert()
+
+      {:ok, _} =
+        %SearchTerm{}
+        |> SearchTerm.changeset(%{term: "sam", form_tag: "pres_1sg", word_id: word2.id})
+        |> Repo.insert()
+
+      results = Search.lookup("sam")
+
+      # Two different words, not three rows
+      assert length(results) == 2
+
+      word_ids = Enum.map(results, & &1.word.id) |> Enum.sort()
+      assert word_ids == Enum.sort([word1.id, word2.id])
+    end
+
     test "handles Cyrillic with digraphs" do
       word = feminine_noun_fixture(%{term: "ljubav", translation: "love"})
 
