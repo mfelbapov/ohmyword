@@ -40,8 +40,11 @@ defmodule Ohmyword.Linguistics.Dispatcher do
 
   def inflect(%Word{} = word) do
     case get_inflector(word) do
-      nil -> []
-      inflector -> inflector.generate_forms(word)
+      nil ->
+        []
+
+      inflector ->
+        inflector.generate_forms(word)
     end
   end
 

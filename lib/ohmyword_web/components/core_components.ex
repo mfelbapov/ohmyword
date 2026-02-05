@@ -611,6 +611,34 @@ defmodule OhmywordWeb.CoreComponents do
   end
 
   @doc """
+  Renders a dropdown filter for part of speech.
+
+  ## Examples
+
+      <.pos_filter pos_filter={@pos_filter} available_pos={@available_pos} />
+  """
+  attr :pos_filter, :atom, required: true
+  attr :available_pos, :list, required: true
+
+  def pos_filter(assigns) do
+    ~H"""
+    <form phx-change="filter_pos">
+      <select
+        name="pos"
+        class="rounded-md border-0 bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+      >
+        <option value="all" selected={@pos_filter == :all}>All types</option>
+        <%= for pos <- @available_pos do %>
+          <option value={pos} selected={@pos_filter == pos}>
+            {Phoenix.Naming.humanize(pos)}
+          </option>
+        <% end %>
+      </select>
+    </form>
+    """
+  end
+
+  @doc """
   Translates an error message using gettext.
   """
   def translate_error({msg, opts}) do

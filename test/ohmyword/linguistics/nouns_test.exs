@@ -135,7 +135,7 @@ defmodule Ohmyword.Linguistics.NounsTest do
     end
 
     test "accusative plural equals genitive for animate", %{forms: forms} do
-      assert {"pasa", "acc_pl"} in forms
+      assert {"pse", "acc_pl"} in forms
     end
   end
 
@@ -393,7 +393,18 @@ defmodule Ohmyword.Linguistics.NounsTest do
         gender: :masculine,
         animate: true,
         declension_class: "consonant",
-        grammar_metadata: %{"irregular_plural" => "ljud"}
+        grammar_metadata: %{
+          "palatalization" => true,
+          "irregular_forms" => %{
+            "nom_pl" => "ljudi",
+            "gen_pl" => "ljudi",
+            "dat_pl" => "ljudima",
+            "acc_pl" => "ljude",
+            "voc_pl" => "ljudi",
+            "ins_pl" => "ljudima",
+            "loc_pl" => "ljudima"
+          }
+        }
       }
 
       {:ok, word: word, forms: Nouns.generate_forms(word)}
@@ -409,7 +420,7 @@ defmodule Ohmyword.Linguistics.NounsTest do
     end
 
     test "genitive plural uses irregular stem", %{forms: forms} do
-      assert {"ljuda", "gen_pl"} in forms
+      assert {"ljudi", "gen_pl"} in forms
     end
 
     test "dative/instrumental/locative plural uses irregular stem + -ima", %{forms: forms} do
@@ -419,7 +430,7 @@ defmodule Ohmyword.Linguistics.NounsTest do
     end
 
     test "accusative plural equals genitive for animate", %{forms: forms} do
-      assert {"ljuda", "acc_pl"} in forms
+      assert {"ljude", "acc_pl"} in forms
     end
   end
 
@@ -544,8 +555,8 @@ defmodule Ohmyword.Linguistics.NounsTest do
     test "uses -ev- insert instead of -ov-", %{forms: forms} do
       assert {"muževi", "nom_pl"} in forms
       assert {"muževa", "gen_pl"} in forms
-      # For animate nouns, acc_pl = gen_pl
-      assert {"muževa", "acc_pl"} in forms
+      # For animate nouns, acc_pl uses -e ending
+      assert {"muževe", "acc_pl"} in forms
     end
   end
 
@@ -832,14 +843,24 @@ defmodule Ohmyword.Linguistics.NounsTest do
 
   describe "generate_forms/1 - short plural via irregular_plural (zub)" do
     setup do
-      # Use irregular_plural to specify short plural stem for zub
+      # Use irregular_forms to specify short plural forms for zub
       word = %Word{
         term: "zub",
         part_of_speech: :noun,
         gender: :masculine,
         animate: false,
         declension_class: "consonant",
-        grammar_metadata: %{"irregular_plural" => "zub"}
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "nom_pl" => "zubi",
+            "gen_pl" => "zuba",
+            "dat_pl" => "zubima",
+            "acc_pl" => "zube",
+            "voc_pl" => "zubi",
+            "ins_pl" => "zubima",
+            "loc_pl" => "zubima"
+          }
+        }
       }
 
       {:ok, word: word, forms: Nouns.generate_forms(word)}
@@ -1275,7 +1296,17 @@ defmodule Ohmyword.Linguistics.NounsTest do
         gender: :masculine,
         animate: true,
         declension_class: "consonant",
-        grammar_metadata: %{"irregular_plural" => "gost"}
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "nom_pl" => "gosti",
+            "gen_pl" => "gostiju",
+            "dat_pl" => "gostima",
+            "acc_pl" => "goste",
+            "voc_pl" => "gosti",
+            "ins_pl" => "gostima",
+            "loc_pl" => "gostima"
+          }
+        }
       }
 
       {:ok, word: word, forms: Nouns.generate_forms(word)}
@@ -1289,8 +1320,8 @@ defmodule Ohmyword.Linguistics.NounsTest do
       assert {"gosti", "nom_pl"} in forms
     end
 
-    test "genitive plural is gosta (animate)", %{forms: forms} do
-      assert {"gosta", "gen_pl"} in forms
+    test "genitive plural is gostiju (animate)", %{forms: forms} do
+      assert {"gostiju", "gen_pl"} in forms
     end
   end
 
@@ -1302,7 +1333,17 @@ defmodule Ohmyword.Linguistics.NounsTest do
         gender: :masculine,
         animate: false,
         declension_class: "consonant",
-        grammar_metadata: %{"irregular_plural" => "prst"}
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "nom_pl" => "prsti",
+            "gen_pl" => "prstiju",
+            "dat_pl" => "prstima",
+            "acc_pl" => "prste",
+            "voc_pl" => "prsti",
+            "ins_pl" => "prstima",
+            "loc_pl" => "prstima"
+          }
+        }
       }
 
       {:ok, word: word, forms: Nouns.generate_forms(word)}

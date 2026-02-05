@@ -252,10 +252,10 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
   end
 
-  describe "generate_forms/1 - Reflexive verb (smejati se)" do
+  describe "generate_forms/1 - Reflexive verb (smejati)" do
     setup do
       word = %Word{
-        term: "smejati se",
+        term: "smejati",
         part_of_speech: :verb,
         verb_aspect: :imperfective,
         conjugation_class: "e-verb",
@@ -270,29 +270,29 @@ defmodule Ohmyword.Linguistics.VerbsTest do
       assert length(forms) == 16
     end
 
-    test "infinitive includes se", %{forms: forms} do
-      assert {"smejati se", "inf"} in forms
+    test "infinitive is single word", %{forms: forms} do
+      assert {"smejati", "inf"} in forms
     end
 
-    test "present forms include se", %{forms: forms} do
-      assert {"smejem se", "pres_1sg"} in forms
-      assert {"smeješ se", "pres_2sg"} in forms
-      assert {"smeje se", "pres_3sg"} in forms
-      assert {"smejemo se", "pres_1pl"} in forms
-      assert {"smejete se", "pres_2pl"} in forms
-      assert {"smeju se", "pres_3pl"} in forms
+    test "present forms are single words", %{forms: forms} do
+      assert {"smejem", "pres_1sg"} in forms
+      assert {"smeješ", "pres_2sg"} in forms
+      assert {"smeje", "pres_3sg"} in forms
+      assert {"smejemo", "pres_1pl"} in forms
+      assert {"smejete", "pres_2pl"} in forms
+      assert {"smeju", "pres_3pl"} in forms
     end
 
-    test "past forms include se", %{forms: forms} do
-      assert {"smejao se", "past_m_sg"} in forms
-      assert {"smejala se", "past_f_sg"} in forms
-      assert {"smejalo se", "past_n_sg"} in forms
+    test "past forms are single words", %{forms: forms} do
+      assert {"smejao", "past_m_sg"} in forms
+      assert {"smejala", "past_f_sg"} in forms
+      assert {"smejalo", "past_n_sg"} in forms
     end
 
-    test "imperative forms include se", %{forms: forms} do
-      assert {"smeji se", "imp_2sg"} in forms
-      assert {"smejimo se", "imp_1pl"} in forms
-      assert {"smejite se", "imp_2pl"} in forms
+    test "imperative forms are single words", %{forms: forms} do
+      assert {"smej", "imp_2sg"} in forms
+      assert {"smejmo", "imp_1pl"} in forms
+      assert {"smejte", "imp_2pl"} in forms
     end
   end
 
@@ -784,14 +784,15 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
   end
 
-  describe "generate_forms/1 - reflexive verb (bojati se)" do
+  describe "generate_forms/1 - reflexive verb (bojati)" do
     setup do
       word = %Word{
-        term: "bojati se",
+        term: "bojati",
         part_of_speech: :verb,
         verb_aspect: :imperfective,
-        conjugation_class: "a-verb",
-        reflexive: true
+        conjugation_class: "i-verb",
+        reflexive: true,
+        grammar_metadata: %{"present_stem" => "boj"}
       }
 
       {:ok, word: word, forms: Verbs.generate_forms(word)}
@@ -801,29 +802,29 @@ defmodule Ohmyword.Linguistics.VerbsTest do
       assert length(forms) == 16
     end
 
-    test "infinitive includes se", %{forms: forms} do
-      assert {"bojati se", "inf"} in forms
+    test "infinitive is single word", %{forms: forms} do
+      assert {"bojati", "inf"} in forms
     end
 
-    test "all present forms end with ' se'", %{forms: forms} do
-      assert {"bojam se", "pres_1sg"} in forms
-      assert {"bojaš se", "pres_2sg"} in forms
-      assert {"boja se", "pres_3sg"} in forms
-      assert {"bojamo se", "pres_1pl"} in forms
-      assert {"bojate se", "pres_2pl"} in forms
-      assert {"bojaju se", "pres_3pl"} in forms
+    test "present forms are single words", %{forms: forms} do
+      assert {"bojim", "pres_1sg"} in forms
+      assert {"bojiš", "pres_2sg"} in forms
+      assert {"boji", "pres_3sg"} in forms
+      assert {"bojimo", "pres_1pl"} in forms
+      assert {"bojite", "pres_2pl"} in forms
+      assert {"boje", "pres_3pl"} in forms
     end
 
-    test "all past forms end with ' se'", %{forms: forms} do
-      assert {"bojao se", "past_m_sg"} in forms
-      assert {"bojala se", "past_f_sg"} in forms
-      assert {"bojalo se", "past_n_sg"} in forms
+    test "past forms are single words", %{forms: forms} do
+      assert {"bojao", "past_m_sg"} in forms
+      assert {"bojala", "past_f_sg"} in forms
+      assert {"bojalo", "past_n_sg"} in forms
     end
 
-    test "all imperative forms end with ' se'", %{forms: forms} do
-      assert {"bojaj se", "imp_2sg"} in forms
-      assert {"bojajmo se", "imp_1pl"} in forms
-      assert {"bojajte se", "imp_2pl"} in forms
+    test "imperative forms are single words", %{forms: forms} do
+      assert {"boji", "imp_2sg"} in forms
+      assert {"bojimo", "imp_1pl"} in forms
+      assert {"bojite", "imp_2pl"} in forms
     end
   end
 

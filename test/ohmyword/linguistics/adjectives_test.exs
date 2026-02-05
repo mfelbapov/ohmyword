@@ -285,7 +285,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
     end
 
     test "comparative genitive singular masculine", %{forms_map: fm} do
-      assert fm["comp_gen_sg_m"] == "boljog"
+      assert fm["comp_gen_sg_m"] == "boljeg"
     end
 
     test "superlative is auto-generated with naj- prefix", %{forms_map: fm} do
@@ -348,8 +348,8 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       assert length(forms) == 1
     end
 
-    test "base form tag is 'base'", %{forms_map: fm} do
-      assert fm["base"] == "bež"
+    test "base form tag is 'invariable'", %{forms_map: fm} do
+      assert fm["invariable"] == "bež"
     end
   end
 
@@ -634,7 +634,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
     end
 
     test "base form is fer", %{forms_map: fm} do
-      assert fm["base"] == "fer"
+      assert fm["invariable"] == "fer"
     end
   end
 

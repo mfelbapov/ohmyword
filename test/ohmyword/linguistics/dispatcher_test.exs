@@ -34,7 +34,7 @@ defmodule Ohmyword.Linguistics.DispatcherTest do
       word = word_fixture(%{term: "i", part_of_speech: :conjunction})
       forms = Dispatcher.inflect(word)
 
-      assert [{"i", "base"}] = forms
+      assert [{"i", "invariable"}] = forms
     end
 
     test "downcases the term" do

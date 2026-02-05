@@ -241,7 +241,9 @@ defmodule Ohmyword.Linguistics.InflectorValidationTest do
       if result.wrong != [] do
         wrong_str =
           result.wrong
-          |> Enum.map(fn {tag, expected, got} -> "#{tag}: expected '#{expected}', got '#{got}'" end)
+          |> Enum.map(fn {tag, expected, got} ->
+            "#{tag}: expected '#{expected}', got '#{got}'"
+          end)
           |> Enum.join(", ")
 
         lines ++ ["    WRONG: #{wrong_str}"]

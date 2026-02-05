@@ -101,11 +101,11 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
     end
 
     test "comparative form is correct", %{forms_map: fm} do
-      assert fm["comp"] == "brže"
+      assert fm["comparative"] == "brže"
     end
 
     test "superlative form is correct", %{forms_map: fm} do
-      assert fm["super"] == "najbrže"
+      assert fm["superlative"] == "najbrže"
     end
   end
 
@@ -135,11 +135,11 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
     end
 
     test "comparative form is correct", %{forms_map: fm} do
-      assert fm["comp"] == "bolje"
+      assert fm["comparative"] == "bolje"
     end
 
     test "superlative form is correct", %{forms_map: fm} do
-      assert fm["super"] == "najbolje"
+      assert fm["superlative"] == "najbolje"
     end
   end
 
@@ -155,7 +155,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"u", "base"}]
+      assert forms == [{"u", "invariable"}]
     end
   end
 
@@ -168,7 +168,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"i", "base"}]
+      assert forms == [{"i", "invariable"}]
     end
   end
 
@@ -181,7 +181,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"jao", "base"}]
+      assert forms == [{"jao", "invariable"}]
     end
   end
 
@@ -194,7 +194,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"li", "base"}]
+      assert forms == [{"li", "invariable"}]
     end
   end
 
@@ -210,7 +210,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"bez obzira na", "base"}]
+      assert forms == [{"bez obzira na", "invariable"}]
     end
   end
 
@@ -286,8 +286,8 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
       forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
 
       assert forms_map["base"] == "brzo"
-      assert forms_map["comp"] == "brže"
-      assert forms_map["super"] == "najbrže"
+      assert forms_map["comparative"] == "brže"
+      assert forms_map["superlative"] == "najbrže"
     end
 
     test "handles adverb with only comparative" do
@@ -301,7 +301,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"brzo", "base"}, {"brže", "comp"}]
+      assert forms == [{"brzo", "base"}, {"brže", "comparative"}]
     end
 
     test "handles adverb with only superlative" do
@@ -315,7 +315,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"brzo", "base"}, {"najbrže", "super"}]
+      assert forms == [{"brzo", "base"}, {"najbrže", "superlative"}]
     end
 
     test "handles empty string comparative" do
@@ -330,7 +330,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"brzo", "base"}, {"najbrže", "super"}]
+      assert forms == [{"brzo", "base"}, {"najbrže", "superlative"}]
     end
   end
 
@@ -347,42 +347,42 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
     test "preposition: na (on)" do
       word = %Word{term: "na", part_of_speech: :preposition}
-      assert Invariables.generate_forms(word) == [{"na", "base"}]
+      assert Invariables.generate_forms(word) == [{"na", "invariable"}]
     end
 
     test "preposition: kod (at, by)" do
       word = %Word{term: "kod", part_of_speech: :preposition}
-      assert Invariables.generate_forms(word) == [{"kod", "base"}]
+      assert Invariables.generate_forms(word) == [{"kod", "invariable"}]
     end
 
     test "conjunction: ili (or)" do
       word = %Word{term: "ili", part_of_speech: :conjunction}
-      assert Invariables.generate_forms(word) == [{"ili", "base"}]
+      assert Invariables.generate_forms(word) == [{"ili", "invariable"}]
     end
 
     test "conjunction: ali (but)" do
       word = %Word{term: "ali", part_of_speech: :conjunction}
-      assert Invariables.generate_forms(word) == [{"ali", "base"}]
+      assert Invariables.generate_forms(word) == [{"ali", "invariable"}]
     end
 
     test "interjection: ej (hey)" do
       word = %Word{term: "ej", part_of_speech: :interjection}
-      assert Invariables.generate_forms(word) == [{"ej", "base"}]
+      assert Invariables.generate_forms(word) == [{"ej", "invariable"}]
     end
 
     test "interjection: bravo" do
       word = %Word{term: "bravo", part_of_speech: :interjection}
-      assert Invariables.generate_forms(word) == [{"bravo", "base"}]
+      assert Invariables.generate_forms(word) == [{"bravo", "invariable"}]
     end
 
     test "particle: ne (no)" do
       word = %Word{term: "ne", part_of_speech: :particle}
-      assert Invariables.generate_forms(word) == [{"ne", "base"}]
+      assert Invariables.generate_forms(word) == [{"ne", "invariable"}]
     end
 
     test "particle: zar (rhetorical question)" do
       word = %Word{term: "zar", part_of_speech: :particle}
-      assert Invariables.generate_forms(word) == [{"zar", "base"}]
+      assert Invariables.generate_forms(word) == [{"zar", "invariable"}]
     end
   end
 
@@ -401,8 +401,8 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
       forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
 
       assert forms_map["base"] == "loše"
-      assert forms_map["comp"] == "gore"
-      assert forms_map["super"] == "najgore"
+      assert forms_map["comparative"] == "gore"
+      assert forms_map["superlative"] == "najgore"
     end
 
     test "daleko -> dalje -> najdalje" do
@@ -419,8 +419,8 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
       forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
 
       assert forms_map["base"] == "daleko"
-      assert forms_map["comp"] == "dalje"
-      assert forms_map["super"] == "najdalje"
+      assert forms_map["comparative"] == "dalje"
+      assert forms_map["superlative"] == "najdalje"
     end
 
     test "blizu -> bliže -> najbliže" do
@@ -437,8 +437,8 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
       forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
 
       assert forms_map["base"] == "blizu"
-      assert forms_map["comp"] == "bliže"
-      assert forms_map["super"] == "najbliže"
+      assert forms_map["comparative"] == "bliže"
+      assert forms_map["superlative"] == "najbliže"
     end
   end
 
@@ -456,7 +456,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"s", "base"}]
+      assert forms == [{"s", "invariable"}]
     end
   end
 
@@ -470,7 +470,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"k", "base"}]
+      assert forms == [{"k", "invariable"}]
     end
   end
 
@@ -483,7 +483,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"a", "base"}]
+      assert forms == [{"a", "invariable"}]
     end
   end
 
@@ -496,7 +496,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"da", "base"}]
+      assert forms == [{"da", "invariable"}]
     end
   end
 
@@ -526,11 +526,11 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
     end
 
     test "comparative is više", %{forms_map: fm} do
-      assert fm["comp"] == "više"
+      assert fm["comparative"] == "više"
     end
 
     test "superlative is najviše", %{forms_map: fm} do
-      assert fm["super"] == "najviše"
+      assert fm["superlative"] == "najviše"
     end
   end
 
@@ -627,11 +627,11 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
     end
 
     test "comparative is češće", %{forms_map: fm} do
-      assert fm["comp"] == "češće"
+      assert fm["comparative"] == "češće"
     end
 
     test "superlative is najčešće", %{forms_map: fm} do
-      assert fm["super"] == "najčešće"
+      assert fm["superlative"] == "najčešće"
     end
   end
 
@@ -661,11 +661,11 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
     end
 
     test "comparative is više", %{forms_map: fm} do
-      assert fm["comp"] == "više"
+      assert fm["comparative"] == "više"
     end
 
     test "superlative is najviše", %{forms_map: fm} do
-      assert fm["super"] == "najviše"
+      assert fm["superlative"] == "najviše"
     end
   end
 
@@ -695,11 +695,11 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
     end
 
     test "comparative is niže", %{forms_map: fm} do
-      assert fm["comp"] == "niže"
+      assert fm["comparative"] == "niže"
     end
 
     test "superlative is najniže", %{forms_map: fm} do
-      assert fm["super"] == "najniže"
+      assert fm["superlative"] == "najniže"
     end
   end
 
@@ -713,7 +713,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"pre", "base"}]
+      assert forms == [{"pre", "invariable"}]
     end
 
     test "prije returns only base form (Ijekavian)" do
@@ -725,7 +725,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"prije", "base"}]
+      assert forms == [{"prije", "invariable"}]
     end
   end
 
@@ -739,7 +739,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"posle", "base"}]
+      assert forms == [{"posle", "invariable"}]
     end
 
     test "poslije returns only base form (Ijekavian)" do
@@ -751,7 +751,7 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
 
       forms = Invariables.generate_forms(word)
 
-      assert forms == [{"poslije", "base"}]
+      assert forms == [{"poslije", "invariable"}]
     end
   end
 

@@ -93,6 +93,31 @@ defmodule Ohmyword.VocabularyTest do
     end
   end
 
+  describe "list_available_parts_of_speech/0" do
+    test "returns empty list when no words exist" do
+      assert Vocabulary.list_available_parts_of_speech() == []
+    end
+
+    test "returns distinct parts of speech sorted" do
+      noun_fixture()
+      verb_fixture()
+      word_fixture(%{part_of_speech: :adverb})
+
+      result = Vocabulary.list_available_parts_of_speech()
+
+      assert result == [:adverb, :noun, :verb]
+    end
+
+    test "does not include duplicates" do
+      noun_fixture()
+      noun_fixture(%{term: "kuća", translation: "house"})
+
+      result = Vocabulary.list_available_parts_of_speech()
+
+      assert result == [:noun]
+    end
+  end
+
   describe "create_word/1" do
     test "creates a word with valid attrs" do
       attrs = %{

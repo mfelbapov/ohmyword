@@ -45,9 +45,13 @@ defmodule Ohmyword.Search do
     |> Enum.map(fn search_term ->
       %{
         word: search_term.word,
-        matched_form: search_term.term,
+        matched_form: search_term.display_form,
         form_tag: search_term.form_tag
       }
+    end)
+    |> Enum.group_by(& &1.word.id)
+    |> Enum.map(fn {_word_id, results} ->
+      Enum.find(results, hd(results), fn r -> r.matched_form == r.word.term end)
     end)
   end
 

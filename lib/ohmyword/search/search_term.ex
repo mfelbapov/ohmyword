@@ -13,6 +13,7 @@ defmodule Ohmyword.Search.SearchTerm do
 
   schema "search_terms" do
     field :term, :string
+    field :display_form, :string
     field :form_tag, :string
     field :source, Ecto.Enum, values: @sources, default: :seed
     field :locked, :boolean, default: false
@@ -22,7 +23,7 @@ defmodule Ohmyword.Search.SearchTerm do
     timestamps(type: :utc_datetime)
   end
 
-  @required_fields ~w(term form_tag word_id)a
+  @required_fields ~w(term display_form form_tag word_id)a
   @optional_fields ~w(source locked)a
 
   def changeset(search_term, attrs) do
@@ -30,6 +31,7 @@ defmodule Ohmyword.Search.SearchTerm do
     |> cast(attrs, @required_fields ++ @optional_fields)
     |> validate_required(@required_fields)
     |> lowercase_term()
+    |> lowercase_display_form()
     |> lowercase_form_tag()
     |> foreign_key_constraint(:word_id)
     |> unique_constraint([:term, :word_id, :form_tag])
@@ -39,6 +41,13 @@ defmodule Ohmyword.Search.SearchTerm do
     case get_change(changeset, :term) do
       nil -> changeset
       term -> put_change(changeset, :term, String.downcase(term))
+    end
+  end
+
+  defp lowercase_display_form(changeset) do
+    case get_change(changeset, :display_form) do
+      nil -> changeset
+      display_form -> put_change(changeset, :display_form, String.downcase(display_form))
     end
   end
 

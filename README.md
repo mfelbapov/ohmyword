@@ -123,5 +123,3 @@ Visit `http://localhost:4000`
 
 Milorad Felbapov
 [LinkedIn](https://linkedin.com/in/YOUR_LINKEDIN) | [GitHub](https://github.com/YOUR_GITHUB)
-
-*Built for my son, who is learning the language of his heritage.*

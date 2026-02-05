@@ -19,6 +19,7 @@ defmodule Ohmyword.Linguistics.CacheManagerTest do
       # Check nom_sg form
       nom_sg = Enum.find(search_terms, &(&1.form_tag == "nom_sg"))
       assert nom_sg.term == "pas"
+      assert nom_sg.display_form == "pas"
       assert nom_sg.source == :engine
       assert nom_sg.locked == false
     end
@@ -31,6 +32,7 @@ defmodule Ohmyword.Linguistics.CacheManagerTest do
         %SearchTerm{}
         |> SearchTerm.changeset(%{
           term: "psa",
+          display_form: "psa",
           form_tag: "gen_sg",
           word_id: word.id,
           source: :manual,
@@ -59,6 +61,7 @@ defmodule Ohmyword.Linguistics.CacheManagerTest do
         %SearchTerm{}
         |> SearchTerm.changeset(%{
           term: "oldform",
+          display_form: "oldform",
           form_tag: "old_tag",
           word_id: word.id,
           source: :engine,
@@ -79,15 +82,16 @@ defmodule Ohmyword.Linguistics.CacheManagerTest do
       assert Repo.get_by(SearchTerm, term: "pas", word_id: word.id)
     end
 
-    test "handles word with uppercase term" do
+    test "stores ASCII term and diacritical display_form" do
       word = noun_fixture(%{term: "Kuća"})
 
       # 14 forms for noun
       assert {:ok, 14} = CacheManager.regenerate_word(word)
 
-      # Check that nom_sg is lowercase
+      # Check that term is ASCII-stripped and lowercase, display_form preserves diacritics
       term = Repo.get_by(SearchTerm, word_id: word.id, form_tag: "nom_sg")
-      assert term.term == "kuća"
+      assert term.term == "kuca"
+      assert term.display_form == "kuća"
     end
   end
 
@@ -100,6 +104,7 @@ defmodule Ohmyword.Linguistics.CacheManagerTest do
 
       term = Repo.get_by(SearchTerm, word_id: word.id, form_tag: "nom_sg")
       assert term.term == "pas"
+      assert term.display_form == "pas"
       assert term.source == :engine
     end
 
@@ -139,6 +144,7 @@ defmodule Ohmyword.Linguistics.CacheManagerTest do
         %SearchTerm{}
         |> SearchTerm.changeset(%{
           term: "pas",
+          display_form: "pas",
           form_tag: "nom_sg",
           word_id: word1.id,
           source: :seed,

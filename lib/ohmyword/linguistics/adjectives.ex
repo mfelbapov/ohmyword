@@ -51,17 +51,26 @@ defmodule Ohmyword.Linguistics.Adjectives do
   }
 
   # Definite singular endings by gender
+  # :soft_dependent_back — soft stems use -eg/-em, hard stems use -og/-om
   @def_sg_endings %{
-    m: %{nom: "i", gen: "og", dat: "om", acc: :animate_dependent, voc: "i", ins: "im", loc: "om"},
+    m: %{
+      nom: "i",
+      gen: :soft_dependent_back,
+      dat: :soft_dependent_back,
+      acc: :animate_dependent,
+      voc: "i",
+      ins: "im",
+      loc: :soft_dependent_back
+    },
     f: %{nom: "a", gen: "e", dat: "oj", acc: "u", voc: "a", ins: "om", loc: "oj"},
     n: %{
       nom: :soft_dependent,
-      gen: "og",
-      dat: "om",
+      gen: :soft_dependent_back,
+      dat: :soft_dependent_back,
       acc: :soft_dependent,
       voc: :soft_dependent,
       ins: "im",
-      loc: "om"
+      loc: :soft_dependent_back
     }
   }
 
@@ -78,7 +87,7 @@ defmodule Ohmyword.Linguistics.Adjectives do
 
     # Handle indeclinable adjectives
     if metadata["indeclinable"] do
-      [{String.downcase(word.term), "base"}]
+      [{String.downcase(word.term), "invariable"}]
     else
       term = String.downcase(word.term)
       stem = get_stem(term, metadata)
@@ -212,10 +221,10 @@ defmodule Ohmyword.Linguistics.Adjectives do
 
   # Build a single indefinite form
   defp build_indefinite_form(stem, word, case_atom, number, gender, _metadata, soft, _form_tag) do
-    # Special handling for Indefinite Nominative Singular Masculine
+    # Special handling for Indefinite Nom/Voc Singular Masculine (both have empty ending)
     # If the input term appears to be indefinite (doesn't end in -i), maintain it as is
     # to preserve the "unmodified" form (before L-O or Fleeting A removal)
-    if case_atom == :nom and number == :sg and gender == :m and
+    if case_atom in [:nom, :voc] and number == :sg and gender == :m and
          not String.ends_with?(word.term, "i") do
       String.downcase(word.term)
     else
@@ -235,12 +244,16 @@ defmodule Ohmyword.Linguistics.Adjectives do
   end
 
   # Resolve special endings and build the form
-  defp resolve_ending_and_build(stem, word, ending, _case_atom, number, _gender, soft, declension) do
+  defp resolve_ending_and_build(stem, word, ending, case_atom, number, _gender, soft, declension) do
     case ending do
       :soft_dependent ->
         # Neuter nom/acc/voc: -o for hard stems, -e for soft stems
         actual_ending = if soft, do: "e", else: "o"
         stem <> actual_ending
+
+      :soft_dependent_back ->
+        # Definite gen/dat/loc m/n: soft stems use -eg/-em, hard use -og/-om
+        resolve_soft_back_ending(stem, case_atom, soft)
 
       :animate_dependent ->
         # Masculine accusative: depends on animacy and number
@@ -251,8 +264,16 @@ defmodule Ohmyword.Linguistics.Adjectives do
     end
   end
 
+  # Resolve back-vowel endings for definite m/n gen/dat/loc
+  defp resolve_soft_back_ending(stem, case_atom, soft) do
+    case case_atom do
+      :gen -> stem <> if(soft, do: "eg", else: "og")
+      _ -> stem <> if(soft, do: "em", else: "om")
+    end
+  end
+
   # Resolve masculine accusative based on animacy
-  defp resolve_masculine_accusative(stem, word, number, _soft, declension) do
+  defp resolve_masculine_accusative(stem, word, number, soft, declension) do
     animate = word.animate == true
 
     case {number, animate, declension} do
@@ -270,8 +291,8 @@ defmodule Ohmyword.Linguistics.Adjectives do
         end
 
       {:sg, true, :def} ->
-        # Animate singular definite: use genitive = stem + "og"
-        stem <> "og"
+        # Animate singular definite: use genitive = stem + "og"/"eg"
+        stem <> if(soft, do: "eg", else: "og")
 
       {:sg, false, :def} ->
         # Inanimate singular definite: use nominative = stem + "i"

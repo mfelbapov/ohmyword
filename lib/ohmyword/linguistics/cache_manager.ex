@@ -13,6 +13,7 @@ defmodule Ohmyword.Linguistics.CacheManager do
   alias Ohmyword.Vocabulary.Word
   alias Ohmyword.Search.SearchTerm
   alias Ohmyword.Linguistics.Dispatcher
+  alias Ohmyword.Utils.Transliteration
 
   @doc """
   Regenerates search_terms for all vocabulary words.
@@ -93,9 +94,10 @@ defmodule Ohmyword.Linguistics.CacheManager do
     now = DateTime.utc_now() |> DateTime.truncate(:second)
 
     entries =
-      Enum.map(forms, fn {term, form_tag} ->
+      Enum.map(forms, fn {form, form_tag} ->
         %{
-          term: String.downcase(term),
+          term: form |> Transliteration.strip_diacritics() |> String.downcase(),
+          display_form: String.downcase(form),
           form_tag: String.downcase(form_tag),
           word_id: word_id,
           source: :engine,

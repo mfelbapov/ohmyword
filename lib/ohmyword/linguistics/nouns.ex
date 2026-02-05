@@ -128,7 +128,7 @@ defmodule Ohmyword.Linguistics.Nouns do
       "a-stem" -> decline_a_stem(term, case_atom, number)
       "o-stem" -> decline_o_stem(term, case_atom, number)
       "e-stem" -> decline_e_stem(term, case_atom, number, metadata)
-      "i-stem" -> decline_i_stem(term, case_atom, number)
+      "i-stem" -> decline_i_stem(term, case_atom, number, metadata)
       "consonant" -> decline_consonant(term, word, case_atom, number, metadata)
       _ -> decline_consonant(term, word, case_atom, number, metadata)
     end
@@ -160,28 +160,44 @@ defmodule Ohmyword.Linguistics.Nouns do
   # E-stem declension (neuter -e nouns)
   defp decline_e_stem(term, case_atom, number, metadata) do
     base_stem = remove_ending(term, "e")
-    ending = @e_stem_endings[number][case_atom]
+    extended_stem = metadata["extended_stem"]
 
     # Check for extended stem (et/en) in singular oblique cases and plural
     # e.g., dete -> det-et-a
-    extended_stem = metadata["extended_stem"]
+    uses_extended =
+      extended_stem != nil and
+        (number == :pl or
+           (number == :sg and case_atom != :nom and case_atom != :acc and case_atom != :voc))
 
     stem =
-      if extended_stem &&
-           (number == :pl ||
-              (number == :sg && case_atom != :nom && case_atom != :acc && case_atom != :voc)) do
+      if uses_extended do
         base_stem <> extended_stem
       else
         base_stem
+      end
+
+    # When extended stem is used for ins_sg, use -om instead of -em
+    ending =
+      if uses_extended and number == :sg and case_atom == :ins do
+        "om"
+      else
+        @e_stem_endings[number][case_atom]
       end
 
     stem <> ending
   end
 
   # I-stem declension (feminine consonant nouns)
-  defp decline_i_stem(term, case_atom, number) do
-    ending = @i_stem_endings[number][case_atom]
-    term <> ending
+  defp decline_i_stem(term, case_atom, number, metadata) do
+    # Handle instrumental singular with iotation + -u (ins_ju)
+    if number == :sg and case_atom == :ins and metadata["ins_ju"] == true do
+      # Apply iotation to the stem then add -u
+      iotated = SoundChanges.iotate(term)
+      iotated <> "u"
+    else
+      ending = @i_stem_endings[number][case_atom]
+      term <> ending
+    end
   end
 
   # Consonant stem declension (masculine consonant nouns)
@@ -195,23 +211,32 @@ defmodule Ohmyword.Linguistics.Nouns do
   defp decline_consonant_singular(term, word, case_atom, metadata) do
     fleeting_a = metadata["fleeting_a"] == true
     palatalization = metadata["palatalization"] == true
+    extended_stem = metadata["extended_stem"]
 
     # For nominative, always use the original term
     if case_atom == :nom do
       term
     else
-      # Get the stem (with fleeting A removed if applicable)
-      stem =
+      # Get the base stem (with fleeting A removed if applicable)
+      base_stem =
         if fleeting_a do
           remove_fleeting_a(term)
         else
           term
         end
 
+      # Use extended stem for oblique cases if provided
+      stem =
+        if extended_stem && case_atom != :voc do
+          extended_stem
+        else
+          base_stem
+        end
+
       # Handle vocative with palatalization
       stem =
         if case_atom == :voc && palatalization do
-          apply_palatalization(stem)
+          apply_palatalization(base_stem)
         else
           stem
         end
@@ -223,7 +248,8 @@ defmodule Ohmyword.Linguistics.Nouns do
       if case_atom == :acc do
         if word.animate do
           # Animate: accusative = genitive
-          stem <> @consonant_sg_endings[:gen]
+          oblique_stem = if extended_stem, do: extended_stem, else: base_stem
+          oblique_stem <> @consonant_sg_endings[:gen]
         else
           # Inanimate: accusative = nominative
           term
@@ -234,42 +260,58 @@ defmodule Ohmyword.Linguistics.Nouns do
     end
   end
 
-  defp decline_consonant_plural(term, word, case_atom, metadata) do
-    irregular_plural = metadata["irregular_plural"]
+  defp decline_consonant_plural(term, _word, case_atom, metadata) do
     fleeting_a = metadata["fleeting_a"] == true
+    palatalization = metadata["palatalization"] == true
+    extended_stem = metadata["extended_stem"]
 
-    # For animate accusative, we need to return the genitive form
-    # This must be handled specially for fleeting A nouns
-    if case_atom == :acc && word.animate do
-      # Animate accusative = genitive, so recursively get the genitive form
-      decline_consonant_plural(term, word, :gen, metadata)
-    else
-      # Determine the plural stem
-      plural_stem =
-        cond do
-          # Use irregular plural stem if provided
-          irregular_plural ->
-            irregular_plural
+    # Determine the base stem (with fleeting A removed if applicable)
+    base_stem = if fleeting_a, do: remove_fleeting_a(term), else: term
 
-          # For fleeting A nouns with gen_pl, use the original term (with A)
-          fleeting_a && case_atom == :gen ->
-            term
+    # Determine the plural stem
+    plural_stem =
+      cond do
+        # Extended stem gets -ov-/-ev- insert
+        extended_stem ->
+          insert = get_plural_insert(extended_stem)
+          extended_stem <> insert
 
-          # For fleeting A nouns (non-gen), use stem without A
-          fleeting_a ->
-            remove_fleeting_a(term)
+        # Palatalization nouns: sibilarize for nom/voc_pl, no -ov-/-ev- insert
+        palatalization && case_atom in [:nom, :voc] ->
+          SoundChanges.sibilarize(base_stem)
 
-          # Regular consonant stem with -ov-/-ev- insert
-          true ->
-            insert = get_plural_insert(term)
-            term <> insert
-        end
+        # Palatalization nouns: sibilarize for dat/ins/loc_pl
+        palatalization && case_atom in [:dat, :ins, :loc] ->
+          SoundChanges.sibilarize(base_stem)
 
-      # Get the ending
-      ending = @consonant_pl_endings[case_atom]
+        # Palatalization nouns: gen_pl restores fleeting A, acc_pl uses base stem
+        palatalization && case_atom == :gen ->
+          term
 
-      plural_stem <> ending
-    end
+        palatalization ->
+          base_stem
+
+        # For fleeting A nouns with gen_pl, use the original term (with A)
+        fleeting_a && case_atom == :gen ->
+          term
+
+        # For fleeting A nouns (non-gen), use stem without A
+        fleeting_a ->
+          base_stem
+
+        # Regular consonant stem: monosyllabic gets -ov-/-ev- insert, polysyllabic does not
+        monosyllabic?(term) ->
+          insert = get_plural_insert(term)
+          term <> insert
+
+        true ->
+          term
+      end
+
+    # Get the ending
+    ending = @consonant_pl_endings[case_atom]
+
+    plural_stem <> ending
   end
 
   # Remove the fleeting 'a' from the stem
@@ -317,6 +359,12 @@ defmodule Ohmyword.Linguistics.Nouns do
   defp is_consonant?(char) when is_binary(char) do
     vowels = ~w(a e i o u)
     char not in vowels
+  end
+
+  # Check if a term is monosyllabic (has exactly one vowel)
+  defp monosyllabic?(term) do
+    vowel_count = term |> String.graphemes() |> Enum.count(&(&1 in ~w(a e i o u)))
+    vowel_count <= 1
   end
 
   # Determine plural insert: -ov-, -ev-, or nothing

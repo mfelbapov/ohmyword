@@ -11,8 +11,9 @@ defmodule OhmywordWeb.FlashcardLive do
 
   use OhmywordWeb, :live_view
 
+  import OhmywordWeb.WordComponents
+
   alias Ohmyword.Vocabulary
-  alias Ohmyword.Utils.Transliteration
 
   @impl true
   def render(assigns) do
@@ -23,8 +24,9 @@ defmodule OhmywordWeb.FlashcardLive do
         <:subtitle>Practice Serbian vocabulary</:subtitle>
       </.header>
 
-      <div class="mt-6 flex justify-between">
+      <div class="mt-6 flex items-center justify-between gap-2">
         <.direction_toggle direction_mode={@direction_mode} />
+        <.pos_filter pos_filter={@pos_filter} available_pos={@available_pos} />
         <.script_toggle script_mode={@script_mode} />
       </div>
 
@@ -124,75 +126,15 @@ defmodule OhmywordWeb.FlashcardLive do
       <% else %>
         <div class="mt-8 rounded-lg border-2 border-dashed border-zinc-300 p-12 text-center dark:border-zinc-700">
           <.icon name="hero-book-open" class="mx-auto h-12 w-12 text-zinc-400" />
-          <h3 class="mt-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">No vocabulary</h3>
+          <h3 class="mt-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            {empty_state_title(@pos_filter)}
+          </h3>
           <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-            No words in the database. Run seeds to populate vocabulary.
+            {empty_state_message(@pos_filter)}
           </p>
         </div>
       <% end %>
     </div>
-    """
-  end
-
-  # Badge components
-
-  attr :part_of_speech, :atom, required: true
-
-  defp pos_badge(assigns) do
-    ~H"""
-    <span class="inline-flex items-center rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200">
-      {Phoenix.Naming.humanize(@part_of_speech)}
-    </span>
-    """
-  end
-
-  attr :gender, :atom, required: true
-
-  defp gender_badge(assigns) do
-    colors = %{
-      masculine: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-      feminine: "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200",
-      neuter: "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200"
-    }
-
-    labels = %{
-      masculine: "M",
-      feminine: "F",
-      neuter: "N"
-    }
-
-    assigns = assign(assigns, colors: colors, labels: labels)
-
-    ~H"""
-    <span class={"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium #{@colors[@gender]}"}>
-      {@labels[@gender]}
-    </span>
-    """
-  end
-
-  attr :aspect, :atom, required: true
-
-  defp aspect_badge(assigns) do
-    labels = %{
-      perfective: "PF",
-      imperfective: "IPF",
-      biaspectual: "BI"
-    }
-
-    assigns = assign(assigns, labels: labels)
-
-    ~H"""
-    <span class="inline-flex items-center rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-      {@labels[@aspect]}
-    </span>
-    """
-  end
-
-  defp animate_badge(assigns) do
-    ~H"""
-    <span class="inline-flex items-center rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-900 dark:text-amber-200">
-      Anim
-    </span>
     """
   end
 
@@ -205,7 +147,9 @@ defmodule OhmywordWeb.FlashcardLive do
      |> assign(current_word: word)
      |> assign(flipped: false)
      |> assign(script_mode: :latin)
-     |> assign(direction_mode: :serbian_to_english)}
+     |> assign(direction_mode: :serbian_to_english)
+     |> assign(pos_filter: :all)
+     |> assign(available_pos: Vocabulary.list_available_parts_of_speech())}
   end
 
   @impl true
@@ -214,7 +158,7 @@ defmodule OhmywordWeb.FlashcardLive do
   end
 
   def handle_event("next", _params, socket) do
-    word = Vocabulary.get_random_word()
+    word = get_filtered_word(socket.assigns.pos_filter)
     {:noreply, socket |> assign(current_word: word) |> assign(flipped: false)}
   end
 
@@ -232,7 +176,33 @@ defmodule OhmywordWeb.FlashcardLive do
     {:noreply, assign(socket, direction_mode: new_mode)}
   end
 
-  # Helper to convert text based on script mode
-  defp display_term(text, :latin), do: text
-  defp display_term(text, :cyrillic), do: Transliteration.to_cyrillic(text)
+  def handle_event("filter_pos", %{"pos" => pos_value}, socket) do
+    pos_filter =
+      case pos_value do
+        "all" -> :all
+        pos -> String.to_existing_atom(pos)
+      end
+
+    word = get_filtered_word(pos_filter)
+
+    {:noreply,
+     socket
+     |> assign(pos_filter: pos_filter)
+     |> assign(current_word: word)
+     |> assign(flipped: false)}
+  end
+
+  defp get_filtered_word(:all), do: Vocabulary.get_random_word()
+  defp get_filtered_word(pos), do: Vocabulary.get_random_word(part_of_speech: pos)
+
+  defp empty_state_title(:all), do: "No vocabulary"
+
+  defp empty_state_title(pos),
+    do: "No #{Phoenix.Naming.humanize(pos)} words"
+
+  defp empty_state_message(:all),
+    do: "No words in the database. Run seeds to populate vocabulary."
+
+  defp empty_state_message(_pos),
+    do: "No words match the current filter. Try a different type."
 end

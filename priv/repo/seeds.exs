@@ -43,6 +43,7 @@ defmodule VocabularySeed do
   alias Ohmyword.Vocabulary.Word
   alias Ohmyword.Search.SearchTerm
   alias Ohmyword.Linguistics.CacheManager
+  alias Ohmyword.Utils.Transliteration
 
   def run do
     seed_file = Path.join(:code.priv_dir(:ohmyword), "repo/vocabulary_seed.json")
@@ -100,7 +101,8 @@ defmodule VocabularySeed do
   defp insert_search_term(word, %{"term" => term, "form_tag" => form_tag}) do
     %SearchTerm{}
     |> SearchTerm.changeset(%{
-      term: String.downcase(term),
+      term: term |> Transliteration.strip_diacritics() |> String.downcase(),
+      display_form: String.downcase(term),
       form_tag: String.downcase(form_tag),
       word_id: word.id,
       source: :seed,

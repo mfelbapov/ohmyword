@@ -48,16 +48,21 @@ defmodule Ohmyword.Linguistics.Numerals do
   @dva_paradigm %{
     "nom_m" => "dva",
     "nom_f" => "dve",
+    "nom_n" => "dva",
     "gen_m" => "dvaju",
     "gen_f" => "dveju",
+    "gen" => "dvaju",
     "dat_m" => "dvama",
     "dat_f" => "dvema",
+    "dat" => "dvama",
     "acc_m" => "dva",
     "acc_f" => "dve",
     "ins_m" => "dvama",
     "ins_f" => "dvema",
+    "ins" => "dvama",
     "loc_m" => "dvama",
-    "loc_f" => "dvema"
+    "loc_f" => "dvema",
+    "loc" => "dvama"
   }
 
   # Hardcoded paradigm for "tri" (3) - partial declension, no gender
@@ -173,17 +178,26 @@ defmodule Ohmyword.Linguistics.Numerals do
   }
 
   # Definite adjective singular endings by gender (for ordinals)
+  # gen/dat/loc for m/n are soft-dependent: -og/-om for hard, -eg/-em for soft stems
   @def_sg_endings %{
-    m: %{nom: "i", gen: "og", dat: "om", acc: :animate_dependent, voc: "i", ins: "im", loc: "om"},
+    m: %{
+      nom: "i",
+      gen: :soft_back_vowel,
+      dat: :soft_back_vowel_m,
+      acc: :animate_dependent,
+      voc: "i",
+      ins: "im",
+      loc: :soft_back_vowel_m
+    },
     f: %{nom: "a", gen: "e", dat: "oj", acc: "u", voc: "a", ins: "om", loc: "oj"},
     n: %{
       nom: :soft_dependent,
-      gen: "og",
-      dat: "om",
+      gen: :soft_back_vowel,
+      dat: :soft_back_vowel_m,
       acc: :soft_dependent,
       voc: :soft_dependent,
       ins: "im",
-      loc: "om"
+      loc: :soft_back_vowel_m
     }
   }
 
@@ -221,7 +235,9 @@ defmodule Ohmyword.Linguistics.Numerals do
     cond do
       # Check for ordinal patterns (ending in -i, -a, -o for adjective-like)
       String.ends_with?(term, "i") &&
-          term in ~w(prvi drugi treći četvrti peti šesti sedmi osmi deveti deseti) ->
+          term in ~w(prvi drugi treći četvrti peti šesti sedmi osmi deveti deseti
+                     jedanaesti dvanaesti trinaesti četrnaesti petnaesti šesnaesti
+                     sedamnaesti osamnaesti devetnaesti) ->
         "ordinal"
 
       # Check for collective patterns
@@ -372,8 +388,15 @@ defmodule Ohmyword.Linguistics.Numerals do
     case ending do
       :soft_dependent ->
         # Neuter nom/acc/voc: -o for hard stems, -e for soft stems
-        actual_ending = if soft, do: "e", else: "o"
-        stem <> actual_ending
+        stem <> if(soft, do: "e", else: "o")
+
+      :soft_back_vowel ->
+        # gen m/n: -og for hard, -eg for soft
+        stem <> if(soft, do: "eg", else: "og")
+
+      :soft_back_vowel_m ->
+        # dat/loc m/n: -om for hard, -em for soft
+        stem <> if(soft, do: "em", else: "om")
 
       :animate_dependent ->
         # Masculine accusative: depends on animacy and number
@@ -385,13 +408,13 @@ defmodule Ohmyword.Linguistics.Numerals do
   end
 
   # Resolve masculine accusative based on animacy
-  defp resolve_masculine_accusative(stem, word, number, _soft) do
+  defp resolve_masculine_accusative(stem, word, number, soft) do
     animate = word.animate == true
 
     case {number, animate} do
       {:sg, true} ->
-        # Animate singular: use genitive = stem + "og"
-        stem <> "og"
+        # Animate singular: use genitive = stem + "og"/"eg"
+        stem <> if(soft, do: "eg", else: "og")
 
       {:sg, false} ->
         # Inanimate singular: use nominative = stem + "i"
