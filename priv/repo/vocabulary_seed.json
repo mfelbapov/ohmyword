@@ -1,5 +1,19 @@
 [
   {
+    "term": "aerodrom",
+    "translation": "airport",
+    "categories": [
+      "places",
+      "travel"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "encouragement"
     ],
@@ -33,6 +47,84 @@
     "proficiency_level": 1,
     "term": "ali",
     "translation": "but"
+  },
+  {
+    "term": "apoteka",
+    "translation": "pharmacy",
+    "translations": [
+      "drugstore"
+    ],
+    "categories": [
+      "places",
+      "health"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "auto",
+    "translation": "car",
+    "translations": [
+      "auto"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "grammar_metadata": {
+      "irregular_forms": {
+        "nom_sg": "auto",
+        "gen_sg": "auta",
+        "dat_sg": "autu",
+        "acc_sg": "auto",
+        "ins_sg": "autom",
+        "loc_sg": "autu",
+        "voc_sg": "auto",
+        "nom_pl": "autovi",
+        "gen_pl": "autova",
+        "dat_pl": "autovima",
+        "acc_pl": "autove",
+        "ins_pl": "autovima",
+        "loc_pl": "autovima",
+        "voc_pl": "autovi"
+      }
+    },
+    "categories": [
+      "transport"
+    ],
+    "proficiency_level": 1
+  },
+  {
+    "term": "autobus",
+    "translation": "bus",
+    "categories": [
+      "transport"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "automobil",
+    "translation": "car",
+    "translations": [
+      "automobile"
+    ],
+    "categories": [
+      "transport"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -118,6 +210,19 @@
       "to hurl"
     ],
     "verb_aspect": "perfective"
+  },
+  {
+    "term": "banka",
+    "translation": "bank",
+    "categories": [
+      "places",
+      "finance"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -213,6 +318,36 @@
     "term": "bez",
     "translation": "beige",
     "usage_notes": "Foreign adjective, does not decline"
+  },
+  {
+    "term": "biber",
+    "translation": "pepper",
+    "translations": [
+      "black pepper"
+    ],
+    "categories": [
+      "food",
+      "spices"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "biblioteka",
+    "translation": "library",
+    "categories": [
+      "places",
+      "education"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -777,6 +912,19 @@
     "verb_aspect": "imperfective"
   },
   {
+    "term": "bolnica",
+    "translation": "hospital",
+    "categories": [
+      "places",
+      "health"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "animate": true,
     "categories": [
       "people",
@@ -857,6 +1005,18 @@
     "proficiency_level": 1,
     "term": "brat",
     "translation": "brother"
+  },
+  {
+    "term": "brašno",
+    "translation": "flour",
+    "categories": [
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "o-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -1337,6 +1497,38 @@
     ]
   },
   {
+    "term": "cena",
+    "translation": "price",
+    "translations": [
+      "cost"
+    ],
+    "categories": [
+      "shopping"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "crkva",
+    "translation": "church",
+    "categories": [
+      "places",
+      "religion"
+    ],
+    "grammar_metadata": {
+      "irregular_forms": {
+        "gen_pl": "crkava"
+      }
+    },
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1
+  },
+  {
     "categories": [
       "colors"
     ],
@@ -1495,6 +1687,16 @@
     "proficiency_level": 1,
     "term": "dan",
     "translation": "day"
+  },
+  {
+    "term": "danas",
+    "translation": "today",
+    "part_of_speech": "adverb",
+    "grammar_metadata": {},
+    "categories": [
+      "time"
+    ],
+    "proficiency_level": 1
   },
   {
     "categories": [
@@ -1989,6 +2191,19 @@
     "proficiency_level": 1,
     "term": "deseti",
     "translation": "tenth"
+  },
+  {
+    "term": "desno",
+    "translation": "right",
+    "translations": [
+      "to the right"
+    ],
+    "part_of_speech": "adverb",
+    "grammar_metadata": {},
+    "categories": [
+      "direction"
+    ],
+    "proficiency_level": 1
   },
   {
     "categories": [
@@ -2622,6 +2837,23 @@
     "translations": [
       "until"
     ]
+  },
+  {
+    "term": "doktor",
+    "translation": "doctor",
+    "translations": [
+      "physician"
+    ],
+    "categories": [
+      "people",
+      "health"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": true,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -3669,6 +3901,23 @@
     ]
   },
   {
+    "term": "frižider",
+    "translation": "fridge",
+    "translations": [
+      "refrigerator"
+    ],
+    "categories": [
+      "household",
+      "appliances"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "body"
     ],
@@ -3819,6 +4068,18 @@
       "to look at"
     ],
     "verb_aspect": "imperfective"
+  },
+  {
+    "term": "godina",
+    "translation": "year",
+    "categories": [
+      "time"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -4119,6 +4380,33 @@
     "translation": "thousand"
   },
   {
+    "term": "hladan",
+    "translation": "cold",
+    "part_of_speech": "adjective",
+    "gender": "masculine",
+    "grammar_metadata": {
+      "fleeting_a": true
+    },
+    "categories": [
+      "description",
+      "weather"
+    ],
+    "proficiency_level": 1
+  },
+  {
+    "term": "hleb",
+    "translation": "bread",
+    "categories": [
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "grammar",
       "auxiliaries"
@@ -4197,6 +4485,20 @@
     "term": "hteti",
     "translation": "to want",
     "verb_aspect": "imperfective"
+  },
+  {
+    "term": "hvala",
+    "translation": "thank you",
+    "translations": [
+      "thanks"
+    ],
+    "part_of_speech": "interjection",
+    "grammar_metadata": {},
+    "categories": [
+      "greetings",
+      "politeness"
+    ],
+    "proficiency_level": 1
   },
   {
     "categories": [
@@ -4709,6 +5011,29 @@
     "translation": "I"
   },
   {
+    "term": "jaje",
+    "translation": "egg",
+    "categories": [
+      "food"
+    ],
+    "grammar_metadata": {
+      "extended_stem": "et",
+      "irregular_forms": {
+        "nom_pl": "jaja",
+        "gen_pl": "jaja",
+        "dat_pl": "jajima",
+        "acc_pl": "jaja",
+        "ins_pl": "jajima",
+        "loc_pl": "jajima",
+        "voc_pl": "jaja"
+      }
+    },
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "e-stem",
+    "proficiency_level": 1
+  },
+  {
     "categories": [
       "description"
     ],
@@ -4762,6 +5087,22 @@
     "proficiency_level": 2,
     "term": "jak",
     "translation": "strong"
+  },
+  {
+    "term": "jastuk",
+    "translation": "pillow",
+    "categories": [
+      "household",
+      "bedroom"
+    ],
+    "grammar_metadata": {
+      "palatalization": true
+    },
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1
   },
   {
     "categories": [
@@ -4941,6 +5282,21 @@
     "proficiency_level": 1,
     "term": "jedanaesti",
     "translation": "eleventh"
+  },
+  {
+    "term": "jeftin",
+    "translation": "cheap",
+    "translations": [
+      "inexpensive"
+    ],
+    "part_of_speech": "adjective",
+    "gender": "masculine",
+    "grammar_metadata": {},
+    "categories": [
+      "description",
+      "shopping"
+    ],
+    "proficiency_level": 1
   },
   {
     "categories": [
@@ -5194,6 +5550,20 @@
     ]
   },
   {
+    "term": "jogurt",
+    "translation": "yogurt",
+    "categories": [
+      "food",
+      "dairy"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "expression"
     ],
@@ -5286,6 +5656,31 @@
     "translation": "hero"
   },
   {
+    "term": "junetina",
+    "translation": "beef",
+    "categories": [
+      "food",
+      "meat"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "jutro",
+    "translation": "morning",
+    "categories": [
+      "time"
+    ],
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "o-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "time"
     ],
@@ -5320,6 +5715,92 @@
     "proficiency_level": 1,
     "term": "kad",
     "translation": "when"
+  },
+  {
+    "term": "kafa",
+    "translation": "coffee",
+    "categories": [
+      "food",
+      "drinks"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "kafana",
+    "translation": "tavern",
+    "translations": [
+      "traditional restaurant"
+    ],
+    "categories": [
+      "places",
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "kafić",
+    "translation": "café",
+    "translations": [
+      "coffee shop"
+    ],
+    "categories": [
+      "places",
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "kajmak",
+    "translation": "clotted cream",
+    "translations": [
+      "kajmak"
+    ],
+    "categories": [
+      "food",
+      "dairy"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "kasnije",
+    "translation": "later",
+    "part_of_speech": "adverb",
+    "grammar_metadata": {},
+    "categories": [
+      "time"
+    ],
+    "proficiency_level": 1
+  },
+  {
+    "term": "kašika",
+    "translation": "spoon",
+    "categories": [
+      "household",
+      "kitchen"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "animate": false,
@@ -5678,6 +6159,19 @@
     ]
   },
   {
+    "term": "kiša",
+    "translation": "rain",
+    "categories": [
+      "nature",
+      "weather"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "animate": false,
     "categories": [
       "household",
@@ -5867,6 +6361,19 @@
     "translation": "who"
   },
   {
+    "term": "kobasica",
+    "translation": "sausage",
+    "categories": [
+      "food",
+      "meat"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "location"
     ],
@@ -5885,6 +6392,24 @@
       "near",
       "by"
     ]
+  },
+  {
+    "term": "kolač",
+    "translation": "cake",
+    "translations": [
+      "pastry",
+      "cookie"
+    ],
+    "categories": [
+      "food",
+      "sweets"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "animate": false,
@@ -6036,6 +6561,22 @@
       "chunk",
       "bit"
     ]
+  },
+  {
+    "term": "komšija",
+    "translation": "neighbor",
+    "translations": [
+      "neighbour"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "a-stem",
+    "animate": true,
+    "grammar_metadata": {},
+    "categories": [
+      "people"
+    ],
+    "proficiency_level": 1
   },
   {
     "animate": true,
@@ -6420,6 +6961,20 @@
     "translation": "wing"
   },
   {
+    "term": "krompir",
+    "translation": "potato",
+    "categories": [
+      "food",
+      "vegetables"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "direction"
     ],
@@ -6509,6 +7064,32 @@
     "translation": "blood"
   },
   {
+    "term": "kuhinja",
+    "translation": "kitchen",
+    "categories": [
+      "places",
+      "housing"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "kupatilo",
+    "translation": "bathroom",
+    "categories": [
+      "places",
+      "housing"
+    ],
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "o-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "actions",
       "commerce"
@@ -6590,6 +7171,20 @@
     "transitive": true,
     "translation": "to buy",
     "verb_aspect": "imperfective"
+  },
+  {
+    "term": "kupus",
+    "translation": "cabbage",
+    "categories": [
+      "food",
+      "vegetables"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -7939,6 +8534,19 @@
     "verb_aspect": "imperfective"
   },
   {
+    "term": "levo",
+    "translation": "left",
+    "translations": [
+      "to the left"
+    ],
+    "part_of_speech": "adverb",
+    "grammar_metadata": {},
+    "categories": [
+      "direction"
+    ],
+    "proficiency_level": 1
+  },
+  {
     "categories": [
       "question"
     ],
@@ -8486,6 +9094,20 @@
     ]
   },
   {
+    "term": "luk",
+    "translation": "onion",
+    "categories": [
+      "food",
+      "vegetables"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "people",
       "family"
@@ -8697,6 +9319,50 @@
       "to smear"
     ],
     "verb_aspect": "imperfective"
+  },
+  {
+    "term": "mesar",
+    "translation": "butcher",
+    "categories": [
+      "people",
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": true,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "mesec",
+    "translation": "month",
+    "translations": [
+      "moon"
+    ],
+    "categories": [
+      "time",
+      "nature"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "meso",
+    "translation": "meat",
+    "categories": [
+      "food",
+      "meat"
+    ],
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "o-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -9898,6 +10564,21 @@
     ]
   },
   {
+    "term": "nedelja",
+    "translation": "week",
+    "translations": [
+      "Sunday"
+    ],
+    "categories": [
+      "time"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "comparison"
     ],
@@ -9933,6 +10614,20 @@
     "proficiency_level": 1,
     "term": "nikad",
     "translation": "never"
+  },
+  {
+    "term": "nikada",
+    "translation": "never",
+    "translations": [
+      "nikad"
+    ],
+    "part_of_speech": "adverb",
+    "grammar_metadata": {},
+    "categories": [
+      "time",
+      "frequency"
+    ],
+    "proficiency_level": 1
   },
   {
     "categories": [
@@ -10168,6 +10863,25 @@
     "translation": "new"
   },
   {
+    "term": "novac",
+    "translation": "money",
+    "translations": [
+      "cash"
+    ],
+    "categories": [
+      "shopping",
+      "finance"
+    ],
+    "grammar_metadata": {
+      "fleeting_a": true
+    },
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1
+  },
+  {
     "categories": [
       "time",
       "nature"
@@ -10241,6 +10955,20 @@
     "translation": "night"
   },
   {
+    "term": "nož",
+    "translation": "knife",
+    "categories": [
+      "household",
+      "kitchen"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "numbers"
     ],
@@ -10258,6 +10986,22 @@
     "proficiency_level": 1,
     "term": "nula",
     "translation": "zero"
+  },
+  {
+    "term": "oblak",
+    "translation": "cloud",
+    "categories": [
+      "nature",
+      "weather"
+    ],
+    "grammar_metadata": {
+      "palatalization": true
+    },
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1
   },
   {
     "categories": [
@@ -10302,6 +11046,18 @@
     "translations": [
       "right away"
     ]
+  },
+  {
+    "term": "ogledalo",
+    "translation": "mirror",
+    "categories": [
+      "household"
+    ],
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "o-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -11172,6 +11928,24 @@
     ]
   },
   {
+    "term": "ormar",
+    "translation": "wardrobe",
+    "translations": [
+      "closet",
+      "cabinet"
+    ],
+    "categories": [
+      "household",
+      "furniture"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "numbers"
     ],
@@ -11406,6 +12180,17 @@
     "proficiency_level": 1,
     "term": "otac",
     "translation": "father"
+  },
+  {
+    "term": "otvoren",
+    "translation": "open",
+    "part_of_speech": "adjective",
+    "gender": "masculine",
+    "grammar_metadata": {},
+    "categories": [
+      "description"
+    ],
+    "proficiency_level": 1
   },
   {
     "categories": [
@@ -11646,6 +12431,54 @@
     ]
   },
   {
+    "term": "paprika",
+    "translation": "pepper",
+    "translations": [
+      "bell pepper",
+      "paprika"
+    ],
+    "categories": [
+      "food",
+      "vegetables"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "paradajz",
+    "translation": "tomato",
+    "categories": [
+      "food",
+      "vegetables"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "parking",
+    "translation": "parking lot",
+    "translations": [
+      "parking"
+    ],
+    "categories": [
+      "places",
+      "transport"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "animate": true,
     "categories": [
       "animals",
@@ -11726,6 +12559,20 @@
     ]
   },
   {
+    "term": "pasulj",
+    "translation": "beans",
+    "categories": [
+      "food",
+      "vegetables"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "numbers"
     ],
@@ -11743,6 +12590,49 @@
     "proficiency_level": 1,
     "term": "pedeset",
     "translation": "fifty"
+  },
+  {
+    "term": "pegla",
+    "translation": "iron",
+    "translations": [
+      "clothes iron"
+    ],
+    "categories": [
+      "household",
+      "appliances"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "pekar",
+    "translation": "baker",
+    "categories": [
+      "people",
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": true,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "pekara",
+    "translation": "bakery",
+    "categories": [
+      "places",
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -12424,6 +13314,36 @@
     "verb_aspect": "imperfective"
   },
   {
+    "term": "peškir",
+    "translation": "towel",
+    "categories": [
+      "household",
+      "bathroom"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "pijaca",
+    "translation": "market",
+    "translations": [
+      "open-air market"
+    ],
+    "categories": [
+      "places",
+      "shopping"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "animate": true,
     "categories": [
       "animals",
@@ -12501,6 +13421,35 @@
     "translations": [
       "chicken (young)"
     ]
+  },
+  {
+    "term": "piletina",
+    "translation": "chicken",
+    "translations": [
+      "chicken meat"
+    ],
+    "categories": [
+      "food",
+      "meat"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "pirinač",
+    "translation": "rice",
+    "categories": [
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "aspect_pair_term": "napisati",
@@ -13001,6 +13950,19 @@
     "translation": "slowly"
   },
   {
+    "term": "policija",
+    "translation": "police",
+    "categories": [
+      "places",
+      "services"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "nature",
       "geography"
@@ -13071,6 +14033,22 @@
     "translation": "field"
   },
   {
+    "term": "pomoć",
+    "translation": "help",
+    "translations": [
+      "assistance",
+      "aid"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "i-stem",
+    "grammar_metadata": {},
+    "categories": [
+      "actions"
+    ],
+    "proficiency_level": 1
+  },
+  {
     "categories": [
       "location"
     ],
@@ -13090,6 +14068,54 @@
     ]
   },
   {
+    "term": "porodica",
+    "translation": "family",
+    "categories": [
+      "people",
+      "family"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "posao",
+    "translation": "job",
+    "translations": [
+      "work",
+      "business"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "grammar_metadata": {
+      "fleeting_a": true,
+      "irregular_forms": {
+        "nom_sg": "posao",
+        "gen_sg": "posla",
+        "dat_sg": "poslu",
+        "acc_sg": "posao",
+        "ins_sg": "poslom",
+        "loc_sg": "poslu",
+        "voc_sg": "posle",
+        "nom_pl": "poslovi",
+        "gen_pl": "poslova",
+        "dat_pl": "poslovima",
+        "acc_pl": "poslove",
+        "ins_pl": "poslovima",
+        "loc_pl": "poslovima",
+        "voc_pl": "poslovi"
+      }
+    },
+    "categories": [
+      "work"
+    ],
+    "proficiency_level": 1
+  },
+  {
     "categories": [
       "time"
     ],
@@ -13104,6 +14130,19 @@
     "proficiency_level": 1,
     "term": "posle",
     "translation": "after"
+  },
+  {
+    "term": "povrće",
+    "translation": "vegetables",
+    "categories": [
+      "food",
+      "vegetables"
+    ],
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "e-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -13188,6 +14227,22 @@
       "to start"
     ],
     "verb_aspect": "perfective"
+  },
+  {
+    "term": "pošta",
+    "translation": "post office",
+    "translations": [
+      "mail"
+    ],
+    "categories": [
+      "places",
+      "services"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "animate": false,
@@ -13545,6 +14600,19 @@
     ]
   },
   {
+    "term": "pravo",
+    "translation": "straight",
+    "translations": [
+      "straight ahead"
+    ],
+    "part_of_speech": "adverb",
+    "grammar_metadata": {},
+    "categories": [
+      "direction"
+    ],
+    "proficiency_level": 1
+  },
+  {
     "categories": [
       "time"
     ],
@@ -13662,6 +14730,22 @@
     "proficiency_level": 1,
     "term": "prijatelj",
     "translation": "friend"
+  },
+  {
+    "term": "prodavnica",
+    "translation": "shop",
+    "translations": [
+      "store"
+    ],
+    "categories": [
+      "places",
+      "shopping"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "animate": false,
@@ -14713,6 +15797,24 @@
     ]
   },
   {
+    "term": "račun",
+    "translation": "bill",
+    "translations": [
+      "check",
+      "account"
+    ],
+    "categories": [
+      "shopping",
+      "finance"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "animate": false,
     "categories": [
       "abstract"
@@ -14786,6 +15888,20 @@
       "row",
       "line"
     ]
+  },
+  {
+    "term": "restoran",
+    "translation": "restaurant",
+    "categories": [
+      "places",
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -15188,6 +16304,20 @@
     ]
   },
   {
+    "term": "ružan",
+    "translation": "ugly",
+    "part_of_speech": "adjective",
+    "gender": "masculine",
+    "grammar_metadata": {
+      "fleeting_a": true
+    },
+    "categories": [
+      "description",
+      "quality"
+    ],
+    "proficiency_level": 2
+  },
+  {
     "categories": [
       "grammar",
       "prepositions"
@@ -15227,6 +16357,22 @@
     "proficiency_level": 1,
     "term": "sada",
     "translation": "now"
+  },
+  {
+    "term": "salata",
+    "translation": "salad",
+    "translations": [
+      "lettuce"
+    ],
+    "categories": [
+      "food",
+      "vegetables"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -15363,6 +16509,20 @@
     "proficiency_level": 2,
     "term": "san",
     "translation": "dream"
+  },
+  {
+    "term": "sapun",
+    "translation": "soap",
+    "categories": [
+      "household",
+      "bathroom"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -15867,6 +17027,20 @@
     "proficiency_level": 1,
     "term": "sin",
     "translation": "son"
+  },
+  {
+    "term": "sir",
+    "translation": "cheese",
+    "categories": [
+      "food",
+      "dairy"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -17006,6 +18180,20 @@
     "translation": "weak"
   },
   {
+    "term": "sladoled",
+    "translation": "ice cream",
+    "categories": [
+      "food",
+      "sweets"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "communication",
       "actions"
@@ -17393,6 +18581,51 @@
     "verb_aspect": "imperfective"
   },
   {
+    "term": "sneg",
+    "translation": "snow",
+    "categories": [
+      "nature",
+      "weather"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "so",
+    "translation": "salt",
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "i-stem",
+    "grammar_metadata": {
+      "ins_ju": true,
+      "irregular_forms": {
+        "nom_sg": "so",
+        "gen_sg": "soli",
+        "dat_sg": "soli",
+        "acc_sg": "so",
+        "ins_sg": "solju",
+        "loc_sg": "soli",
+        "voc_sg": "soli",
+        "nom_pl": "soli",
+        "gen_pl": "soli",
+        "dat_pl": "solima",
+        "acc_pl": "soli",
+        "ins_pl": "solima",
+        "loc_pl": "solima",
+        "voc_pl": "soli"
+      }
+    },
+    "categories": [
+      "food",
+      "spices"
+    ],
+    "proficiency_level": 1
+  },
+  {
     "categories": [
       "house",
       "living"
@@ -17462,6 +18695,20 @@
     "proficiency_level": 1,
     "term": "soba",
     "translation": "room"
+  },
+  {
+    "term": "sok",
+    "translation": "juice",
+    "categories": [
+      "food",
+      "drinks"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -17647,6 +18894,39 @@
     "translation": "happy"
   },
   {
+    "term": "stan",
+    "translation": "apartment",
+    "translations": [
+      "flat"
+    ],
+    "categories": [
+      "places",
+      "housing"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "stanica",
+    "translation": "station",
+    "translations": [
+      "stop"
+    ],
+    "categories": [
+      "places",
+      "transport"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "description",
       "age"
@@ -17799,6 +19079,19 @@
     "proficiency_level": 1,
     "term": "sto",
     "translation": "hundred"
+  },
+  {
+    "term": "stolica",
+    "translation": "chair",
+    "categories": [
+      "household",
+      "furniture"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "animate": true,
@@ -18076,6 +19369,18 @@
     "translations": [
       "sunshine"
     ]
+  },
+  {
+    "term": "supa",
+    "translation": "soup",
+    "categories": [
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -18805,6 +20110,19 @@
     ]
   },
   {
+    "term": "svinjetina",
+    "translation": "pork",
+    "categories": [
+      "food",
+      "meat"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "pronoun",
       "possessive"
@@ -19107,6 +20425,39 @@
     "proficiency_level": 1,
     "term": "taj",
     "translation": "that"
+  },
+  {
+    "term": "taksi",
+    "translation": "taxi",
+    "translations": [
+      "cab"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "grammar_metadata": {
+      "irregular_forms": {
+        "nom_sg": "taksi",
+        "gen_sg": "taksija",
+        "dat_sg": "taksiju",
+        "acc_sg": "taksi",
+        "ins_sg": "taksijem",
+        "loc_sg": "taksiju",
+        "voc_sg": "taksi",
+        "nom_pl": "taksiji",
+        "gen_pl": "taksija",
+        "dat_pl": "taksijima",
+        "acc_pl": "taksije",
+        "ins_pl": "taksijima",
+        "loc_pl": "taksijima",
+        "voc_pl": "taksiji"
+      }
+    },
+    "categories": [
+      "transport"
+    ],
+    "proficiency_level": 1
   },
   {
     "categories": [
@@ -19484,6 +20835,23 @@
     ]
   },
   {
+    "term": "tanjir",
+    "translation": "plate",
+    "translations": [
+      "dish"
+    ],
+    "categories": [
+      "household",
+      "kitchen"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "animate": true,
     "categories": [
       "family",
@@ -19634,6 +21002,22 @@
     "translation": "calf"
   },
   {
+    "term": "telefon",
+    "translation": "phone",
+    "translations": [
+      "telephone"
+    ],
+    "categories": [
+      "technology"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "body",
       "anatomy"
@@ -19707,6 +21091,38 @@
     "proficiency_level": 1,
     "term": "telo",
     "translation": "body"
+  },
+  {
+    "term": "tepih",
+    "translation": "carpet",
+    "translations": [
+      "rug"
+    ],
+    "categories": [
+      "household",
+      "furniture"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "testenina",
+    "translation": "pasta",
+    "translations": [
+      "noodles"
+    ],
+    "categories": [
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -19879,6 +21295,25 @@
     "proficiency_level": 1,
     "term": "ti",
     "translation": "you"
+  },
+  {
+    "term": "tiganj",
+    "translation": "frying pan",
+    "translations": [
+      "skillet"
+    ],
+    "categories": [
+      "household",
+      "kitchen"
+    ],
+    "grammar_metadata": {
+      "fleeting_a": true
+    },
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1
   },
   {
     "animate": false,
@@ -20687,6 +22122,23 @@
       "sack",
       "purse"
     ]
+  },
+  {
+    "term": "torta",
+    "translation": "cake",
+    "translations": [
+      "torte",
+      "gateau"
+    ],
+    "categories": [
+      "food",
+      "sweets"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -21935,6 +23387,61 @@
     "usage_notes": "Takes accusative for motion (idem u skolu), locative for location (u skoli sam)"
   },
   {
+    "term": "ulica",
+    "translation": "street",
+    "translations": [
+      "road"
+    ],
+    "categories": [
+      "places"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "ulje",
+    "translation": "oil",
+    "categories": [
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "e-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "univerzitet",
+    "translation": "university",
+    "categories": [
+      "places",
+      "education"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "usisivač",
+    "translation": "vacuum cleaner",
+    "categories": [
+      "household",
+      "appliances"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "time",
       "frequency"
@@ -22639,6 +24146,22 @@
     ]
   },
   {
+    "term": "vetar",
+    "translation": "wind",
+    "categories": [
+      "nature",
+      "weather"
+    ],
+    "grammar_metadata": {
+      "fleeting_a": true
+    },
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1
+  },
+  {
     "categories": [
       "time"
     ],
@@ -22657,6 +24180,18 @@
     "translations": [
       "by now"
     ]
+  },
+  {
+    "term": "veče",
+    "translation": "evening",
+    "categories": [
+      "time"
+    ],
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "e-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -22792,6 +24327,32 @@
     "transitive": true,
     "translation": "to see",
     "verb_aspect": "imperfective"
+  },
+  {
+    "term": "viljuška",
+    "translation": "fork",
+    "categories": [
+      "household",
+      "kitchen"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "vino",
+    "translation": "wine",
+    "categories": [
+      "food",
+      "drinks"
+    ],
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "o-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "animate": false,
@@ -23488,6 +25049,63 @@
     "verb_aspect": "imperfective"
   },
   {
+    "term": "voz",
+    "translation": "train",
+    "categories": [
+      "transport"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "voće",
+    "translation": "fruit",
+    "categories": [
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "e-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "vrata",
+    "translation": "door",
+    "translations": [
+      "gate"
+    ],
+    "categories": [
+      "household"
+    ],
+    "grammar_metadata": {
+      "irregular_forms": {
+        "nom_pl": "vrata",
+        "gen_pl": "vrata",
+        "dat_pl": "vratima",
+        "acc_pl": "vrata",
+        "ins_pl": "vratima",
+        "loc_pl": "vratima",
+        "voc_pl": "vrata",
+        "nom_sg": "vrata",
+        "gen_sg": "vrata",
+        "dat_sg": "vratima",
+        "acc_sg": "vrata",
+        "ins_sg": "vratima",
+        "loc_sg": "vratima",
+        "voc_sg": "vrata"
+      }
+    },
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "o-stem",
+    "proficiency_level": 1
+  },
+  {
     "categories": [
       "time",
       "nature"
@@ -23897,6 +25515,17 @@
       "that's why",
       "because of that"
     ]
+  },
+  {
+    "term": "zatvoren",
+    "translation": "closed",
+    "part_of_speech": "adjective",
+    "gender": "masculine",
+    "grammar_metadata": {},
+    "categories": [
+      "description"
+    ],
+    "proficiency_level": 1
   },
   {
     "categories": [
@@ -24706,6 +26335,36 @@
     "verb_aspect": "imperfective"
   },
   {
+    "term": "ćebe",
+    "translation": "blanket",
+    "translations": [
+      "quilt"
+    ],
+    "categories": [
+      "household",
+      "bedroom"
+    ],
+    "part_of_speech": "noun",
+    "gender": "neuter",
+    "declension_class": "e-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "čaj",
+    "translation": "tea",
+    "categories": [
+      "food",
+      "drinks"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "categories": [
       "emphasis"
     ],
@@ -24720,6 +26379,22 @@
     "proficiency_level": 2,
     "term": "čak",
     "translation": "even"
+  },
+  {
+    "term": "čaša",
+    "translation": "glass",
+    "translations": [
+      "drinking glass"
+    ],
+    "categories": [
+      "household",
+      "kitchen"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -24892,6 +26567,22 @@
     "proficiency_level": 1,
     "term": "četiristo",
     "translation": "four hundred"
+  },
+  {
+    "term": "četkica",
+    "translation": "toothbrush",
+    "translations": [
+      "brush"
+    ],
+    "categories": [
+      "household",
+      "bathroom"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -25084,6 +26775,21 @@
     "verb_aspect": "imperfective"
   },
   {
+    "term": "čorba",
+    "translation": "thick soup",
+    "translations": [
+      "stew"
+    ],
+    "categories": [
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
     "animate": true,
     "categories": [
       "people"
@@ -25256,6 +26962,36 @@
       "to listen"
     ],
     "verb_aspect": "imperfective"
+  },
+  {
+    "term": "šampon",
+    "translation": "shampoo",
+    "categories": [
+      "household",
+      "bathroom"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "šerpa",
+    "translation": "saucepan",
+    "translations": [
+      "pot"
+    ],
+    "categories": [
+      "household",
+      "kitchen"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -25488,6 +27224,19 @@
     "proficiency_level": 1,
     "term": "šezdeset",
     "translation": "sixty"
+  },
+  {
+    "term": "šećer",
+    "translation": "sugar",
+    "categories": [
+      "food"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "animate": false,
@@ -26253,6 +28002,40 @@
     "proficiency_level": 1,
     "term": "škola",
     "translation": "school"
+  },
+  {
+    "term": "šolja",
+    "translation": "cup",
+    "translations": [
+      "mug"
+    ],
+    "categories": [
+      "household",
+      "kitchen"
+    ],
+    "part_of_speech": "noun",
+    "gender": "feminine",
+    "declension_class": "a-stem",
+    "proficiency_level": 1,
+    "grammar_metadata": {}
+  },
+  {
+    "term": "šporet",
+    "translation": "stove",
+    "translations": [
+      "cooker"
+    ],
+    "categories": [
+      "household",
+      "kitchen",
+      "appliances"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": false,
+    "proficiency_level": 1,
+    "grammar_metadata": {}
   },
   {
     "categories": [
