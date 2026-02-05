@@ -72,15 +72,16 @@ defmodule Ohmyword.Linguistics.Verbs do
     # Get stems
     infinitive_stem = get_infinitive_stem(term)
     present_stem = get_present_stem(term, word.conjugation_class, metadata)
+    present_conj_class = get_present_conjugation_class(word.conjugation_class, metadata)
 
     # Generate all forms
     forms =
       generate_infinitive(word.term, reflexive) ++
-        generate_present_forms(present_stem, word.conjugation_class, irregular_forms, reflexive) ++
-        generate_past_forms(infinitive_stem, term, irregular_forms, reflexive) ++
+        generate_present_forms(present_stem, present_conj_class, irregular_forms, reflexive) ++
+        generate_past_forms(infinitive_stem, term, metadata, irregular_forms, reflexive) ++
         generate_imperative_forms(
           present_stem,
-          word.conjugation_class,
+          present_conj_class,
           irregular_forms,
           reflexive
         )
@@ -104,10 +105,11 @@ defmodule Ohmyword.Linguistics.Verbs do
 
   defp extract_base_term(term, false), do: term
 
-  # Get infinitive stem by removing -ti or -ći
+  # Get infinitive stem by removing -ti or -ći/-ci
   defp get_infinitive_stem(term) do
     cond do
       String.ends_with?(term, "ći") -> String.slice(term, 0..-3//1)
+      String.ends_with?(term, "ci") -> String.slice(term, 0..-3//1)
       String.ends_with?(term, "ti") -> String.slice(term, 0..-3//1)
       true -> term
     end
@@ -119,6 +121,11 @@ defmodule Ohmyword.Linguistics.Verbs do
       nil -> derive_present_stem(term, conjugation_class)
       stem -> stem
     end
+  end
+
+  # Get present conjugation class - use metadata override if provided
+  defp get_present_conjugation_class(conjugation_class, metadata) do
+    metadata["present_conjugation_class"] || conjugation_class
   end
 
   # Derive present stem from infinitive based on conjugation class
@@ -202,9 +209,13 @@ defmodule Ohmyword.Linguistics.Verbs do
   defp get_present_endings(_), do: @a_verb_present
 
   # Generate past participle (L-participle) forms
-  defp generate_past_forms(infinitive_stem, term, irregular_forms, reflexive) do
-    # Determine the L-participle stem
-    l_stem = get_l_participle_stem(infinitive_stem, term)
+  defp generate_past_forms(infinitive_stem, term, metadata, irregular_forms, reflexive) do
+    # Determine the L-participle stem (use metadata override if present)
+    l_stem =
+      case metadata["past_stem"] do
+        nil -> get_l_participle_stem(infinitive_stem, term)
+        stem -> stem
+      end
 
     ["m_sg", "f_sg", "n_sg", "m_pl", "f_pl", "n_pl"]
     |> Enum.map(fn gender_number ->
@@ -273,6 +284,12 @@ defmodule Ohmyword.Linguistics.Verbs do
       # A-verbs with vowel-ending stem use -j endings
       conjugation_class == "a-verb" and is_vowel?(last_char) ->
         %{"2sg" => "j", "1pl" => "jmo", "2pl" => "jte"}
+
+      # Je-verbs / e-verbs where stem ends in standalone j (not dj/lj/nj digraph): bare stem + -mo/-te
+      conjugation_class in ["e-verb", "je-verb"] and last_char == "j" and
+        not String.ends_with?(stem, "dj") and not String.ends_with?(stem, "lj") and
+          not String.ends_with?(stem, "nj") ->
+        %{"2sg" => "", "1pl" => "mo", "2pl" => "te"}
 
       # I-verbs use -i endings
       conjugation_class == "i-verb" ->

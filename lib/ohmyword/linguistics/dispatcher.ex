@@ -7,6 +7,7 @@ defmodule Ohmyword.Linguistics.Dispatcher do
   """
 
   alias Ohmyword.Vocabulary.Word
+  alias Ohmyword.Linguistics.Transliteration
 
   @inflectors [
     Ohmyword.Linguistics.Nouns,
@@ -40,8 +41,14 @@ defmodule Ohmyword.Linguistics.Dispatcher do
 
   def inflect(%Word{} = word) do
     case get_inflector(word) do
-      nil -> []
-      inflector -> inflector.generate_forms(word)
+      nil ->
+        []
+
+      inflector ->
+        inflector.generate_forms(word)
+        |> Enum.map(fn {form, tag} ->
+          {Transliteration.strip_diacritics(form), tag}
+        end)
     end
   end
 

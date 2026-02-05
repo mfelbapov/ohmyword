@@ -26,14 +26,14 @@ defmodule Ohmyword.Linguistics.Invariables do
       case get_in(word.grammar_metadata || %{}, ["comparative"]) do
         nil -> []
         "" -> []
-        comp -> [{String.downcase(comp), "comp"}]
+        comp -> [{String.downcase(comp), "comparative"}]
       end
 
     superlative =
       case get_in(word.grammar_metadata || %{}, ["superlative"]) do
         nil -> []
         "" -> []
-        super -> [{String.downcase(super), "super"}]
+        super -> [{String.downcase(super), "superlative"}]
       end
 
     base ++ comparative ++ superlative
@@ -41,6 +41,6 @@ defmodule Ohmyword.Linguistics.Invariables do
 
   def generate_forms(word) do
     # All other invariables: just base form
-    [{String.downcase(word.term), "base"}]
+    [{String.downcase(word.term), "invariable"}]
   end
 end

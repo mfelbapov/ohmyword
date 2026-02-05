@@ -87,7 +87,7 @@ defmodule Ohmyword.Linguistics.CacheManagerTest do
 
       # Check that nom_sg is lowercase
       term = Repo.get_by(SearchTerm, word_id: word.id, form_tag: "nom_sg")
-      assert term.term == "kuća"
+      assert term.term == "kuca"
     end
   end
 

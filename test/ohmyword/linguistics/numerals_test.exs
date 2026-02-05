@@ -157,8 +157,8 @@ defmodule Ohmyword.Linguistics.NumeralsTest do
        word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
     end
 
-    test "generates 12 forms (6 cases x 2 genders)", %{forms: forms} do
-      assert length(forms) == 12
+    test "generates 17 forms (6 cases x 2 genders + 5 unified)", %{forms: forms} do
+      assert length(forms) == 17
     end
 
     test "nominative masculine", %{forms_map: fm} do
@@ -773,8 +773,8 @@ defmodule Ohmyword.Linguistics.NumeralsTest do
       }
 
       forms = Numerals.generate_forms(word)
-      # Should generate dva paradigm forms
-      assert length(forms) == 12
+      # Should generate dva paradigm forms (12 gendered + 5 unified)
+      assert length(forms) == 17
     end
 
     test "infers ordinal type for known ordinals" do

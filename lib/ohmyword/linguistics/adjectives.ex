@@ -78,7 +78,7 @@ defmodule Ohmyword.Linguistics.Adjectives do
 
     # Handle indeclinable adjectives
     if metadata["indeclinable"] do
-      [{String.downcase(word.term), "base"}]
+      [{String.downcase(word.term), "invariable"}]
     else
       term = String.downcase(word.term)
       stem = get_stem(term, metadata)

@@ -51,43 +51,43 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is ja", %{forms_map: fm} do
-      assert fm["nom"] == "ja"
+      assert fm["nom_sg"] == "ja"
     end
 
     test "genitive is mene", %{forms_map: fm} do
-      assert fm["gen"] == "mene"
+      assert fm["gen_sg"] == "mene"
     end
 
     test "genitive clitic is me", %{forms_map: fm} do
-      assert fm["gen_clitic"] == "me"
+      assert fm["gen_sg_clitic"] == "me"
     end
 
     test "dative is meni", %{forms_map: fm} do
-      assert fm["dat"] == "meni"
+      assert fm["dat_sg"] == "meni"
     end
 
     test "dative clitic is mi", %{forms_map: fm} do
-      assert fm["dat_clitic"] == "mi"
+      assert fm["dat_sg_clitic"] == "mi"
     end
 
     test "accusative is mene", %{forms_map: fm} do
-      assert fm["acc"] == "mene"
+      assert fm["acc_sg"] == "mene"
     end
 
     test "accusative clitic is me", %{forms_map: fm} do
-      assert fm["acc_clitic"] == "me"
+      assert fm["acc_sg_clitic"] == "me"
     end
 
     test "instrumental is mnom", %{forms_map: fm} do
-      assert fm["ins"] == "mnom"
+      assert fm["ins_sg"] == "mnom"
     end
 
     test "instrumental alternate is mnome", %{forms_map: fm} do
-      assert fm["ins_alt"] == "mnome"
+      assert fm["ins_sg_alt"] == "mnome"
     end
 
     test "locative is meni", %{forms_map: fm} do
-      assert fm["loc"] == "meni"
+      assert fm["loc_sg"] == "meni"
     end
   end
 
@@ -109,35 +109,35 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is ti", %{forms_map: fm} do
-      assert fm["nom"] == "ti"
+      assert fm["nom_sg"] == "ti"
     end
 
     test "genitive is tebe", %{forms_map: fm} do
-      assert fm["gen"] == "tebe"
+      assert fm["gen_sg"] == "tebe"
     end
 
     test "genitive clitic is te", %{forms_map: fm} do
-      assert fm["gen_clitic"] == "te"
+      assert fm["gen_sg_clitic"] == "te"
     end
 
     test "dative is tebi", %{forms_map: fm} do
-      assert fm["dat"] == "tebi"
+      assert fm["dat_sg"] == "tebi"
     end
 
     test "dative clitic is ti", %{forms_map: fm} do
-      assert fm["dat_clitic"] == "ti"
+      assert fm["dat_sg_clitic"] == "ti"
     end
 
     test "accusative is tebe", %{forms_map: fm} do
-      assert fm["acc"] == "tebe"
+      assert fm["acc_sg"] == "tebe"
     end
 
     test "instrumental is tobom", %{forms_map: fm} do
-      assert fm["ins"] == "tobom"
+      assert fm["ins_sg"] == "tobom"
     end
 
     test "vocative is ti", %{forms_map: fm} do
-      assert fm["voc"] == "ti"
+      assert fm["voc_sg"] == "ti"
     end
   end
 
@@ -159,31 +159,31 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is on", %{forms_map: fm} do
-      assert fm["nom"] == "on"
+      assert fm["nom_sg"] == "on"
     end
 
     test "genitive is njega", %{forms_map: fm} do
-      assert fm["gen"] == "njega"
+      assert fm["gen_sg"] == "njega"
     end
 
     test "genitive clitic is ga", %{forms_map: fm} do
-      assert fm["gen_clitic"] == "ga"
+      assert fm["gen_sg_clitic"] == "ga"
     end
 
     test "dative is njemu", %{forms_map: fm} do
-      assert fm["dat"] == "njemu"
+      assert fm["dat_sg"] == "njemu"
     end
 
     test "dative clitic is mu", %{forms_map: fm} do
-      assert fm["dat_clitic"] == "mu"
+      assert fm["dat_sg_clitic"] == "mu"
     end
 
     test "instrumental is njim", %{forms_map: fm} do
-      assert fm["ins"] == "njim"
+      assert fm["ins_sg"] == "njim"
     end
 
     test "instrumental alternate is njime", %{forms_map: fm} do
-      assert fm["ins_alt"] == "njime"
+      assert fm["ins_sg_alt"] == "njime"
     end
   end
 
@@ -205,39 +205,39 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is ona", %{forms_map: fm} do
-      assert fm["nom"] == "ona"
+      assert fm["nom_sg"] == "ona"
     end
 
     test "genitive is nje", %{forms_map: fm} do
-      assert fm["gen"] == "nje"
+      assert fm["gen_sg"] == "nje"
     end
 
     test "genitive clitic is je", %{forms_map: fm} do
-      assert fm["gen_clitic"] == "je"
+      assert fm["gen_sg_clitic"] == "je"
     end
 
     test "dative is njoj", %{forms_map: fm} do
-      assert fm["dat"] == "njoj"
+      assert fm["dat_sg"] == "njoj"
     end
 
     test "dative clitic is joj", %{forms_map: fm} do
-      assert fm["dat_clitic"] == "joj"
+      assert fm["dat_sg_clitic"] == "joj"
     end
 
     test "accusative is nju", %{forms_map: fm} do
-      assert fm["acc"] == "nju"
+      assert fm["acc_sg"] == "nju"
     end
 
     test "accusative clitic is je", %{forms_map: fm} do
-      assert fm["acc_clitic"] == "je"
+      assert fm["acc_sg_clitic"] == "je"
     end
 
     test "accusative clitic alternate is ju", %{forms_map: fm} do
-      assert fm["acc_clitic_alt"] == "ju"
+      assert fm["acc_sg_clitic_alt"] == "ju"
     end
 
     test "instrumental is njom", %{forms_map: fm} do
-      assert fm["ins"] == "njom"
+      assert fm["ins_sg"] == "njom"
     end
   end
 
@@ -259,23 +259,23 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is mi", %{forms_map: fm} do
-      assert fm["nom"] == "mi"
+      assert fm["nom_pl"] == "mi"
     end
 
     test "genitive is nas", %{forms_map: fm} do
-      assert fm["gen"] == "nas"
+      assert fm["gen_pl"] == "nas"
     end
 
     test "dative is nama", %{forms_map: fm} do
-      assert fm["dat"] == "nama"
+      assert fm["dat_pl"] == "nama"
     end
 
     test "dative clitic is nam", %{forms_map: fm} do
-      assert fm["dat_clitic"] == "nam"
+      assert fm["dat_pl_clitic"] == "nam"
     end
 
     test "instrumental is nama", %{forms_map: fm} do
-      assert fm["ins"] == "nama"
+      assert fm["ins_pl"] == "nama"
     end
   end
 
@@ -297,25 +297,25 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "has gendered nominative forms", %{forms_map: fm} do
-      assert fm["nom_m"] == "oni"
-      assert fm["nom_f"] == "one"
-      assert fm["nom_n"] == "ona"
+      assert fm["nom_pl_m"] == "oni"
+      assert fm["nom_pl_f"] == "one"
+      assert fm["nom_pl_n"] == "ona"
     end
 
     test "genitive is njih", %{forms_map: fm} do
-      assert fm["gen"] == "njih"
+      assert fm["gen_pl"] == "njih"
     end
 
     test "genitive clitic is ih", %{forms_map: fm} do
-      assert fm["gen_clitic"] == "ih"
+      assert fm["gen_pl_clitic"] == "ih"
     end
 
     test "dative is njima", %{forms_map: fm} do
-      assert fm["dat"] == "njima"
+      assert fm["dat_pl"] == "njima"
     end
 
     test "dative clitic is im", %{forms_map: fm} do
-      assert fm["dat_clitic"] == "im"
+      assert fm["dat_pl_clitic"] == "im"
     end
   end
 
@@ -336,39 +336,39 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "has no nominative form", %{forms_map: fm} do
-      refute Map.has_key?(fm, "nom")
+      refute Map.has_key?(fm, "nom_sg")
     end
 
     test "genitive is sebe", %{forms_map: fm} do
-      assert fm["gen"] == "sebe"
+      assert fm["gen_sg"] == "sebe"
     end
 
     test "genitive clitic is se", %{forms_map: fm} do
-      assert fm["gen_clitic"] == "se"
+      assert fm["gen_sg_clitic"] == "se"
     end
 
     test "dative is sebi", %{forms_map: fm} do
-      assert fm["dat"] == "sebi"
+      assert fm["dat_sg"] == "sebi"
     end
 
     test "dative clitic is si", %{forms_map: fm} do
-      assert fm["dat_clitic"] == "si"
+      assert fm["dat_sg_clitic"] == "si"
     end
 
     test "accusative is sebe", %{forms_map: fm} do
-      assert fm["acc"] == "sebe"
+      assert fm["acc_sg"] == "sebe"
     end
 
     test "accusative clitic is se", %{forms_map: fm} do
-      assert fm["acc_clitic"] == "se"
+      assert fm["acc_sg_clitic"] == "se"
     end
 
     test "instrumental is sobom", %{forms_map: fm} do
-      assert fm["ins"] == "sobom"
+      assert fm["ins_sg"] == "sobom"
     end
 
     test "locative is sebi", %{forms_map: fm} do
-      assert fm["loc"] == "sebi"
+      assert fm["loc_sg"] == "sebi"
     end
   end
 
@@ -556,35 +556,35 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is ko", %{forms_map: fm} do
-      assert fm["nom"] == "ko"
+      assert fm["nom_sg"] == "ko"
     end
 
     test "genitive is koga", %{forms_map: fm} do
-      assert fm["gen"] == "koga"
+      assert fm["gen_sg"] == "koga"
     end
 
     test "dative is kome", %{forms_map: fm} do
-      assert fm["dat"] == "kome"
+      assert fm["dat_sg"] == "kome"
     end
 
     test "dative alternate is komu", %{forms_map: fm} do
-      assert fm["dat_alt"] == "komu"
+      assert fm["dat_sg_alt"] == "komu"
     end
 
     test "accusative is koga", %{forms_map: fm} do
-      assert fm["acc"] == "koga"
+      assert fm["acc_sg"] == "koga"
     end
 
     test "instrumental is kim", %{forms_map: fm} do
-      assert fm["ins"] == "kim"
+      assert fm["ins_sg"] == "kim"
     end
 
     test "instrumental alternate is kime", %{forms_map: fm} do
-      assert fm["ins_alt"] == "kime"
+      assert fm["ins_sg_alt"] == "kime"
     end
 
     test "locative is kome", %{forms_map: fm} do
-      assert fm["loc"] == "kome"
+      assert fm["loc_sg"] == "kome"
     end
   end
 
@@ -605,27 +605,27 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is šta", %{forms_map: fm} do
-      assert fm["nom"] == "šta"
+      assert fm["nom_sg"] == "šta"
     end
 
     test "genitive is čega", %{forms_map: fm} do
-      assert fm["gen"] == "čega"
+      assert fm["gen_sg"] == "čega"
     end
 
     test "dative is čemu", %{forms_map: fm} do
-      assert fm["dat"] == "čemu"
+      assert fm["dat_sg"] == "čemu"
     end
 
     test "accusative is šta", %{forms_map: fm} do
-      assert fm["acc"] == "šta"
+      assert fm["acc_sg"] == "šta"
     end
 
     test "instrumental is čim", %{forms_map: fm} do
-      assert fm["ins"] == "čim"
+      assert fm["ins_sg"] == "čim"
     end
 
     test "locative is čemu", %{forms_map: fm} do
-      assert fm["loc"] == "čemu"
+      assert fm["loc_sg"] == "čemu"
     end
   end
 
@@ -681,23 +681,23 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is niko", %{forms_map: fm} do
-      assert fm["nom"] == "niko"
+      assert fm["nom_sg"] == "niko"
     end
 
     test "genitive is nikoga", %{forms_map: fm} do
-      assert fm["gen"] == "nikoga"
+      assert fm["gen_sg"] == "nikoga"
     end
 
     test "dative is nikome", %{forms_map: fm} do
-      assert fm["dat"] == "nikome"
+      assert fm["dat_sg"] == "nikome"
     end
 
     test "accusative is nikoga", %{forms_map: fm} do
-      assert fm["acc"] == "nikoga"
+      assert fm["acc_sg"] == "nikoga"
     end
 
     test "instrumental is nikim", %{forms_map: fm} do
-      assert fm["ins"] == "nikim"
+      assert fm["ins_sg"] == "nikim"
     end
   end
 
@@ -717,23 +717,23 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is ništa", %{forms_map: fm} do
-      assert fm["nom"] == "ništa"
+      assert fm["nom_sg"] == "ništa"
     end
 
     test "genitive is ničega", %{forms_map: fm} do
-      assert fm["gen"] == "ničega"
+      assert fm["gen_sg"] == "ničega"
     end
 
     test "dative is ničemu", %{forms_map: fm} do
-      assert fm["dat"] == "ničemu"
+      assert fm["dat_sg"] == "ničemu"
     end
 
     test "accusative is ništa", %{forms_map: fm} do
-      assert fm["acc"] == "ništa"
+      assert fm["acc_sg"] == "ništa"
     end
 
     test "instrumental is ničim", %{forms_map: fm} do
-      assert fm["ins"] == "ničim"
+      assert fm["ins_sg"] == "ničim"
     end
   end
 
@@ -751,8 +751,8 @@ defmodule Ohmyword.Linguistics.PronounsTest do
       forms = Pronouns.generate_forms(word)
       forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
 
-      assert forms_map["nom"] == "ja"
-      assert forms_map["gen"] == "mene"
+      assert forms_map["nom_sg"] == "ja"
+      assert forms_map["gen_sg"] == "mene"
     end
 
     test "returns empty for unknown pronoun with manual_forms_only" do
@@ -782,7 +782,7 @@ defmodule Ohmyword.Linguistics.PronounsTest do
       forms = Pronouns.generate_forms(word)
       forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
 
-      assert forms_map["nom"] == "ja"
+      assert forms_map["nom_sg"] == "ja"
     end
 
     test "auto-detects reflexive pronoun sebe" do
@@ -796,8 +796,8 @@ defmodule Ohmyword.Linguistics.PronounsTest do
       forms = Pronouns.generate_forms(word)
       forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
 
-      assert forms_map["gen"] == "sebe"
-      assert forms_map["acc_clitic"] == "se"
+      assert forms_map["gen_sg"] == "sebe"
+      assert forms_map["acc_sg_clitic"] == "se"
     end
 
     test "auto-detects possessive pronoun moj with contracted forms" do
@@ -852,7 +852,7 @@ defmodule Ohmyword.Linguistics.PronounsTest do
 
       forms = Pronouns.generate_forms(word)
       forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
-      assert forms_map["nom"] == "ja"
+      assert forms_map["nom_sg"] == "ja"
     end
 
     test "returns empty list for unknown pronoun" do
@@ -892,15 +892,15 @@ defmodule Ohmyword.Linguistics.PronounsTest do
       forms = Pronouns.generate_forms(word)
       tags = Enum.map(forms, &elem(&1, 1))
 
-      assert "nom" in tags
-      assert "gen" in tags
-      assert "gen_clitic" in tags
-      assert "dat" in tags
-      assert "dat_clitic" in tags
-      assert "acc" in tags
-      assert "acc_clitic" in tags
-      assert "ins" in tags
-      assert "loc" in tags
+      assert "nom_sg" in tags
+      assert "gen_sg" in tags
+      assert "gen_sg_clitic" in tags
+      assert "dat_sg" in tags
+      assert "dat_sg_clitic" in tags
+      assert "acc_sg" in tags
+      assert "acc_sg_clitic" in tags
+      assert "ins_sg" in tags
+      assert "loc_sg" in tags
     end
 
     test "possessive pronoun moj tags follow expected patterns" do
@@ -965,27 +965,27 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is ono", %{forms_map: fm} do
-      assert fm["nom"] == "ono"
+      assert fm["nom_sg"] == "ono"
     end
 
     test "genitive is njega", %{forms_map: fm} do
-      assert fm["gen"] == "njega"
+      assert fm["gen_sg"] == "njega"
     end
 
     test "genitive clitic is ga", %{forms_map: fm} do
-      assert fm["gen_clitic"] == "ga"
+      assert fm["gen_sg_clitic"] == "ga"
     end
 
     test "dative is njemu", %{forms_map: fm} do
-      assert fm["dat"] == "njemu"
+      assert fm["dat_sg"] == "njemu"
     end
 
     test "dative clitic is mu", %{forms_map: fm} do
-      assert fm["dat_clitic"] == "mu"
+      assert fm["dat_sg_clitic"] == "mu"
     end
 
     test "accusative is njega (same as genitive)", %{forms_map: fm} do
-      assert fm["acc"] == "njega"
+      assert fm["acc_sg"] == "njega"
     end
   end
 
@@ -1007,23 +1007,23 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is vi", %{forms_map: fm} do
-      assert fm["nom"] == "vi"
+      assert fm["nom_pl"] == "vi"
     end
 
     test "genitive is vas", %{forms_map: fm} do
-      assert fm["gen"] == "vas"
+      assert fm["gen_pl"] == "vas"
     end
 
     test "dative clitic is vam", %{forms_map: fm} do
-      assert fm["dat_clitic"] == "vam"
+      assert fm["dat_pl_clitic"] == "vam"
     end
 
     test "dative is vama", %{forms_map: fm} do
-      assert fm["dat"] == "vama"
+      assert fm["dat_pl"] == "vama"
     end
 
     test "accusative clitic is vas", %{forms_map: fm} do
-      assert fm["acc_clitic"] == "vas"
+      assert fm["acc_pl_clitic"] == "vas"
     end
   end
 
@@ -1200,23 +1200,23 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is neko", %{forms_map: fm} do
-      assert fm["nom"] == "neko"
+      assert fm["nom_sg"] == "neko"
     end
 
     test "genitive is nekoga", %{forms_map: fm} do
-      assert fm["gen"] == "nekoga"
+      assert fm["gen_sg"] == "nekoga"
     end
 
     test "dative is nekome", %{forms_map: fm} do
-      assert fm["dat"] == "nekome"
+      assert fm["dat_sg"] == "nekome"
     end
 
     test "accusative is nekoga", %{forms_map: fm} do
-      assert fm["acc"] == "nekoga"
+      assert fm["acc_sg"] == "nekoga"
     end
 
     test "instrumental is nekim", %{forms_map: fm} do
-      assert fm["ins"] == "nekim"
+      assert fm["ins_sg"] == "nekim"
     end
   end
 
@@ -1234,23 +1234,23 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is nešto", %{forms_map: fm} do
-      assert fm["nom"] == "nešto"
+      assert fm["nom_sg"] == "nešto"
     end
 
     test "genitive is nečega", %{forms_map: fm} do
-      assert fm["gen"] == "nečega"
+      assert fm["gen_sg"] == "nečega"
     end
 
     test "dative is nečemu", %{forms_map: fm} do
-      assert fm["dat"] == "nečemu"
+      assert fm["dat_sg"] == "nečemu"
     end
 
     test "accusative is nešto", %{forms_map: fm} do
-      assert fm["acc"] == "nešto"
+      assert fm["acc_sg"] == "nešto"
     end
 
     test "instrumental is nečim", %{forms_map: fm} do
-      assert fm["ins"] == "nečim"
+      assert fm["ins_sg"] == "nečim"
     end
   end
 
@@ -1307,15 +1307,15 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative feminine is one", %{forms_map: fm} do
-      assert fm["nom_f"] == "one"
+      assert fm["nom_pl_f"] == "one"
     end
 
     test "genitive is njih", %{forms_map: fm} do
-      assert fm["gen"] == "njih"
+      assert fm["gen_pl"] == "njih"
     end
 
     test "genitive clitic is ih", %{forms_map: fm} do
-      assert fm["gen_clitic"] == "ih"
+      assert fm["gen_pl_clitic"] == "ih"
     end
   end
 
@@ -1334,23 +1334,23 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is neko", %{forms_map: fm} do
-      assert fm["nom"] == "neko"
+      assert fm["nom_sg"] == "neko"
     end
 
     test "genitive is nekoga", %{forms_map: fm} do
-      assert fm["gen"] == "nekoga"
+      assert fm["gen_sg"] == "nekoga"
     end
 
     test "dative is nekome", %{forms_map: fm} do
-      assert fm["dat"] == "nekome"
+      assert fm["dat_sg"] == "nekome"
     end
 
     test "accusative is nekoga", %{forms_map: fm} do
-      assert fm["acc"] == "nekoga"
+      assert fm["acc_sg"] == "nekoga"
     end
 
     test "instrumental is nekim", %{forms_map: fm} do
-      assert fm["ins"] == "nekim"
+      assert fm["ins_sg"] == "nekim"
     end
   end
 
@@ -1369,19 +1369,19 @@ defmodule Ohmyword.Linguistics.PronounsTest do
     end
 
     test "nominative is nešto", %{forms_map: fm} do
-      assert fm["nom"] == "nešto"
+      assert fm["nom_sg"] == "nešto"
     end
 
     test "genitive is nečega", %{forms_map: fm} do
-      assert fm["gen"] == "nečega"
+      assert fm["gen_sg"] == "nečega"
     end
 
     test "dative is nečemu", %{forms_map: fm} do
-      assert fm["dat"] == "nečemu"
+      assert fm["dat_sg"] == "nečemu"
     end
 
     test "accusative is nešto", %{forms_map: fm} do
-      assert fm["acc"] == "nešto"
+      assert fm["acc_sg"] == "nešto"
     end
   end
 

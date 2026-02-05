@@ -290,9 +290,9 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
 
     test "imperative forms include se", %{forms: forms} do
-      assert {"smeji se", "imp_2sg"} in forms
-      assert {"smejimo se", "imp_1pl"} in forms
-      assert {"smejite se", "imp_2pl"} in forms
+      assert {"smej se", "imp_2sg"} in forms
+      assert {"smejmo se", "imp_1pl"} in forms
+      assert {"smejte se", "imp_2pl"} in forms
     end
   end
 

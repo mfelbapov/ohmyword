@@ -22,181 +22,191 @@ defmodule Ohmyword.Linguistics.Pronouns do
   @personal_pronouns %{
     # 1st person singular
     "ja" => [
-      {"ja", "nom"},
-      {"mene", "gen"},
-      {"me", "gen_clitic"},
-      {"meni", "dat"},
-      {"mi", "dat_clitic"},
-      {"mene", "acc"},
-      {"me", "acc_clitic"},
-      {"mnom", "ins"},
-      {"mnome", "ins_alt"},
-      {"meni", "loc"}
+      {"ja", "nom_sg"},
+      {"mene", "gen_sg"},
+      {"me", "gen_sg_clitic"},
+      {"meni", "dat_sg"},
+      {"mi", "dat_sg_clitic"},
+      {"mene", "acc_sg"},
+      {"me", "acc_sg_clitic"},
+      {"mnom", "ins_sg"},
+      {"mnome", "ins_sg_alt"},
+      {"meni", "loc_sg"}
     ],
     # 2nd person singular
     "ti" => [
-      {"ti", "nom"},
-      {"tebe", "gen"},
-      {"te", "gen_clitic"},
-      {"tebi", "dat"},
-      {"ti", "dat_clitic"},
-      {"tebe", "acc"},
-      {"te", "acc_clitic"},
-      {"tobom", "ins"},
-      {"tebi", "loc"},
-      {"ti", "voc"}
+      {"ti", "nom_sg"},
+      {"tebe", "gen_sg"},
+      {"te", "gen_sg_clitic"},
+      {"tebi", "dat_sg"},
+      {"ti", "dat_sg_clitic"},
+      {"tebe", "acc_sg"},
+      {"te", "acc_sg_clitic"},
+      {"tobom", "ins_sg"},
+      {"tebi", "loc_sg"},
+      {"ti", "voc_sg"}
     ],
     # 3rd person singular masculine
     "on" => [
-      {"on", "nom"},
-      {"njega", "gen"},
-      {"ga", "gen_clitic"},
-      {"njemu", "dat"},
-      {"mu", "dat_clitic"},
-      {"njega", "acc"},
-      {"ga", "acc_clitic"},
-      {"njim", "ins"},
-      {"njime", "ins_alt"},
-      {"njemu", "loc"}
+      {"on", "nom_sg"},
+      {"njega", "gen_sg"},
+      {"ga", "gen_sg_clitic"},
+      {"njemu", "dat_sg"},
+      {"mu", "dat_sg_clitic"},
+      {"njega", "acc_sg"},
+      {"ga", "acc_sg_clitic"},
+      {"njim", "ins_sg"},
+      {"njime", "ins_sg_alt"},
+      {"njemu", "loc_sg"}
     ],
     # 3rd person singular feminine
     "ona" => [
-      {"ona", "nom"},
-      {"nje", "gen"},
-      {"je", "gen_clitic"},
-      {"njoj", "dat"},
-      {"joj", "dat_clitic"},
-      {"nju", "acc"},
-      {"je", "acc_clitic"},
-      {"ju", "acc_clitic_alt"},
-      {"njom", "ins"},
-      {"njome", "ins_alt"},
-      {"njoj", "loc"}
+      {"ona", "nom_sg"},
+      {"nje", "gen_sg"},
+      {"je", "gen_sg_clitic"},
+      {"njoj", "dat_sg"},
+      {"joj", "dat_sg_clitic"},
+      {"nju", "acc_sg"},
+      {"je", "acc_sg_clitic"},
+      {"ju", "acc_sg_clitic_alt"},
+      {"njom", "ins_sg"},
+      {"njome", "ins_sg_alt"},
+      {"njoj", "loc_sg"}
     ],
     # 3rd person singular neuter
     "ono" => [
-      {"ono", "nom"},
-      {"njega", "gen"},
-      {"ga", "gen_clitic"},
-      {"njemu", "dat"},
-      {"mu", "dat_clitic"},
-      {"njega", "acc"},
-      {"ga", "acc_clitic"},
-      {"njim", "ins"},
-      {"njime", "ins_alt"},
-      {"njemu", "loc"}
+      {"ono", "nom_sg"},
+      {"njega", "gen_sg"},
+      {"ga", "gen_sg_clitic"},
+      {"njemu", "dat_sg"},
+      {"mu", "dat_sg_clitic"},
+      {"njega", "acc_sg"},
+      {"ga", "acc_sg_clitic"},
+      {"njim", "ins_sg"},
+      {"njime", "ins_sg_alt"},
+      {"njemu", "loc_sg"}
     ],
     # 1st person plural
     "mi" => [
-      {"mi", "nom"},
-      {"nas", "gen"},
-      {"nas", "gen_clitic"},
-      {"nama", "dat"},
-      {"nam", "dat_clitic"},
-      {"nas", "acc"},
-      {"nas", "acc_clitic"},
-      {"nama", "ins"},
-      {"nama", "loc"}
+      {"mi", "nom_pl"},
+      {"nas", "gen_pl"},
+      {"nas", "gen_pl_clitic"},
+      {"nama", "dat_pl"},
+      {"nam", "dat_pl_clitic"},
+      {"nas", "acc_pl"},
+      {"nas", "acc_pl_clitic"},
+      {"nama", "ins_pl"},
+      {"nama", "loc_pl"}
     ],
     # 2nd person plural / formal
     "vi" => [
-      {"vi", "nom"},
-      {"vas", "gen"},
-      {"vas", "gen_clitic"},
-      {"vama", "dat"},
-      {"vam", "dat_clitic"},
-      {"vas", "acc"},
-      {"vas", "acc_clitic"},
-      {"vama", "ins"},
-      {"vama", "loc"},
-      {"vi", "voc"}
+      {"vi", "nom_pl"},
+      {"vas", "gen_pl"},
+      {"vas", "gen_pl_clitic"},
+      {"vama", "dat_pl"},
+      {"vam", "dat_pl_clitic"},
+      {"vas", "acc_pl"},
+      {"vas", "acc_pl_clitic"},
+      {"vama", "ins_pl"},
+      {"vama", "loc_pl"},
+      {"vi", "voc_pl"}
     ],
     # 3rd person plural masculine
     "oni" => [
-      {"oni", "nom_m"},
-      {"one", "nom_f"},
-      {"ona", "nom_n"},
-      {"njih", "gen"},
-      {"ih", "gen_clitic"},
-      {"njima", "dat"},
-      {"im", "dat_clitic"},
-      {"njih", "acc"},
-      {"ih", "acc_clitic"},
-      {"njima", "ins"},
-      {"njima", "loc"}
+      {"oni", "nom_pl_m"},
+      {"one", "nom_pl_f"},
+      {"ona", "nom_pl_n"},
+      {"njih", "gen_pl"},
+      {"ih", "gen_pl_clitic"},
+      {"njima", "dat_pl"},
+      {"im", "dat_pl_clitic"},
+      {"njih", "acc_pl"},
+      {"ih", "acc_pl_clitic"},
+      {"njima", "ins_pl"},
+      {"njima", "loc_pl"}
     ],
     # 3rd person plural feminine (same oblique forms as oni)
     "one" => [
-      {"one", "nom"},
-      {"njih", "gen"},
-      {"ih", "gen_clitic"},
-      {"njima", "dat"},
-      {"im", "dat_clitic"},
-      {"njih", "acc"},
-      {"ih", "acc_clitic"},
-      {"njima", "ins"},
-      {"njima", "loc"}
+      {"one", "nom_pl"},
+      {"njih", "gen_pl"},
+      {"ih", "gen_pl_clitic"},
+      {"njima", "dat_pl"},
+      {"im", "dat_pl_clitic"},
+      {"njih", "acc_pl"},
+      {"ih", "acc_pl_clitic"},
+      {"njima", "ins_pl"},
+      {"njima", "loc_pl"}
     ],
     # 3rd person plural neuter (same oblique forms as oni)
     # Note: "ona" as 3rd plural neuter is different from "ona" as 3rd sg feminine
     "ona_pl" => [
-      {"ona", "nom"},
-      {"njih", "gen"},
-      {"ih", "gen_clitic"},
-      {"njima", "dat"},
-      {"im", "dat_clitic"},
-      {"njih", "acc"},
-      {"ih", "acc_clitic"},
-      {"njima", "ins"},
-      {"njima", "loc"}
+      {"ona", "nom_pl"},
+      {"njih", "gen_pl"},
+      {"ih", "gen_pl_clitic"},
+      {"njima", "dat_pl"},
+      {"im", "dat_pl_clitic"},
+      {"njih", "acc_pl"},
+      {"ih", "acc_pl_clitic"},
+      {"njima", "ins_pl"},
+      {"njima", "loc_pl"}
     ]
   }
 
-  # Reflexive pronoun (no nominative)
+  # Reflexive pronoun (no nominative, no number distinction)
   @reflexive_pronoun %{
     "sebe" => [
-      {"sebe", "gen"},
-      {"se", "gen_clitic"},
-      {"sebi", "dat"},
-      {"si", "dat_clitic"},
-      {"sebe", "acc"},
-      {"se", "acc_clitic"},
-      {"sobom", "ins"},
-      {"sebi", "loc"}
+      {"sebe", "gen_sg"},
+      {"se", "gen_sg_clitic"},
+      {"sebi", "dat_sg"},
+      {"si", "dat_sg_clitic"},
+      {"sebe", "acc_sg"},
+      {"se", "acc_sg_clitic"},
+      {"sobom", "ins_sg"},
+      {"sebi", "loc_sg"}
     ]
   }
 
   # Interrogative pronouns
   @interrogative_pronouns %{
     "ko" => [
-      {"ko", "nom"},
-      {"koga", "gen"},
-      {"kome", "dat"},
-      {"komu", "dat_alt"},
-      {"koga", "acc"},
-      {"kim", "ins"},
-      {"kime", "ins_alt"},
-      {"kome", "loc"},
-      {"komu", "loc_alt"}
+      {"ko", "nom_sg"},
+      {"koga", "gen_sg"},
+      {"kome", "dat_sg"},
+      {"komu", "dat_sg_alt"},
+      {"koga", "acc_sg"},
+      {"kim", "ins_sg"},
+      {"kime", "ins_sg_alt"},
+      {"kome", "loc_sg"},
+      {"komu", "loc_sg_alt"}
     ],
     "šta" => [
-      {"šta", "nom"},
-      {"čega", "gen"},
-      {"čemu", "dat"},
-      {"šta", "acc"},
-      {"čim", "ins"},
-      {"čime", "ins_alt"},
-      {"čemu", "loc"}
+      {"šta", "nom_sg"},
+      {"čega", "gen_sg"},
+      {"čemu", "dat_sg"},
+      {"šta", "acc_sg"},
+      {"čim", "ins_sg"},
+      {"čime", "ins_sg_alt"},
+      {"čemu", "loc_sg"}
+    ],
+    # ASCII variant of "šta"
+    "sta" => [
+      {"sta", "nom_sg"},
+      {"cega", "gen_sg"},
+      {"cemu", "dat_sg"},
+      {"sta", "acc_sg"},
+      {"cim", "ins_sg"},
+      {"cime", "ins_sg_alt"},
+      {"cemu", "loc_sg"}
     ],
     # "što" variant of "šta"
     "što" => [
-      {"što", "nom"},
-      {"čega", "gen"},
-      {"čemu", "dat"},
-      {"što", "acc"},
-      {"čim", "ins"},
-      {"čime", "ins_alt"},
-      {"čemu", "loc"}
+      {"što", "nom_sg"},
+      {"čega", "gen_sg"},
+      {"čemu", "dat_sg"},
+      {"što", "acc_sg"},
+      {"čim", "ins_sg"},
+      {"čime", "ins_sg_alt"},
+      {"čemu", "loc_sg"}
     ]
   }
 

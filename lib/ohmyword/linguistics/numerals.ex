@@ -48,16 +48,21 @@ defmodule Ohmyword.Linguistics.Numerals do
   @dva_paradigm %{
     "nom_m" => "dva",
     "nom_f" => "dve",
+    "nom_n" => "dva",
     "gen_m" => "dvaju",
     "gen_f" => "dveju",
+    "gen" => "dvaju",
     "dat_m" => "dvama",
     "dat_f" => "dvema",
+    "dat" => "dvama",
     "acc_m" => "dva",
     "acc_f" => "dve",
     "ins_m" => "dvama",
     "ins_f" => "dvema",
+    "ins" => "dvama",
     "loc_m" => "dvama",
-    "loc_f" => "dvema"
+    "loc_f" => "dvema",
+    "loc" => "dvama"
   }
 
   # Hardcoded paradigm for "tri" (3) - partial declension, no gender
