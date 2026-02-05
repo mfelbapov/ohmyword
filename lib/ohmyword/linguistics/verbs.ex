@@ -285,5 +285,4 @@ defmodule Ohmyword.Linguistics.Verbs do
         %{"2sg" => "i", "1pl" => "imo", "2pl" => "ite"}
     end
   end
-
 end

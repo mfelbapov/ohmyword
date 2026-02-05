@@ -38,7 +38,11 @@
       "Bash(git -C /Users/mfelbapov/Projects/ohmyword diff test/ohmyword/linguistics/verbs_test.exs)",
       "Bash(git -C /Users/mfelbapov/Projects/ohmyword add:*)",
       "Bash(git -C /Users/mfelbapov/Projects/ohmyword commit -m \"$\\(cat <<''EOF''\nFix bojati test: correct conjugation class to i-verb with present_stem\n\nThe test incorrectly used a-verb conjugation, producing wrong present\n\\(bojam/bojaš\\) and imperative \\(bojaj\\) forms. Changed to i-verb with\npresent_stem \"boj\" to match seed data, giving correct forms \\(bojim/bojiš,\nboji\\).\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
-      "Bash(git checkout:*)"
+      "Bash(git checkout:*)",
+      "Bash(git -C /Users/mfelbapov/Projects/ohmyword status -u)",
+      "Bash(git -C /Users/mfelbapov/Projects/ohmyword diff --stat -- lib/ohmyword/linguistics/verbs.ex)",
+      "Bash(git -C /Users/mfelbapov/Projects/ohmyword diff -- lib/ohmyword/linguistics/verbs.ex)",
+      "Bash(git -C /Users/mfelbapov/Projects/ohmyword diff -- .claude/settings.local.json)"
     ],
     "deny": [],
     "ask": []
