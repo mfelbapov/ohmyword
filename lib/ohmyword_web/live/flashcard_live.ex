@@ -11,8 +11,9 @@ defmodule OhmywordWeb.FlashcardLive do
 
   use OhmywordWeb, :live_view
 
+  import OhmywordWeb.WordComponents
+
   alias Ohmyword.Vocabulary
-  alias Ohmyword.Utils.Transliteration
 
   @impl true
   def render(assigns) do
@@ -134,68 +135,6 @@ defmodule OhmywordWeb.FlashcardLive do
     """
   end
 
-  # Badge components
-
-  attr :part_of_speech, :atom, required: true
-
-  defp pos_badge(assigns) do
-    ~H"""
-    <span class="inline-flex items-center rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200">
-      {Phoenix.Naming.humanize(@part_of_speech)}
-    </span>
-    """
-  end
-
-  attr :gender, :atom, required: true
-
-  defp gender_badge(assigns) do
-    colors = %{
-      masculine: "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200",
-      feminine: "bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-200",
-      neuter: "bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200"
-    }
-
-    labels = %{
-      masculine: "M",
-      feminine: "F",
-      neuter: "N"
-    }
-
-    assigns = assign(assigns, colors: colors, labels: labels)
-
-    ~H"""
-    <span class={"inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium #{@colors[@gender]}"}>
-      {@labels[@gender]}
-    </span>
-    """
-  end
-
-  attr :aspect, :atom, required: true
-
-  defp aspect_badge(assigns) do
-    labels = %{
-      perfective: "PF",
-      imperfective: "IPF",
-      biaspectual: "BI"
-    }
-
-    assigns = assign(assigns, labels: labels)
-
-    ~H"""
-    <span class="inline-flex items-center rounded-full bg-purple-100 px-2.5 py-0.5 text-xs font-medium text-purple-800 dark:bg-purple-900 dark:text-purple-200">
-      {@labels[@aspect]}
-    </span>
-    """
-  end
-
-  defp animate_badge(assigns) do
-    ~H"""
-    <span class="inline-flex items-center rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-medium text-amber-800 dark:bg-amber-900 dark:text-amber-200">
-      Anim
-    </span>
-    """
-  end
-
   @impl true
   def mount(_params, _session, socket) do
     word = Vocabulary.get_random_word()
@@ -231,8 +170,4 @@ defmodule OhmywordWeb.FlashcardLive do
 
     {:noreply, assign(socket, direction_mode: new_mode)}
   end
-
-  # Helper to convert text based on script mode
-  defp display_term(text, :latin), do: text
-  defp display_term(text, :cyrillic), do: Transliteration.to_cyrillic(text)
 end
