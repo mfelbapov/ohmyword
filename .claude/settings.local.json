@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(comm:*)",
+      "Bash(for word in gore hladno toplo malo veliko ružno skupo jeftino otvoreno zatvoreno)",
+      "Bash(do)",
+      "Bash(if grep -q \"\"\"$word\"\"\" priv/repo/vocabulary_seed.json)",
+      "Bash(then)",
+      "Bash(echo:*)",
+      "Bash(else)",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(for word in frižider malo skupo toplo veliko gore)",
+      "Bash(jq:*)",
+      "Bash(mix test:*)",
+      "Bash(git stash:*)",
+      "Bash(git check-ignore:*)"
+    ]
+  }
+}
