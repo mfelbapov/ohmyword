@@ -767,4 +767,323 @@ defmodule Ohmyword.Linguistics.InvariablesTest do
       assert forms == [{"možda", "base"}]
     end
   end
+
+  # ============================================================================
+  # NEW ADVERBS FROM useful_words.md
+  # ============================================================================
+
+  describe "generate_forms/1 - manner adverb (hladno)" do
+    setup do
+      word = %Word{
+        term: "hladno",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "hladnije",
+          "superlative" => "najhladnije",
+          "derived_from" => "hladan"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is hladno", %{forms_map: fm} do
+      assert fm["base"] == "hladno"
+    end
+
+    test "comparative is hladnije", %{forms_map: fm} do
+      assert fm["comparative"] == "hladnije"
+    end
+
+    test "superlative is najhladnije", %{forms_map: fm} do
+      assert fm["superlative"] == "najhladnije"
+    end
+  end
+
+  describe "generate_forms/1 - manner adverb (ružno)" do
+    setup do
+      word = %Word{
+        term: "ružno",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "ružnije",
+          "superlative" => "najružnije",
+          "derived_from" => "ružan"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is ružno", %{forms_map: fm} do
+      assert fm["base"] == "ružno"
+    end
+
+    test "comparative is ružnije", %{forms_map: fm} do
+      assert fm["comparative"] == "ružnije"
+    end
+
+    test "superlative is najružnije", %{forms_map: fm} do
+      assert fm["superlative"] == "najružnije"
+    end
+  end
+
+  describe "generate_forms/1 - manner adverb (jeftino)" do
+    setup do
+      word = %Word{
+        term: "jeftino",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "jeftinije",
+          "superlative" => "najjeftinije",
+          "derived_from" => "jeftin"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is jeftino", %{forms_map: fm} do
+      assert fm["base"] == "jeftino"
+    end
+
+    test "comparative is jeftinije", %{forms_map: fm} do
+      assert fm["comparative"] == "jeftinije"
+    end
+
+    test "superlative is najjeftinije", %{forms_map: fm} do
+      assert fm["superlative"] == "najjeftinije"
+    end
+  end
+
+  describe "generate_forms/1 - manner adverb (otvoreno)" do
+    setup do
+      word = %Word{
+        term: "otvoreno",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "otvorenije",
+          "superlative" => "najotvorenije",
+          "derived_from" => "otvoren"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is otvoreno", %{forms_map: fm} do
+      assert fm["base"] == "otvoreno"
+    end
+
+    test "comparative is otvorenije", %{forms_map: fm} do
+      assert fm["comparative"] == "otvorenije"
+    end
+
+    test "superlative is najotvorenije", %{forms_map: fm} do
+      assert fm["superlative"] == "najotvorenije"
+    end
+  end
+
+  describe "generate_forms/1 - manner adverb (zatvoreno)" do
+    setup do
+      word = %Word{
+        term: "zatvoreno",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "zatvorenije",
+          "superlative" => "najzatvorenije",
+          "derived_from" => "zatvoren"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is zatvoreno", %{forms_map: fm} do
+      assert fm["base"] == "zatvoreno"
+    end
+
+    test "comparative is zatvorenije", %{forms_map: fm} do
+      assert fm["comparative"] == "zatvorenije"
+    end
+
+    test "superlative is najzatvorenije", %{forms_map: fm} do
+      assert fm["superlative"] == "najzatvorenije"
+    end
+  end
+
+  describe "generate_forms/1 - quantity adverb (malo)" do
+    setup do
+      word = %Word{
+        term: "malo",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "manje",
+          "superlative" => "najmanje",
+          "derived_from" => "mali"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is malo", %{forms_map: fm} do
+      assert fm["base"] == "malo"
+    end
+
+    test "comparative is manje", %{forms_map: fm} do
+      assert fm["comparative"] == "manje"
+    end
+
+    test "superlative is najmanje", %{forms_map: fm} do
+      assert fm["superlative"] == "najmanje"
+    end
+  end
+
+  describe "generate_forms/1 - manner adverb (skupo)" do
+    setup do
+      word = %Word{
+        term: "skupo",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "skuplje",
+          "superlative" => "najskuplje",
+          "derived_from" => "skup"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is skupo", %{forms_map: fm} do
+      assert fm["base"] == "skupo"
+    end
+
+    test "comparative is skuplje", %{forms_map: fm} do
+      assert fm["comparative"] == "skuplje"
+    end
+
+    test "superlative is najskuplje", %{forms_map: fm} do
+      assert fm["superlative"] == "najskuplje"
+    end
+  end
+
+  describe "generate_forms/1 - temperature adverb (toplo)" do
+    setup do
+      word = %Word{
+        term: "toplo",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "toplije",
+          "superlative" => "najtoplije",
+          "derived_from" => "topao"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is toplo", %{forms_map: fm} do
+      assert fm["base"] == "toplo"
+    end
+
+    test "comparative is toplije", %{forms_map: fm} do
+      assert fm["comparative"] == "toplije"
+    end
+
+    test "superlative is najtoplije", %{forms_map: fm} do
+      assert fm["superlative"] == "najtoplije"
+    end
+  end
+
+  describe "generate_forms/1 - quantity adverb (veliko)" do
+    setup do
+      word = %Word{
+        term: "veliko",
+        part_of_speech: :adverb,
+        grammar_metadata: %{
+          "comparative" => "veće",
+          "superlative" => "najveće",
+          "derived_from" => "velik"
+        }
+      }
+
+      forms = Invariables.generate_forms(word)
+
+      {:ok,
+       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+    end
+
+    test "generates 3 forms", %{forms: forms} do
+      assert length(forms) == 3
+    end
+
+    test "base form is veliko", %{forms_map: fm} do
+      assert fm["base"] == "veliko"
+    end
+
+    test "comparative is veće", %{forms_map: fm} do
+      assert fm["comparative"] == "veće"
+    end
+
+    test "superlative is najveće", %{forms_map: fm} do
+      assert fm["superlative"] == "najveće"
+    end
+  end
 end

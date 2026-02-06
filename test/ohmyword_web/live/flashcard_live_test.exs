@@ -172,5 +172,101 @@ defmodule OhmywordWeb.FlashcardLiveTest do
       assert html =~ "No Numeral words"
       assert html =~ "No words match the current filter"
     end
+
+    test "previous button is disabled on initial load", %{conn: conn} do
+      word_fixture(%{term: "firstword", translation: "first"})
+      {:ok, _view, html} = live(conn, ~p"/flashcards")
+
+      # Previous button should exist but be disabled
+      assert html =~ "previous"
+      assert html =~ "disabled"
+    end
+
+    test "previous button becomes enabled after clicking next", %{conn: conn} do
+      word_fixture(%{term: "word1", translation: "trans1"})
+      word_fixture(%{term: "word2", translation: "trans2"})
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      # Initially disabled
+      assert has_element?(view, "button[phx-click=previous][disabled]")
+
+      # Click next to build history
+      view |> element("button[phx-click=next]") |> render_click()
+
+      # Previous button should now be enabled (no disabled attribute)
+      refute has_element?(view, "button[phx-click=previous][disabled]")
+      assert has_element?(view, "button[phx-click=previous]")
+    end
+
+    test "clicking previous returns to the previous word", %{conn: conn} do
+      word_fixture(%{term: "onlyword", translation: "only"})
+
+      {:ok, view, html} = live(conn, ~p"/flashcards")
+
+      # Note the initial word
+      initial_term = "onlyword"
+      assert html =~ initial_term
+
+      # Click next (with only one word, it will load the same word, but history should still work)
+      view |> element("button[phx-click=next]") |> render_click()
+
+      # Click previous - should return to the saved word from history
+      html = view |> element("button[phx-click=previous]") |> render_click()
+
+      assert html =~ initial_term
+    end
+
+    test "previous button resets card to unflipped state", %{conn: conn} do
+      word_fixture(%{term: "fliptest", translation: "flip"})
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      # Click next then flip the card
+      view |> element("button[phx-click=next]") |> render_click()
+      view |> element("div[phx-click=flip]") |> render_click()
+
+      # Click previous - card should be unflipped
+      html = view |> element("button[phx-click=previous]") |> render_click()
+
+      assert html =~ "Click to reveal translation"
+    end
+
+    test "previous button disabled again after going back to beginning", %{conn: conn} do
+      word_fixture(%{term: "navword", translation: "nav"})
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      # Click next once to build history of 1
+      view |> element("button[phx-click=next]") |> render_click()
+
+      # Click previous to go back - history should now be empty
+      html = view |> element("button[phx-click=previous]") |> render_click()
+
+      # Previous button should be disabled again
+      assert html =~ "disabled"
+    end
+
+    test "can navigate back through multiple words", %{conn: conn} do
+      word1 = word_fixture(%{term: "multi1", translation: "m1"})
+      word2 = word_fixture(%{term: "multi2", translation: "m2"})
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      # Click next several times to build history
+      for _ <- 1..5 do
+        view |> element("button[phx-click=next]") |> render_click()
+      end
+
+      # Click previous several times - should not crash and should show valid words
+      for _ <- 1..5 do
+        html = view |> element("button[phx-click=previous]") |> render_click()
+        assert html =~ word1.term or html =~ word2.term
+      end
+
+      # After exhausting history, previous should be disabled
+      html = render(view)
+      assert html =~ "disabled"
+    end
   end
 end

@@ -115,7 +115,14 @@ defmodule OhmywordWeb.FlashcardLive do
           </div>
         </div>
 
-        <div class="mt-6 flex justify-center">
+        <div class="mt-6 flex justify-center gap-3">
+          <button
+            phx-click="previous"
+            disabled={@history == []}
+            class="inline-flex items-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+          >
+            <.icon name="hero-arrow-left" class="mr-2 h-4 w-4" /> Previous
+          </button>
           <button
             phx-click="next"
             class="inline-flex items-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
@@ -146,6 +153,7 @@ defmodule OhmywordWeb.FlashcardLive do
      socket
      |> assign(current_word: word)
      |> assign(flipped: false)
+     |> assign(history: [])
      |> assign(script_mode: :latin)
      |> assign(direction_mode: :serbian_to_english)
      |> assign(pos_filter: :all)
@@ -159,7 +167,12 @@ defmodule OhmywordWeb.FlashcardLive do
 
   def handle_event("next", _params, socket) do
     word = get_filtered_word(socket.assigns.pos_filter)
-    {:noreply, socket |> assign(current_word: word) |> assign(flipped: false)}
+    history = [socket.assigns.current_word | socket.assigns.history]
+    {:noreply, socket |> assign(current_word: word, history: history, flipped: false)}
+  end
+
+  def handle_event("previous", _params, %{assigns: %{history: [prev | rest]}} = socket) do
+    {:noreply, socket |> assign(current_word: prev, history: rest, flipped: false)}
   end
 
   def handle_event("toggle_script", _params, socket) do

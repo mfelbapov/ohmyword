@@ -4395,6 +4395,38 @@
     "proficiency_level": 1
   },
   {
+    "term": "hladno",
+    "translation": "coldly",
+    "translations": [
+      "cold"
+    ],
+    "categories": [
+      "description",
+      "temperature"
+    ],
+    "part_of_speech": "adverb",
+    "proficiency_level": 1,
+    "forms": [
+      {
+        "form_tag": "base",
+        "term": "hladno"
+      },
+      {
+        "form_tag": "comparative",
+        "term": "hladnije"
+      },
+      {
+        "form_tag": "superlative",
+        "term": "najhladnije"
+      }
+    ],
+    "grammar_metadata": {
+      "comparative": "hladnije",
+      "superlative": "najhladnije",
+      "derived_from": "hladan"
+    }
+  },
+  {
     "term": "hleb",
     "translation": "bread",
     "categories": [
@@ -5298,6 +5330,38 @@
       "shopping"
     ],
     "proficiency_level": 1
+  },
+  {
+    "term": "jeftino",
+    "translation": "cheaply",
+    "translations": [
+      "inexpensively"
+    ],
+    "categories": [
+      "description",
+      "commerce"
+    ],
+    "part_of_speech": "adverb",
+    "proficiency_level": 1,
+    "forms": [
+      {
+        "form_tag": "base",
+        "term": "jeftino"
+      },
+      {
+        "form_tag": "comparative",
+        "term": "jeftinije"
+      },
+      {
+        "form_tag": "superlative",
+        "term": "najjeftinije"
+      }
+    ],
+    "grammar_metadata": {
+      "comparative": "jeftinije",
+      "superlative": "najjeftinije",
+      "derived_from": "jeftin"
+    }
   },
   {
     "categories": [
@@ -9253,6 +9317,39 @@
     ]
   },
   {
+    "term": "malo",
+    "translation": "little",
+    "translations": [
+      "a little",
+      "slightly"
+    ],
+    "categories": [
+      "description",
+      "quantity"
+    ],
+    "part_of_speech": "adverb",
+    "proficiency_level": 1,
+    "forms": [
+      {
+        "form_tag": "base",
+        "term": "malo"
+      },
+      {
+        "form_tag": "comparative",
+        "term": "manje"
+      },
+      {
+        "form_tag": "superlative",
+        "term": "najmanje"
+      }
+    ],
+    "grammar_metadata": {
+      "comparative": "manje",
+      "superlative": "najmanje",
+      "derived_from": "mali"
+    }
+  },
+  {
     "categories": [
       "action",
       "cooking"
@@ -12205,6 +12302,38 @@
       "description"
     ],
     "proficiency_level": 1
+  },
+  {
+    "term": "otvoreno",
+    "translation": "openly",
+    "translations": [
+      "frankly"
+    ],
+    "categories": [
+      "description",
+      "manner"
+    ],
+    "part_of_speech": "adverb",
+    "proficiency_level": 1,
+    "forms": [
+      {
+        "form_tag": "base",
+        "term": "otvoreno"
+      },
+      {
+        "form_tag": "comparative",
+        "term": "otvorenije"
+      },
+      {
+        "form_tag": "superlative",
+        "term": "najotvorenije"
+      }
+    ],
+    "grammar_metadata": {
+      "comparative": "otvorenije",
+      "superlative": "najotvorenije",
+      "derived_from": "otvoren"
+    }
   },
   {
     "categories": [
@@ -16334,6 +16463,38 @@
     "proficiency_level": 2
   },
   {
+    "term": "ružno",
+    "translation": "ugly",
+    "translations": [
+      "unattractively"
+    ],
+    "categories": [
+      "description",
+      "manner"
+    ],
+    "part_of_speech": "adverb",
+    "proficiency_level": 1,
+    "forms": [
+      {
+        "form_tag": "base",
+        "term": "ružno"
+      },
+      {
+        "form_tag": "comparative",
+        "term": "ružnije"
+      },
+      {
+        "form_tag": "superlative",
+        "term": "najružnije"
+      }
+    ],
+    "grammar_metadata": {
+      "comparative": "ružnije",
+      "superlative": "najružnije",
+      "derived_from": "ružan"
+    }
+  },
+  {
     "categories": [
       "grammar",
       "prepositions"
@@ -17843,6 +18004,38 @@
       "costly",
       "pricey"
     ]
+  },
+  {
+    "term": "skupo",
+    "translation": "expensively",
+    "translations": [
+      "dearly"
+    ],
+    "categories": [
+      "description",
+      "commerce"
+    ],
+    "part_of_speech": "adverb",
+    "proficiency_level": 1,
+    "forms": [
+      {
+        "form_tag": "base",
+        "term": "skupo"
+      },
+      {
+        "form_tag": "comparative",
+        "term": "skuplje"
+      },
+      {
+        "form_tag": "superlative",
+        "term": "najskuplje"
+      }
+    ],
+    "grammar_metadata": {
+      "comparative": "skuplje",
+      "superlative": "najskuplje",
+      "derived_from": "skup"
+    }
   },
   {
     "animate": false,
@@ -22075,6 +22268,38 @@
     ]
   },
   {
+    "term": "toplo",
+    "translation": "warmly",
+    "translations": [
+      "warm"
+    ],
+    "categories": [
+      "description",
+      "temperature"
+    ],
+    "part_of_speech": "adverb",
+    "proficiency_level": 1,
+    "forms": [
+      {
+        "form_tag": "base",
+        "term": "toplo"
+      },
+      {
+        "form_tag": "comparative",
+        "term": "toplije"
+      },
+      {
+        "form_tag": "superlative",
+        "term": "najtoplije"
+      }
+    ],
+    "grammar_metadata": {
+      "comparative": "toplije",
+      "superlative": "najtoplije",
+      "derived_from": "topao"
+    }
+  },
+  {
     "animate": false,
     "categories": [
       "accessories",
@@ -23728,6 +23953,39 @@
       "large",
       "great"
     ]
+  },
+  {
+    "term": "veliko",
+    "translation": "greatly",
+    "translations": [
+      "largely",
+      "much"
+    ],
+    "categories": [
+      "description",
+      "quantity"
+    ],
+    "part_of_speech": "adverb",
+    "proficiency_level": 1,
+    "forms": [
+      {
+        "form_tag": "base",
+        "term": "veliko"
+      },
+      {
+        "form_tag": "comparative",
+        "term": "veće"
+      },
+      {
+        "form_tag": "superlative",
+        "term": "najveće"
+      }
+    ],
+    "grammar_metadata": {
+      "comparative": "veće",
+      "superlative": "najveće",
+      "derived_from": "velik"
+    }
   },
   {
     "categories": [
@@ -25555,6 +25813,38 @@
       "description"
     ],
     "proficiency_level": 1
+  },
+  {
+    "term": "zatvoreno",
+    "translation": "closed",
+    "translations": [
+      "reservedly"
+    ],
+    "categories": [
+      "description",
+      "manner"
+    ],
+    "part_of_speech": "adverb",
+    "proficiency_level": 1,
+    "forms": [
+      {
+        "form_tag": "base",
+        "term": "zatvoreno"
+      },
+      {
+        "form_tag": "comparative",
+        "term": "zatvorenije"
+      },
+      {
+        "form_tag": "superlative",
+        "term": "najzatvorenije"
+      }
+    ],
+    "grammar_metadata": {
+      "comparative": "zatvorenije",
+      "superlative": "najzatvorenije",
+      "derived_from": "zatvoren"
+    }
   },
   {
     "categories": [
