@@ -16,7 +16,12 @@
       "Bash(git stash:*)",
       "Bash(git check-ignore:*)",
       "Bash(python3:*)",
-      "Bash(mix ecto.migrate:*)"
+      "Bash(mix ecto.migrate:*)",
+      "Bash(flyctl version:*)",
+      "Bash(fly auth whoami:*)"
+    ],
+    "deny": [
+      "Bash(fly deploy:*)"
     ]
   }
 }

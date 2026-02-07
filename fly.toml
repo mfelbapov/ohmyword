@@ -3,8 +3,8 @@
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'ohmyword-production' # REPLACE THIS with your actual app name from fly.io
-primary_region = 'iad' # Change to your preferred region (iad=Virginia, sjc=San Jose, etc)
+app = 'stasta'
+primary_region = 'iad'
 kill_signal = 'SIGTERM'
 
 [build]
@@ -13,7 +13,7 @@ kill_signal = 'SIGTERM'
   release_command = '/app/bin/migrate'
 
 [env]
-  PHX_HOST = 'ohmyword-production.fly.dev' # REPLACE with your actual fly.io hostname
+  PHX_HOST = 'stasta.fly.dev'
   PORT = '8080'
 
 [http_service]
