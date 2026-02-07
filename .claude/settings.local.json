@@ -14,7 +14,9 @@
       "Bash(jq:*)",
       "Bash(mix test:*)",
       "Bash(git stash:*)",
-      "Bash(git check-ignore:*)"
+      "Bash(git check-ignore:*)",
+      "Bash(python3:*)",
+      "Bash(mix ecto.migrate:*)"
     ]
   }
 }

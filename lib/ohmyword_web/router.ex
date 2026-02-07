@@ -38,6 +38,7 @@ defmodule OhmywordWeb.Router do
       live "/flashcards", FlashcardLive, :index
       live "/dictionary", DictionaryLive, :index
       live "/dictionary/:id", WordDetailLive, :show
+      live "/write", WriteSentenceLive, :index
     end
   end
 

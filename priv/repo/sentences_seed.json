@@ -1,0 +1,142 @@
+[
+  {
+    "word_term": "pas",
+    "text": "Vidim {blank}.",
+    "translation": "I see a dog.",
+    "blank_form_tag": "acc_sg",
+    "hint": "accusative singular"
+  },
+  {
+    "word_term": "pas",
+    "text": "To je {blank} mog komšije.",
+    "translation": "That is my neighbor's dog.",
+    "blank_form_tag": "nom_sg",
+    "hint": "nominative singular"
+  },
+  {
+    "word_term": "mačka",
+    "text": "Dajem hranu {blank}.",
+    "translation": "I give food to the cat.",
+    "blank_form_tag": "dat_sg",
+    "hint": "dative singular"
+  },
+  {
+    "word_term": "kuća",
+    "text": "Idem u {blank}.",
+    "translation": "I am going to the house.",
+    "blank_form_tag": "acc_sg",
+    "hint": "accusative singular"
+  },
+  {
+    "word_term": "kuća",
+    "text": "Imam veliku {blank}.",
+    "translation": "I have a big house.",
+    "blank_form_tag": "acc_sg",
+    "hint": "accusative singular (feminine)"
+  },
+  {
+    "word_term": "voda",
+    "text": "Pijem {blank}.",
+    "translation": "I am drinking water.",
+    "blank_form_tag": "acc_sg",
+    "hint": "accusative singular"
+  },
+  {
+    "word_term": "brat",
+    "text": "Pričam sa {blank}.",
+    "translation": "I am talking with my brother.",
+    "blank_form_tag": "ins_sg",
+    "hint": "instrumental singular"
+  },
+  {
+    "word_term": "sestra",
+    "text": "Idem sa {blank}.",
+    "translation": "I am going with my sister.",
+    "blank_form_tag": "ins_sg",
+    "hint": "instrumental singular"
+  },
+  {
+    "word_term": "auto",
+    "text": "Vozim novi {blank}.",
+    "translation": "I am driving a new car.",
+    "blank_form_tag": "acc_sg",
+    "hint": "accusative singular"
+  },
+  {
+    "word_term": "knjiga",
+    "text": "Čitam {blank}.",
+    "translation": "I am reading a book.",
+    "blank_form_tag": "acc_sg",
+    "hint": "accusative singular"
+  },
+  {
+    "word_term": "knjiga",
+    "text": "Ovo je {blank} moje sestre.",
+    "translation": "This is my sister's book.",
+    "blank_form_tag": "nom_sg",
+    "hint": "nominative singular"
+  },
+  {
+    "word_term": "čovek",
+    "text": "Vidim {blank}.",
+    "translation": "I see a man.",
+    "blank_form_tag": "acc_sg",
+    "hint": "accusative singular (animate)"
+  },
+  {
+    "word_term": "žena",
+    "text": "Govorim sa {blank}.",
+    "translation": "I am speaking with a woman.",
+    "blank_form_tag": "ins_sg",
+    "hint": "instrumental singular"
+  },
+  {
+    "word_term": "dete",
+    "text": "Igram se sa {blank}.",
+    "translation": "I am playing with a child.",
+    "blank_form_tag": "ins_sg",
+    "hint": "instrumental singular"
+  },
+  {
+    "word_term": "dobar",
+    "text": "On je {blank} čovek.",
+    "translation": "He is a good man.",
+    "blank_form_tag": "indef_nom_sg_m",
+    "hint": "indefinite nominative singular masculine"
+  },
+  {
+    "word_term": "lep",
+    "text": "To je {blank} grad.",
+    "translation": "That is a beautiful city.",
+    "blank_form_tag": "indef_nom_sg_m",
+    "hint": "indefinite nominative singular masculine"
+  },
+  {
+    "word_term": "nov",
+    "text": "Kupujem {blank} auto.",
+    "translation": "I am buying a new car.",
+    "blank_form_tag": "indef_acc_sg_m",
+    "hint": "indefinite accusative singular masculine inanimate"
+  },
+  {
+    "word_term": "velik",
+    "text": "Imam {blank} kuću.",
+    "translation": "I have a big house.",
+    "blank_form_tag": "indef_acc_sg_f",
+    "hint": "indefinite accusative singular feminine"
+  },
+  {
+    "word_term": "gledati",
+    "text": "Ja {blank} televiziju.",
+    "translation": "I am watching television.",
+    "blank_form_tag": "pres_1sg",
+    "hint": "present tense, first person singular"
+  },
+  {
+    "word_term": "imati",
+    "text": "Mi {blank} kuću.",
+    "translation": "We have a house.",
+    "blank_form_tag": "pres_1pl",
+    "hint": "present tense, first person plural"
+  }
+]

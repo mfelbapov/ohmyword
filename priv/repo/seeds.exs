@@ -153,6 +153,60 @@ defmodule VocabularySeed do
   defp convert_enum_value(_, v), do: v
 end
 
+# Sentences seeding
+defmodule SentencesSeed do
+  alias Ohmyword.Repo
+  alias Ohmyword.Exercises.Sentence
+  alias Ohmyword.Vocabulary.Word
+
+  def run do
+    seed_file = Path.join(:code.priv_dir(:ohmyword), "repo/sentences_seed.json")
+
+    if File.exists?(seed_file) do
+      IO.puts("Loading sentences from #{seed_file}...")
+
+      # Clear existing sentences for clean seed
+      Repo.delete_all(Sentence)
+
+      seed_file
+      |> File.read!()
+      |> Jason.decode!()
+      |> Enum.each(&insert_sentence/1)
+
+      IO.puts("Sentences seeding complete!")
+    else
+      IO.puts("No sentences seed file found at #{seed_file}")
+    end
+  end
+
+  defp insert_sentence(entry) do
+    word_term = entry["word_term"]
+
+    case Repo.get_by(Word, term: word_term) do
+      nil ->
+        IO.puts("  SKIPPED: Word '#{word_term}' not found")
+
+      word ->
+        attrs = %{
+          text: entry["text"],
+          translation: entry["translation"],
+          blank_form_tag: entry["blank_form_tag"],
+          hint: entry["hint"],
+          word_id: word.id
+        }
+
+        case %Sentence{} |> Sentence.changeset(attrs) |> Repo.insert() do
+          {:ok, _sentence} ->
+            IO.puts("  Inserted sentence for: #{word_term}")
+
+          {:error, changeset} ->
+            IO.puts("  ERROR inserting sentence for #{word_term}: #{inspect(changeset.errors)}")
+        end
+    end
+  end
+end
+
 if Mix.env() != :test do
   VocabularySeed.run()
+  SentencesSeed.run()
 end
