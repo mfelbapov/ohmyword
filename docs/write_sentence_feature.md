@@ -1,54 +1,24 @@
-# Write Sentence Feature
 
-## Description
-Fill-in-the-blank exercise where users complete Serbian sentences by typing the correct inflected form of a vocabulary word.
+Feature: Bi-Directional Scaffolded Sentence Construction
+Scenario 1: Session Setup (Direction & Scaffolding)
+Given a pair of matched sentences, one in English and one in Serbian,
+And a selected "Source" language and "Target" language,
+And a selected difficulty level (e.g., Easy/Partial vs. Hard/Full),
+When the challenge loads,
+Then the Source sentence is displayed fully visible,
+And the Target sentence is displayed with text either partially replaced by placeholders (Easy) or entirely hidden (Hard).
 
-## User Flow
-1. User sees a sentence with a blank: "Vidim _____."
-2. User sees hints: word ("pas"), translation ("dog"), expected form ("accusative singular")
-3. User types answer: "psa"
-4. System validates (diacritic-insensitive) and shows feedback
-5. User proceeds to next sentence
+Scenario 2: Successful Verification
+Given the user is viewing the masked Target sentence prompt,
+When the user types a response into the input field and submits,
+Then the system compares the input against a pre-defined list of valid accepted answers for that specific sentence,
+And if the input matches any valid variation (ignoring capitalization or punctuation), the system marks the answer as correct.
 
-## Technical Approach
+Scenario 3: Failed Verification & Feedback
+Given the user has submitted an attempt,
+When the input does not match any string in the list of valid accepted answers,
+Then the system marks the answer as incorrect,
+And displays the closest valid answer alongside the user's input to visually indicate the discrepancy.
 
-### New Schema: `Sentence`
-- `text` - sentence with `{blank}` placeholder
-- `translation` - English translation
-- `blank_form_tag` - expected grammatical form (e.g., "acc_sg")
-- `hint` - optional user-facing hint
-- `word_id` - FK to vocabulary word
-
-### New Context: `Ohmyword.Exercises`
-- CRUD for sentences
-- `get_random_sentence/1` with optional POS filter
-- `check_answer/2` - validates user input against expected inflected form
-
-### Answer Validation
-- Uses existing `Utils.Transliteration.strip_diacritics/1` for normalization
-- Accepts answer if normalized input matches normalized expected form
-- Returns both correctness and the properly diacritical form for display
-
-### New LiveView: `WriteSentenceLive`
-- Pattern follows existing `FlashcardLive` structure
-- State: current_sentence, user_answer, result, history, script_mode, pos_filter
-- Events: submit_answer, next, previous, toggle_script, filter_pos
-- Reuses: script_toggle, pos_filter, display_term, humanize_form_tag components
-
-### Route
-```elixir
-live "/write", WriteSentenceLive, :index
-```
-
-## Files to Create
-- `priv/repo/migrations/*_create_sentences.exs`
-- `lib/ohmyword/exercises/sentence.ex`
-- `lib/ohmyword/exercises/exercises.ex`
-- `lib/ohmyword_web/live/write_sentence_live.ex`
-- `priv/repo/sentences_seed.json`
-- `test/ohmyword/exercises_test.exs`
-- `test/ohmyword_web/live/write_sentence_live_test.exs`
-
-## Files to Modify
-- `lib/ohmyword_web/router.ex`
-- `priv/repo/seeds.exs`
+toggle trigers english to serbian and cyrilic to latin already exist reuse them
+follow test driven development practices
