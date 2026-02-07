@@ -68,3 +68,5 @@ fly ips list
 - **DNS propagation**: Typically 15-30 minutes, but can take up to 48 hours
 - **Remove conflicting records**: Delete any existing A/AAAA/CNAME records for the same hostname before adding new ones
 - **SSL is automatic**: Fly.io uses Let's Encrypt for free SSL certificates once DNS is properly configured
+
+---
