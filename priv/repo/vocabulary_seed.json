@@ -320,6 +320,12 @@
     "usage_notes": "Foreign adjective, does not decline"
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "bez",
+    "translation": "without"
+  },
+  {
     "term": "biber",
     "translation": "pepper",
     "translations": [
@@ -824,6 +830,15 @@
     "translation": "near",
     "translations": [
       "close"
+    ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "blizu",
+    "translation": "near",
+    "translations": [
+      "close to"
     ]
   },
   {
@@ -2514,6 +2529,12 @@
     ]
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "diljem",
+    "translation": "throughout"
+  },
+  {
     "animate": true,
     "categories": [
       "nature",
@@ -3720,6 +3741,12 @@
     "translation": "button"
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "duž",
+    "translation": "along"
+  },
+  {
     "categories": [
       "numbers"
     ],
@@ -4858,6 +4885,15 @@
     ]
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "iz",
+    "translation": "from",
+    "translations": [
+      "out of"
+    ]
+  },
+  {
     "categories": [
       "location"
     ],
@@ -4914,6 +4950,12 @@
     "translations": [
       "over"
     ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "izvan",
+    "translation": "outside of"
   },
   {
     "categories": [
@@ -5779,6 +5821,24 @@
     "translation": "yesterday",
     "translations": [
       "the day before"
+    ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "k",
+    "translation": "to",
+    "translations": [
+      "toward"
+    ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "ka",
+    "translation": "to",
+    "translations": [
+      "toward"
     ]
   },
   {
@@ -6785,45 +6845,6 @@
   },
   {
     "categories": [
-      "tools",
-      "agriculture"
-    ],
-    "declension_class": "a-stem",
-    "forms": [
-      {
-        "form_tag": "nom_sg",
-        "term": "kosa"
-      },
-      {
-        "form_tag": "gen_sg",
-        "term": "kose"
-      },
-      {
-        "form_tag": "acc_sg",
-        "term": "kosu"
-      },
-      {
-        "form_tag": "dat_sg",
-        "term": "kosi"
-      },
-      {
-        "form_tag": "loc_sg",
-        "term": "kosi"
-      },
-      {
-        "form_tag": "ins_sg",
-        "term": "kosom"
-      }
-    ],
-    "gender": "feminine",
-    "part_of_speech": "noun",
-    "proficiency_level": 4,
-    "term": "kosa",
-    "translation": "scythe",
-    "usage_notes": "Homograph with kosa (hair)"
-  },
-  {
-    "categories": [
       "body"
     ],
     "declension_class": "i-stem",
@@ -6893,6 +6914,15 @@
     "proficiency_level": 2,
     "term": "kost",
     "translation": "bone"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "kraj",
+    "translation": "beside",
+    "translations": [
+      "next to"
+    ]
   },
   {
     "animate": false,
@@ -8833,361 +8863,6 @@
     "translation": "bad"
   },
   {
-    "animate": false,
-    "categories": [
-      "description"
-    ],
-    "example_sentence_en": "Today is a bad day.",
-    "example_sentence_rs": "Danas je loš dan.",
-    "forms": [
-      {
-        "form_tag": "indef_nom_sg_m",
-        "term": "loš"
-      },
-      {
-        "form_tag": "indef_gen_sg_m",
-        "term": "loša"
-      },
-      {
-        "form_tag": "indef_dat_sg_m",
-        "term": "lošu"
-      },
-      {
-        "form_tag": "indef_acc_sg_m",
-        "term": "loš"
-      },
-      {
-        "form_tag": "indef_voc_sg_m",
-        "term": "loš"
-      },
-      {
-        "form_tag": "indef_ins_sg_m",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "indef_loc_sg_m",
-        "term": "lošu"
-      },
-      {
-        "form_tag": "indef_nom_sg_f",
-        "term": "loša"
-      },
-      {
-        "form_tag": "indef_gen_sg_f",
-        "term": "loše"
-      },
-      {
-        "form_tag": "indef_dat_sg_f",
-        "term": "lošoj"
-      },
-      {
-        "form_tag": "indef_acc_sg_f",
-        "term": "lošu"
-      },
-      {
-        "form_tag": "indef_voc_sg_f",
-        "term": "loša"
-      },
-      {
-        "form_tag": "indef_ins_sg_f",
-        "term": "lošom"
-      },
-      {
-        "form_tag": "indef_loc_sg_f",
-        "term": "lošoj"
-      },
-      {
-        "form_tag": "indef_nom_sg_n",
-        "term": "loše"
-      },
-      {
-        "form_tag": "indef_gen_sg_n",
-        "term": "loša"
-      },
-      {
-        "form_tag": "indef_dat_sg_n",
-        "term": "lošu"
-      },
-      {
-        "form_tag": "indef_acc_sg_n",
-        "term": "loše"
-      },
-      {
-        "form_tag": "indef_voc_sg_n",
-        "term": "loše"
-      },
-      {
-        "form_tag": "indef_ins_sg_n",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "indef_loc_sg_n",
-        "term": "lošu"
-      },
-      {
-        "form_tag": "indef_nom_pl_m",
-        "term": "loši"
-      },
-      {
-        "form_tag": "indef_gen_pl_m",
-        "term": "loših"
-      },
-      {
-        "form_tag": "indef_dat_pl_m",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "indef_acc_pl_m",
-        "term": "loše"
-      },
-      {
-        "form_tag": "indef_voc_pl_m",
-        "term": "loši"
-      },
-      {
-        "form_tag": "indef_ins_pl_m",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "indef_loc_pl_m",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "indef_nom_pl_f",
-        "term": "loše"
-      },
-      {
-        "form_tag": "indef_gen_pl_f",
-        "term": "loših"
-      },
-      {
-        "form_tag": "indef_dat_pl_f",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "indef_acc_pl_f",
-        "term": "loše"
-      },
-      {
-        "form_tag": "indef_voc_pl_f",
-        "term": "loše"
-      },
-      {
-        "form_tag": "indef_ins_pl_f",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "indef_loc_pl_f",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "indef_nom_pl_n",
-        "term": "loša"
-      },
-      {
-        "form_tag": "indef_gen_pl_n",
-        "term": "loših"
-      },
-      {
-        "form_tag": "indef_dat_pl_n",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "indef_acc_pl_n",
-        "term": "loša"
-      },
-      {
-        "form_tag": "indef_voc_pl_n",
-        "term": "loša"
-      },
-      {
-        "form_tag": "indef_ins_pl_n",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "indef_loc_pl_n",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "def_nom_sg_m",
-        "term": "loši"
-      },
-      {
-        "form_tag": "def_gen_sg_m",
-        "term": "lošeg"
-      },
-      {
-        "form_tag": "def_dat_sg_m",
-        "term": "lošem"
-      },
-      {
-        "form_tag": "def_acc_sg_m",
-        "term": "loši"
-      },
-      {
-        "form_tag": "def_voc_sg_m",
-        "term": "loši"
-      },
-      {
-        "form_tag": "def_ins_sg_m",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "def_loc_sg_m",
-        "term": "lošem"
-      },
-      {
-        "form_tag": "def_nom_sg_f",
-        "term": "loša"
-      },
-      {
-        "form_tag": "def_gen_sg_f",
-        "term": "loše"
-      },
-      {
-        "form_tag": "def_dat_sg_f",
-        "term": "lošoj"
-      },
-      {
-        "form_tag": "def_acc_sg_f",
-        "term": "lošu"
-      },
-      {
-        "form_tag": "def_voc_sg_f",
-        "term": "loša"
-      },
-      {
-        "form_tag": "def_ins_sg_f",
-        "term": "lošom"
-      },
-      {
-        "form_tag": "def_loc_sg_f",
-        "term": "lošoj"
-      },
-      {
-        "form_tag": "def_nom_sg_n",
-        "term": "loše"
-      },
-      {
-        "form_tag": "def_gen_sg_n",
-        "term": "lošeg"
-      },
-      {
-        "form_tag": "def_dat_sg_n",
-        "term": "lošem"
-      },
-      {
-        "form_tag": "def_acc_sg_n",
-        "term": "loše"
-      },
-      {
-        "form_tag": "def_voc_sg_n",
-        "term": "loše"
-      },
-      {
-        "form_tag": "def_ins_sg_n",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "def_loc_sg_n",
-        "term": "lošem"
-      },
-      {
-        "form_tag": "def_nom_pl_m",
-        "term": "loši"
-      },
-      {
-        "form_tag": "def_gen_pl_m",
-        "term": "loših"
-      },
-      {
-        "form_tag": "def_dat_pl_m",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "def_acc_pl_m",
-        "term": "loše"
-      },
-      {
-        "form_tag": "def_voc_pl_m",
-        "term": "loši"
-      },
-      {
-        "form_tag": "def_ins_pl_m",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "def_loc_pl_m",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "def_nom_pl_f",
-        "term": "loše"
-      },
-      {
-        "form_tag": "def_gen_pl_f",
-        "term": "loših"
-      },
-      {
-        "form_tag": "def_dat_pl_f",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "def_acc_pl_f",
-        "term": "loše"
-      },
-      {
-        "form_tag": "def_voc_pl_f",
-        "term": "loše"
-      },
-      {
-        "form_tag": "def_ins_pl_f",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "def_loc_pl_f",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "def_nom_pl_n",
-        "term": "loša"
-      },
-      {
-        "form_tag": "def_gen_pl_n",
-        "term": "loših"
-      },
-      {
-        "form_tag": "def_dat_pl_n",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "def_acc_pl_n",
-        "term": "loša"
-      },
-      {
-        "form_tag": "def_voc_pl_n",
-        "term": "loša"
-      },
-      {
-        "form_tag": "def_ins_pl_n",
-        "term": "lošim"
-      },
-      {
-        "form_tag": "def_loc_pl_n",
-        "term": "lošim"
-      }
-    ],
-    "gender": "masculine",
-    "part_of_speech": "adjective",
-    "proficiency_level": 2,
-    "term": "loš",
-    "translation": "bad",
-    "translations": [
-      "poor",
-      "lousy"
-    ]
-  },
-  {
     "term": "luk",
     "translation": "onion",
     "categories": [
@@ -9275,18 +8950,6 @@
     "proficiency_level": 1,
     "term": "majka",
     "translation": "mother"
-  },
-  {
-    "animate": true,
-    "categories": [
-      "animals"
-    ],
-    "declension_class": "a-stem",
-    "gender": "feminine",
-    "part_of_speech": "noun",
-    "proficiency_level": 1,
-    "term": "mačka",
-    "translation": "cat"
   },
   {
     "categories": [
@@ -9460,6 +9123,18 @@
     "verb_aspect": "imperfective"
   },
   {
+    "animate": true,
+    "categories": [
+      "animals"
+    ],
+    "declension_class": "a-stem",
+    "gender": "feminine",
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "term": "mačka",
+    "translation": "cat"
+  },
+  {
     "term": "mesar",
     "translation": "butcher",
     "categories": [
@@ -9572,6 +9247,18 @@
     "proficiency_level": 1,
     "term": "mesto",
     "translation": "place"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "mesto",
+    "translation": "instead of"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "među",
+    "translation": "among"
   },
   {
     "categories": [
@@ -9752,6 +9439,12 @@
     "transitive": true,
     "translation": "to think",
     "verb_aspect": "imperfective"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "mjesto",
+    "translation": "instead of"
   },
   {
     "categories": [
@@ -10517,6 +10210,24 @@
     ]
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "nad",
+    "translation": "above"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "nadohvat",
+    "translation": "within arm's reach of"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "nadomak",
+    "translation": "within reach of"
+  },
+  {
     "aspect_pair_term": "pisati",
     "categories": [
       "communication",
@@ -10604,6 +10315,12 @@
     "verb_aspect": "perfective"
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "nasred",
+    "translation": "in the middle of"
+  },
+  {
     "animate": true,
     "categories": [
       "people",
@@ -10682,6 +10399,12 @@
       "instructor",
       "professor"
     ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "nasuprot",
+    "translation": "opposite to"
   },
   {
     "categories": [
@@ -10786,6 +10509,12 @@
     "translations": [
       "nor"
     ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "niz",
+    "translation": "down along"
   },
   {
     "categories": [
@@ -11127,6 +10856,12 @@
     "translation": "zero"
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "o",
+    "translation": "about"
+  },
+  {
     "term": "oblak",
     "translation": "cloud",
     "categories": [
@@ -11277,6 +11012,18 @@
     "proficiency_level": 1,
     "term": "oko",
     "translation": "eye"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "oko",
+    "translation": "around"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "okolo",
+    "translation": "around"
   },
   {
     "animate": false,
@@ -12194,6 +11941,12 @@
     "proficiency_level": 1,
     "term": "osamsto",
     "translation": "eight hundred"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "osim",
+    "translation": "except"
   },
   {
     "categories": [
@@ -14105,6 +13858,30 @@
     "verb_aspect": "imperfective"
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "po",
+    "translation": "along",
+    "translations": [
+      "according to"
+    ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "pod",
+    "translation": "under"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "pokraj",
+    "translation": "beside",
+    "translations": [
+      "next to"
+    ]
+  },
+  {
     "categories": [
       "speed"
     ],
@@ -14220,6 +13997,18 @@
     "proficiency_level": 1
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "pomoću",
+    "translation": "with the help of"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "poradi",
+    "translation": "for the sake of"
+  },
+  {
     "categories": [
       "location"
     ],
@@ -14301,6 +14090,39 @@
     "proficiency_level": 1,
     "term": "posle",
     "translation": "after"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "poslije",
+    "translation": "after"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "posred",
+    "translation": "through the middle of"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "posredstvom",
+    "translation": "through",
+    "translations": [
+      "via"
+    ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "povodom",
+    "translation": "on the occasion of"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "povrh",
+    "translation": "on top of"
   },
   {
     "term": "povrće",
@@ -14802,6 +14624,24 @@
     "translation": "before"
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "pred",
+    "translation": "in front of",
+    "translations": [
+      "before"
+    ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "preko",
+    "translation": "over",
+    "translations": [
+      "across"
+    ]
+  },
+  {
     "categories": [
       "direction"
     ],
@@ -14818,6 +14658,15 @@
     "translation": "towards",
     "translations": [
       "according to"
+    ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "pri",
+    "translation": "at",
+    "translations": [
+      "near"
     ]
   },
   {
@@ -14905,6 +14754,18 @@
     "translation": "friend"
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "prije",
+    "translation": "before"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "prilikom",
+    "translation": "on the occasion of"
+  },
+  {
     "term": "prodavnica",
     "translation": "shop",
     "translations": [
@@ -14919,6 +14780,18 @@
     "declension_class": "a-stem",
     "proficiency_level": 1,
     "grammar_metadata": {}
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "protiv",
+    "translation": "against"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "protivu",
+    "translation": "against"
   },
   {
     "animate": false,
@@ -15714,6 +15587,12 @@
     ]
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "putem",
+    "translation": "by means of"
+  },
+  {
     "categories": [
       "movement",
       "leisure"
@@ -15800,6 +15679,12 @@
       "to go on a trip"
     ],
     "verb_aspect": "imperfective"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "radi",
+    "translation": "for the sake of"
   },
   {
     "categories": [
@@ -16523,6 +16408,15 @@
     }
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "s",
+    "translation": "with",
+    "translations": [
+      "from"
+    ]
+  },
+  {
     "categories": [
       "grammar",
       "prepositions"
@@ -16924,6 +16818,25 @@
     "translation": "seventh"
   },
   {
+    "term": "seljanin",
+    "translation": "villager",
+    "translations": [
+      "peasant",
+      "countryman"
+    ],
+    "categories": [
+      "people"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": true,
+    "proficiency_level": 2,
+    "grammar_metadata": {
+      "drops_in_plural": true
+    }
+  },
+  {
     "categories": [
       "places",
       "geography"
@@ -16996,23 +16909,10 @@
     "translation": "village"
   },
   {
-    "term": "seljanin",
-    "translation": "villager",
-    "translations": [
-      "peasant",
-      "countryman"
-    ],
-    "categories": [
-      "people"
-    ],
-    "part_of_speech": "noun",
-    "gender": "masculine",
-    "declension_class": "consonant",
-    "animate": true,
+    "part_of_speech": "preposition",
     "proficiency_level": 2,
-    "grammar_metadata": {
-      "drops_in_plural": true
-    }
+    "term": "sem",
+    "translation": "except"
   },
   {
     "categories": [
@@ -20643,6 +20543,15 @@
     "translation": "one's own"
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "svrh",
+    "translation": "concerning",
+    "translations": [
+      "regarding"
+    ]
+  },
+  {
     "categories": [
       "grammar",
       "pronouns"
@@ -21955,6 +21864,18 @@
     "translations": [
       "silently"
     ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "tijekom",
+    "translation": "during"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "tokom",
+    "translation": "during"
   },
   {
     "animate": false,
@@ -23714,6 +23635,24 @@
     "grammar_metadata": {}
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "umesto",
+    "translation": "instead of"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "umjesto",
+    "translation": "instead of"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "unatoč",
+    "translation": "despite"
+  },
+  {
     "term": "univerzitet",
     "translation": "university",
     "categories": [
@@ -23728,6 +23667,27 @@
     "grammar_metadata": {}
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "unutar",
+    "translation": "inside",
+    "translations": [
+      "within"
+    ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "uoči",
+    "translation": "on the eve of"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "uprkos",
+    "translation": "despite"
+  },
+  {
     "term": "usisivač",
     "translation": "vacuum cleaner",
     "categories": [
@@ -23740,6 +23700,24 @@
     "animate": false,
     "proficiency_level": 1,
     "grammar_metadata": {}
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "usled",
+    "translation": "due to"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "uslijed",
+    "translation": "due to"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "usred",
+    "translation": "in the middle of"
   },
   {
     "categories": [
@@ -23757,6 +23735,27 @@
     "proficiency_level": 1,
     "term": "uvek",
     "translation": "always"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "uvrh",
+    "translation": "at the top of"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "uz",
+    "translation": "beside",
+    "translations": [
+      "along"
+    ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "uzduž",
+    "translation": "along"
   },
   {
     "categories": [
@@ -23920,6 +23919,12 @@
       "to teach"
     ],
     "verb_aspect": "imperfective"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "van",
+    "translation": "outside"
   },
   {
     "categories": [
@@ -25830,6 +25835,12 @@
     ]
   },
   {
+    "part_of_speech": "preposition",
+    "proficiency_level": 3,
+    "term": "zarad",
+    "translation": "for the sake of"
+  },
+  {
     "categories": [
       "connectors"
     ],
@@ -25976,6 +25987,12 @@
       "to seal"
     ],
     "verb_aspect": "perfective"
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 1,
+    "term": "zbog",
+    "translation": "because of"
   },
   {
     "animate": false,
@@ -28298,6 +28315,12 @@
       "broad",
       "spacious"
     ]
+  },
+  {
+    "part_of_speech": "preposition",
+    "proficiency_level": 2,
+    "term": "širom",
+    "translation": "throughout"
   },
   {
     "categories": [
