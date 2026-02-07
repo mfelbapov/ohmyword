@@ -24,8 +24,8 @@ defmodule Ohmyword.Linguistics.DispatcherTest do
       word = verb_fixture(%{term: "pisati"})
       forms = Dispatcher.inflect(word)
 
-      # Verbs module generates 16 forms (inf + 6 present + 6 past + 3 imperative)
-      assert length(forms) == 16
+      # Verbs module generates 24 forms (inf + 6 present + 6 past + 3 imperative + 6 passive participle + 2 adverbial participles)
+      assert length(forms) == 24
       assert {"pisati", "inf"} in forms
       assert {"pisem", "pres_1sg"} in forms
     end

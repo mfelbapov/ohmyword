@@ -55,6 +55,16 @@ defmodule Ohmyword.Linguistics.Verbs do
     "n_pl" => "la"
   }
 
+  # Passive participle endings (adjectival declension)
+  @passive_participle_endings %{
+    "m_sg" => "",
+    "f_sg" => "a",
+    "n_sg" => "o",
+    "m_pl" => "i",
+    "f_pl" => "e",
+    "n_pl" => "a"
+  }
+
   @impl true
   def applicable?(%Word{part_of_speech: :verb}), do: true
   def applicable?(_), do: false
@@ -75,7 +85,18 @@ defmodule Ohmyword.Linguistics.Verbs do
       generate_infinitive(word.term) ++
         generate_present_forms(present_stem, present_conj_class, irregular_forms) ++
         generate_past_forms(infinitive_stem, term, metadata, irregular_forms) ++
-        generate_imperative_forms(present_stem, present_conj_class, irregular_forms)
+        generate_imperative_forms(present_stem, present_conj_class, irregular_forms) ++
+        generate_passive_participle_forms(
+          infinitive_stem,
+          word.conjugation_class,
+          irregular_forms
+        ) ++
+        generate_adverbial_participle_forms(
+          infinitive_stem,
+          present_stem,
+          word.conjugation_class,
+          irregular_forms
+        )
 
     # Apply any remaining irregular form overrides
     Enum.map(forms, fn {form, tag} ->
@@ -283,6 +304,142 @@ defmodule Ohmyword.Linguistics.Verbs do
       # Default: consonant stem uses -i endings
       true ->
         %{"2sg" => "i", "1pl" => "imo", "2pl" => "ite"}
+    end
+  end
+
+  # Generate passive participle forms (6 forms: m/f/n x sg/pl)
+  # Passive participle is formed from infinitive stem + -n or -t suffix
+  # Examples: pisati → pisan, nositi → nošen, uzeti → uzet
+  defp generate_passive_participle_forms(infinitive_stem, conjugation_class, irregular_forms) do
+    # Determine the passive participle base (stem + n/t)
+    pass_base = get_passive_participle_base(infinitive_stem, conjugation_class)
+
+    ["m_sg", "f_sg", "n_sg", "m_pl", "f_pl", "n_pl"]
+    |> Enum.map(fn gender_number ->
+      tag = "pass_part_#{gender_number}"
+
+      form =
+        if override = Map.get(irregular_forms, tag) do
+          String.downcase(override)
+        else
+          ending = Map.get(@passive_participle_endings, gender_number)
+          pass_base <> ending
+        end
+
+      {form, tag}
+    end)
+  end
+
+  # Get passive participle base (stem + suffix)
+  # A-verbs: stem + n (čitati → čita → čitan)
+  # I-verbs: stem + consonant softening + en (nositi → nos → nošen)
+  # E-verbs: usually -n for -ati verbs (pisati → pisan), -t for others (uzeti → uzet)
+  # JE-verbs: -t for vowel stems (piti → pit), -n for consonant stems
+  defp get_passive_participle_base(infinitive_stem, conjugation_class) do
+    case conjugation_class do
+      "a-verb" ->
+        # A-verbs: infinitive stem ends in -a, add -n
+        infinitive_stem <> "n"
+
+      "i-verb" ->
+        # I-verbs: apply iotation to stem and add -en
+        # nositi → nos → noš → nošen
+        iotated = SoundChanges.iotate(infinitive_stem)
+        iotated <> "en"
+
+      "e-verb" ->
+        # E-verbs: if stem ends in -a (from -ati verbs like pisati), use -n
+        # Otherwise (like uzeti → uze), use -t
+        last_char = String.last(infinitive_stem)
+
+        if last_char == "a" do
+          # Verbs like pisati → pisa → pisan
+          infinitive_stem <> "n"
+        else
+          # Verbs like uzeti → uze → uzet
+          infinitive_stem <> "t"
+        end
+
+      "je-verb" ->
+        # JE-verbs: if stem ends in vowel (e, i, u), use -t (piti → pit)
+        # For stems ending in consonant or -a, use -n
+        last_char = String.last(infinitive_stem)
+
+        if last_char in ["e", "i", "u"] do
+          infinitive_stem <> "t"
+        else
+          infinitive_stem <> "n"
+        end
+
+      _ ->
+        # Default: treat like a-verb
+        infinitive_stem <> "n"
+    end
+  end
+
+  # Generate adverbial participle forms (2 invariable forms)
+  # Present adverbial: reading (while doing)
+  # Past adverbial: having read (after doing)
+  defp generate_adverbial_participle_forms(
+         infinitive_stem,
+         present_stem,
+         conjugation_class,
+         irregular_forms
+       ) do
+    pres_adv = get_present_adverbial_participle(present_stem, conjugation_class, irregular_forms)
+    past_adv = get_past_adverbial_participle(infinitive_stem, conjugation_class, irregular_forms)
+
+    [
+      {pres_adv, "pres_adv_part"},
+      {past_adv, "past_adv_part"}
+    ]
+  end
+
+  # Present adverbial participle: present stem + ći/ući
+  # Examples: čitati → čitajući, govoriti → govoreći, pisati → pišući
+  defp get_present_adverbial_participle(present_stem, conjugation_class, irregular_forms) do
+    if override = Map.get(irregular_forms, "pres_adv_part") do
+      String.downcase(override)
+    else
+      case conjugation_class do
+        "a-verb" ->
+          # A-verbs: stem + jući (čita + jući = čitajući)
+          present_stem <> "jući"
+
+        "i-verb" ->
+          # I-verbs: stem + eći (govor + eći = govoreći)
+          present_stem <> "eći"
+
+        "e-verb" ->
+          # E-verbs: stem + ući (piš + ući = pišući)
+          present_stem <> "ući"
+
+        "je-verb" ->
+          # JE-verbs: stem + ući (pij + ući = pijući)
+          present_stem <> "ući"
+
+        _ ->
+          # Default
+          present_stem <> "ući"
+      end
+    end
+  end
+
+  # Past adverbial participle: infinitive stem + vši/avši
+  # Examples: čitati → čitavši, govoriti → govorivši, pisati → pisavši
+  defp get_past_adverbial_participle(infinitive_stem, _conjugation_class, irregular_forms) do
+    if override = Map.get(irregular_forms, "past_adv_part") do
+      String.downcase(override)
+    else
+      last_char = String.last(infinitive_stem)
+
+      if is_vowel?(last_char) do
+        # Vowel stem: add -vši (čita + vši = čitavši)
+        infinitive_stem <> "vši"
+      else
+        # Consonant stem: add -avši (with inserted -a-)
+        infinitive_stem <> "avši"
+      end
     end
   end
 end

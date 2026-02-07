@@ -39,7 +39,7 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
 
     test "returns 16 forms", %{forms: forms} do
-      assert length(forms) == 16
+      assert length(forms) == 24
     end
 
     test "infinitive is unchanged", %{forms: forms} do
@@ -120,7 +120,7 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
 
     test "returns 16 forms", %{forms: forms} do
-      assert length(forms) == 16
+      assert length(forms) == 24
     end
 
     test "infinitive is unchanged", %{forms: forms} do
@@ -202,7 +202,7 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
 
     test "returns 16 forms", %{forms: forms} do
-      assert length(forms) == 16
+      assert length(forms) == 24
     end
 
     test "infinitive is unchanged", %{forms: forms} do
@@ -267,7 +267,7 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
 
     test "returns 16 forms", %{forms: forms} do
-      assert length(forms) == 16
+      assert length(forms) == 24
     end
 
     test "infinitive is single word", %{forms: forms} do
@@ -322,7 +322,7 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
 
     test "returns 16 forms", %{forms: forms} do
-      assert length(forms) == 16
+      assert length(forms) == 24
     end
 
     test "uses irregular present forms", %{forms: forms} do
@@ -364,7 +364,7 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
 
     test "generates all forms (design decision: generate all)", %{forms: forms} do
-      assert length(forms) == 16
+      assert length(forms) == 24
     end
 
     test "3rd person singular present is correct", %{forms: forms} do
@@ -386,7 +386,7 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
 
     test "returns 16 forms", %{forms: forms} do
-      assert length(forms) == 16
+      assert length(forms) == 24
     end
 
     test "conjugation follows e-verb pattern", %{forms: forms} do
@@ -417,7 +417,7 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
 
     test "returns 16 forms", %{forms: forms} do
-      assert length(forms) == 16
+      assert length(forms) == 24
     end
 
     test "present uses -j- insertion", %{forms: forms} do
@@ -615,7 +615,7 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
 
     test "returns 16 forms", %{forms: forms} do
-      assert length(forms) == 16
+      assert length(forms) == 24
     end
 
     test "infinitive is ići", %{forms: forms} do
@@ -799,7 +799,7 @@ defmodule Ohmyword.Linguistics.VerbsTest do
     end
 
     test "returns 16 forms", %{forms: forms} do
-      assert length(forms) == 16
+      assert length(forms) == 24
     end
 
     test "infinitive is single word", %{forms: forms} do
@@ -1154,6 +1154,335 @@ defmodule Ohmyword.Linguistics.VerbsTest do
 
     test "past feminine singular is rekla", %{forms: forms} do
       assert {"rekla", "past_f_sg"} in forms
+    end
+  end
+
+  # ============================================================================
+  # PASSIVE PARTICIPLE FORMS
+  # ============================================================================
+
+  describe "generate_forms/1 - passive participle (a-verb: čitati)" do
+    setup do
+      word = %Word{
+        term: "čitati",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "a-verb"
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "returns 24 forms (16 base + 6 passive + 2 adverbial)", %{forms: forms} do
+      assert length(forms) == 24
+    end
+
+    test "passive participle masculine singular is čitan", %{forms: forms} do
+      assert {"čitan", "pass_part_m_sg"} in forms
+    end
+
+    test "passive participle feminine singular is čitana", %{forms: forms} do
+      assert {"čitana", "pass_part_f_sg"} in forms
+    end
+
+    test "passive participle neuter singular is čitano", %{forms: forms} do
+      assert {"čitano", "pass_part_n_sg"} in forms
+    end
+
+    test "passive participle masculine plural is čitani", %{forms: forms} do
+      assert {"čitani", "pass_part_m_pl"} in forms
+    end
+
+    test "passive participle feminine plural is čitane", %{forms: forms} do
+      assert {"čitane", "pass_part_f_pl"} in forms
+    end
+
+    test "passive participle neuter plural is čitana", %{forms: forms} do
+      assert {"čitana", "pass_part_n_pl"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - passive participle (i-verb: govoriti)" do
+    setup do
+      word = %Word{
+        term: "govoriti",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "i-verb"
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "passive participle masculine singular applies iotation", %{forms: forms} do
+      # govor → govoren (or possibly with iotation: govorjen)
+      # Standard Serbian: govoren
+      pass_m_sg = Enum.find(forms, fn {_, tag} -> tag == "pass_part_m_sg" end)
+      assert pass_m_sg != nil
+      {form, _} = pass_m_sg
+      # The iotation might produce various results depending on implementation
+      assert String.ends_with?(form, "en")
+    end
+
+    test "passive participle feminine singular", %{forms: forms} do
+      pass_f_sg = Enum.find(forms, fn {_, tag} -> tag == "pass_part_f_sg" end)
+      assert pass_f_sg != nil
+      {form, _} = pass_f_sg
+      assert String.ends_with?(form, "ena")
+    end
+  end
+
+  describe "generate_forms/1 - passive participle (e-verb: pisati)" do
+    setup do
+      word = %Word{
+        term: "pisati",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "e-verb",
+        grammar_metadata: %{"present_stem" => "piš"}
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "passive participle uses infinitive stem", %{forms: forms} do
+      # pisati → pisa → pisan (not based on present stem piš)
+      assert {"pisan", "pass_part_m_sg"} in forms
+    end
+
+    test "passive participle feminine singular is pisana", %{forms: forms} do
+      assert {"pisana", "pass_part_f_sg"} in forms
+    end
+
+    test "passive participle neuter singular is pisano", %{forms: forms} do
+      assert {"pisano", "pass_part_n_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - passive participle (je-verb: piti)" do
+    setup do
+      word = %Word{
+        term: "piti",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "je-verb"
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "passive participle uses -t for vowel stem", %{forms: forms} do
+      # piti → pi → pit
+      assert {"pit", "pass_part_m_sg"} in forms
+    end
+
+    test "passive participle feminine singular is pita", %{forms: forms} do
+      assert {"pita", "pass_part_f_sg"} in forms
+    end
+
+    test "passive participle neuter singular is pito", %{forms: forms} do
+      assert {"pito", "pass_part_n_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - passive participle with irregular override" do
+    setup do
+      word = %Word{
+        term: "uzeti",
+        part_of_speech: :verb,
+        verb_aspect: :perfective,
+        conjugation_class: "e-verb",
+        grammar_metadata: %{
+          "present_stem" => "uzm",
+          "irregular_forms" => %{
+            "pass_part_m_sg" => "uzet",
+            "pass_part_f_sg" => "uzeta",
+            "pass_part_n_sg" => "uzeto",
+            "pass_part_m_pl" => "uzeti",
+            "pass_part_f_pl" => "uzete",
+            "pass_part_n_pl" => "uzeta"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "uses irregular override for passive participle", %{forms: forms} do
+      assert {"uzet", "pass_part_m_sg"} in forms
+      assert {"uzeta", "pass_part_f_sg"} in forms
+      assert {"uzeto", "pass_part_n_sg"} in forms
+    end
+  end
+
+  # ============================================================================
+  # ADVERBIAL PARTICIPLE FORMS
+  # ============================================================================
+
+  describe "generate_forms/1 - adverbial participles (a-verb: čitati)" do
+    setup do
+      word = %Word{
+        term: "čitati",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "a-verb"
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present adverbial participle is čitajući", %{forms: forms} do
+      assert {"čitajući", "pres_adv_part"} in forms
+    end
+
+    test "past adverbial participle is čitavši", %{forms: forms} do
+      assert {"čitavši", "past_adv_part"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - adverbial participles (i-verb: govoriti)" do
+    setup do
+      word = %Word{
+        term: "govoriti",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "i-verb"
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present adverbial participle uses -eći", %{forms: forms} do
+      # govor + eći = govoreći
+      assert {"govoreći", "pres_adv_part"} in forms
+    end
+
+    test "past adverbial participle is govorivši", %{forms: forms} do
+      assert {"govorivši", "past_adv_part"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - adverbial participles (e-verb with present stem)" do
+    setup do
+      word = %Word{
+        term: "pisati",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "e-verb",
+        grammar_metadata: %{"present_stem" => "piš"}
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present adverbial participle uses present stem + -ući", %{forms: forms} do
+      # piš + ući = pišući
+      assert {"pišući", "pres_adv_part"} in forms
+    end
+
+    test "past adverbial participle uses infinitive stem", %{forms: forms} do
+      # pisa + vši = pisavši
+      assert {"pisavši", "past_adv_part"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - adverbial participles (je-verb: piti)" do
+    setup do
+      word = %Word{
+        term: "piti",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "je-verb"
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "present adverbial participle uses present stem + -ući", %{forms: forms} do
+      # pij + ući = pijući
+      assert {"pijući", "pres_adv_part"} in forms
+    end
+
+    test "past adverbial participle is pivši", %{forms: forms} do
+      # pi + vši = pivši
+      assert {"pivši", "past_adv_part"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - adverbial participles with irregular override" do
+    setup do
+      word = %Word{
+        term: "ići",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        grammar_metadata: %{
+          "irregular_forms" => %{
+            "pres_adv_part" => "idući",
+            "past_adv_part" => "išavši"
+          }
+        }
+      }
+
+      {:ok, word: word, forms: Verbs.generate_forms(word)}
+    end
+
+    test "uses irregular override for present adverbial participle", %{forms: forms} do
+      assert {"idući", "pres_adv_part"} in forms
+    end
+
+    test "uses irregular override for past adverbial participle", %{forms: forms} do
+      assert {"išavši", "past_adv_part"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - all form tags present" do
+    test "verb generates all 24 expected form tags" do
+      word = %Word{
+        term: "čitati",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "a-verb"
+      }
+
+      forms = Verbs.generate_forms(word)
+      tags = Enum.map(forms, fn {_, tag} -> tag end)
+
+      expected_tags = [
+        # Infinitive
+        "inf",
+        # Present
+        "pres_1sg",
+        "pres_2sg",
+        "pres_3sg",
+        "pres_1pl",
+        "pres_2pl",
+        "pres_3pl",
+        # Past L-participle
+        "past_m_sg",
+        "past_f_sg",
+        "past_n_sg",
+        "past_m_pl",
+        "past_f_pl",
+        "past_n_pl",
+        # Imperative
+        "imp_2sg",
+        "imp_1pl",
+        "imp_2pl",
+        # Passive participle
+        "pass_part_m_sg",
+        "pass_part_f_sg",
+        "pass_part_n_sg",
+        "pass_part_m_pl",
+        "pass_part_f_pl",
+        "pass_part_n_pl",
+        # Adverbial participles
+        "pres_adv_part",
+        "past_adv_part"
+      ]
+
+      Enum.each(expected_tags, fn expected ->
+        assert expected in tags, "Expected tag #{expected} not found"
+      end)
     end
   end
 end

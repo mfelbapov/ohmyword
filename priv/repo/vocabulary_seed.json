@@ -4346,6 +4346,22 @@
     "translation": "city"
   },
   {
+    "term": "građanin",
+    "translation": "citizen",
+    "categories": [
+      "people",
+      "society"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": true,
+    "proficiency_level": 2,
+    "grammar_metadata": {
+      "drops_in_plural": true
+    }
+  },
+  {
     "categories": [
       "greeting"
     ],
@@ -9259,6 +9275,18 @@
     "proficiency_level": 1,
     "term": "majka",
     "translation": "mother"
+  },
+  {
+    "animate": true,
+    "categories": [
+      "animals"
+    ],
+    "declension_class": "a-stem",
+    "gender": "feminine",
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "term": "mačka",
+    "translation": "cat"
   },
   {
     "categories": [
@@ -16966,6 +16994,25 @@
     "proficiency_level": 2,
     "term": "selo",
     "translation": "village"
+  },
+  {
+    "term": "seljanin",
+    "translation": "villager",
+    "translations": [
+      "peasant",
+      "countryman"
+    ],
+    "categories": [
+      "people"
+    ],
+    "part_of_speech": "noun",
+    "gender": "masculine",
+    "declension_class": "consonant",
+    "animate": true,
+    "proficiency_level": 2,
+    "grammar_metadata": {
+      "drops_in_plural": true
+    }
   },
   {
     "categories": [

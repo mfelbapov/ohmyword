@@ -264,6 +264,7 @@ defmodule Ohmyword.Linguistics.Nouns do
     fleeting_a = metadata["fleeting_a"] == true
     palatalization = metadata["palatalization"] == true
     extended_stem = metadata["extended_stem"]
+    drops_in_plural = metadata["drops_in_plural"] == true
 
     # Determine the base stem (with fleeting A removed if applicable)
     base_stem = if fleeting_a, do: remove_fleeting_a(term), else: term
@@ -271,6 +272,10 @@ defmodule Ohmyword.Linguistics.Nouns do
     # Determine the plural stem
     plural_stem =
       cond do
+        # -in suffix nouns (demonyms): drop -in in plural (građanin → građan-)
+        drops_in_plural && String.ends_with?(term, "in") ->
+          String.slice(term, 0..-3//1)
+
         # Extended stem gets -ov-/-ev- insert
         extended_stem ->
           insert = get_plural_insert(extended_stem)

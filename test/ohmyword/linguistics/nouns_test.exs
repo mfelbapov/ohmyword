@@ -1361,4 +1361,143 @@ defmodule Ohmyword.Linguistics.NounsTest do
       assert {"prsti", "nom_pl"} in forms
     end
   end
+
+  # ============================================================================
+  # -IN SUFFIX NOUNS (DEMONYMS)
+  # ============================================================================
+
+  describe "generate_forms/1 - masculine -in suffix noun (građanin)" do
+    setup do
+      word = %Word{
+        term: "građanin",
+        part_of_speech: :noun,
+        gender: :masculine,
+        animate: true,
+        declension_class: "consonant",
+        grammar_metadata: %{"drops_in_plural" => true}
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "returns 14 forms", %{forms: forms} do
+      assert length(forms) == 14
+    end
+
+    test "nominative singular is unchanged", %{forms: forms} do
+      assert {"građanin", "nom_sg"} in forms
+    end
+
+    test "genitive singular adds -a (regular consonant)", %{forms: forms} do
+      assert {"građanina", "gen_sg"} in forms
+    end
+
+    test "dative singular adds -u", %{forms: forms} do
+      assert {"građaninu", "dat_sg"} in forms
+    end
+
+    test "accusative singular equals genitive for animate", %{forms: forms} do
+      assert {"građanina", "acc_sg"} in forms
+    end
+
+    test "vocative singular adds -e", %{forms: forms} do
+      assert {"građanine", "voc_sg"} in forms
+    end
+
+    test "instrumental singular adds -om", %{forms: forms} do
+      assert {"građaninom", "ins_sg"} in forms
+    end
+
+    test "locative singular adds -u", %{forms: forms} do
+      assert {"građaninu", "loc_sg"} in forms
+    end
+
+    test "nominative plural drops -in and adds -i", %{forms: forms} do
+      assert {"građani", "nom_pl"} in forms
+    end
+
+    test "genitive plural drops -in and adds -a", %{forms: forms} do
+      assert {"građana", "gen_pl"} in forms
+    end
+
+    test "dative plural drops -in and adds -ima", %{forms: forms} do
+      assert {"građanima", "dat_pl"} in forms
+    end
+
+    test "accusative plural drops -in and adds -e", %{forms: forms} do
+      assert {"građane", "acc_pl"} in forms
+    end
+
+    test "vocative plural drops -in and adds -i", %{forms: forms} do
+      assert {"građani", "voc_pl"} in forms
+    end
+
+    test "instrumental plural drops -in and adds -ima", %{forms: forms} do
+      assert {"građanima", "ins_pl"} in forms
+    end
+
+    test "locative plural drops -in and adds -ima", %{forms: forms} do
+      assert {"građanima", "loc_pl"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - masculine -in suffix noun (Srbin)" do
+    setup do
+      word = %Word{
+        term: "Srbin",
+        part_of_speech: :noun,
+        gender: :masculine,
+        animate: true,
+        declension_class: "consonant",
+        grammar_metadata: %{"drops_in_plural" => true}
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative singular is srbin (lowercase)", %{forms: forms} do
+      assert {"srbin", "nom_sg"} in forms
+    end
+
+    test "genitive singular is srbina", %{forms: forms} do
+      assert {"srbina", "gen_sg"} in forms
+    end
+
+    test "nominative plural drops -in: srbi", %{forms: forms} do
+      assert {"srbi", "nom_pl"} in forms
+    end
+
+    test "genitive plural drops -in: srba", %{forms: forms} do
+      assert {"srba", "gen_pl"} in forms
+    end
+
+    test "dative/instrumental/locative plural drops -in: srbima", %{forms: forms} do
+      assert {"srbima", "dat_pl"} in forms
+      assert {"srbima", "ins_pl"} in forms
+      assert {"srbima", "loc_pl"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - masculine -in suffix noun (dvoranin)" do
+    setup do
+      word = %Word{
+        term: "dvoranin",
+        part_of_speech: :noun,
+        gender: :masculine,
+        animate: true,
+        declension_class: "consonant",
+        grammar_metadata: %{"drops_in_plural" => true}
+      }
+
+      {:ok, word: word, forms: Nouns.generate_forms(word)}
+    end
+
+    test "nominative plural drops -in: dvorani", %{forms: forms} do
+      assert {"dvorani", "nom_pl"} in forms
+    end
+
+    test "genitive plural drops -in: dvorana", %{forms: forms} do
+      assert {"dvorana", "gen_pl"} in forms
+    end
+  end
 end
