@@ -29,7 +29,8 @@
       "Bash(fly certs check:*)",
       "Bash(fly machines list:*)",
       "Bash(fly tokens create:*)",
-      "Bash(gh run list:*)"
+      "Bash(gh run list:*)",
+      "Bash(curl:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"
