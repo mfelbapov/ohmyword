@@ -35,7 +35,8 @@
       "Bash(fly secrets list:*)",
       "Bash(fly postgres connect:*)",
       "Bash(fly logs:*)",
-      "Bash(fly machines restart:*)"
+      "Bash(fly machines restart:*)",
+      "Bash(fly ssh console:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"

@@ -99,3 +99,13 @@ Instead, use `force_https: true` in `fly.toml` (under `[http_service]`) - Fly ha
 1. Add `FLY_API_TOKEN` to GitHub repository secrets
 2. Generate token: `fly tokens create deploy -x 999999h`
 3. CD workflow triggers on tags (`v*`), not pushes to main
+
+### Running Seeds in Production
+
+After a fresh deploy or database reset, run seeds:
+
+```bash
+fly ssh console -C "/app/bin/ohmyword eval 'Ohmyword.Release.seed()'"
+```
+
+This populates vocabulary, sentences, and creates the admin user.
