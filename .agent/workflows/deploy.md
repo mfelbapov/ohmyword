@@ -80,9 +80,14 @@ Some Phoenix endpoint options must be set at **compile time** in `config/prod.ex
 **Must be in `prod.exs` (compile-time):**
 ```elixir
 config :ohmyword, OhmywordWeb.Endpoint,
-  cache_static_manifest: "priv/static/cache_manifest.json",
-  force_ssl: [hsts: true]
+  cache_static_manifest: "priv/static/cache_manifest.json"
 ```
+
+### Do NOT use `force_ssl` with Fly.io
+
+Fly.io terminates SSL at the edge and forwards HTTP to your app. If you enable `force_ssl: [hsts: true]` in Phoenix, it will cause a redirect loop because Phoenix sees HTTP requests and keeps redirecting.
+
+Instead, use `force_https: true` in `fly.toml` (under `[http_service]`) - Fly handles HTTPS redirection at the proxy level.
 
 **Can be in `runtime.exs` (runtime):**
 - `secret_key_base`
