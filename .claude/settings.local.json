@@ -18,7 +18,18 @@
       "Bash(python3:*)",
       "Bash(mix ecto.migrate:*)",
       "Bash(flyctl version:*)",
-      "Bash(fly auth whoami:*)"
+      "Bash(fly auth whoami:*)",
+      "Bash(fly status:*)",
+      "Bash(fly ips list:*)",
+      "Bash(fly ips allocate-v4:*)",
+      "Bash(fly ips allocate-v6:*)",
+      "Bash(fly certs create:*)",
+      "Bash(fly certs show:*)",
+      "Bash(dig:*)",
+      "Bash(fly certs check:*)",
+      "Bash(fly machines list:*)",
+      "Bash(fly tokens create:*)",
+      "Bash(gh run list:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"
