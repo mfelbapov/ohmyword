@@ -8,8 +8,7 @@ import Config
 # Note: force_ssl is NOT used because Fly.io handles HTTPS redirection
 # at the edge (force_https: true in fly.toml). Using force_ssl here would
 # cause a redirect loop since Fly terminates SSL before reaching the app.
-config :ohmyword, OhmywordWeb.Endpoint,
-  cache_static_manifest: "priv/static/cache_manifest.json"
+config :ohmyword, OhmywordWeb.Endpoint, cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Configures Swoosh API Client
 config :swoosh, api_client: Swoosh.ApiClient.Req
