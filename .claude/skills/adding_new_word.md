@@ -1,0 +1,187 @@
+# Skill: Adding New Words
+
+## When to Use
+
+When the user asks to add one or more Serbian words to the vocabulary. Words may come from a list, a file (e.g., `docs/useful_words.md`), or direct input.
+
+## Prerequisites
+
+- The app must be running or at least compilable (`mix compile` succeeds)
+- Database is seeded and migrated
+
+## Inputs
+
+The user provides one or more words. For each word you need at minimum:
+- `term` — the Serbian word (Latin script, with diacritics: č, ć, š, ž, đ)
+- `translation` — English translation
+- `part_of_speech` — one of: noun, verb, adjective, adverb, pronoun, numeral, preposition, conjunction, interjection, particle
+- POS-specific fields (see Word Schema Fields below)
+
+## Flow: For Each Word
+
+### Step 1 — LLM Generates All Forms
+
+You (the LLM) generate every inflected form for the word based on its part of speech. Use your knowledge of Serbian grammar. Output a list of `{form, form_tag}` tuples.
+
+**Expected form tags by POS:**
+
+- **Nouns** (14 forms): `nom_sg`, `gen_sg`, `dat_sg`, `acc_sg`, `voc_sg`, `ins_sg`, `loc_sg`, `nom_pl`, `gen_pl`, `dat_pl`, `acc_pl`, `voc_pl`, `ins_pl`, `loc_pl`
+- **Verbs** (24 forms): `infinitive`, `pres_1sg`, `pres_2sg`, `pres_3sg`, `pres_1pl`, `pres_2pl`, `pres_3pl`, `past_m_sg`, `past_f_sg`, `past_n_sg`, `past_m_pl`, `past_f_pl`, `past_n_pl`, `imp_2sg`, `imp_1pl`, `imp_2pl`, `pp_m_sg`, `pp_f_sg`, `pp_n_sg`, `pp_m_pl`, `pp_f_pl`, `pp_n_pl`, `pres_adv_participle`, `past_adv_participle`
+- **Adjectives** (up to 84 forms): indefinite + definite × 7 cases × 2 numbers × 3 genders. Tags follow pattern: `indef_nom_sg_m`, `def_gen_pl_f`, etc.
+- **Invariables** (adverb, preposition, conjunction, interjection, particle): `invariable` (plus optional `comparative`, `superlative` for adverbs)
+- **Pronouns**: various `_sg`/`_pl` suffixed tags (paradigm-dependent)
+- **Numerals**: ordinals get adjective-like forms; cardinals 5+ get single `base` form
+
+### Step 2 — Engine Generates Forms
+
+Build the seed entry JSON and run it through the engine to compare. Use IEx or a script:
+
+```elixir
+# Build a Word struct (does NOT need to be persisted yet)
+word = %Ohmyword.Vocabulary.Word{
+  term: "kuća",
+  part_of_speech: :noun,
+  gender: :feminine,
+  declension_class: :a_stem,
+  animate: false,
+  grammar_metadata: %{}
+}
+
+# Run through the Dispatcher
+engine_forms = Ohmyword.Linguistics.Dispatcher.inflect(word)
+# Returns: [{"kuća", "nom_sg"}, {"kuće", "gen_sg"}, ...]
+```
+
+### Step 3 — Compare LLM vs Engine
+
+Compare each form tag. Three possible outcomes per form:
+
+| Scenario | Meaning |
+|---|---|
+| LLM and Engine agree | Form is correct |
+| LLM and Engine disagree | Mismatch — needs human review |
+| Form exists in one but not the other | Missing — engine gap or LLM error |
+
+### Step 4A — All Forms Pass
+
+"Pass" means: the engine produced all expected form tags AND every form string matches the LLM's form string (case-insensitive, diacritics-sensitive comparison).
+
+**Action: Add the word to `priv/repo/vocabulary_seed.json`**
+
+Build the seed entry with only metadata (no `forms` array needed since engine handles it):
+
+```json
+{
+  "term": "kuća",
+  "translation": "house",
+  "categories": ["home"],
+  "part_of_speech": "noun",
+  "gender": "feminine",
+  "declension_class": "a_stem",
+  "animate": false,
+  "proficiency_level": 1,
+  "grammar_metadata": {}
+}
+```
+
+Then regenerate search terms so the word becomes searchable:
+
+```elixir
+# In IEx or via mix run:
+{:ok, word} = Ohmyword.Vocabulary.create_word(%{
+  term: "kuća",
+  translation: "house",
+  part_of_speech: :noun,
+  gender: :feminine,
+  declension_class: :a_stem,
+  animate: false,
+  proficiency_level: 1,
+  grammar_metadata: %{},
+  categories: ["home"]
+})
+# This automatically calls CacheManager.regenerate_word/1 which:
+#   1. Calls Dispatcher.inflect(word) to get all forms
+#   2. For each form, creates a SearchTerm with:
+#      - term: ASCII-stripped, lowercased (for matching)
+#      - display_form: diacritical, lowercased (for display)
+#      - form_tag: the grammatical tag
+#      - source: :engine, locked: false
+```
+
+**Why dual-form search storage:**
+The `search_terms` table stores each inflected form twice: `term` (ASCII, e.g., "kuca") for case/diacritics-insensitive lookup, and `display_form` (diacritical, e.g., "kuća") for displaying the matched form to the user. When a user searches for "kuca", "kuća", or even "куча" (Cyrillic), the query is normalized to ASCII Latin and matched against `term`, but the result shows the proper `display_form`. This means every inflected form of every word is independently searchable.
+
+### Step 4B — Failure Case (Mismatch or Missing Forms)
+
+If the engine did not produce all forms, or there is a disagreement between LLM and engine forms:
+
+**Action: Append to `docs/new_words_to_check.md`**
+
+Use this format, appending to the file (create it if it doesn't exist):
+
+```markdown
+## kuća (noun, feminine)
+
+**Reason:** Engine produces 12/14 forms; mismatch on gen_pl
+
+### Mismatched Forms (LLM vs Engine disagree)
+| Form Tag | LLM | Engine |
+|---|---|---|
+| gen_pl | kuća | kućā |
+
+### Missing Forms (not generated by one side)
+| Form Tag | Generated By | Value |
+|---|---|---|
+| voc_sg | LLM only | kućo |
+| loc_pl | Engine only | kućama |
+```
+
+Do NOT add this word to the seed file. Move to the next word.
+
+### Step 5 — Next Word
+
+Repeat from Step 1 for the next word in the list.
+
+## Word Schema Fields Reference
+
+Required fields vary by `part_of_speech`:
+
+| Field | Required For | Values |
+|---|---|---|
+| `term` | all | Serbian Latin with diacritics |
+| `translation` | all | English |
+| `part_of_speech` | all | noun, verb, adjective, adverb, pronoun, numeral, preposition, conjunction, interjection, particle |
+| `proficiency_level` | all | 1-9 |
+| `gender` | noun, adjective, pronoun | masculine, feminine, neuter |
+| `animate` | masculine nouns | true/false (must be explicit) |
+| `declension_class` | noun | consonant, a_stem, o_stem, e_stem, i_stem |
+| `verb_aspect` | verb | imperfective, perfective, biaspectual |
+| `conjugation_class` | verb | a_verb, i_verb, e_verb, je_verb, irregular |
+| `reflexive` | verb | true/false |
+| `transitive` | verb | true/false |
+| `categories` | optional | array of strings |
+| `grammar_metadata` | optional | JSON object for flags like `fleeting_a`, `soft_stem`, `extended_stem`, `present_stem`, `past_stem`, `irregular_forms`, `drops_in_plural`, `ins_ju`, `no_short_form` |
+
+## Irregular Forms
+
+If a word has irregular forms that the engine cannot derive from rules, add them to `grammar_metadata.irregular_forms`:
+
+```json
+{
+  "grammar_metadata": {
+    "irregular_forms": {
+      "nom_pl": "ljudi",
+      "gen_pl": "ljudi"
+    }
+  }
+}
+```
+
+These are inserted as locked search terms (source: `:seed`) and the engine's `on_conflict: :nothing` respects them.
+
+## Notes
+
+- **Diacritics matter**: Always use proper Serbian Latin diacritics (č, ć, š, ž, đ). The engine produces diacritical forms. ASCII stripping happens only at the storage layer in CacheManager.
+- **No Mix task exists yet**: Words are added either via seed JSON + `mix ecto.reset` or via `Vocabulary.create_word/1` in IEx.
+- **Locked vs unlocked**: Manual/seed forms are `locked: true` and survive regeneration. Engine forms are `locked: false` and get wiped/recreated on regeneration.
+- **Aspect pairs**: If adding a verb, check if its aspect pair already exists and link them via `aspect_pair_id` / `aspect_pair_term` in the seed JSON.
