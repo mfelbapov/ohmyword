@@ -36,7 +36,9 @@
       "Bash(fly postgres connect:*)",
       "Bash(fly logs:*)",
       "Bash(fly machines restart:*)",
-      "Bash(fly ssh console:*)"
+      "Bash(fly ssh console:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"

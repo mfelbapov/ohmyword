@@ -134,6 +134,18 @@ The project includes:
 - fly.toml for Fly.io deployment
 - Release configuration in lib/ohmyword/release.ex
 
+## Deployment Rules
+- NEVER push directly to `main`. Always create a feature branch and open a PR.
+- NEVER create or push version tags (e.g., v1.x.x) unless I explicitly ask you to.
+- NEVER run `git push` to any remote without asking me first.
+- Default workflow: create a branch → commit → push branch → open PR.
+
+
+## CI/CD
+- Pushing a version tag (v*) to main triggers a production deployment.
+- Tags must ONLY be created manually by me. Never create or push tags.
+- Merging a PR to main does NOT deploy — only tags do.
+
 ## Important Implementation Details
 
 1. **User confirmation required**: Users must confirm email before logging in (see Ohmyword.Accounts.get_user_by_email_and_password)
