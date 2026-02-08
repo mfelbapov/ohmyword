@@ -30,7 +30,12 @@
       "Bash(fly machines list:*)",
       "Bash(fly tokens create:*)",
       "Bash(gh run list:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(fly postgres list:*)",
+      "Bash(fly secrets list:*)",
+      "Bash(fly postgres connect:*)",
+      "Bash(fly logs:*)",
+      "Bash(fly machines restart:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"
