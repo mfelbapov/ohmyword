@@ -70,3 +70,27 @@ fly ips list
 - **SSL is automatic**: Fly.io uses Let's Encrypt for free SSL certificates once DNS is properly configured
 
 ---
+
+## Phoenix + Fly.io Best Practices
+
+### Compile-time vs Runtime Config
+
+Some Phoenix endpoint options must be set at **compile time** in `config/prod.exs`, not in `config/runtime.exs`. If set at runtime, the release will crash with a config mismatch error.
+
+**Must be in `prod.exs` (compile-time):**
+```elixir
+config :ohmyword, OhmywordWeb.Endpoint,
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  force_ssl: [hsts: true]
+```
+
+**Can be in `runtime.exs` (runtime):**
+- `secret_key_base`
+- `url: [host: host, port: 443, scheme: "https"]`
+- `http: [ip: ..., port: ...]`
+
+### GitHub Actions + Fly.io
+
+1. Add `FLY_API_TOKEN` to GitHub repository secrets
+2. Generate token: `fly tokens create deploy -x 999999h`
+3. CD workflow triggers on tags (`v*`), not pushes to main
