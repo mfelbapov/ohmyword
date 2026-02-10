@@ -40,6 +40,19 @@
       --%>
         <li>
           <.link
+            href={~p"/"}
+            class={
+              if @conn.request_path == "/",
+                do: "font-semibold text-zinc-900 dark:text-zinc-100",
+                else:
+                  "text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300"
+            }
+          >
+            Home
+          </.link>
+        </li>
+        <li>
+          <.link
             href={~p"/flashcards"}
             class={
               if String.starts_with?(@conn.request_path, "/flashcards"),
