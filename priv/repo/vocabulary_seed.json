@@ -209,7 +209,8 @@
       "to toss",
       "to hurl"
     ],
-    "verb_aspect": "perfective"
+    "verb_aspect": "perfective",
+    "grammar_metadata": {}
   },
   {
     "term": "banka",
@@ -440,8 +441,11 @@
         "pres_2pl": "ste",
         "pres_2sg": "si",
         "pres_3pl": "su",
-        "pres_3sg": "je"
-      }
+        "pres_3sg": "je",
+        "pres_adv_part": "budući",
+        "past_adv_part": "bivši"
+      },
+      "no_passive_participle": true
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
@@ -913,7 +917,8 @@
       }
     ],
     "grammar_metadata": {
-      "present_stem": "boj"
+      "present_stem": "boj",
+      "no_passive_participle": true
     },
     "part_of_speech": "verb",
     "proficiency_level": 2,
@@ -1786,7 +1791,32 @@
     ],
     "grammar_metadata": {
       "present_conjugation_class": "a-verb",
-      "present_stem": "da"
+      "present_stem": "da",
+      "irregular_forms": {
+        "pres_1sg": "dam",
+        "pres_2sg": "daš",
+        "pres_3sg": "da",
+        "pres_1pl": "damo",
+        "pres_2pl": "date",
+        "pres_3pl": "daju",
+        "imp_2sg": "daj",
+        "imp_1pl": "dajmo",
+        "imp_2pl": "dajte",
+        "past_m_sg": "dao",
+        "past_f_sg": "dala",
+        "past_n_sg": "dalo",
+        "past_m_pl": "dali",
+        "past_f_pl": "dale",
+        "past_n_pl": "dala",
+        "pass_part_m_sg": "dat",
+        "pass_part_f_sg": "data",
+        "pass_part_n_sg": "dato",
+        "pass_part_m_pl": "dati",
+        "pass_part_f_pl": "date",
+        "pass_part_n_pl": "data",
+        "pres_adv_part": "dajući",
+        "past_adv_part": "davši"
+      }
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
@@ -2947,33 +2977,53 @@
       },
       {
         "form_tag": "past_m_sg",
-        "term": "dosao"
+        "term": "došao"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "dosla"
+        "term": "došla"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "doslo"
+        "term": "došlo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "dosli"
+        "term": "došli"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "dosle"
+        "term": "došle"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "dosla"
+        "term": "došla"
       }
     ],
     "grammar_metadata": {
-      "past_stem": "dos",
+      "past_stem": "doš",
       "present_conjugation_class": "e-verb",
-      "present_stem": "dođ"
+      "present_stem": "dođ",
+      "no_passive_participle": true,
+      "irregular_forms": {
+        "pres_1sg": "dođem",
+        "pres_2sg": "dođeš",
+        "pres_3sg": "dođe",
+        "pres_1pl": "dođemo",
+        "pres_2pl": "dođete",
+        "pres_3pl": "dođu",
+        "imp_2sg": "dođi",
+        "imp_1pl": "dođimo",
+        "imp_2pl": "dođite",
+        "past_m_sg": "došao",
+        "past_f_sg": "došla",
+        "past_n_sg": "došlo",
+        "past_m_pl": "došli",
+        "past_f_pl": "došle",
+        "past_n_pl": "došla",
+        "pres_adv_part": "dolazeći",
+        "past_adv_part": "došavši"
+      }
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
@@ -4095,7 +4145,8 @@
     "translations": [
       "to look at"
     ],
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "term": "godina",
@@ -4299,7 +4350,8 @@
     "translations": [
       "to talk"
     ],
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "animate": false,
@@ -4552,8 +4604,20 @@
         "pres_2pl": "hoćete",
         "pres_2sg": "hoćeš",
         "pres_3pl": "hoće",
-        "pres_3sg": "hoće"
-      }
+        "pres_3sg": "hoće",
+        "imp_2sg": "htej",
+        "imp_1pl": "htejmo",
+        "imp_2pl": "htejte",
+        "past_m_sg": "hteo",
+        "past_f_sg": "htela",
+        "past_n_sg": "htelo",
+        "past_m_pl": "hteli",
+        "past_f_pl": "htele",
+        "past_n_pl": "htela",
+        "pres_adv_part": "hoteći",
+        "past_adv_part": "htevši"
+      },
+      "no_passive_participle": true
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
@@ -4765,7 +4829,8 @@
     "term": "imati",
     "transitive": true,
     "translation": "to have",
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -5008,33 +5073,53 @@
       },
       {
         "form_tag": "past_m_sg",
-        "term": "isao"
+        "term": "išao"
       },
       {
         "form_tag": "past_f_sg",
-        "term": "isla"
+        "term": "išla"
       },
       {
         "form_tag": "past_n_sg",
-        "term": "islo"
+        "term": "išlo"
       },
       {
         "form_tag": "past_m_pl",
-        "term": "isli"
+        "term": "išli"
       },
       {
         "form_tag": "past_f_pl",
-        "term": "isle"
+        "term": "išle"
       },
       {
         "form_tag": "past_n_pl",
-        "term": "isla"
+        "term": "išla"
       }
     ],
     "grammar_metadata": {
-      "past_stem": "is",
+      "past_stem": "iš",
       "present_conjugation_class": "e-verb",
-      "present_stem": "id"
+      "present_stem": "id",
+      "no_passive_participle": true,
+      "irregular_forms": {
+        "pres_1sg": "idem",
+        "pres_2sg": "ideš",
+        "pres_3sg": "ide",
+        "pres_1pl": "idemo",
+        "pres_2pl": "idete",
+        "pres_3pl": "idu",
+        "imp_2sg": "idi",
+        "imp_1pl": "idimo",
+        "imp_2pl": "idite",
+        "past_m_sg": "išao",
+        "past_f_sg": "išla",
+        "past_n_sg": "išlo",
+        "past_m_pl": "išli",
+        "past_f_pl": "išle",
+        "past_n_pl": "išla",
+        "pres_adv_part": "idući",
+        "past_adv_part": "išavši"
+      }
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
@@ -5586,7 +5671,18 @@
     ],
     "grammar_metadata": {
       "past_stem": "je",
-      "present_stem": "jed"
+      "present_stem": "jed",
+      "no_passive_participle": true,
+      "irregular_forms": {
+        "past_m_sg": "jeo",
+        "past_f_sg": "jela",
+        "past_n_sg": "jelo",
+        "past_m_pl": "jeli",
+        "past_f_pl": "jele",
+        "past_n_pl": "jela",
+        "pres_adv_part": "jedući",
+        "past_adv_part": "jevši"
+      }
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
@@ -7379,7 +7475,8 @@
     "translations": [
       "to prepare food"
     ],
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -8506,32 +8603,32 @@
       },
       {
         "form_tag": "comp_nom_sg_m",
-        "term": "lepsi"
+        "term": "lepši"
       },
       {
         "form_tag": "comp_nom_sg_f",
-        "term": "lepsa"
+        "term": "lepša"
       },
       {
         "form_tag": "comp_nom_sg_n",
-        "term": "lepse"
+        "term": "lepše"
       },
       {
         "form_tag": "super_nom_sg_m",
-        "term": "najlepsi"
+        "term": "najlepši"
       },
       {
         "form_tag": "super_nom_sg_f",
-        "term": "najlepsa"
+        "term": "najlepša"
       },
       {
         "form_tag": "super_nom_sg_n",
-        "term": "najlepse"
+        "term": "najlepše"
       }
     ],
     "gender": "masculine",
     "grammar_metadata": {
-      "comparative_stem": "leps"
+      "comparative_stem": "lepš"
     },
     "part_of_speech": "adjective",
     "proficiency_level": 1,
@@ -8655,7 +8752,10 @@
     "translations": [
       "to soar"
     ],
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {
+      "no_passive_participle": true
+    }
   },
   {
     "term": "levo",
@@ -9438,7 +9538,8 @@
     "term": "misliti",
     "transitive": true,
     "translation": "to think",
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "part_of_speech": "preposition",
@@ -9845,7 +9946,10 @@
       "must",
       "to be obliged"
     ],
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {
+      "no_passive_participle": true
+    }
   },
   {
     "animate": false,
@@ -10008,7 +10112,7 @@
       },
       {
         "form_tag": "pres_1sg",
-        "term": "možem"
+        "term": "mogu"
       },
       {
         "form_tag": "pres_2sg",
@@ -10069,11 +10173,28 @@
     ],
     "grammar_metadata": {
       "irregular_forms": {
-        "pres_3pl": "mogu"
+        "pres_3pl": "mogu",
+        "pres_1sg": "mogu",
+        "pres_2sg": "možeš",
+        "pres_3sg": "može",
+        "pres_1pl": "možemo",
+        "pres_2pl": "možete",
+        "past_m_sg": "mogao",
+        "past_f_sg": "mogla",
+        "past_n_sg": "moglo",
+        "past_m_pl": "mogli",
+        "past_f_pl": "mogle",
+        "past_n_pl": "mogla",
+        "imp_2sg": "moži",
+        "imp_1pl": "možimo",
+        "imp_2pl": "možite",
+        "pres_adv_part": "mogući",
+        "past_adv_part": "mogavši"
       },
       "past_stem": "mog",
       "present_conjugation_class": "e-verb",
-      "present_stem": "mož"
+      "present_stem": "mož",
+      "no_passive_participle": true
     },
     "part_of_speech": "verb",
     "proficiency_level": 1,
@@ -10673,7 +10794,8 @@
     "translations": [
       "to wear"
     ],
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -12198,7 +12320,8 @@
       "to unlock",
       "to unseal"
     ],
-    "verb_aspect": "perfective"
+    "verb_aspect": "perfective",
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -13225,7 +13348,23 @@
     ],
     "grammar_metadata": {
       "past_stem": "pek",
-      "present_stem": "peč"
+      "present_stem": "peč",
+      "irregular_forms": {
+        "past_m_sg": "pekao",
+        "past_f_sg": "pekla",
+        "past_n_sg": "peklo",
+        "past_m_pl": "pekli",
+        "past_f_pl": "pekle",
+        "past_n_pl": "pekla",
+        "pass_part_m_sg": "pečen",
+        "pass_part_f_sg": "pečena",
+        "pass_part_n_sg": "pečeno",
+        "pass_part_m_pl": "pečeni",
+        "pass_part_f_pl": "pečene",
+        "pass_part_n_pl": "pečena",
+        "pres_adv_part": "pekući",
+        "past_adv_part": "pekavši"
+      }
     },
     "part_of_speech": "verb",
     "proficiency_level": 3,
@@ -13855,7 +13994,8 @@
       "to weep",
       "to sob"
     ],
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "part_of_speech": "preposition",
@@ -15764,7 +15904,8 @@
     "term": "raditi",
     "transitive": true,
     "translation": "to work",
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "animate": false,
@@ -16076,15 +16217,15 @@
       },
       {
         "form_tag": "imp_2sg",
-        "term": "reči"
+        "term": "reci"
       },
       {
         "form_tag": "imp_1pl",
-        "term": "rečimo"
+        "term": "recimo"
       },
       {
         "form_tag": "imp_2pl",
-        "term": "rečite"
+        "term": "recite"
       },
       {
         "form_tag": "past_m_sg",
@@ -16113,7 +16254,29 @@
     ],
     "grammar_metadata": {
       "irregular_forms": {
-        "pres_3pl": "reku"
+        "pres_3pl": "reku",
+        "pres_1sg": "rečem",
+        "pres_2sg": "rečeš",
+        "pres_3sg": "reče",
+        "pres_1pl": "rečemo",
+        "pres_2pl": "rečete",
+        "past_m_sg": "rekao",
+        "past_f_sg": "rekla",
+        "past_n_sg": "reklo",
+        "past_m_pl": "rekli",
+        "past_f_pl": "rekle",
+        "past_n_pl": "rekla",
+        "imp_2sg": "reci",
+        "imp_1pl": "recimo",
+        "imp_2pl": "recite",
+        "pass_part_m_sg": "rečen",
+        "pass_part_f_sg": "rečena",
+        "pass_part_n_sg": "rečeno",
+        "pass_part_m_pl": "rečeni",
+        "pass_part_f_pl": "rečene",
+        "pass_part_n_pl": "rečena",
+        "pres_adv_part": "rekavši",
+        "past_adv_part": "rekavši"
       },
       "past_stem": "rek",
       "present_conjugation_class": "e-verb",
@@ -16990,10 +17153,18 @@
     ],
     "grammar_metadata": {
       "irregular_forms": {
-        "past_m_sg": "seo"
+        "past_m_sg": "seo",
+        "past_f_sg": "sela",
+        "past_n_sg": "selo",
+        "past_m_pl": "seli",
+        "past_f_pl": "sele",
+        "past_n_pl": "sela",
+        "pres_adv_part": "sedajući",
+        "past_adv_part": "sevši"
       },
       "past_stem": "se",
-      "present_stem": "sedn"
+      "present_stem": "sedn",
+      "no_passive_participle": true
     },
     "part_of_speech": "verb",
     "proficiency_level": 2,
@@ -17241,10 +17412,18 @@
     ],
     "grammar_metadata": {
       "irregular_forms": {
-        "past_m_sg": "sišao"
+        "past_m_sg": "sišao",
+        "past_f_sg": "sišla",
+        "past_n_sg": "sišlo",
+        "past_m_pl": "sišli",
+        "past_f_pl": "sišle",
+        "past_n_pl": "sišla",
+        "pres_adv_part": "silazeći",
+        "past_adv_part": "sišavši"
       },
       "past_stem": "siš",
-      "present_stem": "siđ"
+      "present_stem": "siđ",
+      "no_passive_participle": true
     },
     "part_of_speech": "verb",
     "proficiency_level": 3,
@@ -19011,7 +19190,9 @@
         "term": "spavajte"
       }
     ],
-    "grammar_metadata": {},
+    "grammar_metadata": {
+      "no_passive_participle": true
+    },
     "part_of_speech": "verb",
     "proficiency_level": 1,
     "term": "spavati",
@@ -21365,7 +21546,18 @@
     ],
     "grammar_metadata": {
       "past_stem": "tek",
-      "present_stem": "teč"
+      "present_stem": "teč",
+      "no_passive_participle": true,
+      "irregular_forms": {
+        "past_m_sg": "tekao",
+        "past_f_sg": "tekla",
+        "past_n_sg": "teklo",
+        "past_m_pl": "tekli",
+        "past_f_pl": "tekle",
+        "past_n_pl": "tekla",
+        "pres_adv_part": "tekući",
+        "past_adv_part": "tekavši"
+      }
     },
     "part_of_speech": "verb",
     "proficiency_level": 3,
@@ -22757,7 +22949,8 @@
       }
     ],
     "grammar_metadata": {
-      "present_stem": "trč"
+      "present_stem": "trč",
+      "no_passive_participle": true
     },
     "part_of_speech": "verb",
     "proficiency_level": 2,
@@ -24664,7 +24857,8 @@
     "term": "videti",
     "transitive": true,
     "translation": "to see",
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "term": "viljuška",
@@ -25385,7 +25579,8 @@
     "term": "voleti",
     "transitive": true,
     "translation": "to love",
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "term": "voz",
@@ -25986,7 +26181,8 @@
       "to shut",
       "to seal"
     ],
-    "verb_aspect": "perfective"
+    "verb_aspect": "perfective",
+    "grammar_metadata": {}
   },
   {
     "part_of_speech": "preposition",
@@ -26715,7 +26911,8 @@
     "term": "znati",
     "transitive": true,
     "translation": "to know",
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "term": "ćebe",
@@ -26856,7 +27053,8 @@
     "term": "čekati",
     "transitive": true,
     "translation": "to wait",
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -27155,7 +27353,8 @@
     "term": "čitati",
     "transitive": true,
     "translation": "to read",
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "term": "čorba",
@@ -27587,7 +27786,8 @@
       "to stroll",
       "to walk around"
     ],
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -28550,7 +28750,8 @@
       "to wish",
       "to desire"
     ],
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   },
   {
     "categories": [
@@ -28709,6 +28910,7 @@
       "to reside",
       "to exist"
     ],
-    "verb_aspect": "imperfective"
+    "verb_aspect": "imperfective",
+    "grammar_metadata": {}
   }
 ]

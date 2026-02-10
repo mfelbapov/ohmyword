@@ -89,7 +89,8 @@ defmodule Ohmyword.Linguistics.Verbs do
         generate_passive_participle_forms(
           infinitive_stem,
           word.conjugation_class,
-          irregular_forms
+          irregular_forms,
+          metadata
         ) ++
         generate_adverbial_participle_forms(
           infinitive_stem,
@@ -310,29 +311,39 @@ defmodule Ohmyword.Linguistics.Verbs do
   # Generate passive participle forms (6 forms: m/f/n x sg/pl)
   # Passive participle is formed from infinitive stem + -n or -t suffix
   # Examples: pisati → pisan, nositi → nošen, uzeti → uzet
-  defp generate_passive_participle_forms(infinitive_stem, conjugation_class, irregular_forms) do
-    # Determine the passive participle base (stem + n/t)
-    pass_base = get_passive_participle_base(infinitive_stem, conjugation_class)
+  # Skipped when grammar_metadata has "no_passive_participle" => true
+  defp generate_passive_participle_forms(
+         infinitive_stem,
+         conjugation_class,
+         irregular_forms,
+         metadata
+       ) do
+    if metadata["no_passive_participle"] do
+      []
+    else
+      # Determine the passive participle base (stem + n/t)
+      pass_base = get_passive_participle_base(infinitive_stem, conjugation_class)
 
-    ["m_sg", "f_sg", "n_sg", "m_pl", "f_pl", "n_pl"]
-    |> Enum.map(fn gender_number ->
-      tag = "pass_part_#{gender_number}"
+      ["m_sg", "f_sg", "n_sg", "m_pl", "f_pl", "n_pl"]
+      |> Enum.map(fn gender_number ->
+        tag = "pass_part_#{gender_number}"
 
-      form =
-        if override = Map.get(irregular_forms, tag) do
-          String.downcase(override)
-        else
-          ending = Map.get(@passive_participle_endings, gender_number)
-          pass_base <> ending
-        end
+        form =
+          if override = Map.get(irregular_forms, tag) do
+            String.downcase(override)
+          else
+            ending = Map.get(@passive_participle_endings, gender_number)
+            pass_base <> ending
+          end
 
-      {form, tag}
-    end)
+        {form, tag}
+      end)
+    end
   end
 
   # Get passive participle base (stem + suffix)
   # A-verbs: stem + n (čitati → čita → čitan)
-  # I-verbs: stem + consonant softening + en (nositi → nos → nošen)
+  # I-verbs: strip vowel + iotation + en (nositi → nos → noš → nošen)
   # E-verbs: usually -n for -ati verbs (pisati → pisan), -t for others (uzeti → uzet)
   # JE-verbs: -t for vowel stems (piti → pit), -n for consonant stems
   defp get_passive_participle_base(infinitive_stem, conjugation_class) do
@@ -342,9 +353,13 @@ defmodule Ohmyword.Linguistics.Verbs do
         infinitive_stem <> "n"
 
       "i-verb" ->
-        # I-verbs: apply iotation to stem and add -en
-        # nositi → nos → noš → nošen
-        iotated = SoundChanges.iotate(infinitive_stem)
+        # I-verbs: strip trailing vowel from infinitive stem, apply iotation, add -en
+        # govoriti → govori → govor → govoren
+        # nositi → nosi → nos → noš → nošen
+        # baciti → baci → bac → bač → bačen
+        # misliti → misli → misl → mišlj → mišljen (cluster iotation)
+        consonant_stem = String.slice(infinitive_stem, 0..-2//1)
+        iotated = iotate_with_clusters(consonant_stem)
         iotated <> "en"
 
       "e-verb" ->
@@ -374,6 +389,32 @@ defmodule Ohmyword.Linguistics.Verbs do
       _ ->
         # Default: treat like a-verb
         infinitive_stem <> "n"
+    end
+  end
+
+  # Iotation with cluster support for passive participle formation
+  # Handles two-consonant clusters before falling back to single-consonant iotation
+  defp iotate_with_clusters(stem) do
+    cond do
+      # st → št (pustiti → pušten)
+      String.ends_with?(stem, "st") ->
+        String.slice(stem, 0..-3//1) <> "št"
+
+      # zd → žd (e.g., grozd- → grožd-)
+      String.ends_with?(stem, "zd") ->
+        String.slice(stem, 0..-3//1) <> "žd"
+
+      # sl → šlj (misliti → mišljen)
+      String.ends_with?(stem, "sl") ->
+        String.slice(stem, 0..-3//1) <> "šlj"
+
+      # sn → šnj
+      String.ends_with?(stem, "sn") ->
+        String.slice(stem, 0..-3//1) <> "šnj"
+
+      # Single consonant: use standard iotation
+      true ->
+        SoundChanges.iotate(stem)
     end
   end
 

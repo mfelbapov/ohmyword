@@ -51,6 +51,8 @@ defmodule Ohmyword.Linguistics.SoundChanges do
       "t" -> base <> "ć"
       # glod-j -> glođ
       "d" -> base <> "đ"
+      # bac-j -> bač
+      "c" -> base <> "č"
       # jak-j -> jač
       "k" -> base <> "č"
       # blag-j -> blaž

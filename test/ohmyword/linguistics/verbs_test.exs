@@ -1214,21 +1214,115 @@ defmodule Ohmyword.Linguistics.VerbsTest do
       {:ok, word: word, forms: Verbs.generate_forms(word)}
     end
 
-    test "passive participle masculine singular applies iotation", %{forms: forms} do
-      # govor → govoren (or possibly with iotation: govorjen)
-      # Standard Serbian: govoren
-      pass_m_sg = Enum.find(forms, fn {_, tag} -> tag == "pass_part_m_sg" end)
-      assert pass_m_sg != nil
-      {form, _} = pass_m_sg
-      # The iotation might produce various results depending on implementation
-      assert String.ends_with?(form, "en")
+    test "passive participle masculine singular is govoren", %{forms: forms} do
+      assert {"govoren", "pass_part_m_sg"} in forms
     end
 
-    test "passive participle feminine singular", %{forms: forms} do
-      pass_f_sg = Enum.find(forms, fn {_, tag} -> tag == "pass_part_f_sg" end)
-      assert pass_f_sg != nil
-      {form, _} = pass_f_sg
-      assert String.ends_with?(form, "ena")
+    test "passive participle feminine singular is govorena", %{forms: forms} do
+      assert {"govorena", "pass_part_f_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - passive participle iotation (i-verb: nositi)" do
+    setup do
+      word = %Word{
+        term: "nositi",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "i-verb"
+      }
+
+      {:ok, forms: Verbs.generate_forms(word)}
+    end
+
+    test "applies s→š iotation: nošen", %{forms: forms} do
+      assert {"nošen", "pass_part_m_sg"} in forms
+      assert {"nošena", "pass_part_f_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - passive participle iotation (i-verb: baciti)" do
+    setup do
+      word = %Word{
+        term: "baciti",
+        part_of_speech: :verb,
+        verb_aspect: :perfective,
+        conjugation_class: "i-verb"
+      }
+
+      {:ok, forms: Verbs.generate_forms(word)}
+    end
+
+    test "applies c→č iotation: bačen", %{forms: forms} do
+      assert {"bačen", "pass_part_m_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - passive participle iotation (i-verb: raditi)" do
+    setup do
+      word = %Word{
+        term: "raditi",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "i-verb"
+      }
+
+      {:ok, forms: Verbs.generate_forms(word)}
+    end
+
+    test "applies d→đ iotation: rađen", %{forms: forms} do
+      assert {"rađen", "pass_part_m_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - passive participle iotation (i-verb: videti)" do
+    setup do
+      word = %Word{
+        term: "videti",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "i-verb"
+      }
+
+      {:ok, forms: Verbs.generate_forms(word)}
+    end
+
+    test "applies d→đ iotation for -eti verbs: viđen", %{forms: forms} do
+      assert {"viđen", "pass_part_m_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - passive participle cluster iotation (i-verb: misliti)" do
+    setup do
+      word = %Word{
+        term: "misliti",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "i-verb"
+      }
+
+      {:ok, forms: Verbs.generate_forms(word)}
+    end
+
+    test "applies sl→šlj cluster iotation: mišljen", %{forms: forms} do
+      assert {"mišljen", "pass_part_m_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - passive participle cluster iotation (i-verb: pustiti)" do
+    setup do
+      word = %Word{
+        term: "pustiti",
+        part_of_speech: :verb,
+        verb_aspect: :perfective,
+        conjugation_class: "i-verb"
+      }
+
+      {:ok, forms: Verbs.generate_forms(word)}
+    end
+
+    test "applies st→št cluster iotation: pušten", %{forms: forms} do
+      assert {"pušten", "pass_part_m_sg"} in forms
     end
   end
 
@@ -1312,6 +1406,40 @@ defmodule Ohmyword.Linguistics.VerbsTest do
       assert {"uzet", "pass_part_m_sg"} in forms
       assert {"uzeta", "pass_part_f_sg"} in forms
       assert {"uzeto", "pass_part_n_sg"} in forms
+    end
+  end
+
+  describe "generate_forms/1 - no_passive_participle flag" do
+    setup do
+      word = %Word{
+        term: "spavati",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        conjugation_class: "a-verb",
+        grammar_metadata: %{"no_passive_participle" => true}
+      }
+
+      {:ok, forms: Verbs.generate_forms(word)}
+    end
+
+    test "skips passive participle forms when flag is set", %{forms: forms} do
+      tags = Enum.map(forms, fn {_, tag} -> tag end)
+      refute "pass_part_m_sg" in tags
+      refute "pass_part_f_sg" in tags
+      refute "pass_part_n_sg" in tags
+      refute "pass_part_m_pl" in tags
+      refute "pass_part_f_pl" in tags
+      refute "pass_part_n_pl" in tags
+    end
+
+    test "returns 18 forms (24 - 6 passive)", %{forms: forms} do
+      assert length(forms) == 18
+    end
+
+    test "still generates adverbial participles", %{forms: forms} do
+      tags = Enum.map(forms, fn {_, tag} -> tag end)
+      assert "pres_adv_part" in tags
+      assert "past_adv_part" in tags
     end
   end
 
