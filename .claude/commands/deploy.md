@@ -1,4 +1,5 @@
 ---
+name: deploy
 description: Deploys the application to production
 ---
 
