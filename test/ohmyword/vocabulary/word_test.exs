@@ -194,7 +194,7 @@ defmodule Ohmyword.Vocabulary.WordTest do
       assert changeset.valid?
     end
 
-    test "grammar_metadata accepts arbitrary maps" do
+    test "grammar_metadata validates noun metadata" do
       attrs = %{
         term: "pas",
         translation: "dog",
@@ -209,6 +209,76 @@ defmodule Ohmyword.Vocabulary.WordTest do
 
       changeset = Word.changeset(%Word{}, attrs)
       assert changeset.valid?
+    end
+
+    test "grammar_metadata strips unknown fields" do
+      attrs = %{
+        term: "pas",
+        translation: "dog",
+        part_of_speech: :noun,
+        gender: :masculine,
+        animate: true,
+        grammar_metadata: %{"fleeting_a" => true, "fake_field" => 42}
+      }
+
+      changeset = Word.changeset(%Word{}, attrs)
+      assert changeset.valid?
+      metadata = Ecto.Changeset.get_change(changeset, :grammar_metadata)
+      assert metadata == %{"fleeting_a" => true}
+    end
+
+    test "grammar_metadata rejects invalid types" do
+      attrs = %{
+        term: "pas",
+        translation: "dog",
+        part_of_speech: :noun,
+        gender: :masculine,
+        animate: true,
+        grammar_metadata: %{"fleeting_a" => "not_a_bool"}
+      }
+
+      changeset = Word.changeset(%Word{}, attrs)
+      refute changeset.valid?
+      assert errors_on(changeset).grammar_metadata
+    end
+
+    test "grammar_metadata rejects non-empty map for conjunction" do
+      attrs = %{
+        term: "i",
+        translation: "and",
+        part_of_speech: :conjunction,
+        grammar_metadata: %{"some_field" => true}
+      }
+
+      changeset = Word.changeset(%Word{}, attrs)
+      refute changeset.valid?
+      assert errors_on(changeset).grammar_metadata
+    end
+
+    test "grammar_metadata allows empty map for conjunction" do
+      attrs = %{
+        term: "i",
+        translation: "and",
+        part_of_speech: :conjunction,
+        grammar_metadata: %{}
+      }
+
+      changeset = Word.changeset(%Word{}, attrs)
+      assert changeset.valid?
+    end
+
+    test "grammar_metadata validates verb enum field" do
+      attrs = %{
+        term: "pisati",
+        translation: "to write",
+        part_of_speech: :verb,
+        verb_aspect: :imperfective,
+        grammar_metadata: %{"present_conjugation_class" => "invalid"}
+      }
+
+      changeset = Word.changeset(%Word{}, attrs)
+      refute changeset.valid?
+      assert errors_on(changeset).grammar_metadata
     end
 
     test "categories array is valid" do
