@@ -11,6 +11,7 @@ defmodule OhmywordWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug :fetch_current_scope_for_user
+    plug OhmywordWeb.Plugs.AppInfo
   end
 
   pipeline :api do
@@ -27,6 +28,7 @@ defmodule OhmywordWeb.Router do
     plug :fetch_current_scope_for_user
     plug :require_authenticated_user
     plug OhmywordWeb.Plugs.RequireAdmin
+    plug OhmywordWeb.Plugs.AppInfo
   end
 
   scope "/", OhmywordWeb do

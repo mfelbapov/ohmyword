@@ -164,6 +164,13 @@ defmodule Ohmyword.Vocabulary do
     |> Enum.sort()
   end
 
+  @doc """
+  Returns the total number of words in the vocabulary.
+  """
+  def count_words do
+    Repo.aggregate(Word, :count)
+  end
+
   # Private functions
 
   defp maybe_regenerate_search_terms({:ok, word}) do
