@@ -241,6 +241,9 @@ The script:
 - **Missing from engine**: Seed has a form the engine doesn't generate — engine gap
 - **Extra from engine**: Engine generates a form not in seed — usually informational (seed was incomplete)
 
+> [!NOTE]
+> If a word has massive discrepancies or the engine produces wild results, check if the seed `term` itself is a valid dictionary form (e.g., nominative singular vs plural). If invalid, flag it as "Invalid seed term".
+
 ---
 
 ## Flow B — LLM-Assisted Comparison (words WITHOUT seed forms)
@@ -269,6 +272,13 @@ end)
 ```
 
 **Note:** Many of the ~181 words without forms are invariables (prepositions, conjunctions, interjections, particles). These are trivial — the engine should return a single `{"term", "invariable"}` form. Focus manual effort on nouns, verbs, adjectives, and pronouns.
+
+### Step 1.5 — Validate Dictionary Form
+
+Check if each word's `term` is the dictionary headword (infinitive/nominative singular).
+
+- **If YES:** Proceed to Step 2.
+- **If NO:** Do NOT generate forms. Add the word to `docs/existing_words_to check.md` with the reason "**Invalid seed term: not in dictionary form**" and skip to the next word.
 
 ### Step 2 — Claude Generates Expected Forms
 
