@@ -195,7 +195,7 @@ defmodule Ohmyword.VocabularyTest do
     end
   end
 
-  describe "list_available_categories/0" do
+  describe "list_available_categories/1" do
     test "returns empty list when no words exist" do
       assert Vocabulary.list_available_categories() == []
     end
@@ -214,6 +214,39 @@ defmodule Ohmyword.VocabularyTest do
       word_fixture(%{categories: ["Actions & Processes"]})
 
       assert Vocabulary.list_available_categories() == ["Actions & Processes"]
+    end
+
+    test "filters categories by part_of_speech" do
+      noun_fixture(%{categories: ["Food & Drink"]})
+      verb_fixture(%{categories: ["Actions & Activities"]})
+
+      assert Vocabulary.list_available_categories(part_of_speech: :noun) == ["Food & Drink"]
+
+      assert Vocabulary.list_available_categories(part_of_speech: :verb) == [
+               "Actions & Activities"
+             ]
+    end
+
+    test "returns empty list for POS with no categories" do
+      word_fixture(%{part_of_speech: :conjunction, categories: []})
+
+      assert Vocabulary.list_available_categories(part_of_speech: :conjunction) == []
+    end
+  end
+
+  describe "list_available_parts_of_speech/1 with category filter" do
+    test "filters POS by category" do
+      noun_fixture(%{categories: ["Food & Drink"]})
+      verb_fixture(%{categories: ["Actions & Activities"]})
+
+      assert Vocabulary.list_available_parts_of_speech(category: "Food & Drink") == [:noun]
+    end
+
+    test "returns all POS when no category filter" do
+      noun_fixture()
+      verb_fixture()
+
+      assert Vocabulary.list_available_parts_of_speech() == [:noun, :verb]
     end
   end
 

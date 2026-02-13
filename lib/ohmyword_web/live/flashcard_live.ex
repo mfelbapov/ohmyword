@@ -202,7 +202,11 @@ defmodule OhmywordWeb.FlashcardLive do
         pos -> String.to_existing_atom(pos)
       end
 
-    socket = assign(socket, pos_filter: pos_filter)
+    socket =
+      socket
+      |> assign(pos_filter: pos_filter)
+      |> update_available_options()
+
     word = get_filtered_word(socket)
 
     {:noreply,
@@ -212,13 +216,28 @@ defmodule OhmywordWeb.FlashcardLive do
   end
 
   def handle_event("filter_category", %{"category" => cat_value}, socket) do
-    socket = assign(socket, category_filter: cat_value)
+    socket =
+      socket
+      |> assign(category_filter: cat_value)
+      |> update_available_options()
+
     word = get_filtered_word(socket)
 
     {:noreply,
      socket
      |> assign(current_word: word)
      |> assign(flipped: false)}
+  end
+
+  defp update_available_options(socket) do
+    %{pos_filter: pos, category_filter: cat} = socket.assigns
+
+    pos_opts = if cat != "all", do: [category: cat], else: []
+    cat_opts = if pos != :all, do: [part_of_speech: pos], else: []
+
+    socket
+    |> assign(available_pos: Vocabulary.list_available_parts_of_speech(pos_opts))
+    |> assign(available_categories: Vocabulary.list_available_categories(cat_opts))
   end
 
   defp get_filtered_word(socket) do

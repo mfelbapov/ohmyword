@@ -332,5 +332,49 @@ defmodule OhmywordWeb.FlashcardLiveTest do
       assert html =~ "No Verb words in Food &amp; Drink"
       assert html =~ "No words match the current filters"
     end
+
+    test "category dropdown shows 'No categories' for POS without categories", %{conn: conn} do
+      word_fixture(%{
+        part_of_speech: :conjunction,
+        term: "ali",
+        translation: "but",
+        categories: []
+      })
+
+      noun_fixture(%{term: "hleb", categories: ["Food & Drink"]})
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      html =
+        view
+        |> element("form[phx-change=filter_pos]")
+        |> render_change(%{"pos" => "conjunction"})
+
+      assert html =~ "No categories"
+      refute html =~ "Food &amp; Drink"
+    end
+
+    test "POS dropdown narrows when category is selected", %{conn: conn} do
+      noun_fixture(%{term: "hleb", categories: ["Food & Drink"]})
+      verb_fixture(%{term: "jesti", categories: ["Food & Drink"]})
+
+      word_fixture(%{
+        part_of_speech: :conjunction,
+        term: "ali",
+        translation: "but",
+        categories: []
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      html =
+        view
+        |> element("form[phx-change=filter_category]")
+        |> render_change(%{"category" => "Food & Drink"})
+
+      assert html =~ "Noun"
+      assert html =~ "Verb"
+      refute html =~ "Conjunction"
+    end
   end
 end

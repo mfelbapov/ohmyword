@@ -156,8 +156,9 @@ defmodule Ohmyword.Vocabulary do
       iex> Vocabulary.list_available_parts_of_speech()
       [:adjective, :noun, :verb]
   """
-  def list_available_parts_of_speech do
+  def list_available_parts_of_speech(opts \\ []) do
     Word
+    |> apply_filters(opts)
     |> select([w], w.part_of_speech)
     |> distinct(true)
     |> Repo.all()
@@ -166,14 +167,23 @@ defmodule Ohmyword.Vocabulary do
 
   @doc """
   Returns a sorted list of distinct categories that appear in any word.
+  Accepts optional filters to narrow results.
+
+  ## Options
+
+    * `:part_of_speech` - Only return categories for words of this type
 
   ## Examples
 
       iex> Vocabulary.list_available_categories()
-      ["Abstract & Academic", "Actions & Processes", "Food & Drink"]
+      ["Actions & Activities", "Food & Drink", "Nature & Animals"]
+
+      iex> Vocabulary.list_available_categories(part_of_speech: :conjunction)
+      []
   """
-  def list_available_categories do
+  def list_available_categories(opts \\ []) do
     Word
+    |> apply_filters(opts)
     |> select([w], fragment("DISTINCT unnest(?)", w.categories))
     |> Repo.all()
     |> Enum.sort()

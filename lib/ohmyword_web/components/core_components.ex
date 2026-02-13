@@ -652,10 +652,14 @@ defmodule OhmywordWeb.CoreComponents do
         class="rounded-md border-0 bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
       >
         <option value="all" selected={@category_filter == "all"}>All categories</option>
-        <%= for cat <- @available_categories do %>
-          <option value={cat} selected={@category_filter == cat}>
-            {cat}
-          </option>
+        <%= if @available_categories == [] do %>
+          <option value="none" disabled>No categories</option>
+        <% else %>
+          <%= for cat <- @available_categories do %>
+            <option value={cat} selected={@category_filter == cat}>
+              {cat}
+            </option>
+          <% end %>
         <% end %>
       </select>
     </form>
