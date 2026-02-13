@@ -164,6 +164,21 @@ defmodule Ohmyword.Vocabulary do
     |> Enum.sort()
   end
 
+  @doc """
+  Returns a sorted list of distinct categories that appear in any word.
+
+  ## Examples
+
+      iex> Vocabulary.list_available_categories()
+      ["Abstract & Academic", "Actions & Processes", "Food & Drink"]
+  """
+  def list_available_categories do
+    Word
+    |> select([w], fragment("DISTINCT unnest(?)", w.categories))
+    |> Repo.all()
+    |> Enum.sort()
+  end
+
   # Private functions
 
   defp maybe_regenerate_search_terms({:ok, word}) do
@@ -180,6 +195,9 @@ defmodule Ohmyword.Vocabulary do
 
       {:proficiency_level, level}, query ->
         where(query, [w], w.proficiency_level == ^level)
+
+      {:category, cat}, query ->
+        where(query, [w], ^cat in w.categories)
 
       _, query ->
         query

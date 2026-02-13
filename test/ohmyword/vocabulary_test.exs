@@ -194,4 +194,53 @@ defmodule Ohmyword.VocabularyTest do
       assert Ohmyword.Repo.get(Ohmyword.Search.SearchTerm, search_term.id) == nil
     end
   end
+
+  describe "list_available_categories/0" do
+    test "returns empty list when no words exist" do
+      assert Vocabulary.list_available_categories() == []
+    end
+
+    test "returns distinct sorted categories" do
+      word_fixture(%{categories: ["Food & Drink", "Nature & Environment"]})
+      word_fixture(%{categories: ["Food & Drink", "People & Relationships"]})
+
+      categories = Vocabulary.list_available_categories()
+
+      assert categories == ["Food & Drink", "Nature & Environment", "People & Relationships"]
+    end
+
+    test "excludes words with empty categories" do
+      word_fixture(%{categories: []})
+      word_fixture(%{categories: ["Actions & Processes"]})
+
+      assert Vocabulary.list_available_categories() == ["Actions & Processes"]
+    end
+  end
+
+  describe "get_random_word/1 with category filter" do
+    test "filters by category" do
+      word_fixture(%{term: "hleb", categories: ["Food & Drink"]})
+      word_fixture(%{term: "pas", categories: ["Nature & Environment"]})
+
+      word = Vocabulary.get_random_word(category: "Food & Drink")
+
+      assert word.term == "hleb"
+    end
+
+    test "returns nil when no words match category" do
+      word_fixture(%{categories: ["Food & Drink"]})
+
+      assert Vocabulary.get_random_word(category: "Abstract & Academic") == nil
+    end
+
+    test "combined part_of_speech and category filter" do
+      noun_fixture(%{term: "hleb", categories: ["Food & Drink"]})
+      verb_fixture(%{term: "jesti", categories: ["Food & Drink"]})
+      noun_fixture(%{term: "kuca", categories: ["Nature & Environment"]})
+
+      word = Vocabulary.get_random_word(part_of_speech: :noun, category: "Food & Drink")
+
+      assert word.term == "hleb"
+    end
+  end
 end

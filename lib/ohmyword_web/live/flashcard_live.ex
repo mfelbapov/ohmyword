@@ -27,6 +27,10 @@ defmodule OhmywordWeb.FlashcardLive do
       <div class="mt-6 flex items-center justify-between gap-2">
         <.direction_toggle direction_mode={@direction_mode} />
         <.pos_filter pos_filter={@pos_filter} available_pos={@available_pos} />
+        <.category_filter
+          category_filter={@category_filter}
+          available_categories={@available_categories}
+        />
         <.script_toggle script_mode={@script_mode} />
       </div>
 
@@ -134,10 +138,10 @@ defmodule OhmywordWeb.FlashcardLive do
         <div class="mt-8 rounded-lg border-2 border-dashed border-zinc-300 p-12 text-center dark:border-zinc-700">
           <.icon name="hero-book-open" class="mx-auto h-12 w-12 text-zinc-400" />
           <h3 class="mt-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
-            {empty_state_title(@pos_filter)}
+            {empty_state_title(@pos_filter, @category_filter)}
           </h3>
           <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-            {empty_state_message(@pos_filter)}
+            {empty_state_message(@pos_filter, @category_filter)}
           </p>
         </div>
       <% end %>
@@ -157,7 +161,9 @@ defmodule OhmywordWeb.FlashcardLive do
      |> assign(script_mode: :latin)
      |> assign(direction_mode: :serbian_to_english)
      |> assign(pos_filter: :all)
-     |> assign(available_pos: Vocabulary.list_available_parts_of_speech())}
+     |> assign(available_pos: Vocabulary.list_available_parts_of_speech())
+     |> assign(category_filter: "all")
+     |> assign(available_categories: Vocabulary.list_available_categories())}
   end
 
   @impl true
@@ -166,7 +172,7 @@ defmodule OhmywordWeb.FlashcardLive do
   end
 
   def handle_event("next", _params, socket) do
-    word = get_filtered_word(socket.assigns.pos_filter)
+    word = get_filtered_word(socket)
     history = [socket.assigns.current_word | socket.assigns.history]
     {:noreply, socket |> assign(current_word: word, history: history, flipped: false)}
   end
@@ -196,26 +202,54 @@ defmodule OhmywordWeb.FlashcardLive do
         pos -> String.to_existing_atom(pos)
       end
 
-    word = get_filtered_word(pos_filter)
+    socket = assign(socket, pos_filter: pos_filter)
+    word = get_filtered_word(socket)
 
     {:noreply,
      socket
-     |> assign(pos_filter: pos_filter)
      |> assign(current_word: word)
      |> assign(flipped: false)}
   end
 
-  defp get_filtered_word(:all), do: Vocabulary.get_random_word()
-  defp get_filtered_word(pos), do: Vocabulary.get_random_word(part_of_speech: pos)
+  def handle_event("filter_category", %{"category" => cat_value}, socket) do
+    socket = assign(socket, category_filter: cat_value)
+    word = get_filtered_word(socket)
 
-  defp empty_state_title(:all), do: "No vocabulary"
+    {:noreply,
+     socket
+     |> assign(current_word: word)
+     |> assign(flipped: false)}
+  end
 
-  defp empty_state_title(pos),
-    do: "No #{Phoenix.Naming.humanize(pos)} words"
+  defp get_filtered_word(socket) do
+    opts = build_filter_opts(socket.assigns)
+    Vocabulary.get_random_word(opts)
+  end
 
-  defp empty_state_message(:all),
+  defp build_filter_opts(assigns) do
+    opts = []
+
+    opts =
+      if assigns.pos_filter != :all,
+        do: [{:part_of_speech, assigns.pos_filter} | opts],
+        else: opts
+
+    opts =
+      if assigns.category_filter != "all",
+        do: [{:category, assigns.category_filter} | opts],
+        else: opts
+
+    opts
+  end
+
+  defp empty_state_title(:all, "all"), do: "No vocabulary"
+  defp empty_state_title(:all, cat), do: "No #{cat} words"
+  defp empty_state_title(pos, "all"), do: "No #{Phoenix.Naming.humanize(pos)} words"
+  defp empty_state_title(pos, cat), do: "No #{Phoenix.Naming.humanize(pos)} words in #{cat}"
+
+  defp empty_state_message(:all, "all"),
     do: "No words in the database. Run seeds to populate vocabulary."
 
-  defp empty_state_message(_pos),
-    do: "No words match the current filter. Try a different type."
+  defp empty_state_message(_pos, _cat),
+    do: "No words match the current filters. Try a different combination."
 end
