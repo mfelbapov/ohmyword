@@ -166,6 +166,13 @@ defmodule Ohmyword.Vocabulary do
   end
 
   @doc """
+  Returns the total number of words in the vocabulary.
+  """
+  def count_words do
+    Repo.aggregate(Word, :count)
+  end
+
+  @doc """
   Returns a sorted list of distinct categories that appear in any word.
   Accepts optional filters to narrow results.
 

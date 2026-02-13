@@ -43,7 +43,7 @@
       })();
     </script>
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen">
     <nav class="px-4 pt-4 sm:px-6 lg:px-8">
       <ul class="relative z-10 flex items-center gap-4 justify-end mx-auto max-w-2xl">
         <%!-- DO NOT REMOVE
@@ -133,6 +133,13 @@
       --%>
       </ul>
     </nav>
-    {@inner_content}
+    <div class="flex-1 mt-8">
+      {@inner_content}
+    </div>
+    <footer class="px-4 py-6 text-center">
+      <span class="text-xs text-orange-800 dark:text-orange-200">
+        {@app_version} · {@word_count} words
+      </span>
+    </footer>
   </body>
 </html>
