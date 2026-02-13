@@ -39,7 +39,9 @@
       "Bash(fly ssh console:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(mix precommit:*)"
+      "Bash(mix precommit:*)",
+      "Bash(git push:*)",
+      "Bash(mix run:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"
