@@ -2,8 +2,7 @@
   {
     "animate": false,
     "categories": [
-      "places",
-      "travel"
+      "Places & Travel"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -72,9 +71,7 @@
     "translation": "airport"
   },
   {
-    "categories": [
-      "encouragement"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -91,10 +88,7 @@
     ]
   },
   {
-    "categories": [
-      "grammar",
-      "conjunctions"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -108,8 +102,8 @@
   },
   {
     "categories": [
-      "places",
-      "health"
+      "Places & Travel",
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -183,7 +177,7 @@
   {
     "animate": false,
     "categories": [
-      "transport"
+      "Places & Travel"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -274,7 +268,7 @@
   {
     "animate": false,
     "categories": [
-      "transport"
+      "Places & Travel"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -345,7 +339,7 @@
   {
     "animate": false,
     "categories": [
-      "transport"
+      "Places & Travel"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -418,8 +412,7 @@
   },
   {
     "categories": [
-      "actions",
-      "sports"
+      "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
     "example_sentence_en": "Throw me the ball.",
@@ -504,8 +497,8 @@
   },
   {
     "categories": [
-      "places",
-      "finance"
+      "Places & Travel",
+      "Actions & Activities"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -574,9 +567,7 @@
     "translation": "bank"
   },
   {
-    "categories": [
-      "emphasis"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -595,7 +586,7 @@
   },
   {
     "categories": [
-      "colors"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -650,7 +641,7 @@
   },
   {
     "categories": [
-      "colors"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -669,6 +660,7 @@
     "usage_notes": "Foreign adjective, does not decline"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -683,8 +675,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "spices"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -757,8 +748,8 @@
   },
   {
     "categories": [
-      "places",
-      "education"
+      "Places & Travel",
+      "Actions & Activities"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -828,8 +819,7 @@
   },
   {
     "categories": [
-      "grammar",
-      "auxiliaries"
+      "Actions & Activities"
     ],
     "conjugation_class": "irregular",
     "example_sentence_en": "I am a student.",
@@ -927,8 +917,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "color"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -1277,8 +1266,8 @@
   },
   {
     "categories": [
-      "location",
-      "distance"
+      "Places & Travel",
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -1307,6 +1296,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -1323,7 +1313,7 @@
   },
   {
     "categories": [
-      "emotions"
+      "Description & Emotion"
     ],
     "conjugation_class": "i-verb",
     "forms": [
@@ -1409,8 +1399,8 @@
   },
   {
     "categories": [
-      "places",
-      "health"
+      "Places & Travel",
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -1481,8 +1471,7 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "family"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -1562,7 +1551,7 @@
   },
   {
     "categories": [
-      "food"
+      "Food & Drink"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -1631,9 +1620,7 @@
     "translation": "flour"
   },
   {
-    "categories": [
-      "emphasis"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -1653,8 +1640,8 @@
   {
     "animate": false,
     "categories": [
-      "transport",
-      "sea"
+      "Places & Travel",
+      "Nature & Animals"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -1725,8 +1712,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "speed"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -2078,8 +2064,7 @@
   },
   {
     "categories": [
-      "description",
-      "manner"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -2110,7 +2095,7 @@
   },
   {
     "categories": [
-      "shopping"
+      "Actions & Activities"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -2183,8 +2168,8 @@
   },
   {
     "categories": [
-      "places",
-      "religion"
+      "Places & Travel",
+      "Actions & Activities"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -2258,7 +2243,7 @@
   },
   {
     "categories": [
-      "colors"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -2285,10 +2270,7 @@
     "translation": "black"
   },
   {
-    "categories": [
-      "grammar",
-      "particles"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -2306,8 +2288,8 @@
   },
   {
     "categories": [
-      "location",
-      "distance"
+      "Places & Travel",
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -2338,7 +2320,7 @@
   {
     "animate": false,
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -2418,7 +2400,7 @@
   },
   {
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -2434,7 +2416,7 @@
   },
   {
     "categories": [
-      "actions"
+      "Actions & Activities"
     ],
     "conjugation_class": "irregular",
     "forms": [
@@ -2543,8 +2525,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "size"
+      "Description & Emotion"
     ],
     "example_sentence_en": "The cat is fat.",
     "example_sentence_rs": "Macka je debela.",
@@ -2898,7 +2879,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -2918,8 +2899,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -2953,7 +2933,7 @@
   },
   {
     "categories": [
-      "direction"
+      "Places & Travel"
     ],
     "forms": [
       {
@@ -2972,8 +2952,7 @@
   },
   {
     "categories": [
-      "people",
-      "family"
+      "People & Family"
     ],
     "declension_class": "e-stem",
     "example_sentence_en": "The child is playing in the park.",
@@ -3057,7 +3036,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -3076,7 +3055,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -3095,8 +3074,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -3130,7 +3108,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -3149,8 +3127,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -3184,7 +3161,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -3204,8 +3181,7 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "family"
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "The girl reads a book.",
@@ -3279,6 +3255,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -3293,8 +3270,8 @@
   {
     "animate": true,
     "categories": [
-      "nature",
-      "description"
+      "Nature & Animals",
+      "Description & Emotion"
     ],
     "example_sentence_en": "We saw a wild bear.",
     "example_sentence_rs": "Videli smo divljeg medveda.",
@@ -3482,10 +3459,7 @@
     ]
   },
   {
-    "categories": [
-      "grammar",
-      "prepositions"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -3507,8 +3481,7 @@
   },
   {
     "categories": [
-      "description",
-      "quality"
+      "Description & Emotion"
     ],
     "example_sentence_en": "He is a good man.",
     "example_sentence_rs": "On je dobar covek.",
@@ -3567,8 +3540,7 @@
   },
   {
     "categories": [
-      "description",
-      "manner"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -3598,9 +3570,7 @@
     ]
   },
   {
-    "categories": [
-      "time"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -3619,8 +3589,7 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "health"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -3693,8 +3662,7 @@
   },
   {
     "categories": [
-      "location",
-      "direction"
+      "Places & Travel"
     ],
     "forms": [
       {
@@ -3714,8 +3682,7 @@
   },
   {
     "categories": [
-      "movement",
-      "actions"
+      "Actions & Activities"
     ],
     "conjugation_class": "irregular",
     "forms": [
@@ -3820,8 +3787,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "emotions"
+      "Description & Emotion"
     ],
     "example_sentence_en": "He is dear to me.",
     "example_sentence_rs": "On mi je drag.",
@@ -4175,8 +4141,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -4359,8 +4324,7 @@
   },
   {
     "categories": [
-      "nature",
-      "plants"
+      "Nature & Animals"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -4447,8 +4411,7 @@
   },
   {
     "categories": [
-      "description",
-      "size"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -4503,8 +4466,7 @@
   },
   {
     "categories": [
-      "clothing",
-      "everyday"
+      "Home & Daily Life"
     ],
     "declension_class": "e-stem",
     "forms": [
@@ -4575,6 +4537,7 @@
     "translation": "button"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -4588,7 +4551,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -4640,7 +4603,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -4659,7 +4622,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -4678,8 +4641,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -4713,7 +4675,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -4731,9 +4693,7 @@
     "translation": "two hundred"
   },
   {
-    "categories": [
-      "greeting"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -4750,9 +4710,7 @@
     ]
   },
   {
-    "categories": [
-      "demonstrative"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -4771,8 +4729,7 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "appliances"
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -4845,7 +4802,7 @@
   },
   {
     "categories": [
-      "body"
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -4914,8 +4871,8 @@
   },
   {
     "categories": [
-      "perception",
-      "actions"
+      "Description & Emotion",
+      "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
     "forms": [
@@ -4998,7 +4955,7 @@
   },
   {
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -5068,8 +5025,7 @@
   },
   {
     "categories": [
-      "location",
-      "direction"
+      "Places & Travel"
     ],
     "forms": [
       {
@@ -5090,8 +5046,7 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "social"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "Guests are coming tonight.",
@@ -5176,7 +5131,7 @@
   },
   {
     "categories": [
-      "communication"
+      "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
     "example_sentence_en": "I speak Serbian.",
@@ -5262,8 +5217,7 @@
   {
     "animate": false,
     "categories": [
-      "places",
-      "geography"
+      "Places & Travel"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -5333,8 +5287,7 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "society"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -5405,9 +5358,7 @@
     "translation": "citizen"
   },
   {
-    "categories": [
-      "greeting"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -5422,7 +5373,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -5441,8 +5392,8 @@
   },
   {
     "categories": [
-      "description",
-      "weather"
+      "Description & Emotion",
+      "Nature & Animals"
     ],
     "forms": [
       {
@@ -5793,8 +5744,7 @@
   },
   {
     "categories": [
-      "description",
-      "temperature"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -5826,7 +5776,7 @@
   {
     "animate": false,
     "categories": [
-      "food"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -5896,8 +5846,7 @@
   },
   {
     "categories": [
-      "grammar",
-      "auxiliaries"
+      "Actions & Activities"
     ],
     "conjugation_class": "irregular",
     "example_sentence_en": "I want to eat.",
@@ -5987,10 +5936,7 @@
     "verb_aspect": "imperfective"
   },
   {
-    "categories": [
-      "greetings",
-      "politeness"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -6007,10 +5953,7 @@
     ]
   },
   {
-    "categories": [
-      "grammar",
-      "conjunctions"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -6024,8 +5967,7 @@
   },
   {
     "categories": [
-      "leisure",
-      "sport"
+      "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
     "forms": [
@@ -6102,10 +6044,7 @@
     "verb_aspect": "imperfective"
   },
   {
-    "categories": [
-      "grammar",
-      "conjunctions"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -6119,8 +6058,7 @@
   },
   {
     "categories": [
-      "grammar",
-      "actions"
+      "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
     "forms": [
@@ -6200,8 +6138,8 @@
   },
   {
     "categories": [
-      "abstract",
-      "people"
+      "Description & Emotion",
+      "People & Family"
     ],
     "declension_class": "e-stem",
     "forms": [
@@ -6275,9 +6213,7 @@
     "translation": "name"
   },
   {
-    "categories": [
-      "location"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -6295,9 +6231,7 @@
     ]
   },
   {
-    "categories": [
-      "location"
-    ],
+    "categories": [],
     "example_sentence_en": "Stand in front of the school.",
     "example_sentence_rs": "Stani ispred škole.",
     "forms": [
@@ -6316,6 +6250,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -6331,9 +6266,7 @@
     ]
   },
   {
-    "categories": [
-      "location"
-    ],
+    "categories": [],
     "example_sentence_en": "The cat is behind the house.",
     "example_sentence_rs": "Mačka je iza kuće.",
     "forms": [
@@ -6351,9 +6284,7 @@
     ]
   },
   {
-    "categories": [
-      "location"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -6370,9 +6301,7 @@
     ]
   },
   {
-    "categories": [
-      "location"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -6389,6 +6318,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -6402,8 +6332,7 @@
   },
   {
     "categories": [
-      "movement",
-      "actions"
+      "Actions & Activities"
     ],
     "conjugation_class": "irregular",
     "example_sentence_en": "I am going to school.",
@@ -6508,10 +6437,7 @@
     "verb_aspect": "imperfective"
   },
   {
-    "categories": [
-      "grammar",
-      "pronouns"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -6566,7 +6492,7 @@
   },
   {
     "categories": [
-      "food"
+      "Food & Drink"
     ],
     "declension_class": "e-stem",
     "forms": [
@@ -6647,7 +6573,7 @@
   },
   {
     "categories": [
-      "description"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -6703,8 +6629,7 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "bedroom"
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -6776,7 +6701,7 @@
   },
   {
     "categories": [
-      "communication"
+      "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
     "forms": [
@@ -6858,7 +6783,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -6901,7 +6826,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -6920,8 +6845,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -6955,8 +6879,8 @@
   },
   {
     "categories": [
-      "description",
-      "shopping"
+      "Description & Emotion",
+      "Actions & Activities"
     ],
     "forms": [
       {
@@ -7308,8 +7232,8 @@
   },
   {
     "categories": [
-      "description",
-      "commerce"
+      "Description & Emotion",
+      "Actions & Activities"
     ],
     "forms": [
       {
@@ -7340,8 +7264,8 @@
   },
   {
     "categories": [
-      "food",
-      "everyday"
+      "Food & Drink",
+      "Home & Daily Life"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -7414,9 +7338,7 @@
     ]
   },
   {
-    "categories": [
-      "reason"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -7431,8 +7353,8 @@
   },
   {
     "categories": [
-      "food",
-      "actions"
+      "Food & Drink",
+      "Actions & Activities"
     ],
     "conjugation_class": "e-verb",
     "forms": [
@@ -7527,8 +7449,8 @@
   {
     "animate": false,
     "categories": [
-      "nature",
-      "geography"
+      "Nature & Animals",
+      "Places & Travel"
     ],
     "declension_class": "o-stem",
     "example_sentence_en": "The lake is calm.",
@@ -7603,8 +7525,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "dairy"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -7673,9 +7594,7 @@
     "translation": "yogurt"
   },
   {
-    "categories": [
-      "expression"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -7694,7 +7613,7 @@
   {
     "animate": true,
     "categories": [
-      "people"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -7766,8 +7685,7 @@
   },
   {
     "categories": [
-      "food",
-      "meat"
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -7837,7 +7755,7 @@
   },
   {
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -7907,7 +7825,7 @@
   },
   {
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "example_sentence_en": "Yesterday I was at school.",
     "example_sentence_rs": "Juče sam bio u školi.",
@@ -7926,6 +7844,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -7941,6 +7860,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -7956,9 +7876,7 @@
     ]
   },
   {
-    "categories": [
-      "time"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -7973,8 +7891,7 @@
   },
   {
     "categories": [
-      "food",
-      "drinks"
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -8044,8 +7961,8 @@
   },
   {
     "categories": [
-      "places",
-      "food"
+      "Places & Travel",
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -8119,8 +8036,8 @@
   {
     "animate": false,
     "categories": [
-      "places",
-      "food"
+      "Places & Travel",
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -8194,8 +8111,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "dairy"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -8268,7 +8184,7 @@
   },
   {
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -8284,8 +8200,8 @@
   },
   {
     "categories": [
-      "household",
-      "kitchen"
+      "Home & Daily Life",
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -8356,8 +8272,7 @@
   {
     "animate": false,
     "categories": [
-      "taste",
-      "food"
+      "Food & Drink"
     ],
     "example_sentence_en": "The lemon is sour.",
     "example_sentence_rs": "Limun je kiseo.",
@@ -8711,8 +8626,7 @@
   },
   {
     "categories": [
-      "nature",
-      "weather"
+      "Nature & Animals"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -8783,8 +8697,7 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "everyday"
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "Where is the key?",
@@ -8858,8 +8771,8 @@
   },
   {
     "categories": [
-      "education",
-      "objects"
+      "Actions & Activities",
+      "Home & Daily Life"
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "I am reading an interesting book.",
@@ -8929,11 +8842,7 @@
     "translation": "book"
   },
   {
-    "categories": [
-      "grammar",
-      "pronouns",
-      "questions"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -8971,8 +8880,7 @@
   },
   {
     "categories": [
-      "food",
-      "meat"
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -9041,9 +8949,7 @@
     "translation": "sausage"
   },
   {
-    "categories": [
-      "location"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -9063,8 +8969,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "sweets"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -9139,7 +9044,7 @@
   {
     "animate": false,
     "categories": [
-      "body"
+      "People & Family"
     ],
     "declension_class": "o-stem",
     "example_sentence_en": "My knee hurts.",
@@ -9214,7 +9119,7 @@
   {
     "animate": false,
     "categories": [
-      "quantity"
+      "Description & Emotion"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "Give me a piece of bread.",
@@ -9290,7 +9195,7 @@
   {
     "animate": true,
     "categories": [
-      "people"
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -9364,7 +9269,7 @@
   {
     "animate": true,
     "categories": [
-      "animals"
+      "Nature & Animals"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The horse runs across the field.",
@@ -9450,7 +9355,7 @@
   },
   {
     "categories": [
-      "body"
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -9487,7 +9392,7 @@
   },
   {
     "categories": [
-      "body"
+      "People & Family"
     ],
     "declension_class": "i-stem",
     "forms": [
@@ -9558,6 +9463,7 @@
     "translation": "bone"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -9575,8 +9481,7 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "furniture"
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The bed is comfortable.",
@@ -9650,8 +9555,8 @@
   },
   {
     "categories": [
-      "body",
-      "animals"
+      "People & Family",
+      "Nature & Animals"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -9722,8 +9627,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "vegetables"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -9792,9 +9696,7 @@
     "translation": "potato"
   },
   {
-    "categories": [
-      "direction"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -9809,8 +9711,7 @@
   },
   {
     "categories": [
-      "body",
-      "medicine"
+      "People & Family"
     ],
     "declension_class": "i-stem",
     "forms": [
@@ -9882,8 +9783,8 @@
   },
   {
     "categories": [
-      "places",
-      "housing"
+      "Places & Travel",
+      "Home & Daily Life"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -9953,8 +9854,8 @@
   },
   {
     "categories": [
-      "places",
-      "housing"
+      "Places & Travel",
+      "Home & Daily Life"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -10024,8 +9925,7 @@
   },
   {
     "categories": [
-      "actions",
-      "commerce"
+      "Actions & Activities"
     ],
     "conjugation_class": "je-verb",
     "forms": [
@@ -10108,8 +10008,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "vegetables"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -10179,8 +10078,8 @@
   },
   {
     "categories": [
-      "food",
-      "actions"
+      "Food & Drink",
+      "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
     "example_sentence_en": "Mom is cooking lunch.",
@@ -10264,8 +10163,8 @@
   },
   {
     "categories": [
-      "places",
-      "household"
+      "Places & Travel",
+      "Home & Daily Life"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -10337,7 +10236,7 @@
   },
   {
     "categories": [
-      "communication"
+      "Actions & Activities"
     ],
     "conjugation_class": "je-verb",
     "forms": [
@@ -10419,8 +10318,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "difficulty"
+      "Description & Emotion"
     ],
     "example_sentence_en": "That is an easy task.",
     "example_sentence_rs": "To je lak zadatak.",
@@ -11113,7 +11011,7 @@
   },
   {
     "categories": [
-      "description"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -11142,8 +11040,7 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "furniture"
+      "Home & Daily Life"
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "Turn on the lamp.",
@@ -11218,8 +11115,7 @@
   {
     "animate": true,
     "categories": [
-      "animals",
-      "wildlife"
+      "Nature & Animals"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -11290,8 +11186,7 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "health"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The doctor examines the patient.",
@@ -11365,8 +11260,8 @@
   },
   {
     "categories": [
-      "description",
-      "appearance"
+      "Description & Emotion",
+      "People & Family"
     ],
     "forms": [
       {
@@ -11425,7 +11320,7 @@
   },
   {
     "categories": [
-      "description"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -11456,8 +11351,8 @@
   },
   {
     "categories": [
-      "movement",
-      "nature"
+      "Actions & Activities",
+      "Nature & Animals"
     ],
     "conjugation_class": "i-verb",
     "example_sentence_en": "Birds fly south.",
@@ -11543,7 +11438,7 @@
   },
   {
     "categories": [
-      "direction"
+      "Places & Travel"
     ],
     "forms": [
       {
@@ -11561,9 +11456,7 @@
     ]
   },
   {
-    "categories": [
-      "question"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -11579,8 +11472,7 @@
   {
     "animate": false,
     "categories": [
-      "nature",
-      "plants"
+      "Nature & Animals"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -11650,8 +11542,7 @@
   },
   {
     "categories": [
-      "emotions",
-      "abstract"
+      "Description & Emotion"
     ],
     "declension_class": "i-stem",
     "example_sentence_en": "Love is eternal.",
@@ -11697,8 +11588,7 @@
   },
   {
     "categories": [
-      "description",
-      "quality"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -11755,8 +11645,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "vegetables"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -11826,8 +11715,7 @@
   },
   {
     "categories": [
-      "people",
-      "family"
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -11901,8 +11789,7 @@
   },
   {
     "categories": [
-      "description",
-      "size"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -11957,8 +11844,7 @@
   },
   {
     "categories": [
-      "description",
-      "quantity"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -11990,8 +11876,8 @@
   },
   {
     "categories": [
-      "action",
-      "cooking"
+      "Actions & Activities",
+      "Food & Drink"
     ],
     "conjugation_class": "je-verb",
     "forms": [
@@ -12073,7 +11959,7 @@
   {
     "animate": true,
     "categories": [
-      "animals"
+      "Nature & Animals"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -12143,8 +12029,8 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "food"
+      "People & Family",
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -12215,8 +12101,8 @@
   {
     "animate": false,
     "categories": [
-      "time",
-      "nature"
+      "Numbers & Time",
+      "Nature & Animals"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -12289,8 +12175,7 @@
   },
   {
     "categories": [
-      "food",
-      "meat"
+      "Food & Drink"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -12360,8 +12245,8 @@
   },
   {
     "categories": [
-      "abstract",
-      "places"
+      "Description & Emotion",
+      "Places & Travel"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -12429,6 +12314,7 @@
     "translation": "place"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -12441,6 +12327,7 @@
     "translation": "instead of"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -12453,10 +12340,7 @@
     "translation": "among"
   },
   {
-    "categories": [
-      "grammar",
-      "pronouns"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_pl",
@@ -12498,7 +12382,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -12517,7 +12401,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -12535,9 +12419,7 @@
     "translation": "million"
   },
   {
-    "categories": [
-      "direction"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -12555,7 +12437,7 @@
   },
   {
     "categories": [
-      "cognition"
+      "Description & Emotion"
     ],
     "conjugation_class": "i-verb",
     "forms": [
@@ -12634,6 +12516,7 @@
     "verb_aspect": "imperfective"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -12647,8 +12530,8 @@
   },
   {
     "categories": [
-      "description",
-      "age"
+      "Description & Emotion",
+      "People & Family"
     ],
     "forms": [
       {
@@ -12704,8 +12587,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "drinks"
+      "Food & Drink"
     ],
     "declension_class": "o-stem",
     "example_sentence_en": "The child drinks milk.",
@@ -12753,10 +12635,7 @@
     ]
   },
   {
-    "categories": [
-      "grammar",
-      "pronouns"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg_m",
@@ -12801,8 +12680,7 @@
   },
   {
     "categories": [
-      "religion",
-      "communication"
+      "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
     "forms": [
@@ -12884,8 +12762,7 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "age"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The young man is tall.",
@@ -12964,7 +12841,7 @@
   },
   {
     "categories": [
-      "obligation"
+      "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
     "example_sentence_en": "I have to go.",
@@ -13052,8 +12929,8 @@
   {
     "animate": false,
     "categories": [
-      "nature",
-      "geography"
+      "Nature & Animals",
+      "Places & Travel"
     ],
     "declension_class": "e-stem",
     "example_sentence_en": "The sea is blue.",
@@ -13128,8 +13005,7 @@
   {
     "animate": false,
     "categories": [
-      "infrastructure",
-      "city"
+      "Places & Travel"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -13199,8 +13075,7 @@
   },
   {
     "categories": [
-      "grammar",
-      "modals"
+      "Actions & Activities"
     ],
     "conjugation_class": "irregular",
     "forms": [
@@ -13307,7 +13182,7 @@
   },
   {
     "categories": [
-      "uncertainty"
+      "Description & Emotion"
     ],
     "example_sentence_en": "Maybe I'll come tomorrow.",
     "example_sentence_rs": "Možda ću doći sutra.",
@@ -13329,8 +13204,7 @@
   {
     "animate": true,
     "categories": [
-      "animals",
-      "nature"
+      "Nature & Animals"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The ant carries a leaf.",
@@ -13403,10 +13277,7 @@
     ]
   },
   {
-    "categories": [
-      "grammar",
-      "prepositions"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -13429,6 +13300,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -13441,6 +13313,7 @@
     "translation": "above"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -13453,6 +13326,7 @@
     "translation": "within arm's reach of"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -13467,8 +13341,7 @@
   {
     "aspect_pair_term": "pisati",
     "categories": [
-      "communication",
-      "actions"
+      "Actions & Activities"
     ],
     "conjugation_class": "e-verb",
     "forms": [
@@ -13552,6 +13425,7 @@
     "verb_aspect": "perfective"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -13566,8 +13440,8 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "education"
+      "People & Family",
+      "Actions & Activities"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The teacher explains the lesson.",
@@ -13644,6 +13518,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -13656,10 +13531,7 @@
     "translation": "opposite to"
   },
   {
-    "categories": [
-      "grammar",
-      "particles"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -13676,7 +13548,7 @@
   },
   {
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -13748,9 +13620,7 @@
     ]
   },
   {
-    "categories": [
-      "comparison"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -13768,9 +13638,8 @@
   },
   {
     "categories": [
-      "time",
-      "frequency",
-      "negation"
+      "Numbers & Time",
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -13786,8 +13655,7 @@
   },
   {
     "categories": [
-      "time",
-      "frequency"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -13805,9 +13673,7 @@
     ]
   },
   {
-    "categories": [
-      "negation"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -13824,6 +13690,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -13837,7 +13704,7 @@
   },
   {
     "categories": [
-      "body"
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -13914,7 +13781,7 @@
   },
   {
     "categories": [
-      "actions"
+      "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
     "forms": [
@@ -13997,7 +13864,7 @@
   },
   {
     "categories": [
-      "description"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -14053,8 +13920,7 @@
   {
     "animate": false,
     "categories": [
-      "shopping",
-      "finance"
+      "Actions & Activities"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -14129,8 +13995,8 @@
   },
   {
     "categories": [
-      "time",
-      "nature"
+      "Numbers & Time",
+      "Nature & Animals"
     ],
     "declension_class": "i-stem",
     "forms": [
@@ -14203,8 +14069,8 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "kitchen"
+      "Home & Daily Life",
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -14274,7 +14140,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -14292,6 +14158,7 @@
     "translation": "zero"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -14306,8 +14173,7 @@
   {
     "animate": false,
     "categories": [
-      "nature",
-      "weather"
+      "Nature & Animals"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -14378,10 +14244,7 @@
     "translation": "cloud"
   },
   {
-    "categories": [
-      "grammar",
-      "prepositions"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -14404,7 +14267,7 @@
   },
   {
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -14423,7 +14286,7 @@
   },
   {
     "categories": [
-      "household"
+      "Home & Daily Life"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -14493,7 +14356,7 @@
   },
   {
     "categories": [
-      "body"
+      "People & Family"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -14572,6 +14435,7 @@
     "translation": "eye"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -14584,6 +14448,7 @@
     "translation": "around"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -14598,8 +14463,7 @@
   {
     "animate": false,
     "categories": [
-      "shape",
-      "description"
+      "Description & Emotion"
     ],
     "example_sentence_en": "The Earth is round.",
     "example_sentence_rs": "Zemlja je okrugla.",
@@ -14955,10 +14819,7 @@
     ]
   },
   {
-    "categories": [
-      "grammar",
-      "pronouns"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -15012,10 +14873,7 @@
     "translation": "he"
   },
   {
-    "categories": [
-      "grammar",
-      "pronouns"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -15064,10 +14922,7 @@
     "translation": "she"
   },
   {
-    "categories": [
-      "pronoun",
-      "demonstrative"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg_m",
@@ -15248,10 +15103,7 @@
     "translation": "that (over there)"
   },
   {
-    "categories": [
-      "grammar",
-      "pronouns"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_pl_m",
@@ -15308,10 +15160,7 @@
     "translation": "they"
   },
   {
-    "categories": [
-      "pronoun",
-      "personal"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -15365,7 +15214,7 @@
   },
   {
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "example_sentence_en": "You're late again.",
     "example_sentence_rs": "Opet kasnis.",
@@ -15386,8 +15235,7 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "furniture"
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -15461,7 +15309,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -15480,7 +15328,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -15499,7 +15347,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -15518,8 +15366,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -15553,7 +15400,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -15571,6 +15418,7 @@
     "translation": "eight hundred"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -15584,8 +15432,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -15620,8 +15467,7 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "family"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -15709,7 +15555,7 @@
   },
   {
     "categories": [
-      "description"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -16058,8 +15904,7 @@
   },
   {
     "categories": [
-      "description",
-      "manner"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -16090,7 +15935,7 @@
   },
   {
     "categories": [
-      "actions"
+      "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
     "example_sentence_en": "Open the door.",
@@ -16174,10 +16019,7 @@
     "verb_aspect": "perfective"
   },
   {
-    "categories": [
-      "grammar",
-      "pronouns"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg_m",
@@ -16216,8 +16058,7 @@
   {
     "animate": true,
     "categories": [
-      "animals",
-      "farming"
+      "Nature & Animals"
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "The sheep grazes on grass.",
@@ -16292,7 +16133,7 @@
   },
   {
     "categories": [
-      "location"
+      "Places & Travel"
     ],
     "forms": [
       {
@@ -16307,9 +16148,7 @@
     "translation": "here"
   },
   {
-    "categories": [
-      "connectors"
-    ],
+    "categories": [],
     "example_sentence_en": "I came and then sat down.",
     "example_sentence_rs": "Dosao sam pa sam seo.",
     "forms": [
@@ -16329,8 +16168,7 @@
   },
   {
     "categories": [
-      "food",
-      "vegetables"
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -16405,8 +16243,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "vegetables"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -16477,8 +16314,7 @@
   {
     "animate": false,
     "categories": [
-      "places",
-      "transport"
+      "Places & Travel"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -16552,8 +16388,7 @@
   {
     "animate": true,
     "categories": [
-      "animals",
-      "pets"
+      "Nature & Animals"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The dog barks at the cat.",
@@ -16632,8 +16467,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "vegetables"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -16703,7 +16537,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -16722,8 +16556,7 @@
   },
   {
     "categories": [
-      "household",
-      "appliances"
+      "Home & Daily Life"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -16797,8 +16630,8 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "food"
+      "People & Family",
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -16868,8 +16701,8 @@
   },
   {
     "categories": [
-      "places",
-      "food"
+      "Places & Travel",
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -16939,8 +16772,8 @@
   },
   {
     "categories": [
-      "nature",
-      "writing"
+      "Nature & Animals",
+      "Actions & Activities"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -17014,8 +16847,7 @@
   {
     "animate": false,
     "categories": [
-      "music",
-      "art"
+      "Actions & Activities"
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "The song is beautiful.",
@@ -17095,7 +16927,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -17114,8 +16946,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -17298,7 +17129,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -17317,8 +17148,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -17352,7 +17182,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -17371,8 +17201,7 @@
   },
   {
     "categories": [
-      "music",
-      "art"
+      "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
     "forms": [
@@ -17451,8 +17280,7 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "appliances"
+      "Home & Daily Life"
     ],
     "declension_class": "i-stem",
     "example_sentence_en": "The stove is warm.",
@@ -17530,8 +17358,8 @@
   },
   {
     "categories": [
-      "food",
-      "actions"
+      "Food & Drink",
+      "Actions & Activities"
     ],
     "conjugation_class": "e-verb",
     "example_sentence_en": "I am baking bread.",
@@ -17635,8 +17463,7 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "bathroom"
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -17706,8 +17533,8 @@
   },
   {
     "categories": [
-      "places",
-      "shopping"
+      "Places & Travel",
+      "Actions & Activities"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -17781,8 +17608,8 @@
   {
     "animate": true,
     "categories": [
-      "animals",
-      "food"
+      "Nature & Animals",
+      "Food & Drink"
     ],
     "declension_class": "e-stem",
     "example_sentence_en": "The chick is looking for food.",
@@ -17859,8 +17686,7 @@
   },
   {
     "categories": [
-      "food",
-      "meat"
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -17934,7 +17760,7 @@
   {
     "animate": false,
     "categories": [
-      "food"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -18005,8 +17831,7 @@
   {
     "aspect_pair_term": "napisati",
     "categories": [
-      "communication",
-      "actions"
+      "Actions & Activities"
     ],
     "conjugation_class": "e-verb",
     "example_sentence_en": "I am writing a letter.",
@@ -18090,8 +17915,8 @@
   },
   {
     "categories": [
-      "communication",
-      "objects"
+      "Actions & Activities",
+      "Home & Daily Life"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -18165,7 +17990,7 @@
   },
   {
     "categories": [
-      "communication"
+      "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
     "forms": [
@@ -18243,8 +18068,8 @@
   },
   {
     "categories": [
-      "food",
-      "actions"
+      "Food & Drink",
+      "Actions & Activities"
     ],
     "conjugation_class": "je-verb",
     "forms": [
@@ -18327,8 +18152,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "drinks"
+      "Food & Drink"
     ],
     "declension_class": "o-stem",
     "example_sentence_en": "The beer is cold.",
@@ -18402,7 +18226,7 @@
   },
   {
     "categories": [
-      "emotions"
+      "Description & Emotion"
     ],
     "conjugation_class": "je-verb",
     "example_sentence_en": "The child is crying.",
@@ -18486,6 +18310,7 @@
     "verb_aspect": "imperfective"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -18501,6 +18326,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -18513,6 +18339,7 @@
     "translation": "under"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -18529,7 +18356,7 @@
   },
   {
     "categories": [
-      "speed"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -18545,8 +18372,7 @@
   },
   {
     "categories": [
-      "places",
-      "services"
+      "Places & Travel"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -18616,8 +18442,8 @@
   },
   {
     "categories": [
-      "nature",
-      "geography"
+      "Nature & Animals",
+      "Places & Travel"
     ],
     "declension_class": "e-stem",
     "forms": [
@@ -18686,7 +18512,7 @@
   },
   {
     "categories": [
-      "actions"
+      "Actions & Activities"
     ],
     "declension_class": "i-stem",
     "forms": [
@@ -18759,6 +18585,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -18771,6 +18598,7 @@
     "translation": "with the help of"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -18783,9 +18611,7 @@
     "translation": "for the sake of"
   },
   {
-    "categories": [
-      "location"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -18803,8 +18629,7 @@
   },
   {
     "categories": [
-      "people",
-      "family"
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -18875,7 +18700,7 @@
   {
     "animate": false,
     "categories": [
-      "work"
+      "Actions & Activities"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -18966,9 +18791,7 @@
     ]
   },
   {
-    "categories": [
-      "time"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -18982,6 +18805,7 @@
     "translation": "after"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -18994,6 +18818,7 @@
     "translation": "after"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19006,6 +18831,7 @@
     "translation": "through the middle of"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19021,6 +18847,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19033,6 +18860,7 @@
     "translation": "on the occasion of"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19046,8 +18874,7 @@
   },
   {
     "categories": [
-      "food",
-      "vegetables"
+      "Food & Drink"
     ],
     "declension_class": "e-stem",
     "forms": [
@@ -19117,8 +18944,8 @@
   },
   {
     "categories": [
-      "action",
-      "time"
+      "Actions & Activities",
+      "Numbers & Time"
     ],
     "conjugation_class": "e-verb",
     "forms": [
@@ -19201,8 +19028,7 @@
   },
   {
     "categories": [
-      "places",
-      "services"
+      "Places & Travel"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -19276,8 +19102,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "shape"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -19630,7 +19455,7 @@
   },
   {
     "categories": [
-      "direction"
+      "Places & Travel"
     ],
     "forms": [
       {
@@ -19650,9 +19475,7 @@
     ]
   },
   {
-    "categories": [
-      "time"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19666,6 +19489,7 @@
     "translation": "before"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19681,6 +19505,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19696,9 +19521,7 @@
     ]
   },
   {
-    "categories": [
-      "direction"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19715,6 +19538,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19732,8 +19556,7 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "relationships"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -19814,6 +19637,7 @@
     "translation": "friend"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19826,6 +19650,7 @@
     "translation": "before"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19839,8 +19664,8 @@
   },
   {
     "categories": [
-      "places",
-      "shopping"
+      "Places & Travel",
+      "Actions & Activities"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -19912,6 +19737,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19924,6 +19750,7 @@
     "translation": "against"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -19938,8 +19765,8 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "building"
+      "Home & Daily Life",
+      "Places & Travel"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "Open the window.",
@@ -20025,7 +19852,7 @@
   {
     "animate": false,
     "categories": [
-      "body"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "I cut my finger.",
@@ -20100,7 +19927,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -20135,8 +19962,7 @@
   {
     "animate": true,
     "categories": [
-      "animals",
-      "nature"
+      "Nature & Animals"
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "The bird sings on the branch.",
@@ -20211,8 +20037,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "quantity"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -20561,7 +20386,7 @@
   },
   {
     "categories": [
-      "action"
+      "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
     "forms": [
@@ -20644,8 +20469,7 @@
   {
     "animate": false,
     "categories": [
-      "places",
-      "travel"
+      "Places & Travel"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -20729,6 +20553,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -20742,8 +20567,7 @@
   },
   {
     "categories": [
-      "movement",
-      "leisure"
+      "Actions & Activities"
     ],
     "conjugation_class": "je-verb",
     "example_sentence_en": "I love to travel.",
@@ -20829,6 +20653,7 @@
     "verb_aspect": "imperfective"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -20842,8 +20667,7 @@
   },
   {
     "categories": [
-      "actions",
-      "work"
+      "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
     "forms": [
@@ -20924,8 +20748,7 @@
   {
     "animate": false,
     "categories": [
-      "conflict",
-      "history"
+      "Actions & Activities"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The war is over.",
@@ -21012,8 +20835,7 @@
   {
     "animate": false,
     "categories": [
-      "shopping",
-      "finance"
+      "Actions & Activities"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -21088,7 +20910,7 @@
   {
     "animate": false,
     "categories": [
-      "abstract"
+      "Description & Emotion"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -21163,8 +20985,8 @@
   {
     "animate": false,
     "categories": [
-      "places",
-      "food"
+      "Places & Travel",
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -21234,8 +21056,8 @@
   },
   {
     "categories": [
-      "action",
-      "cooking"
+      "Actions & Activities",
+      "Food & Drink"
     ],
     "conjugation_class": "je-verb",
     "forms": [
@@ -21313,7 +21135,7 @@
   },
   {
     "categories": [
-      "communication"
+      "Actions & Activities"
     ],
     "conjugation_class": "irregular",
     "forms": [
@@ -21426,8 +21248,7 @@
   {
     "animate": false,
     "categories": [
-      "language",
-      "communication"
+      "Actions & Activities"
     ],
     "declension_class": "i-stem",
     "example_sentence_en": "A word is powerful.",
@@ -21508,8 +21329,8 @@
   },
   {
     "categories": [
-      "animals",
-      "food"
+      "Nature & Animals",
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -21579,7 +21400,7 @@
   },
   {
     "categories": [
-      "body"
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -21656,8 +21477,7 @@
   },
   {
     "categories": [
-      "description",
-      "quality"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -22008,8 +21828,7 @@
   },
   {
     "categories": [
-      "description",
-      "manner"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -22039,6 +21858,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -22054,10 +21874,7 @@
     ]
   },
   {
-    "categories": [
-      "grammar",
-      "prepositions"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -22080,7 +21897,7 @@
   },
   {
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -22096,8 +21913,7 @@
   },
   {
     "categories": [
-      "food",
-      "vegetables"
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -22170,7 +21986,7 @@
   },
   {
     "categories": [
-      "description"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -22201,9 +22017,7 @@
     "usage_notes": "Also a form of 'biti' (to be) - 'ja sam' means 'I am'"
   },
   {
-    "categories": [
-      "restriction"
-    ],
+    "categories": [],
     "example_sentence_en": "Just a little.",
     "example_sentence_rs": "Samo malo.",
     "forms": [
@@ -22224,8 +22038,8 @@
   {
     "animate": false,
     "categories": [
-      "abstract",
-      "sleep"
+      "Description & Emotion",
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -22307,8 +22121,7 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "bathroom"
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -22377,10 +22190,7 @@
     "translation": "soap"
   },
   {
-    "categories": [
-      "grammar",
-      "pronouns"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "gen_sg",
@@ -22426,7 +22236,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -22445,7 +22255,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -22464,7 +22274,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -22483,8 +22293,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -22518,7 +22327,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -22537,8 +22346,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -22573,7 +22381,7 @@
   {
     "animate": true,
     "categories": [
-      "people"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -22649,8 +22457,7 @@
   },
   {
     "categories": [
-      "places",
-      "geography"
+      "Places & Travel"
     ],
     "declension_class": "o-stem",
     "example_sentence_en": "I live in a small village.",
@@ -22720,6 +22527,7 @@
     "translation": "village"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -22733,8 +22541,8 @@
   },
   {
     "categories": [
-      "actions",
-      "position"
+      "Actions & Activities",
+      "Places & Travel"
     ],
     "conjugation_class": "e-verb",
     "example_sentence_en": "Sit down here.",
@@ -22833,8 +22641,7 @@
   {
     "animate": true,
     "categories": [
-      "family",
-      "people"
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "My sister lives in Belgrade.",
@@ -22909,8 +22716,7 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "family"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -22980,8 +22786,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "dairy"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -23051,7 +22856,7 @@
   },
   {
     "categories": [
-      "movement"
+      "Actions & Activities"
     ],
     "conjugation_class": "e-verb",
     "example_sentence_en": "I went down the stairs.",
@@ -23151,8 +22956,7 @@
   {
     "animate": false,
     "categories": [
-      "value",
-      "description"
+      "Description & Emotion"
     ],
     "example_sentence_en": "This bag is expensive.",
     "example_sentence_rs": "Ova torba je skupa.",
@@ -23845,8 +23649,8 @@
   },
   {
     "categories": [
-      "description",
-      "commerce"
+      "Description & Emotion",
+      "Actions & Activities"
     ],
     "forms": [
       {
@@ -23878,8 +23682,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "strength"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -24229,8 +24032,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "sweets"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -24300,8 +24102,7 @@
   },
   {
     "categories": [
-      "communication",
-      "actions"
+      "Actions & Activities"
     ],
     "conjugation_class": "je-verb",
     "example_sentence_en": "I'm sending you a message.",
@@ -24388,8 +24189,8 @@
   },
   {
     "categories": [
-      "art",
-      "everyday"
+      "Actions & Activities",
+      "Home & Daily Life"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -24464,8 +24265,7 @@
   {
     "animate": true,
     "categories": [
-      "animals",
-      "wildlife"
+      "Nature & Animals"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -24535,8 +24335,8 @@
   },
   {
     "categories": [
-      "senses",
-      "communication"
+      "Description & Emotion",
+      "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
     "forms": [
@@ -24614,8 +24414,8 @@
   },
   {
     "categories": [
-      "emotions",
-      "actions"
+      "Description & Emotion",
+      "Actions & Activities"
     ],
     "conjugation_class": "je-verb",
     "example_sentence_en": "The children are laughing.",
@@ -24688,8 +24488,7 @@
   {
     "animate": false,
     "categories": [
-      "nature",
-      "weather"
+      "Nature & Animals"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -24759,8 +24558,7 @@
   },
   {
     "categories": [
-      "food",
-      "spices"
+      "Food & Drink"
     ],
     "declension_class": "i-stem",
     "forms": [
@@ -24848,8 +24646,7 @@
   },
   {
     "categories": [
-      "house",
-      "living"
+      "Home & Daily Life"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -24920,8 +24717,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "drinks"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -24991,8 +24787,7 @@
   },
   {
     "categories": [
-      "food",
-      "cooking"
+      "Food & Drink"
     ],
     "declension_class": "i-stem",
     "forms": [
@@ -25064,8 +24859,7 @@
   },
   {
     "categories": [
-      "daily",
-      "sleep"
+      "Home & Daily Life"
     ],
     "conjugation_class": "a-verb",
     "forms": [
@@ -25145,7 +24939,7 @@
   },
   {
     "categories": [
-      "emotions"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -25177,8 +24971,8 @@
   {
     "animate": false,
     "categories": [
-      "places",
-      "housing"
+      "Places & Travel",
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -25251,8 +25045,7 @@
   },
   {
     "categories": [
-      "places",
-      "transport"
+      "Places & Travel"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -25325,8 +25118,8 @@
   },
   {
     "categories": [
-      "description",
-      "age"
+      "Description & Emotion",
+      "People & Family"
     ],
     "forms": [
       {
@@ -25382,8 +25175,7 @@
   {
     "animate": false,
     "categories": [
-      "furniture",
-      "household"
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The book is on the table.",
@@ -25460,7 +25252,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -25479,8 +25271,7 @@
   },
   {
     "categories": [
-      "household",
-      "furniture"
+      "Home & Daily Life"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -25551,8 +25342,8 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "education"
+      "People & Family",
+      "Actions & Activities"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The student studies for the exam.",
@@ -25631,7 +25422,7 @@
   },
   {
     "categories": [
-      "abstract"
+      "Description & Emotion"
     ],
     "declension_class": "i-stem",
     "forms": [
@@ -25701,8 +25492,8 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "law"
+      "People & Family",
+      "Actions & Activities"
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "The judge delivers the verdict.",
@@ -25777,8 +25568,7 @@
   {
     "animate": false,
     "categories": [
-      "nature",
-      "astronomy"
+      "Nature & Animals"
     ],
     "declension_class": "e-stem",
     "example_sentence_en": "The sun is shining.",
@@ -25827,7 +25617,7 @@
   },
   {
     "categories": [
-      "food"
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -25897,7 +25687,7 @@
   },
   {
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "example_sentence_en": "Tomorrow I go to work.",
     "example_sentence_rs": "Sutra idem na posao.",
@@ -25918,8 +25708,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "texture"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -26269,8 +26058,8 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "food"
+      "Description & Emotion",
+      "Food & Drink"
     ],
     "example_sentence_en": "The bread is fresh.",
     "example_sentence_rs": "Hleb je svež.",
@@ -26624,8 +26413,7 @@
   },
   {
     "categories": [
-      "food",
-      "meat"
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -26694,10 +26482,7 @@
     "translation": "pork"
   },
   {
-    "categories": [
-      "pronoun",
-      "possessive"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg_m",
@@ -26958,6 +26743,7 @@
     "translation": "one's own"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -26973,10 +26759,7 @@
     ]
   },
   {
-    "categories": [
-      "grammar",
-      "pronouns"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg_m",
@@ -27015,7 +26798,7 @@
   {
     "animate": false,
     "categories": [
-      "transport"
+      "Places & Travel"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -27105,7 +26888,7 @@
   },
   {
     "categories": [
-      "location"
+      "Places & Travel"
     ],
     "forms": [
       {
@@ -27122,8 +26905,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "size"
+      "Description & Emotion"
     ],
     "example_sentence_en": "The wall is thin.",
     "example_sentence_rs": "Zid je tanak.",
@@ -27481,8 +27263,8 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "kitchen"
+      "Home & Daily Life",
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -27556,8 +27338,7 @@
   {
     "animate": true,
     "categories": [
-      "family",
-      "people"
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "Dad came home.",
@@ -27632,8 +27413,7 @@
   },
   {
     "categories": [
-      "animals",
-      "farming"
+      "Nature & Animals"
     ],
     "declension_class": "e-stem",
     "forms": [
@@ -27706,7 +27486,7 @@
   {
     "animate": false,
     "categories": [
-      "technology"
+      "Actions & Activities"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -27779,8 +27559,7 @@
   },
   {
     "categories": [
-      "body",
-      "anatomy"
+      "People & Family"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -27855,8 +27634,7 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "furniture"
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -27929,7 +27707,7 @@
   },
   {
     "categories": [
-      "food"
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -28002,8 +27780,8 @@
   },
   {
     "categories": [
-      "nature",
-      "movement"
+      "Nature & Animals",
+      "Actions & Activities"
     ],
     "conjugation_class": "e-verb",
     "example_sentence_en": "The river flows fast.",
@@ -28102,7 +27880,7 @@
   },
   {
     "categories": [
-      "description"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -28132,10 +27910,7 @@
     ]
   },
   {
-    "categories": [
-      "grammar",
-      "pronouns"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -28186,8 +27961,8 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "kitchen"
+      "Home & Daily Life",
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -28263,8 +28038,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "sound"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -28616,7 +28390,7 @@
   },
   {
     "categories": [
-      "sound"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -28646,6 +28420,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -28658,6 +28433,7 @@
     "translation": "during"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -28672,8 +28448,7 @@
   {
     "animate": false,
     "categories": [
-      "temperature",
-      "description"
+      "Description & Emotion"
     ],
     "example_sentence_en": "Today is a warm day.",
     "example_sentence_rs": "Danas je topao dan.",
@@ -29029,8 +28804,7 @@
   },
   {
     "categories": [
-      "description",
-      "temperature"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -29062,8 +28836,7 @@
   {
     "animate": false,
     "categories": [
-      "accessories",
-      "everyday"
+      "Home & Daily Life"
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "Put the books in the bag.",
@@ -29138,8 +28911,7 @@
   },
   {
     "categories": [
-      "food",
-      "sweets"
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -29213,8 +28985,7 @@
   },
   {
     "categories": [
-      "nature",
-      "plants"
+      "Nature & Animals"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -29284,8 +29055,8 @@
   },
   {
     "categories": [
-      "action",
-      "everyday"
+      "Actions & Activities",
+      "Home & Daily Life"
     ],
     "conjugation_class": "i-verb",
     "forms": [
@@ -29367,8 +29138,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -29403,7 +29173,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -29442,7 +29212,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -29461,7 +29231,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -29480,8 +29250,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -29515,7 +29284,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -29534,8 +29303,7 @@
   },
   {
     "categories": [
-      "movement",
-      "sports"
+      "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
     "example_sentence_en": "I run every day.",
@@ -29624,7 +29392,7 @@
   {
     "animate": false,
     "categories": [
-      "description"
+      "Description & Emotion"
     ],
     "example_sentence_en": "That is someone else's problem.",
     "example_sentence_rs": "To je tuđi problem.",
@@ -29812,10 +29580,7 @@
     ]
   },
   {
-    "categories": [
-      "pronoun",
-      "possessive"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg_m",
@@ -30078,8 +29843,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "texture"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -30431,10 +30195,7 @@
     ]
   },
   {
-    "categories": [
-      "grammar",
-      "prepositions"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30460,7 +30221,7 @@
   },
   {
     "categories": [
-      "places"
+      "Places & Travel"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -30533,7 +30294,7 @@
   },
   {
     "categories": [
-      "food"
+      "Food & Drink"
     ],
     "declension_class": "e-stem",
     "forms": [
@@ -30602,6 +30363,7 @@
     "translation": "oil"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30614,6 +30376,7 @@
     "translation": "instead of"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30626,6 +30389,7 @@
     "translation": "instead of"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30640,8 +30404,8 @@
   {
     "animate": false,
     "categories": [
-      "places",
-      "education"
+      "Places & Travel",
+      "Actions & Activities"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -30710,6 +30474,7 @@
     "translation": "university"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30725,6 +30490,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30737,6 +30503,7 @@
     "translation": "on the eve of"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30751,8 +30518,7 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "appliances"
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -30821,6 +30587,7 @@
     "translation": "vacuum cleaner"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30833,6 +30600,7 @@
     "translation": "due to"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30845,6 +30613,7 @@
     "translation": "due to"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30858,8 +30627,7 @@
   },
   {
     "categories": [
-      "time",
-      "frequency"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -30874,6 +30642,7 @@
     "translation": "always"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30886,6 +30655,7 @@
     "translation": "at the top of"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30901,6 +30671,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -30914,8 +30685,8 @@
   },
   {
     "categories": [
-      "action",
-      "everyday"
+      "Actions & Activities",
+      "Home & Daily Life"
     ],
     "conjugation_class": "e-verb",
     "forms": [
@@ -30995,7 +30766,7 @@
   },
   {
     "categories": [
-      "education"
+      "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
     "forms": [
@@ -31076,6 +30847,7 @@
     "verb_aspect": "imperfective"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -31088,9 +30860,7 @@
     "translation": "outside"
   },
   {
-    "categories": [
-      "exclamations"
-    ],
+    "categories": [],
     "example_sentence_en": "Wow, how beautiful!",
     "example_sentence_rs": "Vau, kako je lepo!",
     "forms": [
@@ -31109,8 +30879,7 @@
   },
   {
     "categories": [
-      "description",
-      "size"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -31169,8 +30938,7 @@
   },
   {
     "categories": [
-      "description",
-      "quantity"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -31202,8 +30970,7 @@
   },
   {
     "categories": [
-      "cognition",
-      "emotions"
+      "Description & Emotion"
     ],
     "conjugation_class": "je-verb",
     "example_sentence_en": "I believe you.",
@@ -31291,8 +31058,7 @@
   {
     "animate": false,
     "categories": [
-      "emotions",
-      "description"
+      "Description & Emotion"
     ],
     "example_sentence_en": "He is a cheerful person.",
     "example_sentence_rs": "On je veseo covek.",
@@ -31647,8 +31413,7 @@
   {
     "animate": false,
     "categories": [
-      "nature",
-      "weather"
+      "Nature & Animals"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -31720,7 +31485,7 @@
   },
   {
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "example_sentence_en": "I've already finished.",
     "example_sentence_rs": "Već sam završio.",
@@ -31740,7 +31505,7 @@
   },
   {
     "categories": [
-      "time"
+      "Numbers & Time"
     ],
     "declension_class": "e-stem",
     "forms": [
@@ -31809,10 +31574,7 @@
     "translation": "evening"
   },
   {
-    "categories": [
-      "pronoun",
-      "personal"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_pl",
@@ -31866,7 +31628,7 @@
   },
   {
     "categories": [
-      "perception"
+      "Description & Emotion"
     ],
     "conjugation_class": "i-verb",
     "forms": [
@@ -31946,8 +31708,8 @@
   },
   {
     "categories": [
-      "household",
-      "kitchen"
+      "Home & Daily Life",
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -32017,8 +31779,7 @@
   },
   {
     "categories": [
-      "food",
-      "drinks"
+      "Food & Drink"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -32089,8 +31850,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "size"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -32442,8 +32202,8 @@
   },
   {
     "categories": [
-      "position",
-      "degree"
+      "Places & Travel",
+      "Description & Emotion"
     ],
     "example_sentence_en": "The bird flies high.",
     "example_sentence_rs": "Ptica leti visoko.",
@@ -32477,8 +32237,8 @@
   },
   {
     "categories": [
-      "politics",
-      "abstract"
+      "Actions & Activities",
+      "Description & Emotion"
     ],
     "declension_class": "i-stem",
     "forms": [
@@ -32554,8 +32314,8 @@
   },
   {
     "categories": [
-      "nature",
-      "food"
+      "Nature & Animals",
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -32625,8 +32385,8 @@
   {
     "animate": true,
     "categories": [
-      "people",
-      "military"
+      "People & Family",
+      "Actions & Activities"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "The soldier guards the border.",
@@ -32704,7 +32464,7 @@
   },
   {
     "categories": [
-      "emotions"
+      "Description & Emotion"
     ],
     "conjugation_class": "i-verb",
     "forms": [
@@ -32785,7 +32545,7 @@
   {
     "animate": false,
     "categories": [
-      "transport"
+      "Places & Travel"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -32855,7 +32615,7 @@
   },
   {
     "categories": [
-      "food"
+      "Food & Drink"
     ],
     "declension_class": "e-stem",
     "forms": [
@@ -32925,7 +32685,7 @@
   },
   {
     "categories": [
-      "household"
+      "Home & Daily Life"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -33015,8 +32775,8 @@
   },
   {
     "categories": [
-      "time",
-      "nature"
+      "Numbers & Time",
+      "Nature & Animals"
     ],
     "declension_class": "e-stem",
     "forms": [
@@ -33095,8 +32855,7 @@
   {
     "animate": false,
     "categories": [
-      "temperature",
-      "description"
+      "Description & Emotion"
     ],
     "example_sentence_en": "The tea is hot.",
     "example_sentence_rs": "Čaj je vrući.",
@@ -33286,8 +33045,7 @@
   {
     "animate": true,
     "categories": [
-      "animals",
-      "wildlife"
+      "Nature & Animals"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -33360,10 +33118,7 @@
     "translation": "wolf"
   },
   {
-    "categories": [
-      "grammar",
-      "prepositions"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -33385,9 +33140,7 @@
     ]
   },
   {
-    "categories": [
-      "question"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -33404,6 +33157,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -33416,9 +33170,7 @@
     "translation": "for the sake of"
   },
   {
-    "categories": [
-      "connectors"
-    ],
+    "categories": [],
     "example_sentence_en": "I am tired, therefore I'm going to sleep.",
     "example_sentence_rs": "Umoran sam, zato idem da spavam.",
     "forms": [
@@ -33438,7 +33190,7 @@
   },
   {
     "categories": [
-      "description"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -33787,8 +33539,7 @@
   },
   {
     "categories": [
-      "description",
-      "manner"
+      "Description & Emotion"
     ],
     "forms": [
       {
@@ -33819,7 +33570,7 @@
   },
   {
     "categories": [
-      "actions"
+      "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
     "example_sentence_en": "Close the door.",
@@ -33903,6 +33654,7 @@
     "verb_aspect": "perfective"
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -33917,8 +33669,8 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "health"
+      "Description & Emotion",
+      "People & Family"
     ],
     "forms": [
       {
@@ -34267,8 +34019,8 @@
   },
   {
     "categories": [
-      "nature",
-      "geography"
+      "Nature & Animals",
+      "Places & Travel"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -34347,8 +34099,8 @@
   {
     "animate": false,
     "categories": [
-      "building",
-      "house"
+      "Places & Travel",
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -34418,8 +34170,7 @@
   },
   {
     "categories": [
-      "seasons",
-      "weather"
+      "Nature & Animals"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -34489,8 +34240,8 @@
   },
   {
     "categories": [
-      "materials",
-      "precious"
+      "Home & Daily Life",
+      "Description & Emotion"
     ],
     "declension_class": "o-stem",
     "forms": [
@@ -34560,7 +34311,7 @@
   },
   {
     "categories": [
-      "cognition"
+      "Description & Emotion"
     ],
     "conjugation_class": "a-verb",
     "forms": [
@@ -34640,8 +34391,7 @@
   },
   {
     "categories": [
-      "household",
-      "bedroom"
+      "Home & Daily Life"
     ],
     "declension_class": "e-stem",
     "forms": [
@@ -34715,8 +34465,7 @@
   {
     "animate": false,
     "categories": [
-      "food",
-      "drinks"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -34785,9 +34534,7 @@
     "translation": "tea"
   },
   {
-    "categories": [
-      "emphasis"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -34802,8 +34549,8 @@
   },
   {
     "categories": [
-      "household",
-      "kitchen"
+      "Home & Daily Life",
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -34876,7 +34623,7 @@
   },
   {
     "categories": [
-      "actions"
+      "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
     "forms": [
@@ -34956,8 +34703,7 @@
   },
   {
     "categories": [
-      "frequency",
-      "time"
+      "Numbers & Time"
     ],
     "example_sentence_en": "I often go to the cinema.",
     "example_sentence_rs": "Često idem u bioskop.",
@@ -34990,7 +34736,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -35030,7 +34776,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -35049,8 +34795,7 @@
   },
   {
     "categories": [
-      "household",
-      "bathroom"
+      "Home & Daily Life"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -35123,7 +34868,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -35142,7 +34887,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -35161,8 +34906,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -35196,8 +34940,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -35231,8 +34974,7 @@
   },
   {
     "categories": [
-      "communication",
-      "actions"
+      "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
     "example_sentence_en": "I am reading a book.",
@@ -35314,7 +35056,7 @@
   },
   {
     "categories": [
-      "food"
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -35388,7 +35130,7 @@
   {
     "animate": true,
     "categories": [
-      "people"
+      "People & Family"
     ],
     "declension_class": "consonant",
     "example_sentence_en": "A man walks down the street.",
@@ -35475,7 +35217,7 @@
   },
   {
     "categories": [
-      "senses"
+      "Description & Emotion"
     ],
     "conjugation_class": "je-verb",
     "example_sentence_en": "Do you hear me?",
@@ -35562,8 +35304,7 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "bathroom"
+      "Home & Daily Life"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -35633,8 +35374,8 @@
   },
   {
     "categories": [
-      "household",
-      "kitchen"
+      "Home & Daily Life",
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -35707,7 +35448,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -35726,8 +35467,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -35761,7 +35501,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -35781,8 +35521,7 @@
   },
   {
     "categories": [
-      "numbers",
-      "ordinal"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -35816,7 +35555,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -35835,8 +35574,7 @@
   },
   {
     "categories": [
-      "movement",
-      "leisure"
+      "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
     "example_sentence_en": "We are walking around the park.",
@@ -35921,7 +35659,7 @@
   },
   {
     "categories": [
-      "numbers"
+      "Numbers & Time"
     ],
     "forms": [
       {
@@ -35941,7 +35679,7 @@
   {
     "animate": false,
     "categories": [
-      "food"
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -36012,8 +35750,7 @@
   {
     "animate": false,
     "categories": [
-      "description",
-      "size"
+      "Description & Emotion"
     ],
     "example_sentence_en": "The road is wide.",
     "example_sentence_rs": "Put je širok.",
@@ -36705,6 +36442,7 @@
     ]
   },
   {
+    "categories": [],
     "forms": [
       {
         "form_tag": "invariable",
@@ -36718,8 +36456,8 @@
   },
   {
     "categories": [
-      "education",
-      "places"
+      "Actions & Activities",
+      "Places & Travel"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -36788,8 +36526,8 @@
   },
   {
     "categories": [
-      "household",
-      "kitchen"
+      "Home & Daily Life",
+      "Food & Drink"
     ],
     "declension_class": "a-stem",
     "forms": [
@@ -36863,9 +36601,8 @@
   {
     "animate": false,
     "categories": [
-      "household",
-      "kitchen",
-      "appliances"
+      "Home & Daily Life",
+      "Food & Drink"
     ],
     "declension_class": "consonant",
     "forms": [
@@ -36937,11 +36674,7 @@
     ]
   },
   {
-    "categories": [
-      "grammar",
-      "pronouns",
-      "questions"
-    ],
+    "categories": [],
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -36979,8 +36712,7 @@
   },
   {
     "categories": [
-      "desire",
-      "emotions"
+      "Description & Emotion"
     ],
     "conjugation_class": "i-verb",
     "example_sentence_en": "I want to go home.",
@@ -37065,8 +36797,7 @@
   },
   {
     "categories": [
-      "people",
-      "family"
+      "People & Family"
     ],
     "declension_class": "a-stem",
     "example_sentence_en": "The woman reads a book.",
@@ -37140,7 +36871,7 @@
   },
   {
     "categories": [
-      "existence"
+      "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
     "example_sentence_en": "I live in Belgrade.",
