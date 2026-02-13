@@ -171,6 +171,30 @@ defmodule Ohmyword.Vocabulary do
     Repo.aggregate(Word, :count)
   end
 
+  @doc """
+  Returns a sorted list of distinct categories that appear in any word.
+  Accepts optional filters to narrow results.
+
+  ## Options
+
+    * `:part_of_speech` - Only return categories for words of this type
+
+  ## Examples
+
+      iex> Vocabulary.list_available_categories()
+      ["Actions & Activities", "Food & Drink", "Nature & Animals"]
+
+      iex> Vocabulary.list_available_categories(part_of_speech: :conjunction)
+      []
+  """
+  def list_available_categories(opts \\ []) do
+    Word
+    |> apply_filters(opts)
+    |> select([w], fragment("DISTINCT unnest(?)", w.categories))
+    |> Repo.all()
+    |> Enum.sort()
+  end
+
   # Private functions
 
   defp maybe_regenerate_search_terms({:ok, word}) do
