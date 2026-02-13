@@ -8,29 +8,9 @@ defmodule Ohmyword.Linguistics.InflectorValidationTest do
   - Missing forms (engine doesn't generate a form that seed has)
   - Wrong forms (engine generates different form than seed)
   - Extra forms (engine generates forms not in seed - informational)
-
-  These tests are EXCLUDED by default (in test_helper.exs) because they validate
-  the inflection engine against hand-curated seed data, and the engine is still
-  being developed. Failures here indicate gaps in the inflector rules, not bugs.
-
-  ## Running these tests
-
-      # Run only inflector validation tests
-      mix test --include inflector_validation test/ohmyword/linguistics/inflector_validation_test.exs
-
-      # Run all tests including validation
-      mix test --include inflector_validation
-
-  ## Test output
-
-  - MISSING: Engine doesn't generate a form that seed has
-  - WRONG: Engine generates different form than seed expects
-  - EXTRA: Engine generates forms not in seed (informational only, not a failure)
   """
 
   use ExUnit.Case, async: true
-
-  @moduletag :inflector_validation
 
   alias Ohmyword.Linguistics.Validator
 
@@ -78,24 +58,6 @@ defmodule Ohmyword.Linguistics.InflectorValidationTest do
     end
   end
 
-  describe "individual word validation (for debugging)" do
-    @tag :skip
-    test "validate specific word", %{seed_data: seed_data} do
-      # Change this to debug a specific word
-      word_term = "pas"
-
-      entry = Enum.find(seed_data, &(&1["term"] == word_term))
-      assert entry, "Word '#{word_term}' not found in seed data"
-
-      result = Validator.validate(entry)
-      IO.puts("\n#{Validator.format_result(result)}")
-
-      assert result.passed,
-             "Validation failed for '#{word_term}':\n#{Validator.format_result(result)}"
-    end
-  end
-
-  # Validates a list of words and collects all discrepancies
   defp validate_words(entries, pos_label) do
     results =
       entries
