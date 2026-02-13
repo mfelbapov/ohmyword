@@ -43,7 +43,9 @@
       "Bash(git push:*)",
       "Bash(mix run:*)",
       "Bash(mix compile:*)",
-      "Bash(ruby -rjson -e:*)"
+      "Bash(ruby -rjson -e:*)",
+      "Bash(mix format:*)",
+      "Bash(git status:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"

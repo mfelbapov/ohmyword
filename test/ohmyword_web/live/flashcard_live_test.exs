@@ -156,7 +156,7 @@ defmodule OhmywordWeb.FlashcardLiveTest do
       {:ok, view, _html} = live(conn, ~p"/flashcards")
 
       # Filter to noun only
-      html = view |> element("form") |> render_change(%{"pos" => "noun"})
+      html = view |> element("form[phx-change=filter_pos]") |> render_change(%{"pos" => "noun"})
 
       assert html =~ "uniquenoun"
     end
@@ -167,10 +167,11 @@ defmodule OhmywordWeb.FlashcardLiveTest do
       {:ok, view, _html} = live(conn, ~p"/flashcards")
 
       # Filter to numeral (no numeral words exist)
-      html = view |> element("form") |> render_change(%{"pos" => "numeral"})
+      html =
+        view |> element("form[phx-change=filter_pos]") |> render_change(%{"pos" => "numeral"})
 
       assert html =~ "No Numeral words"
-      assert html =~ "No words match the current filter"
+      assert html =~ "No words match the current filters"
     end
 
     test "previous button is disabled on initial load", %{conn: conn} do
@@ -267,6 +268,113 @@ defmodule OhmywordWeb.FlashcardLiveTest do
       # After exhausting history, previous should be disabled
       html = render(view)
       assert html =~ "disabled"
+    end
+
+    test "category filter dropdown renders with available categories", %{conn: conn} do
+      word_fixture(%{term: "hleb", categories: ["Food & Drink"]})
+      word_fixture(%{term: "pas", categories: ["Nature & Environment"]})
+
+      {:ok, _view, html} = live(conn, ~p"/flashcards")
+
+      assert html =~ "All categories"
+      assert html =~ "Food &amp; Drink"
+      assert html =~ "Nature &amp; Environment"
+    end
+
+    test "category filter changes loaded word to matching category", %{conn: conn} do
+      word_fixture(%{term: "uniquefood", categories: ["Food & Drink"]})
+      word_fixture(%{term: "uniquenature", categories: ["Nature & Environment"]})
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      html =
+        view
+        |> element("form[phx-change=filter_category]")
+        |> render_change(%{"category" => "Food & Drink"})
+
+      assert html =~ "uniquefood"
+    end
+
+    test "combined POS and category filter returns intersection", %{conn: conn} do
+      noun_fixture(%{term: "foodnoun", categories: ["Food & Drink"]})
+      verb_fixture(%{term: "foodverb", categories: ["Food & Drink"]})
+      noun_fixture(%{term: "naturenoun", categories: ["Nature & Environment"]})
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      # Filter to noun
+      view |> element("form[phx-change=filter_pos]") |> render_change(%{"pos" => "noun"})
+
+      # Then filter to Food & Drink
+      html =
+        view
+        |> element("form[phx-change=filter_category]")
+        |> render_change(%{"category" => "Food & Drink"})
+
+      assert html =~ "foodnoun"
+    end
+
+    test "empty state when no words match combined filters", %{conn: conn} do
+      noun_fixture(%{term: "foodnoun", categories: ["Food & Drink"]})
+      verb_fixture(%{term: "natureverb", categories: ["Nature & Environment"]})
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      # Filter to verb
+      view |> element("form[phx-change=filter_pos]") |> render_change(%{"pos" => "verb"})
+
+      # Then filter to Food & Drink (no verbs in Food & Drink)
+      html =
+        view
+        |> element("form[phx-change=filter_category]")
+        |> render_change(%{"category" => "Food & Drink"})
+
+      assert html =~ "No Verb words in Food &amp; Drink"
+      assert html =~ "No words match the current filters"
+    end
+
+    test "category dropdown shows 'No categories' for POS without categories", %{conn: conn} do
+      word_fixture(%{
+        part_of_speech: :conjunction,
+        term: "ali",
+        translation: "but",
+        categories: []
+      })
+
+      noun_fixture(%{term: "hleb", categories: ["Food & Drink"]})
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      html =
+        view
+        |> element("form[phx-change=filter_pos]")
+        |> render_change(%{"pos" => "conjunction"})
+
+      assert html =~ "No categories"
+      refute html =~ "Food &amp; Drink"
+    end
+
+    test "POS dropdown narrows when category is selected", %{conn: conn} do
+      noun_fixture(%{term: "hleb", categories: ["Food & Drink"]})
+      verb_fixture(%{term: "jesti", categories: ["Food & Drink"]})
+
+      word_fixture(%{
+        part_of_speech: :conjunction,
+        term: "ali",
+        translation: "but",
+        categories: []
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      html =
+        view
+        |> element("form[phx-change=filter_category]")
+        |> render_change(%{"category" => "Food & Drink"})
+
+      assert html =~ "Noun"
+      assert html =~ "Verb"
+      refute html =~ "Conjunction"
     end
   end
 end

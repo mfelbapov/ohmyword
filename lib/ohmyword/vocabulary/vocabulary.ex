@@ -156,8 +156,9 @@ defmodule Ohmyword.Vocabulary do
       iex> Vocabulary.list_available_parts_of_speech()
       [:adjective, :noun, :verb]
   """
-  def list_available_parts_of_speech do
+  def list_available_parts_of_speech(opts \\ []) do
     Word
+    |> apply_filters(opts)
     |> select([w], w.part_of_speech)
     |> distinct(true)
     |> Repo.all()
@@ -211,6 +212,9 @@ defmodule Ohmyword.Vocabulary do
 
       {:proficiency_level, level}, query ->
         where(query, [w], w.proficiency_level == ^level)
+
+      {:category, cat}, query ->
+        where(query, [w], ^cat in w.categories)
 
       _, query ->
         query
