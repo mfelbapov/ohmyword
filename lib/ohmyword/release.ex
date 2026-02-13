@@ -42,23 +42,29 @@ defmodule Ohmyword.Release do
     if File.exists?(seed_file) do
       IO.puts("Loading vocabulary from #{seed_file}...")
 
-      Repo.delete_all(SearchTerm)
-      Repo.delete_all(Word)
+      Repo.transaction(
+        fn ->
+          Repo.delete_all(SearchTerm)
+          Repo.delete_all(Word)
 
-      seed_file
-      |> File.read!()
-      |> Jason.decode!()
-      |> Enum.each(fn entry ->
-        case WordImporter.import_from_seed(entry) do
-          {:ok, word} ->
-            IO.puts("  Inserted: #{word.term}")
+          seed_file
+          |> File.read!()
+          |> Jason.decode!()
+          |> Enum.each(fn entry ->
+            case WordImporter.import_from_seed(entry) do
+              {:ok, word} ->
+                IO.puts("  Inserted: #{word.term}")
 
-          {:error, changeset} ->
-            IO.puts("  ERROR: #{inspect(changeset.errors)}")
-        end
-      end)
+              {:error, changeset} ->
+                IO.puts("  ERROR: #{inspect(changeset.errors)}")
+            end
+          end)
 
-      link_aspect_pairs()
+          link_aspect_pairs()
+        end,
+        timeout: :infinity
+      )
+
       IO.puts("Vocabulary seeding complete!")
     else
       IO.puts("No vocabulary seed file found")
@@ -100,30 +106,35 @@ defmodule Ohmyword.Release do
     if File.exists?(seed_file) do
       IO.puts("Loading sentences...")
 
-      Repo.delete_all(Sentence)
+      Repo.transaction(
+        fn ->
+          Repo.delete_all(Sentence)
 
-      seed_file
-      |> File.read!()
-      |> Jason.decode!()
-      |> Enum.each(fn entry ->
-        word_term = entry["word_term"]
+          seed_file
+          |> File.read!()
+          |> Jason.decode!()
+          |> Enum.each(fn entry ->
+            word_term = entry["word_term"]
 
-        case Repo.get_by(Word, term: word_term) do
-          nil ->
-            :skip
+            case Repo.get_by(Word, term: word_term) do
+              nil ->
+                :skip
 
-          word ->
-            %Sentence{}
-            |> Sentence.changeset(%{
-              text: entry["text"],
-              translation: entry["translation"],
-              blank_form_tag: entry["blank_form_tag"],
-              hint: entry["hint"],
-              word_id: word.id
-            })
-            |> Repo.insert()
-        end
-      end)
+              word ->
+                %Sentence{}
+                |> Sentence.changeset(%{
+                  text: entry["text"],
+                  translation: entry["translation"],
+                  blank_form_tag: entry["blank_form_tag"],
+                  hint: entry["hint"],
+                  word_id: word.id
+                })
+                |> Repo.insert!()
+            end
+          end)
+        end,
+        timeout: :infinity
+      )
 
       IO.puts("Sentences seeding complete!")
     end
