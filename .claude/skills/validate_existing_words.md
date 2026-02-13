@@ -10,17 +10,13 @@ When the user asks to validate existing words in the vocabulary seed against the
 
 ## Background
 
-The seed contains 521 words total:
-- ~340 words **with** `forms` arrays — these have LLM-generated reference forms that can be compared automatically
-- ~181 words **without** `forms` arrays — these need manual (LLM-assisted) form generation before comparison
-
-Both flows append discrepancies to the same output file: `docs/existing_words_to check.md`.
+The seed contains 521 words, all with `forms` arrays containing LLM-verified reference forms. Validation is fully automated — the script loads every word, runs the engine, and compares forms against the seed. Discrepancies are appended to `docs/existing_words_to check.md`.
 
 ---
 
-## Flow A — Automated Comparison (words WITH seed forms)
+## Running Validation
 
-Use this flow for bulk validation of words that already have `forms` arrays in the seed.
+Use this flow for bulk validation of all words in the seed.
 
 ### Running the Script
 
@@ -230,7 +226,7 @@ mix run validate_existing_words.exs
 
 The script:
 1. Loads `priv/repo/vocabulary_seed.json`
-2. Filters to words with `forms` arrays (~340 words)
+2. Filters to words with `forms` arrays (all 521 words)
 3. For each word: builds a `Word` struct, runs `Dispatcher.inflect/1`, compares forms
 4. Appends discrepancies to `docs/existing_words_to check.md`
 5. Prints a summary to stdout
@@ -246,93 +242,9 @@ The script:
 
 ---
 
-## Flow B — LLM-Assisted Comparison (words WITHOUT seed forms)
-
-Use this flow for words that lack `forms` arrays in the seed. Process in batches of ~10-20 words.
-
-### Step 1 — Load a Batch
-
-In IEx or via a script, list words without forms:
-
-```elixir
-seed_data =
-  :code.priv_dir(:ohmyword)
-  |> Path.join("repo/vocabulary_seed.json")
-  |> File.read!()
-  |> Jason.decode!()
-
-no_forms = Enum.filter(seed_data, fn e -> is_nil(e["forms"]) or e["forms"] == [] end)
-IO.puts("Total words without forms: #{length(no_forms)}")
-
-# Show a batch (adjust offset for subsequent batches)
-batch = Enum.slice(no_forms, 0, 20)
-Enum.each(batch, fn e ->
-  IO.puts("#{e["term"]} (#{e["part_of_speech"]}, #{e["gender"] || "—"})")
-end)
-```
-
-**Note:** Many of the ~181 words without forms are invariables (prepositions, conjunctions, interjections, particles). These are trivial — the engine should return a single `{"term", "invariable"}` form. Focus manual effort on nouns, verbs, adjectives, and pronouns.
-
-### Step 1.5 — Validate Dictionary Form
-
-Check if each word's `term` is the dictionary headword (infinitive/nominative singular).
-
-- **If YES:** Proceed to Step 2.
-- **If NO:** Do NOT generate forms. Add the word to `docs/existing_words_to check.md` with the reason "**Invalid seed term: not in dictionary form**" and skip to the next word.
-
-### Step 2 — Claude Generates Expected Forms
-
-For each word in the batch, you (Claude) generate all expected inflected forms using Serbian grammar knowledge. Use the same form tags listed in the `adding_new_word` skill:
-
-- **Nouns** (14 forms): `nom_sg`, `gen_sg`, `dat_sg`, `acc_sg`, `voc_sg`, `ins_sg`, `loc_sg`, `nom_pl`, `gen_pl`, `dat_pl`, `acc_pl`, `voc_pl`, `ins_pl`, `loc_pl`
-- **Verbs** (24 forms): `infinitive`, `pres_1sg`–`pres_3pl`, `past_m_sg`–`past_n_pl`, `imp_2sg`, `imp_1pl`, `imp_2pl`, `pp_m_sg`–`pp_n_pl`, `pres_adv_participle`, `past_adv_participle`
-- **Adjectives** (up to 84 forms): `{indef|def}_{case}_{number}_{gender}`
-- **Invariables**: single `invariable` form (plus optional `comparative`, `superlative` for adverbs)
-- **Pronouns**: paradigm-dependent `_sg`/`_pl` tags
-- **Numerals**: ordinals get adjective-like forms; cardinals 5+ get single `base` form
-
-### Step 3 — Run Engine and Compare
-
-For each word in the batch, run the engine:
-
-```elixir
-word = %Ohmyword.Vocabulary.Word{
-  term: "kuća",
-  part_of_speech: :noun,
-  gender: :feminine,
-  declension_class: "a_stem",
-  animate: false,
-  grammar_metadata: %{}
-}
-
-engine_forms = Ohmyword.Linguistics.Dispatcher.inflect(word)
-IO.inspect(engine_forms, label: "Engine forms")
-```
-
-Compare Claude's expected forms against engine output. Look for:
-- Missing form tags (expected but not generated)
-- Wrong form strings (same tag, different string)
-- Extra form tags (generated but not expected)
-
-### Step 4 — Log Discrepancies
-
-Append any discrepancies to `docs/existing_words_to check.md` using the same output format as Flow A.
-
-### Step 5 — Next Batch
-
-Move to the next batch of ~20 words. Track which offset you're at:
-
-```elixir
-batch = Enum.slice(no_forms, 20, 20)  # second batch
-batch = Enum.slice(no_forms, 40, 20)  # third batch
-# ... and so on
-```
-
----
-
 ## Output Format for `docs/existing_words_to check.md`
 
-All discrepancies (from both flows) are appended to the same file using this format:
+Discrepancies are appended to this file using the following format:
 
 ```markdown
 # Existing Words to Check
@@ -374,8 +286,7 @@ Discrepancies between seed forms and engine output.
 ## Notes
 
 - **Seed is read-only.** Never modify `priv/repo/vocabulary_seed.json` via this skill. To fix words, use the `adding_new_word` skill or edit the seed separately.
-- **Both flows append to the same file.** `docs/existing_words_to check.md` accumulates all discrepancies.
 - **The inline script reuses patterns from `inflector_validation_test.exs`** — same `build_word_struct`, comparison logic, and form normalization.
-- **For invariable words** (prepositions, conjunctions, interjections, particles): the engine should return `[{"term", "invariable"}]`. These are trivially validated — batch them together in Flow B.
+- **For invariable words** (prepositions, conjunctions, interjections, particles): the engine should return `[{"term", "invariable"}]`. These are trivially validated.
 - **Adverbs with comparison:** Some adverbs also have `comparative` and `superlative` forms beyond the base `invariable` tag.
 - **`declension_class` values** in the seed use both formats (`a-stem` and `a_stem`). The engine/struct accepts both — don't normalize when building structs.
