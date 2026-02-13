@@ -12,20 +12,33 @@
     </script>
     <script>
       (() => {
+        const applySystemTheme = () => {
+          const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+        };
+
         const setTheme = (theme) => {
-          if (theme === "system") {
+          if (theme === "system" || !theme) {
             localStorage.removeItem("phx:theme");
-            document.documentElement.removeAttribute("data-theme");
+            applySystemTheme();
           } else {
             localStorage.setItem("phx:theme", theme);
             document.documentElement.setAttribute("data-theme", theme);
           }
         };
-        if (!document.documentElement.hasAttribute("data-theme")) {
-          setTheme(localStorage.getItem("phx:theme") || "system");
-        }
+
+        // Apply on load
+        setTheme(localStorage.getItem("phx:theme") || "system");
+
+        // React to OS theme changes (for system mode)
+        window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
+          if (!localStorage.getItem("phx:theme")) applySystemTheme();
+        });
+
+        // React to cross-tab storage changes
         window.addEventListener("storage", (e) => e.key === "phx:theme" && setTheme(e.newValue || "system"));
 
+        // React to LiveView theme toggle events
         window.addEventListener("phx:set-theme", (e) => setTheme(e.target.dataset.phxTheme));
       })();
     </script>
@@ -38,6 +51,19 @@
         <img src={~p"/images/logo-orange.svg"} width="36" />
       </a>
       --%>
+        <li>
+          <.link
+            href={~p"/"}
+            class={
+              if @conn.request_path == "/",
+                do: "font-semibold text-zinc-900 dark:text-zinc-100",
+                else:
+                  "text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300"
+            }
+          >
+            Home
+          </.link>
+        </li>
         <li>
           <.link
             href={~p"/flashcards"}
