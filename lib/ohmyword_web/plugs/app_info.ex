@@ -7,13 +7,17 @@ defmodule OhmywordWeb.Plugs.AppInfo do
 
   alias Ohmyword.Vocabulary
 
+  @app_version (case System.cmd("git", ["describe", "--tags", "--abbrev=0"],
+                      stderr_to_stdout: true) do
+                  {tag, 0} -> String.trim(tag)
+                  _ -> "v#{Application.spec(:ohmyword, :vsn) |> to_string()}"
+                end)
+
   def init(opts), do: opts
 
   def call(conn, _opts) do
-    version = Application.spec(:ohmyword, :vsn) |> to_string()
-
     conn
-    |> assign(:app_version, "v#{version}")
+    |> assign(:app_version, @app_version)
     |> assign(:word_count, Vocabulary.count_words())
   end
 end

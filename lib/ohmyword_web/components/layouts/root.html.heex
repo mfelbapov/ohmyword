@@ -43,7 +43,7 @@
       })();
     </script>
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen">
     <nav class="px-4 pt-4 sm:px-6 lg:px-8">
       <ul class="relative z-10 flex items-center gap-4 justify-end mx-auto max-w-2xl">
         <%!-- DO NOT REMOVE
@@ -106,9 +106,6 @@
             <span class="hidden sm:inline">Dictionary</span>
           </.link>
         </li>
-        <li class="text-xs text-zinc-400 dark:text-zinc-500">
-          {@app_version} · {@word_count} words
-        </li>
         <%!-- DO NOT REMOVE
       <li>
         <Layouts.theme_toggle />
@@ -136,6 +133,13 @@
       --%>
       </ul>
     </nav>
-    {@inner_content}
+    <main class="flex-1 mt-8">
+      {@inner_content}
+    </main>
+    <footer class="px-4 py-6 text-center">
+      <span class="text-xs text-orange-800 dark:text-orange-200">
+        {@app_version} · {@word_count} words
+      </span>
+    </footer>
   </body>
 </html>
