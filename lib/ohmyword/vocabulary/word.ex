@@ -73,6 +73,7 @@ defmodule Ohmyword.Vocabulary.Word do
     |> validate_animate_for_masculine_nouns()
     |> validate_verb_aspect_required()
     |> foreign_key_constraint(:aspect_pair_id)
+    |> Ohmyword.Vocabulary.Metadata.validate_metadata()
   end
 
   # Gender is required for nouns, adjectives, and pronouns

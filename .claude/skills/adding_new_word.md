@@ -74,7 +74,7 @@ The Validator builds a Word struct, runs the engine, and compares every form tag
 
 **Action: Add the word to `priv/repo/vocabulary_seed.json`**
 
-Build the seed entry with only metadata (no `forms` array needed since engine handles it):
+Build the seed entry including the engine-generated forms (which matched the LLM forms). Including forms enables automated bulk validation later via the `validate_existing_words` skill.
 
 ```json
 {
@@ -86,32 +86,49 @@ Build the seed entry with only metadata (no `forms` array needed since engine ha
   "declension_class": "a_stem",
   "animate": false,
   "proficiency_level": 1,
-  "grammar_metadata": {}
+  "grammar_metadata": {},
+  "forms": [
+    {"form_tag": "nom_sg", "term": "kuća"},
+    {"form_tag": "gen_sg", "term": "kuće"},
+    {"form_tag": "dat_sg", "term": "kući"},
+    {"form_tag": "acc_sg", "term": "kuću"},
+    {"form_tag": "voc_sg", "term": "kućo"},
+    {"form_tag": "ins_sg", "term": "kućom"},
+    {"form_tag": "loc_sg", "term": "kući"},
+    {"form_tag": "nom_pl", "term": "kuće"},
+    {"form_tag": "gen_pl", "term": "kuća"},
+    {"form_tag": "dat_pl", "term": "kućama"},
+    {"form_tag": "acc_pl", "term": "kuće"},
+    {"form_tag": "voc_pl", "term": "kuće"},
+    {"form_tag": "ins_pl", "term": "kućama"},
+    {"form_tag": "loc_pl", "term": "kućama"}
+  ]
 }
 ```
 
-Then regenerate search terms so the word becomes searchable:
+Then import the word into the database so it becomes searchable immediately (with locked seed forms):
 
 ```elixir
-# In IEx or via mix run:
-{:ok, word} = Ohmyword.Vocabulary.create_word(%{
-  term: "kuća",
-  translation: "house",
-  part_of_speech: :noun,
-  gender: :feminine,
-  declension_class: :a_stem,
-  animate: false,
-  proficiency_level: 1,
-  grammar_metadata: %{},
-  categories: ["home"]
-})
-# This automatically calls CacheManager.regenerate_word/1 which:
-#   1. Calls Dispatcher.inflect(word) to get all forms
-#   2. For each form, creates a SearchTerm with:
-#      - term: ASCII-stripped, lowercased (for matching)
-#      - display_form: diacritical, lowercased (for display)
-#      - form_tag: the grammatical tag
-#      - source: :engine, locked: false
+# In IEx or via mix run — use the same map you added to the seed JSON:
+entry = %{
+  "term" => "kuća",
+  "translation" => "house",
+  "part_of_speech" => "noun",
+  "gender" => "feminine",
+  "declension_class" => "a_stem",
+  "animate" => false,
+  "proficiency_level" => 1,
+  "grammar_metadata" => %{},
+  "categories" => ["home"],
+  "forms" => [
+    %{"form_tag" => "nom_sg", "term" => "kuća"},
+    %{"form_tag" => "gen_sg", "term" => "kuće"}
+    # ... all forms from the seed entry
+  ]
+}
+{:ok, word} = Ohmyword.Vocabulary.WordImporter.import_from_seed(entry)
+# This creates the Word record, inserts all seed forms as locked search terms,
+# and runs the engine to fill any gaps (engine forms are unlocked).
 ```
 
 **Why dual-form search storage:**
@@ -181,6 +198,6 @@ These are inserted as locked search terms (source: `:seed`) and the engine's `on
 ## Notes
 
 - **Diacritics matter**: Always use proper Serbian Latin diacritics (č, ć, š, ž, đ). The engine produces diacritical forms. ASCII stripping happens only at the storage layer in CacheManager.
-- **No Mix task exists yet**: Words are added either via seed JSON + `mix ecto.reset` or via `Vocabulary.create_word/1` in IEx.
+- **Adding words to DB**: Use `Ohmyword.Vocabulary.WordImporter.import_from_seed/1` in IEx to import a word with its locked seed forms. No need for `mix ecto.reset`.
 - **Locked vs unlocked**: Manual/seed forms are `locked: true` and survive regeneration. Engine forms are `locked: false` and get wiped/recreated on regeneration.
 - **Aspect pairs**: If adding a verb, check if its aspect pair already exists and link them via `aspect_pair_id` / `aspect_pair_term` in the seed JSON.

@@ -42,8 +42,7 @@ defmodule VocabularySeed do
   alias Ohmyword.Repo
   alias Ohmyword.Vocabulary.Word
   alias Ohmyword.Search.SearchTerm
-  alias Ohmyword.Linguistics.CacheManager
-  alias Ohmyword.Utils.Transliteration
+  alias Ohmyword.Vocabulary.WordImporter
 
   def run do
     seed_file = Path.join(:code.priv_dir(:ohmyword), "repo/vocabulary_seed.json")
@@ -58,7 +57,15 @@ defmodule VocabularySeed do
       seed_file
       |> File.read!()
       |> Jason.decode!()
-      |> Enum.each(&insert_word_with_forms/1)
+      |> Enum.each(fn entry ->
+        case WordImporter.import_from_seed(entry) do
+          {:ok, word} ->
+            IO.puts("  Inserted: #{word.term}")
+
+          {:error, changeset} ->
+            IO.puts("  ERROR inserting #{entry["term"]}: #{inspect(changeset.errors)}")
+        end
+      end)
 
       # Link aspect pairs in second pass
       link_aspect_pairs()
@@ -67,48 +74,6 @@ defmodule VocabularySeed do
     else
       IO.puts("No vocabulary seed file found at #{seed_file}")
     end
-  end
-
-  defp insert_word_with_forms(entry) do
-    # Extract forms and aspect_pair_term (not part of Word schema)
-    {forms, entry} = Map.pop(entry, "forms", [])
-    {_aspect_pair_term, entry} = Map.pop(entry, "aspect_pair_term")
-
-    # Convert string keys to atoms for changeset
-    attrs = atomize_keys(entry)
-
-    case %Word{} |> Word.changeset(attrs) |> Repo.insert() do
-      {:ok, word} ->
-        # Insert search terms for each form (locked)
-        Enum.each(forms, fn form ->
-          insert_search_term(word, form)
-        end)
-
-        # Run engine to fill any gaps (won't touch locked forms)
-        {:ok, engine_count} = CacheManager.regenerate_word(word)
-
-        if engine_count > 0 do
-          IO.puts("  Inserted: #{word.term} (+#{engine_count} engine forms)")
-        else
-          IO.puts("  Inserted: #{word.term}")
-        end
-
-      {:error, changeset} ->
-        IO.puts("  ERROR inserting #{entry["term"]}: #{inspect(changeset.errors)}")
-    end
-  end
-
-  defp insert_search_term(word, %{"term" => term, "form_tag" => form_tag}) do
-    %SearchTerm{}
-    |> SearchTerm.changeset(%{
-      term: term |> Transliteration.strip_diacritics() |> String.downcase(),
-      display_form: String.downcase(term),
-      form_tag: String.downcase(form_tag),
-      word_id: word.id,
-      source: :seed,
-      locked: true
-    })
-    |> Repo.insert()
   end
 
   defp link_aspect_pairs do
@@ -136,21 +101,6 @@ defmodule VocabularySeed do
       end
     end)
   end
-
-  defp atomize_keys(map) do
-    Map.new(map, fn {k, v} ->
-      key = String.to_existing_atom(k)
-      value = convert_enum_value(key, v)
-      {key, value}
-    end)
-  rescue
-    ArgumentError -> map
-  end
-
-  defp convert_enum_value(:part_of_speech, v) when is_binary(v), do: String.to_existing_atom(v)
-  defp convert_enum_value(:gender, v) when is_binary(v), do: String.to_existing_atom(v)
-  defp convert_enum_value(:verb_aspect, v) when is_binary(v), do: String.to_existing_atom(v)
-  defp convert_enum_value(_, v), do: v
 end
 
 # Sentences seeding
