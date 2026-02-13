@@ -35,8 +35,7 @@ defmodule Ohmyword.Release do
     alias Ohmyword.Repo
     alias Ohmyword.Vocabulary.Word
     alias Ohmyword.Search.SearchTerm
-    alias Ohmyword.Linguistics.CacheManager
-    alias Ohmyword.Utils.Transliteration
+    alias Ohmyword.Vocabulary.WordImporter
 
     seed_file = Path.join(:code.priv_dir(:ohmyword), "repo/vocabulary_seed.json")
 
@@ -50,30 +49,9 @@ defmodule Ohmyword.Release do
       |> File.read!()
       |> Jason.decode!()
       |> Enum.each(fn entry ->
-        {forms, entry} = Map.pop(entry, "forms", [])
-        {_aspect_pair_term, entry} = Map.pop(entry, "aspect_pair_term")
-
-        attrs = atomize_keys(entry)
-
-        case %Word{} |> Word.changeset(attrs) |> Repo.insert() do
+        case WordImporter.import_from_seed(entry) do
           {:ok, word} ->
-            Enum.each(forms, fn %{"term" => term, "form_tag" => form_tag} ->
-              %SearchTerm{}
-              |> SearchTerm.changeset(%{
-                term: term |> Transliteration.strip_diacritics() |> String.downcase(),
-                display_form: String.downcase(term),
-                form_tag: String.downcase(form_tag),
-                word_id: word.id,
-                source: :seed,
-                locked: true
-              })
-              |> Repo.insert()
-            end)
-
-            {:ok, engine_count} = CacheManager.regenerate_word(word)
-
-            if engine_count > 0,
-              do: IO.puts("  Inserted: #{word.term} (+#{engine_count} engine forms)")
+            IO.puts("  Inserted: #{word.term}")
 
           {:error, changeset} ->
             IO.puts("  ERROR: #{inspect(changeset.errors)}")
@@ -174,21 +152,6 @@ defmodule Ohmyword.Release do
       IO.puts("Admin user created: #{email}")
     end
   end
-
-  defp atomize_keys(map) do
-    Map.new(map, fn {k, v} ->
-      key = String.to_existing_atom(k)
-      value = convert_enum_value(key, v)
-      {key, value}
-    end)
-  rescue
-    ArgumentError -> map
-  end
-
-  defp convert_enum_value(:part_of_speech, v) when is_binary(v), do: String.to_existing_atom(v)
-  defp convert_enum_value(:gender, v) when is_binary(v), do: String.to_existing_atom(v)
-  defp convert_enum_value(:verb_aspect, v) when is_binary(v), do: String.to_existing_atom(v)
-  defp convert_enum_value(_, v), do: v
 
   defp repos do
     Application.fetch_env!(@app, :ecto_repos)
