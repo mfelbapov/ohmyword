@@ -38,7 +38,12 @@
       "Bash(gh pr merge:*)",
       "Bash(gh pr view:*)",
       "Bash(mix ecto.reset:*)",
-      "Bash(MIX_ENV=test mix ecto.reset:*)"
+      "Bash(MIX_ENV=test mix ecto.reset:*)",
+      "Bash(gh run view:*)",
+      "Bash(mix format:*)",
+      "Bash(fly apps list:*)",
+      "Bash(fly machine restart:*)",
+      "Bash(gh run watch:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"
