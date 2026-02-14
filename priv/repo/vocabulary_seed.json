@@ -12260,19 +12260,6 @@
     "forms": [
       {
         "form_tag": "invariable",
-        "term": "mesto"
-      }
-    ],
-    "part_of_speech": "preposition",
-    "proficiency_level": 2,
-    "term": "mesto",
-    "translation": "instead of"
-  },
-  {
-    "categories": [],
-    "forms": [
-      {
-        "form_tag": "invariable",
         "term": "među"
       }
     ],
@@ -12456,19 +12443,6 @@
     "transitive": true,
     "translation": "to think",
     "verb_aspect": "imperfective"
-  },
-  {
-    "categories": [],
-    "forms": [
-      {
-        "form_tag": "invariable",
-        "term": "mjesto"
-      }
-    ],
-    "part_of_speech": "preposition",
-    "proficiency_level": 2,
-    "term": "mjesto",
-    "translation": "instead of"
   },
   {
     "categories": [
@@ -16228,6 +16202,41 @@
     "proficiency_level": 1,
     "term": "paradajz",
     "translation": "tomato"
+  },
+  {
+    "animate": false,
+    "categories": [
+      "Places & Travel"
+    ],
+    "declension_class": "consonant",
+    "forms": [
+      {
+        "form_tag": "nom_sg",
+        "term": "park"
+      },
+      {
+        "form_tag": "gen_sg",
+        "term": "parka"
+      },
+      {
+        "form_tag": "dat_sg",
+        "term": "parku"
+      },
+      {
+        "form_tag": "acc_sg",
+        "term": "park"
+      },
+      {
+        "form_tag": "loc_sg",
+        "term": "parku"
+      }
+    ],
+    "gender": "masculine",
+    "grammar_metadata": {},
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "term": "park",
+    "translation": "park"
   },
   {
     "animate": false,
@@ -30221,19 +30230,6 @@
     "part_of_speech": "preposition",
     "proficiency_level": 1,
     "term": "umesto",
-    "translation": "instead of"
-  },
-  {
-    "categories": [],
-    "forms": [
-      {
-        "form_tag": "invariable",
-        "term": "umjesto"
-      }
-    ],
-    "part_of_speech": "preposition",
-    "proficiency_level": 1,
-    "term": "umjesto",
     "translation": "instead of"
   },
   {
