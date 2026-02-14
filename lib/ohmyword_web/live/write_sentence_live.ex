@@ -59,6 +59,8 @@ defmodule OhmywordWeb.WriteSentenceLive do
                       readonly={@submitted}
                       placeholder={String.duplicate("_", String.length(token))}
                       style={"width: #{max(3, String.length(token)) * 1.1 + 1.5}ch; letter-spacing: 0.25em"}
+                      id={if idx == @first_blank, do: "first-blank-#{@current_sentence.id}"}
+                      phx-hook={if idx == @first_blank, do: "AutoFocus"}
                       class={[
                         "max-w-full rounded-lg border-2 px-2 py-1 text-lg text-center focus:outline-none dark:bg-zinc-800 dark:text-zinc-100",
                         result_border_class(@results, idx, @submitted)
@@ -354,7 +356,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
   defp assign_blanks(socket) do
     case socket.assigns.current_sentence do
       nil ->
-        assign(socket, tokens: [], blanked_words: [], blanked_positions: MapSet.new())
+        assign(socket, tokens: [], blanked_words: [], blanked_positions: MapSet.new(), first_blank: nil)
 
       sentence ->
         tokens = Exercises.tokenize(sentence.text_rs)
@@ -369,10 +371,13 @@ defmodule OhmywordWeb.WriteSentenceLive do
             annotated_positions
           end
 
+        first_blank = blanked_positions |> Enum.min(fn -> nil end)
+
         assign(socket,
           tokens: tokens,
           blanked_words: blanked,
-          blanked_positions: blanked_positions
+          blanked_positions: blanked_positions,
+          first_blank: first_blank
         )
     end
   end
