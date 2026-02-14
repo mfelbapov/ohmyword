@@ -7,11 +7,17 @@ defmodule OhmywordWeb.Plugs.AppInfo do
 
   alias Ohmyword.Vocabulary
 
-  @app_version (case System.cmd("git", ["describe", "--tags", "--abbrev=0"],
-                       stderr_to_stdout: true
-                     ) do
-                  {tag, 0} -> String.trim(tag)
-                  _ -> "v" <> Mix.Project.config()[:version]
+  @app_version (case System.get_env("APP_VERSION") do
+                  nil ->
+                    case System.cmd("git", ["describe", "--tags", "--abbrev=0"],
+                           stderr_to_stdout: true
+                         ) do
+                      {tag, 0} -> String.trim(tag)
+                      _ -> "v" <> Mix.Project.config()[:version]
+                    end
+
+                  version ->
+                    version
                 end)
 
   def init(opts), do: opts
