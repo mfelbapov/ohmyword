@@ -5,6 +5,7 @@ defmodule OhmywordWeb.FlashcardLive do
   Features:
   - Random word selection
   - Card flip interaction
+  - Write mode with per-character input
   - Script toggle (Latin/Cyrillic)
   - Linguistic badges (gender, verb aspect)
   """
@@ -27,6 +28,7 @@ defmodule OhmywordWeb.FlashcardLive do
 
       <div class="mt-6 flex items-center justify-between gap-2">
         <.direction_toggle direction_mode={@direction_mode} />
+        <.practice_mode_toggle practice_mode={@practice_mode} />
         <.pos_filter pos_filter={@pos_filter} available_pos={@available_pos} />
         <.category_filter
           category_filter={@category_filter}
@@ -36,77 +38,180 @@ defmodule OhmywordWeb.FlashcardLive do
       </div>
 
       <%= if @current_word do %>
-        <div
-          class="mt-6 min-h-80 cursor-pointer select-none"
-          phx-click="flip"
-        >
-          <div class={"relative h-80 perspective-1000 transform-style-3d transition-transform duration-500 #{if @flipped, do: "rotate-y-180", else: ""}"}>
-            <!-- Front of card -->
-            <div class={"absolute inset-0 rounded-xl border-2 border-zinc-300 bg-white p-8 shadow-lg backface-hidden dark:border-zinc-700 dark:bg-zinc-900 #{if @flipped, do: "invisible", else: ""}"}>
-              <div class="flex h-full flex-col items-center justify-center">
-                <%= if @direction_mode == :serbian_to_english do %>
-                  <div class="mb-4 flex flex-wrap gap-2 justify-center">
-                    <.pos_badge part_of_speech={@current_word.part_of_speech} />
-                    <%= if @current_word.gender do %>
-                      <.gender_badge gender={@current_word.gender} />
+        <%= if @practice_mode == :flip do %>
+          <div
+            class="mt-6 min-h-80 cursor-pointer select-none"
+            phx-click="flip"
+          >
+            <div class={"relative h-80 perspective-1000 transform-style-3d transition-transform duration-500 #{if @flipped, do: "rotate-y-180", else: ""}"}>
+              <!-- Front of card -->
+              <div class={"absolute inset-0 rounded-xl border-2 border-zinc-300 bg-white p-8 shadow-lg backface-hidden dark:border-zinc-700 dark:bg-zinc-900 #{if @flipped, do: "invisible", else: ""}"}>
+                <div class="flex h-full flex-col items-center justify-center">
+                  <%= if @direction_mode == :serbian_to_english do %>
+                    <div class="mb-4 flex flex-wrap gap-2 justify-center">
+                      <.pos_badge part_of_speech={@current_word.part_of_speech} />
+                      <%= if @current_word.gender do %>
+                        <.gender_badge gender={@current_word.gender} />
+                      <% end %>
+                      <%= if @current_word.verb_aspect do %>
+                        <.aspect_badge aspect={@current_word.verb_aspect} />
+                      <% end %>
+                      <%= if @current_word.animate do %>
+                        <.animate_badge />
+                      <% end %>
+                    </div>
+                    <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100">
+                      {display_term(@current_word.term, @script_mode)}
+                    </p>
+                  <% else %>
+                    <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100">
+                      {@current_word.translation}
+                    </p>
+                    <%= if @current_word.translations != [] do %>
+                      <p class="mt-2 text-center text-lg text-zinc-600 dark:text-zinc-400">
+                        {Enum.join(@current_word.translations, ", ")}
+                      </p>
                     <% end %>
-                    <%= if @current_word.verb_aspect do %>
-                      <.aspect_badge aspect={@current_word.verb_aspect} />
-                    <% end %>
-                    <%= if @current_word.animate do %>
-                      <.animate_badge />
-                    <% end %>
-                  </div>
-                  <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100">
-                    {display_term(@current_word.term, @script_mode)}
+                  <% end %>
+                  <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
+                    Click to reveal translation
                   </p>
-                <% else %>
-                  <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100">
-                    {@current_word.translation}
-                  </p>
-                  <%= if @current_word.translations != [] do %>
-                    <p class="mt-2 text-center text-lg text-zinc-600 dark:text-zinc-400">
-                      {Enum.join(@current_word.translations, ", ")}
+                </div>
+              </div>
+              
+    <!-- Back of card -->
+              <div class={"absolute inset-0 rounded-xl border-2 border-zinc-300 bg-white p-8 shadow-lg backface-hidden rotate-y-180 dark:border-zinc-700 dark:bg-zinc-900 #{if not @flipped, do: "invisible", else: ""}"}>
+                <div class="flex h-full flex-col items-center justify-center">
+                  <%= if @direction_mode == :serbian_to_english do %>
+                    <p class="text-center text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+                      {@current_word.translation}
+                    </p>
+                    <%= if @current_word.translations != [] do %>
+                      <p class="mt-2 text-center text-lg text-zinc-600 dark:text-zinc-400">
+                        {Enum.join(@current_word.translations, ", ")}
+                      </p>
+                    <% end %>
+                  <% else %>
+                    <div class="mb-4 flex flex-wrap gap-2 justify-center">
+                      <.pos_badge part_of_speech={@current_word.part_of_speech} />
+                      <%= if @current_word.gender do %>
+                        <.gender_badge gender={@current_word.gender} />
+                      <% end %>
+                      <%= if @current_word.verb_aspect do %>
+                        <.aspect_badge aspect={@current_word.verb_aspect} />
+                      <% end %>
+                      <%= if @current_word.animate do %>
+                        <.animate_badge />
+                      <% end %>
+                    </div>
+                    <p class="text-center text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+                      {display_term(@current_word.term, @script_mode)}
                     </p>
                   <% end %>
-                <% end %>
-                <p class="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
-                  Click to reveal translation
-                </p>
+                  <%= if @example_sentence do %>
+                    <div class="mt-6 w-full rounded-lg bg-zinc-100 p-4 dark:bg-zinc-800">
+                      <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
+                        {display_term(@example_sentence.text_rs, @script_mode)}
+                      </p>
+                      <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+                        {@example_sentence.text_en}
+                      </p>
+                    </div>
+                  <% end %>
+                </div>
               </div>
             </div>
-            
-    <!-- Back of card -->
-            <div class={"absolute inset-0 rounded-xl border-2 border-zinc-300 bg-white p-8 shadow-lg backface-hidden rotate-y-180 dark:border-zinc-700 dark:bg-zinc-900 #{if not @flipped, do: "invisible", else: ""}"}>
-              <div class="flex h-full flex-col items-center justify-center">
-                <%= if @direction_mode == :serbian_to_english do %>
-                  <p class="text-center text-3xl font-bold text-zinc-900 dark:text-zinc-100">
-                    {@current_word.translation}
-                  </p>
-                  <%= if @current_word.translations != [] do %>
-                    <p class="mt-2 text-center text-lg text-zinc-600 dark:text-zinc-400">
-                      {Enum.join(@current_word.translations, ", ")}
-                    </p>
+          </div>
+        <% else %>
+          <!-- Write mode -->
+          <div class="mt-6 min-h-80 rounded-xl border-2 border-zinc-300 bg-white p-8 shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
+            <div class="flex flex-col items-center justify-center">
+              <!-- Prompt -->
+              <%= if @direction_mode == :serbian_to_english do %>
+                <div class="mb-4 flex flex-wrap gap-2 justify-center">
+                  <.pos_badge part_of_speech={@current_word.part_of_speech} />
+                  <%= if @current_word.gender do %>
+                    <.gender_badge gender={@current_word.gender} />
                   <% end %>
-                <% else %>
-                  <div class="mb-4 flex flex-wrap gap-2 justify-center">
-                    <.pos_badge part_of_speech={@current_word.part_of_speech} />
-                    <%= if @current_word.gender do %>
-                      <.gender_badge gender={@current_word.gender} />
-                    <% end %>
-                    <%= if @current_word.verb_aspect do %>
-                      <.aspect_badge aspect={@current_word.verb_aspect} />
-                    <% end %>
-                    <%= if @current_word.animate do %>
-                      <.animate_badge />
+                  <%= if @current_word.verb_aspect do %>
+                    <.aspect_badge aspect={@current_word.verb_aspect} />
+                  <% end %>
+                  <%= if @current_word.animate do %>
+                    <.animate_badge />
+                  <% end %>
+                </div>
+                <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">
+                  {display_term(@current_word.term, @script_mode)}
+                </p>
+              <% else %>
+                <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-2">
+                  {@current_word.translation}
+                </p>
+                <p class="mb-6 min-h-7 text-center text-lg text-zinc-600 dark:text-zinc-400">
+                  <%= if @current_word.translations != [] do %>
+                    {Enum.join(@current_word.translations, ", ")}
+                  <% end %>
+                </p>
+              <% end %>
+              
+    <!-- Answer input -->
+              <form phx-submit="submit_answer" class="flex flex-col items-center gap-4">
+                <.single_text_answer_box
+                  id={"flashcard-answer-#{@current_word.id}-#{@answer_key}"}
+                  name="answer"
+                  answer={@answer}
+                  length={answer_length(@current_word, @direction_mode)}
+                  submitted={@submitted}
+                  autofocus={true}
+                  result={@result}
+                />
+                <button
+                  type="submit"
+                  class={[
+                    "rounded-lg px-6 py-3 text-lg font-semibold",
+                    if(@submitted,
+                      do:
+                        "bg-zinc-700 text-white hover:bg-zinc-600 dark:bg-zinc-200 dark:text-zinc-900 dark:hover:bg-zinc-300",
+                      else:
+                        "bg-zinc-900 text-white hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+                    )
+                  ]}
+                >
+                  {if @submitted, do: "Next →", else: "Check"}
+                </button>
+              </form>
+              
+    <!-- Result feedback -->
+              <%= if @submitted do %>
+                <div class="mt-4 w-full">
+                  <div class={[
+                    "rounded-lg p-3 flex items-center gap-2",
+                    if(elem(@result, 0) == :correct,
+                      do: "bg-green-100 dark:bg-green-900/30",
+                      else: "bg-red-100 dark:bg-red-900/30"
+                    )
+                  ]}>
+                    <%= if elem(@result, 0) == :correct do %>
+                      <.icon
+                        name="hero-check-circle"
+                        class="h-5 w-5 text-green-600 dark:text-green-400"
+                      />
+                      <span class="text-green-800 dark:text-green-200">
+                        Correct!
+                      </span>
+                    <% else %>
+                      <.icon
+                        name="hero-x-circle"
+                        class="h-5 w-5 text-red-600 dark:text-red-400"
+                      />
+                      <span class="text-red-800 dark:text-red-200">
+                        Expected: {display_expected(elem(@result, 1), @direction_mode, @script_mode)}
+                      </span>
                     <% end %>
                   </div>
-                  <p class="text-center text-3xl font-bold text-zinc-900 dark:text-zinc-100">
-                    {display_term(@current_word.term, @script_mode)}
-                  </p>
-                <% end %>
+                </div>
                 <%= if @example_sentence do %>
-                  <div class="mt-6 w-full rounded-lg bg-zinc-100 p-4 dark:bg-zinc-800">
+                  <div class="mt-4 w-full rounded-lg bg-zinc-100 p-4 dark:bg-zinc-800">
                     <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
                       {display_term(@example_sentence.text_rs, @script_mode)}
                     </p>
@@ -115,10 +220,10 @@ defmodule OhmywordWeb.FlashcardLive do
                     </p>
                   </div>
                 <% end %>
-              </div>
+              <% end %>
             </div>
           </div>
-        </div>
+        <% end %>
 
         <div class="mt-6 flex justify-center gap-3">
           <button
@@ -165,6 +270,8 @@ defmodule OhmywordWeb.FlashcardLive do
      |> assign(available_pos: Vocabulary.list_available_parts_of_speech())
      |> assign(category_filter: "all")
      |> assign(available_categories: Vocabulary.list_available_categories())
+     |> assign(practice_mode: :flip)
+     |> assign(answer: nil, submitted: false, result: nil, answer_key: 0)
      |> assign_example_sentence(word)}
   end
 
@@ -180,6 +287,7 @@ defmodule OhmywordWeb.FlashcardLive do
     {:noreply,
      socket
      |> assign(current_word: word, history: history, flipped: false)
+     |> reset_write_state()
      |> assign_example_sentence(word)}
   end
 
@@ -187,6 +295,7 @@ defmodule OhmywordWeb.FlashcardLive do
     {:noreply,
      socket
      |> assign(current_word: prev, history: rest, flipped: false)
+     |> reset_write_state()
      |> assign_example_sentence(prev)}
   end
 
@@ -201,7 +310,38 @@ defmodule OhmywordWeb.FlashcardLive do
         do: :english_to_serbian,
         else: :serbian_to_english
 
-    {:noreply, assign(socket, direction_mode: new_mode)}
+    {:noreply,
+     socket
+     |> assign(direction_mode: new_mode)
+     |> reset_write_state()}
+  end
+
+  def handle_event("toggle_practice_mode", _params, socket) do
+    new_mode = if socket.assigns.practice_mode == :flip, do: :write, else: :flip
+
+    {:noreply,
+     socket
+     |> assign(practice_mode: new_mode)
+     |> reset_write_state()}
+  end
+
+  def handle_event("submit_answer", _params, %{assigns: %{submitted: true}} = socket) do
+    handle_event("next", %{}, socket)
+  end
+
+  def handle_event("submit_answer", %{"answer" => answer}, socket) do
+    result =
+      Exercises.check_flashcard_answer(
+        socket.assigns.current_word,
+        answer,
+        socket.assigns.direction_mode
+      )
+
+    {:noreply, assign(socket, submitted: true, answer: answer, result: result)}
+  end
+
+  def handle_event("submit_answer", _params, socket) do
+    {:noreply, socket}
   end
 
   def handle_event("filter_pos", %{"pos" => pos_value}, socket) do
@@ -222,6 +362,7 @@ defmodule OhmywordWeb.FlashcardLive do
      socket
      |> assign(current_word: word)
      |> assign(flipped: false)
+     |> reset_write_state()
      |> assign_example_sentence(word)}
   end
 
@@ -237,7 +378,33 @@ defmodule OhmywordWeb.FlashcardLive do
      socket
      |> assign(current_word: word)
      |> assign(flipped: false)
+     |> reset_write_state()
      |> assign_example_sentence(word)}
+  end
+
+  defp reset_write_state(socket) do
+    assign(socket,
+      answer: nil,
+      submitted: false,
+      result: nil,
+      answer_key: socket.assigns.answer_key + 1
+    )
+  end
+
+  defp answer_length(word, :serbian_to_english),
+    do: word.translation |> String.replace(" ", "") |> String.length()
+
+  defp answer_length(word, :english_to_serbian),
+    do: word.term |> String.replace(" ", "") |> String.length()
+
+  defp display_expected(forms, :english_to_serbian, script_mode) do
+    forms
+    |> Enum.map(&display_term(&1, script_mode))
+    |> Enum.join(" / ")
+  end
+
+  defp display_expected(forms, :serbian_to_english, _script_mode) do
+    Enum.join(forms, " / ")
   end
 
   defp update_available_options(socket) do

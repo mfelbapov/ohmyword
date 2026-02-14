@@ -286,6 +286,71 @@ defmodule Ohmyword.ExercisesTest do
     end
   end
 
+  describe "check_flashcard_answer/3" do
+    test "returns correct for SR→EN when input matches translation" do
+      word = word_fixture(%{term: "pas", translation: "dog"})
+
+      assert {:correct, "dog"} =
+               Exercises.check_flashcard_answer(word, "dog", :serbian_to_english)
+    end
+
+    test "returns correct for SR→EN with alternative translation" do
+      word = word_fixture(%{term: "stan", translation: "apartment", translations: ["flat"]})
+
+      assert {:correct, "flat"} =
+               Exercises.check_flashcard_answer(word, "flat", :serbian_to_english)
+    end
+
+    test "returns incorrect for SR→EN when input is wrong" do
+      word = word_fixture(%{term: "pas", translation: "dog"})
+
+      assert {:incorrect, ["dog"]} =
+               Exercises.check_flashcard_answer(word, "cat", :serbian_to_english)
+    end
+
+    test "returns correct for EN→SR when input matches term" do
+      word = word_fixture(%{term: "pas", translation: "dog"})
+
+      assert {:correct, "pas"} =
+               Exercises.check_flashcard_answer(word, "pas", :english_to_serbian)
+    end
+
+    test "returns incorrect for EN→SR when input is wrong" do
+      word = word_fixture(%{term: "pas", translation: "dog"})
+
+      assert {:incorrect, ["pas"]} =
+               Exercises.check_flashcard_answer(word, "macka", :english_to_serbian)
+    end
+
+    test "is case insensitive" do
+      word = word_fixture(%{term: "pas", translation: "dog"})
+
+      assert {:correct, "dog"} =
+               Exercises.check_flashcard_answer(word, "DOG", :serbian_to_english)
+    end
+
+    test "is diacritic insensitive" do
+      word = word_fixture(%{term: "čovek", translation: "man"})
+
+      assert {:correct, "čovek"} =
+               Exercises.check_flashcard_answer(word, "covek", :english_to_serbian)
+    end
+
+    test "accepts Cyrillic input for EN→SR" do
+      word = word_fixture(%{term: "pas", translation: "dog"})
+
+      assert {:correct, "pas"} =
+               Exercises.check_flashcard_answer(word, "пас", :english_to_serbian)
+    end
+
+    test "ignores spaces in multi-word translations" do
+      word = word_fixture(%{term: "usisivač", translation: "vacuum cleaner"})
+
+      assert {:correct, "vacuum cleaner"} =
+               Exercises.check_flashcard_answer(word, "vacuumcleaner", :serbian_to_english)
+    end
+  end
+
   describe "list_available_parts_of_speech/0" do
     test "returns empty list when no sentences exist" do
       assert Exercises.list_available_parts_of_speech() == []

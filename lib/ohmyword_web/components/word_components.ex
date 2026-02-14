@@ -124,4 +124,69 @@ defmodule OhmywordWeb.WordComponents do
   defp expand_abbreviation("comp"), do: "Comparative"
   defp expand_abbreviation("super"), do: "Superlative"
   defp expand_abbreviation(other), do: String.capitalize(other)
+
+  # -- single_text_answer_box component --
+
+  attr :id, :string, required: true
+  attr :name, :string, required: true
+  attr :answer, :string, default: nil
+  attr :length, :integer, required: true
+  attr :submitted, :boolean, default: false
+  attr :autofocus, :boolean, default: false
+  attr :result, :any, default: nil
+  attr :form_tag, :string, default: nil
+
+  def single_text_answer_box(assigns) do
+    ~H"""
+    <div
+      class="inline-flex flex-col items-center mx-2 min-w-0"
+      id={@id}
+      phx-hook="CharInputGroup"
+      data-autofocus={to_string(@autofocus)}
+      data-readonly={to_string(@submitted)}
+    >
+      <div class="inline-flex items-center gap-0.5">
+        <%= for ci <- 0..(@length - 1) do %>
+          <input
+            type="text"
+            maxlength="1"
+            data-char-idx={ci}
+            value={char_at(@answer, ci)}
+            autocomplete="off"
+            readonly={@submitted}
+            placeholder="_"
+            class={[
+              "w-8 h-10 rounded border text-2xl text-center focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:bg-zinc-800 dark:text-zinc-100",
+              char_border_class(@result, @submitted)
+            ]}
+          />
+        <% end %>
+      </div>
+      <input type="hidden" name={@name} value={@answer || ""} />
+      <%= if @form_tag do %>
+        <span class={"mt-1 text-xs font-medium #{case_color_classes(@form_tag)}"}>
+          {humanize_form_tag(@form_tag)}
+        </span>
+      <% end %>
+    </div>
+    """
+  end
+
+  defp char_at(nil, _idx), do: ""
+
+  defp char_at(answer, idx) do
+    answer |> String.graphemes() |> Enum.at(idx, "")
+  end
+
+  defp char_border_class(result, submitted) do
+    if submitted do
+      case result do
+        {:correct, _} -> "border-green-500 bg-green-50 dark:bg-green-900/20"
+        {:incorrect, _} -> "border-red-500 bg-red-50 dark:bg-red-900/20"
+        _ -> "border-zinc-300 dark:border-zinc-600"
+      end
+    else
+      "border-zinc-300 focus:border-zinc-500 dark:border-zinc-600 dark:focus:border-zinc-400"
+    end
+  end
 end

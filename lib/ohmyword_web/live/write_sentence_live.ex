@@ -50,37 +50,16 @@ defmodule OhmywordWeb.WriteSentenceLive do
               <%= for {token, idx} <- Enum.with_index(@tokens) do %>
                 <%= if idx in @blanked_positions do %>
                   <% sw = Enum.find(@blanked_words, &(&1.position == idx)) %>
-                  <div
-                    class="inline-flex flex-col items-center mx-2 min-w-0"
+                  <.single_text_answer_box
                     id={"blank-#{@current_sentence.id}-#{idx}"}
-                    phx-hook="CharInputGroup"
-                    data-autofocus={to_string(idx == @first_blank)}
-                    data-readonly={to_string(@submitted)}
-                  >
-                    <div class="inline-flex items-center gap-0.5">
-                      <%= for ci <- 0..(String.length(token) - 1) do %>
-                        <input
-                          type="text"
-                          maxlength="1"
-                          data-char-idx={ci}
-                          value={char_at(@answers[idx], ci)}
-                          autocomplete="off"
-                          readonly={@submitted}
-                          placeholder="_"
-                          class={[
-                            "w-8 h-10 rounded border text-2xl text-center focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:bg-zinc-800 dark:text-zinc-100",
-                            char_border_class(@results, idx, @submitted)
-                          ]}
-                        />
-                      <% end %>
-                    </div>
-                    <input type="hidden" name={"answer[#{idx}]"} value={@answers[idx] || ""} />
-                    <%= if sw do %>
-                      <span class={"mt-1 text-xs font-medium #{case_color_classes(sw.form_tag)}"}>
-                        {humanize_form_tag(sw.form_tag)}
-                      </span>
-                    <% end %>
-                  </div>
+                    name={"answer[#{idx}]"}
+                    answer={@answers[idx]}
+                    length={String.length(token)}
+                    submitted={@submitted}
+                    autofocus={idx == @first_blank}
+                    result={@results[idx]}
+                    form_tag={if sw, do: sw.form_tag}
+                  />
                 <% else %>
                   <span class="mx-0.5">
                     {display_term(token, @script_mode)}
@@ -406,24 +385,6 @@ defmodule OhmywordWeb.WriteSentenceLive do
       Vocabulary.list_available_parts_of_speech()
     else
       sentence_pos
-    end
-  end
-
-  defp char_at(nil, _idx), do: ""
-
-  defp char_at(answer, idx) do
-    answer |> String.graphemes() |> Enum.at(idx, "")
-  end
-
-  defp char_border_class(results, position, submitted) do
-    if submitted do
-      case Map.get(results, position) do
-        {:correct, _} -> "border-green-500 bg-green-50 dark:bg-green-900/20"
-        {:incorrect, _} -> "border-red-500 bg-red-50 dark:bg-red-900/20"
-        _ -> "border-zinc-300 dark:border-zinc-600"
-      end
-    else
-      "border-zinc-300 focus:border-zinc-500 dark:border-zinc-600 dark:focus:border-zinc-400"
     end
   end
 
