@@ -46,7 +46,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
           
     <!-- Sentence with blanks -->
           <form phx-submit="submit_answers" class="space-y-6">
-            <div class="flex flex-wrap items-center gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
+            <div class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
               <%= for {token, idx} <- Enum.with_index(@tokens) do %>
                 <%= if idx in @blanked_positions do %>
                   <% sw = Enum.find(@blanked_words, & &1.position == idx) %>
@@ -62,7 +62,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
                       id={if idx == @first_blank, do: "first-blank-#{@current_sentence.id}"}
                       phx-hook={if idx == @first_blank, do: "AutoFocus"}
                       class={[
-                        "max-w-full rounded-lg border-2 px-2 py-1 text-lg text-center focus:outline-none dark:bg-zinc-800 dark:text-zinc-100",
+                        "max-w-full rounded-lg border-2 px-2 py-1 text-2xl text-center focus:outline-none dark:bg-zinc-800 dark:text-zinc-100",
                         result_border_class(@results, idx, @submitted)
                       ]}
                     />
