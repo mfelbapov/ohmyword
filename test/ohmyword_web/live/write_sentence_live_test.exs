@@ -56,10 +56,7 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Get the position of the blank
       sw_position = 1
 
-      html =
-        view
-        |> form("form[phx-submit=submit_answers]", %{"answer" => %{"#{sw_position}" => "psa"}})
-        |> render_submit()
+      html = render_submit(view, "submit_answers", %{"answer" => %{"#{sw_position}" => "psa"}})
 
       assert html =~ "psa"
     end
@@ -71,10 +68,7 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
 
       {:ok, view, _html} = live(conn, ~p"/write")
 
-      html =
-        view
-        |> form("form[phx-submit=submit_answers]", %{"answer" => %{"1" => "wrong"}})
-        |> render_submit()
+      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "wrong"}})
 
       assert html =~ "Expected: psa"
     end
@@ -93,10 +87,7 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
 
       {:ok, view, _html} = live(conn, ~p"/write")
 
-      html =
-        view
-        |> form("form[phx-submit=submit_answers]", %{"answer" => %{"1" => "coveka"}})
-        |> render_submit()
+      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "coveka"}})
 
       assert html =~ "čoveka"
     end
@@ -212,15 +203,10 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       {:ok, view, _html} = live(conn, ~p"/write")
 
       # First submit
-      view
-      |> form("form[phx-submit=submit_answers]", %{"answer" => %{"1" => "psa"}})
-      |> render_submit()
+      render_submit(view, "submit_answers", %{"answer" => %{"1" => "psa"}})
 
       # Second submit should advance to next
-      html =
-        view
-        |> form("form[phx-submit=submit_answers]", %{"answer" => %{"1" => ""}})
-        |> render_submit()
+      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => ""}})
 
       # Result should be cleared
       refute html =~ "Expected:"

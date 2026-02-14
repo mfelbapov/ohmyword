@@ -26,9 +26,94 @@ import {hooks as colocatedHooks} from "phoenix-colocated/ohmyword"
 import topbar from "../vendor/topbar"
 
 const Hooks = {
-  AutoFocus: {
-    mounted() { this.el.focus() },
-    updated() { this.el.focus() },
+  CharInputGroup: {
+    mounted() {
+      this.setupInputs()
+      if (this.el.dataset.autofocus === "true") {
+        this.el.querySelector('[data-char-idx="0"]')?.focus()
+      }
+    },
+    updated() {
+      const readonly = this.el.dataset.readonly === "true"
+      this.el.querySelectorAll('input[data-char-idx]').forEach(el => {
+        el.readOnly = readonly
+      })
+    },
+    getAdjacentGroup(direction) {
+      const form = this.el.closest('form')
+      if (!form) return null
+      const groups = Array.from(form.querySelectorAll('[phx-hook="CharInputGroup"]'))
+      const idx = groups.indexOf(this.el)
+      return groups[idx + direction] || null
+    },
+    setupInputs() {
+      const chars = this.el.querySelectorAll('input[data-char-idx]')
+      const hidden = this.el.querySelector('input[type="hidden"]')
+
+      const syncHidden = () => {
+        hidden.value = Array.from(chars).map(c => c.value).join('')
+      }
+
+      chars.forEach((input, i) => {
+        input.addEventListener('input', () => {
+          if (input.value.length > 0) {
+            input.value = input.value.slice(-1)
+            syncHidden()
+            if (i < chars.length - 1) {
+              chars[i + 1].focus()
+            } else {
+              // Last char of word — jump to next word
+              const next = this.getAdjacentGroup(1)
+              if (next) next.querySelector('[data-char-idx="0"]')?.focus()
+            }
+          }
+        })
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Backspace') {
+            if (input.value === '' && i > 0) {
+              chars[i - 1].focus()
+              chars[i - 1].value = ''
+              syncHidden()
+              e.preventDefault()
+            } else if (input.value === '' && i === 0) {
+              // First char of word — jump to previous word's last char
+              const prev = this.getAdjacentGroup(-1)
+              if (prev) {
+                const prevChars = prev.querySelectorAll('input[data-char-idx]')
+                const last = prevChars[prevChars.length - 1]
+                if (last) {
+                  last.focus()
+                  last.value = ''
+                  prev.querySelector('input[type="hidden"]').value =
+                    Array.from(prevChars).map(c => c.value).join('')
+                }
+              }
+              e.preventDefault()
+            }
+          }
+          if (e.key === 'ArrowLeft') {
+            if (i > 0) {
+              chars[i - 1].focus()
+            } else {
+              const prev = this.getAdjacentGroup(-1)
+              if (prev) {
+                const prevChars = prev.querySelectorAll('input[data-char-idx]')
+                prevChars[prevChars.length - 1]?.focus()
+              }
+            }
+          }
+          if (e.key === 'ArrowRight') {
+            if (i < chars.length - 1) {
+              chars[i + 1].focus()
+            } else {
+              const next = this.getAdjacentGroup(1)
+              if (next) next.querySelector('[data-char-idx="0"]')?.focus()
+            }
+          }
+        })
+        input.addEventListener('focus', () => input.select())
+      })
+    }
   },
 }
 
