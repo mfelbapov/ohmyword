@@ -155,3 +155,11 @@ The project includes:
 3. **Live socket disconnection**: On logout, broadcasts disconnect to user's live socket
 4. **Asset compilation**: Custom compilers configuration in mix.exs:13 includes phoenix_live_view compiler
 5. **Password hashing**: bcrypt_elixir with configurable rounds (1 for test, default for prod)
+
+## Serbian Language Standard
+
+This application uses **Serbian ekavski** as its language standard. When working with vocabulary:
+
+- **Ekavski only**: Use ekavski jat reflex (e), never ijekavski (ije/je). E.g., "mleko" not "mlijeko", "dete" not "dijete", "reka" not "rijeka", "lepo" not "lijepo".
+- **Serbian lexicon**: Use standard Serbian vocabulary, not Croatian, Bosnian, or Montenegrin variants. E.g., "so" not "sol", "sto" not "stol", "hleb" not "kruh", "voz" not "vlak", "vazduh" not "zrak", "hiljada" not "tisuća", "pozorište" not "kazalište".
+- These constraints apply to both base terms AND all inflected forms.

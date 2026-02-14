@@ -8,6 +8,25 @@ When the user asks to validate existing words in the vocabulary seed against the
 
 **`priv/repo/vocabulary_seed.json` is READ-ONLY.** Never modify existing entries. This skill only reads seed data and writes discrepancies to `docs/existing_words_to check.md`.
 
+## Serbian Ekavski Compliance
+
+When reviewing discrepancies, also check that seed words conform to the Serbian ekavski standard:
+
+1. **Jat reflex (ekavski)**: The word and ALL its inflected forms must use ekavski (e), never ijekavski (ije/je).
+   - Correct: mleko, dete, reka, lepo, pesma, cvet, beo, delo, vera, vreme
+   - Wrong: mlijeko, dijete, rijeka, lijepo, pjesma, cvijet, bijel, djelo, vjera, vrijeme
+
+2. **Serbian lexicon**: The word must be standard Serbian vocabulary, not Croatian, Bosnian, or Montenegrin specific.
+   - so (not sol), sto (not stol), hleb (not kruh), voz (not vlak)
+   - vazduh (not zrak), hiljada (not tisuća), pozorište (not kazalište)
+   - fudbal (not nogomet), hemija (not kemija), istorija (not povijest)
+   - tačka (not točka), uslov (not uvjet), opština (not općina)
+   - bezbedan (not siguran in Croatian sense), saobraćaj (not promet)
+
+3. **Form-level check**: All inflected forms (both seed and engine) must maintain ekavski throughout. For example, the genitive of "mleko" is "mleka" (not "mlijeka"), the plural of "dete" is "deca" (not "djeca").
+
+**If a word fails this check**: flag it in `docs/existing_words_to check.md` with the reason "Non-ekavski or non-Serbian lexeme" and suggest the correct ekavski equivalent.
+
 ## Background
 
 The seed contains 521 words, all with `forms` arrays containing LLM-verified reference forms. Validation is fully automated — the script loads every word, runs the engine, and compares forms against the seed. Discrepancies are appended to `docs/existing_words_to check.md`.

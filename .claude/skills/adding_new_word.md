@@ -19,6 +19,25 @@ The user provides one or more words. For each word you need at minimum:
 
 ## Flow: For Each Word
 
+### Pre-Check — Serbian Ekavski Compliance
+
+Before proceeding with any word, verify it meets the Serbian ekavski standard:
+
+1. **Jat reflex (ekavski)**: The word and ALL its inflected forms must use ekavski (e), never ijekavski (ije/je).
+   - Correct: mleko, dete, reka, lepo, pesma, cvet, beo, delo, vera, vreme
+   - Wrong: mlijeko, dijete, rijeka, lijepo, pjesma, cvijet, bijel, djelo, vjera, vrijeme
+
+2. **Serbian lexicon**: The word must be standard Serbian vocabulary, not Croatian, Bosnian, or Montenegrin specific.
+   - so (not sol), sto (not stol), hleb (not kruh), voz (not vlak)
+   - vazduh (not zrak), hiljada (not tisuća), pozorište (not kazalište)
+   - fudbal (not nogomet), hemija (not kemija), istorija (not povijest)
+   - tačka (not točka), uslov (not uvjet), opština (not općina)
+   - bezbedan (not siguran in Croatian sense), saobraćaj (not promet)
+
+3. **Form generation**: When generating inflected forms in Step 1, maintain ekavski throughout ALL forms. For example, the genitive of "mleko" is "mleka" (not "mlijeka"), the plural of "dete" is "deca" (not "djeca").
+
+**If a word fails this check**: reject it. If the user explicitly requested the word, inform them it doesn't conform to the Serbian ekavski standard and suggest the correct ekavski equivalent.
+
 ### Step 0 — Validate Input Form
 
 Check if the provided `term` is in its dictionary citation form (infinitive for verbs, nominative singular for nouns/adjectives, etc.).
