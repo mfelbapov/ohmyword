@@ -48,23 +48,27 @@ defmodule OhmywordWeb.WriteSentenceLive do
           <form phx-submit="submit_answers" class="space-y-6">
             <div class="flex flex-wrap items-center gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
               <%= for {token, idx} <- Enum.with_index(@tokens) do %>
-                <%= if blank = Enum.find(@blanked_words, & &1.position == idx) do %>
-                  <div class="inline-flex flex-col items-center mx-1">
+                <%= if idx in @blanked_positions do %>
+                  <% sw = Enum.find(@blanked_words, & &1.position == idx) %>
+                  <div class="inline-flex flex-col items-center mx-2 min-w-0">
                     <input
                       type="text"
                       name={"answer[#{idx}]"}
                       value={@answers[idx] || ""}
                       autocomplete="off"
                       readonly={@submitted}
-                      placeholder="___"
+                      placeholder={String.duplicate("_", String.length(token))}
+                      style={"width: #{max(3, String.length(token)) * 1.1 + 1.5}ch; letter-spacing: 0.25em"}
                       class={[
-                        "w-28 rounded-lg border-2 px-2 py-1 text-lg text-center focus:outline-none dark:bg-zinc-800 dark:text-zinc-100",
+                        "max-w-full rounded-lg border-2 px-2 py-1 text-lg text-center focus:outline-none dark:bg-zinc-800 dark:text-zinc-100",
                         result_border_class(@results, idx, @submitted)
                       ]}
                     />
-                    <span class={"mt-1 text-xs font-medium #{case_color_classes(blank.form_tag)}"}>
-                      {humanize_form_tag(blank.form_tag)}
-                    </span>
+                    <%= if sw do %>
+                      <span class={"mt-1 text-xs font-medium #{case_color_classes(sw.form_tag)}"}>
+                        {humanize_form_tag(sw.form_tag)}
+                      </span>
+                    <% end %>
                   </div>
                 <% else %>
                   <span class="mx-0.5">
@@ -208,18 +212,28 @@ defmodule OhmywordWeb.WriteSentenceLive do
         {String.to_integer(pos_str), val}
       end)
 
-    # Only check blanked positions
-    blanked_positions = MapSet.new(socket.assigns.blanked_words, & &1.position)
+    tokens = socket.assigns.tokens
+    annotated_positions = MapSet.new(socket.assigns.blanked_words, & &1.position)
 
-    answers_to_check =
+    # Split answers into annotated (check via search_terms) and unannotated (simple match)
+    {annotated_answers, unannotated_answers} =
       answers
-      |> Enum.filter(fn {pos, _} -> pos in blanked_positions end)
-      |> Map.new()
+      |> Enum.filter(fn {pos, _} -> pos in socket.assigns.blanked_positions end)
+      |> Enum.split_with(fn {pos, _} -> pos in annotated_positions end)
 
-    results = Exercises.check_all_answers(sentence, answers_to_check)
+    annotated_results = Exercises.check_all_answers(sentence, Map.new(annotated_answers))
 
-    # Check if any results have :error (stale data) — skip to next if so
-    has_errors = Enum.any?(results, fn {_pos, result} -> elem(result, 0) == :error end)
+    unannotated_results =
+      Map.new(unannotated_answers, fn {pos, input} ->
+        expected = Enum.at(tokens, pos)
+        {pos, check_simple_answer(input, expected)}
+      end)
+
+    results = Map.merge(annotated_results, unannotated_results)
+
+    # Check if any annotated results have :error (stale data) — skip to next if so
+    has_errors =
+      Enum.any?(annotated_results, fn {_pos, result} -> elem(result, 0) == :error end)
 
     if has_errors do
       new_sentence = get_filtered_sentence(socket.assigns.pos_filter)
@@ -251,6 +265,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
             sentence: socket.assigns.current_sentence,
             difficulty: socket.assigns.difficulty,
             blanked_words: socket.assigns.blanked_words,
+            blanked_positions: socket.assigns.blanked_positions,
             tokens: socket.assigns.tokens
           }
           | socket.assigns.history
@@ -280,6 +295,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
         current_sentence: prev.sentence,
         difficulty: prev.difficulty,
         blanked_words: prev.blanked_words,
+        blanked_positions: prev.blanked_positions,
         tokens: prev.tokens,
         submitted: false,
         answers: %{},
@@ -338,12 +354,26 @@ defmodule OhmywordWeb.WriteSentenceLive do
   defp assign_blanks(socket) do
     case socket.assigns.current_sentence do
       nil ->
-        assign(socket, tokens: [], blanked_words: [])
+        assign(socket, tokens: [], blanked_words: [], blanked_positions: MapSet.new())
 
       sentence ->
         tokens = Exercises.tokenize(sentence.text_rs)
         blanked = Exercises.select_blanks(sentence, socket.assigns.difficulty)
-        assign(socket, tokens: tokens, blanked_words: blanked)
+        annotated_positions = MapSet.new(blanked, & &1.position)
+
+        # Difficulty 3: blank ALL token positions, not just annotated ones
+        blanked_positions =
+          if socket.assigns.difficulty == 3 do
+            MapSet.new(0..(length(tokens) - 1))
+          else
+            annotated_positions
+          end
+
+        assign(socket,
+          tokens: tokens,
+          blanked_words: blanked,
+          blanked_positions: blanked_positions
+        )
     end
   end
 
@@ -380,6 +410,25 @@ defmodule OhmywordWeb.WriteSentenceLive do
 
   defp empty_state_title(:all), do: "No sentences available"
   defp empty_state_title(pos), do: "No #{Phoenix.Naming.humanize(pos)} sentences"
+
+  defp check_simple_answer(input, expected) do
+    normalized_input = normalize_simple(input)
+    normalized_expected = normalize_simple(expected)
+
+    if normalized_input == normalized_expected do
+      {:correct, expected}
+    else
+      {:incorrect, [expected]}
+    end
+  end
+
+  defp normalize_simple(text) do
+    text
+    |> String.trim()
+    |> Ohmyword.Utils.Transliteration.to_latin()
+    |> Ohmyword.Utils.Transliteration.strip_diacritics()
+    |> String.downcase()
+  end
 
   defp empty_state_message(:all),
     do: "No sentences in the database. Run seeds to populate."
