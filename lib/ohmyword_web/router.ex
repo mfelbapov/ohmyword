@@ -19,16 +19,8 @@ defmodule OhmywordWeb.Router do
   end
 
   pipeline :admins_only do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_live_flash
-    plug :put_root_layout, html: {OhmywordWeb.Layouts, :root}
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
-    plug :fetch_current_scope_for_user
     plug :require_authenticated_user
     plug OhmywordWeb.Plugs.RequireAdmin
-    plug OhmywordWeb.Plugs.AppInfo
   end
 
   scope "/", OhmywordWeb do
@@ -36,7 +28,11 @@ defmodule OhmywordWeb.Router do
 
     get "/", PageController, :home
 
-    live_session :public, on_mount: [{OhmywordWeb.UserAuth, :mount_current_scope}] do
+    live_session :public,
+      on_mount: [
+        {OhmywordWeb.UserAuth, :mount_current_scope},
+        {OhmywordWeb.ScriptToggleHook, :default}
+      ] do
       live "/flashcards", FlashcardLive, :index
       live "/dictionary", DictionaryLive, :index
       live "/dictionary/:id", WordDetailLive, :show
@@ -46,7 +42,7 @@ defmodule OhmywordWeb.Router do
 
   use Kaffy.Routes,
     scope: "/admin/kaffy",
-    pipe_through: [:admins_only]
+    pipe_through: [:browser, :admins_only]
 
   # Other scopes may use custom stacks.
   # scope "/api", OhmywordWeb do

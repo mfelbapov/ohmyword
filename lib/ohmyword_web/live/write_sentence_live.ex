@@ -174,7 +174,6 @@ defmodule OhmywordWeb.WriteSentenceLive do
       |> assign(
         current_sentence: sentence,
         difficulty: 1,
-        script_mode: :latin,
         pos_filter: :all,
         available_pos: available_pos,
         history: [],
@@ -297,11 +296,6 @@ defmodule OhmywordWeb.WriteSentenceLive do
   end
 
   def handle_event("previous", _params, socket), do: {:noreply, socket}
-
-  def handle_event("toggle_script", _params, socket) do
-    new_mode = if socket.assigns.script_mode == :latin, do: :cyrillic, else: :latin
-    {:noreply, assign(socket, script_mode: new_mode)}
-  end
 
   def handle_event("set_difficulty", %{"level" => level_str}, socket) do
     difficulty = String.to_integer(level_str)

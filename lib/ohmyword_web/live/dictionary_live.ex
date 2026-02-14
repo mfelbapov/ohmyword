@@ -138,18 +138,12 @@ defmodule OhmywordWeb.DictionaryLive do
      |> assign(query: "")
      |> assign(results: [])
      |> assign(searched: false)
-     |> assign(script_mode: :latin)
      |> assign(sentence_map: %{})}
   end
 
   @impl true
   def handle_event("search", %{"query" => query}, socket) do
     {:noreply, perform_search(socket, query)}
-  end
-
-  def handle_event("toggle_script", _params, socket) do
-    new_mode = if socket.assigns.script_mode == :latin, do: :cyrillic, else: :latin
-    {:noreply, assign(socket, script_mode: new_mode)}
   end
 
   defp perform_search(socket, query) when byte_size(query) < 2 do

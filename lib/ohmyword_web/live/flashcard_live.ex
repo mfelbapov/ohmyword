@@ -264,7 +264,6 @@ defmodule OhmywordWeb.FlashcardLive do
      |> assign(current_word: word)
      |> assign(flipped: false)
      |> assign(history: [])
-     |> assign(script_mode: :latin)
      |> assign(direction_mode: :serbian_to_english)
      |> assign(pos_filter: :all)
      |> assign(available_pos: Vocabulary.list_available_parts_of_speech())
@@ -297,11 +296,6 @@ defmodule OhmywordWeb.FlashcardLive do
      |> assign(current_word: prev, history: rest, flipped: false)
      |> reset_write_state()
      |> assign_example_sentence(prev)}
-  end
-
-  def handle_event("toggle_script", _params, socket) do
-    new_mode = if socket.assigns.script_mode == :latin, do: :cyrillic, else: :latin
-    {:noreply, assign(socket, script_mode: new_mode)}
   end
 
   def handle_event("toggle_direction", _params, socket) do
