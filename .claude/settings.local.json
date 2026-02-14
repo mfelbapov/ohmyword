@@ -33,7 +33,10 @@
       "Bash(mix compile:*)",
       "Bash(ruby -rjson -e:*)",
       "Bash(gh pr list:*)",
-      "Bash(xargs:*)"
+      "Bash(xargs:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(gh pr view:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"
