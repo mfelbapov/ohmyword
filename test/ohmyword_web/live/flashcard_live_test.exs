@@ -356,6 +356,124 @@ defmodule OhmywordWeb.FlashcardLiveTest do
       refute html =~ "Food &amp; Drink"
     end
 
+    test "practice mode toggle renders and switches modes", %{conn: conn} do
+      word_fixture(%{term: "testword", translation: "test"})
+      {:ok, view, html} = live(conn, ~p"/flashcards")
+
+      # Initially in flip mode
+      assert html =~ "Flip"
+      assert html =~ "phx-click=\"flip\""
+
+      # Toggle to write mode
+      html = view |> element("button[phx-click=toggle_practice_mode]") |> render_click()
+
+      assert html =~ "Write"
+      assert html =~ "phx-submit=\"submit_answer\""
+    end
+
+    test "write mode shows character input boxes and Check button", %{conn: conn} do
+      word_fixture(%{term: "kuća", translation: "house"})
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      # Switch to write mode
+      html = view |> element("button[phx-click=toggle_practice_mode]") |> render_click()
+
+      assert html =~ "Check"
+      # Should have input boxes (data-char-idx attributes)
+      assert html =~ "data-char-idx"
+    end
+
+    test "write mode shows correct feedback for right answer", %{conn: conn} do
+      word_fixture(%{term: "pas", translation: "dog"})
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      view |> element("button[phx-click=toggle_practice_mode]") |> render_click()
+
+      html =
+        view |> element("form[phx-submit=submit_answer]") |> render_submit(%{"answer" => "dog"})
+
+      assert html =~ "Correct!"
+      assert html =~ "Next →"
+    end
+
+    test "write mode shows incorrect feedback for wrong answer", %{conn: conn} do
+      word_fixture(%{term: "pas", translation: "dog"})
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      view |> element("button[phx-click=toggle_practice_mode]") |> render_click()
+
+      html =
+        view |> element("form[phx-submit=submit_answer]") |> render_submit(%{"answer" => "cat"})
+
+      assert html =~ "Expected:"
+      assert html =~ "dog"
+    end
+
+    test "write mode second submit advances to next word", %{conn: conn} do
+      word_fixture(%{term: "pas", translation: "dog"})
+      word_fixture(%{term: "mačka", translation: "cat"})
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      view |> element("button[phx-click=toggle_practice_mode]") |> render_click()
+
+      # First submit checks answer
+      view |> element("form[phx-submit=submit_answer]") |> render_submit(%{"answer" => "dog"})
+
+      # Second submit advances to next word
+      html = view |> element("form[phx-submit=submit_answer]") |> render_submit(%{})
+
+      # Should show Check button again (new word, not submitted)
+      assert html =~ "Check"
+      refute html =~ "Next →"
+    end
+
+    test "toggle back to flip mode from write mode works", %{conn: conn} do
+      word_fixture(%{term: "testword", translation: "test"})
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      # Switch to write mode
+      view |> element("button[phx-click=toggle_practice_mode]") |> render_click()
+
+      # Switch back to flip mode
+      html = view |> element("button[phx-click=toggle_practice_mode]") |> render_click()
+
+      assert html =~ "Flip"
+      assert html =~ "Click to reveal translation"
+    end
+
+    test "filter change resets write state", %{conn: conn} do
+      noun_fixture(%{term: "uniquenoun", translation: "a noun"})
+      verb_fixture(%{term: "uniqueverb", translation: "a verb"})
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      # Switch to write mode and submit an answer
+      view |> element("button[phx-click=toggle_practice_mode]") |> render_click()
+
+      view
+      |> element("form[phx-submit=submit_answer]")
+      |> render_submit(%{"answer" => "something"})
+
+      # Filter to noun — should reset write state
+      html = view |> element("form[phx-change=filter_pos]") |> render_change(%{"pos" => "noun"})
+
+      assert html =~ "Check"
+      refute html =~ "Next →"
+    end
+
+    test "write mode works in EN→SR direction", %{conn: conn} do
+      word_fixture(%{term: "pas", translation: "dog"})
+      {:ok, view, _html} = live(conn, ~p"/flashcards")
+
+      # Switch to EN→SR direction and write mode
+      view |> element("button[phx-click=toggle_direction]") |> render_click()
+      view |> element("button[phx-click=toggle_practice_mode]") |> render_click()
+
+      html =
+        view |> element("form[phx-submit=submit_answer]") |> render_submit(%{"answer" => "pas"})
+
+      assert html =~ "Correct!"
+    end
+
     test "POS dropdown narrows when category is selected", %{conn: conn} do
       noun_fixture(%{term: "hleb", categories: ["Food & Drink"]})
       verb_fixture(%{term: "jesti", categories: ["Food & Drink"]})

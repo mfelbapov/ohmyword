@@ -611,6 +611,32 @@ defmodule OhmywordWeb.CoreComponents do
   end
 
   @doc """
+  Renders a toggle button for flashcard practice mode (Flip or Write).
+
+  ## Examples
+
+      <.practice_mode_toggle practice_mode={@practice_mode} />
+  """
+  attr :practice_mode, :atom, required: true, values: [:flip, :write]
+
+  def practice_mode_toggle(assigns) do
+    ~H"""
+    <button
+      phx-click="toggle_practice_mode"
+      class="inline-flex items-center rounded-md bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+    >
+      <.icon
+        name={if @practice_mode == :flip, do: "hero-eye", else: "hero-pencil"}
+        class="mr-2 h-4 w-4"
+      />
+      <span class="rounded bg-zinc-200 px-1.5 py-0.5 text-xs dark:bg-zinc-700">
+        {if @practice_mode == :flip, do: "Flip", else: "Write"}
+      </span>
+    </button>
+    """
+  end
+
+  @doc """
   Renders a dropdown filter for part of speech.
 
   ## Examples

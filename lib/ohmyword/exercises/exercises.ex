@@ -229,6 +229,37 @@ defmodule Ohmyword.Exercises do
     |> Enum.sort()
   end
 
+  @doc """
+  Checks a user's flashcard answer against expected translations.
+
+  For SR→EN direction, checks against `[word.translation | word.translations]`.
+  For EN→SR direction, checks against `[word.term]`.
+
+  Returns `{:correct, matched_form}` or `{:incorrect, [expected_forms]}`.
+  """
+  def check_flashcard_answer(word, user_input, direction) do
+    expected_forms = flashcard_expected_forms(word, direction)
+    normalized_input = user_input |> normalize() |> String.replace(" ", "")
+
+    match =
+      Enum.find(expected_forms, fn form ->
+        form |> normalize() |> String.replace(" ", "") == normalized_input
+      end)
+
+    case match do
+      nil -> {:incorrect, expected_forms}
+      form -> {:correct, form}
+    end
+  end
+
+  defp flashcard_expected_forms(word, :serbian_to_english) do
+    [word.translation | word.translations || []]
+  end
+
+  defp flashcard_expected_forms(word, :english_to_serbian) do
+    [word.term]
+  end
+
   # Private functions
 
   defp normalize(text) do
