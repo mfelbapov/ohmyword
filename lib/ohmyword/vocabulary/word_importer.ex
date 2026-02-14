@@ -46,13 +46,16 @@ defmodule Ohmyword.Vocabulary.WordImporter do
   end
 
   defp atomize_keys(map) do
-    Map.new(map, fn {k, v} ->
-      key = String.to_existing_atom(k)
-      value = convert_enum_value(key, v)
-      {key, value}
+    map
+    |> Enum.flat_map(fn {k, v} ->
+      try do
+        key = String.to_existing_atom(k)
+        [{key, convert_enum_value(key, v)}]
+      rescue
+        ArgumentError -> []
+      end
     end)
-  rescue
-    ArgumentError -> map
+    |> Map.new()
   end
 
   defp convert_enum_value(:part_of_speech, v) when is_binary(v), do: String.to_existing_atom(v)

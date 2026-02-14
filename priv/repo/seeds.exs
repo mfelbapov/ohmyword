@@ -107,7 +107,9 @@ end
 defmodule SentencesSeed do
   alias Ohmyword.Repo
   alias Ohmyword.Exercises.Sentence
+  alias Ohmyword.Exercises.SentenceWord
   alias Ohmyword.Vocabulary.Word
+  alias Ohmyword.Exercises
 
   def run do
     seed_file = Path.join(:code.priv_dir(:ohmyword), "repo/sentences_seed.json")
@@ -115,7 +117,8 @@ defmodule SentencesSeed do
     if File.exists?(seed_file) do
       IO.puts("Loading sentences from #{seed_file}...")
 
-      # Clear existing sentences for clean seed
+      # Clear existing data for clean seed
+      Repo.delete_all(SentenceWord)
       Repo.delete_all(Sentence)
 
       seed_file
@@ -130,29 +133,63 @@ defmodule SentencesSeed do
   end
 
   defp insert_sentence(entry) do
-    word_term = entry["word_term"]
+    attrs = %{
+      text_rs: entry["text_rs"],
+      text_en: entry["text_en"]
+    }
 
-    case Repo.get_by(Word, term: word_term) do
-      nil ->
-        IO.puts("  SKIPPED: Word '#{word_term}' not found")
+    case %Sentence{} |> Sentence.changeset(attrs) |> Repo.insert() do
+      {:ok, sentence} ->
+        tokens = Exercises.tokenize(entry["text_rs"])
+        insert_sentence_words(sentence, tokens, entry["words"] || [])
+        IO.puts("  Inserted sentence: #{entry["text_rs"]}")
 
-      word ->
-        attrs = %{
-          text: entry["text"],
-          translation: entry["translation"],
-          blank_form_tag: entry["blank_form_tag"],
-          hint: entry["hint"],
-          word_id: word.id
-        }
-
-        case %Sentence{} |> Sentence.changeset(attrs) |> Repo.insert() do
-          {:ok, _sentence} ->
-            IO.puts("  Inserted sentence for: #{word_term}")
-
-          {:error, changeset} ->
-            IO.puts("  ERROR inserting sentence for #{word_term}: #{inspect(changeset.errors)}")
-        end
+      {:error, changeset} ->
+        IO.puts("  ERROR inserting sentence: #{inspect(changeset.errors)}")
     end
+  end
+
+  defp insert_sentence_words(sentence, tokens, word_annotations) do
+    # Track which token positions have been consumed (for duplicate words)
+    Enum.reduce(word_annotations, MapSet.new(), fn annotation, used_positions ->
+      word_text = annotation["word"]
+      word_term = annotation["word_term"]
+      form_tag = annotation["form_tag"]
+
+      case Repo.get_by(Word, term: word_term) do
+        nil ->
+          IO.puts("    SKIPPED word: '#{word_term}' not found in vocabulary")
+          used_positions
+
+        word ->
+          # Find position by matching token (case-insensitive), skipping used positions
+          position =
+            tokens
+            |> Enum.with_index()
+            |> Enum.find(fn {token, idx} ->
+              String.downcase(token) == String.downcase(word_text) &&
+                idx not in used_positions
+            end)
+
+          case position do
+            {_token, idx} ->
+              %SentenceWord{}
+              |> SentenceWord.changeset(%{
+                position: idx,
+                form_tag: form_tag,
+                sentence_id: sentence.id,
+                word_id: word.id
+              })
+              |> Repo.insert!()
+
+              MapSet.put(used_positions, idx)
+
+            nil ->
+              IO.puts("    WARN: Could not find '#{word_text}' in sentence tokens")
+              used_positions
+          end
+      end
+    end)
   end
 end
 

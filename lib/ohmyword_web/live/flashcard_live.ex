@@ -14,6 +14,7 @@ defmodule OhmywordWeb.FlashcardLive do
   import OhmywordWeb.WordComponents
 
   alias Ohmyword.Vocabulary
+  alias Ohmyword.Exercises
 
   @impl true
   def render(assigns) do
@@ -104,13 +105,13 @@ defmodule OhmywordWeb.FlashcardLive do
                     {display_term(@current_word.term, @script_mode)}
                   </p>
                 <% end %>
-                <%= if @current_word.example_sentence_rs do %>
+                <%= if @example_sentence do %>
                   <div class="mt-6 w-full rounded-lg bg-zinc-100 p-4 dark:bg-zinc-800">
                     <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
-                      {display_term(@current_word.example_sentence_rs, @script_mode)}
+                      {display_term(@example_sentence.text_rs, @script_mode)}
                     </p>
                     <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-                      {@current_word.example_sentence_en}
+                      {@example_sentence.text_en}
                     </p>
                   </div>
                 <% end %>
@@ -163,7 +164,8 @@ defmodule OhmywordWeb.FlashcardLive do
      |> assign(pos_filter: :all)
      |> assign(available_pos: Vocabulary.list_available_parts_of_speech())
      |> assign(category_filter: "all")
-     |> assign(available_categories: Vocabulary.list_available_categories())}
+     |> assign(available_categories: Vocabulary.list_available_categories())
+     |> assign_example_sentence(word)}
   end
 
   @impl true
@@ -174,11 +176,18 @@ defmodule OhmywordWeb.FlashcardLive do
   def handle_event("next", _params, socket) do
     word = get_filtered_word(socket)
     history = [socket.assigns.current_word | socket.assigns.history]
-    {:noreply, socket |> assign(current_word: word, history: history, flipped: false)}
+
+    {:noreply,
+     socket
+     |> assign(current_word: word, history: history, flipped: false)
+     |> assign_example_sentence(word)}
   end
 
   def handle_event("previous", _params, %{assigns: %{history: [prev | rest]}} = socket) do
-    {:noreply, socket |> assign(current_word: prev, history: rest, flipped: false)}
+    {:noreply,
+     socket
+     |> assign(current_word: prev, history: rest, flipped: false)
+     |> assign_example_sentence(prev)}
   end
 
   def handle_event("toggle_script", _params, socket) do
@@ -212,7 +221,8 @@ defmodule OhmywordWeb.FlashcardLive do
     {:noreply,
      socket
      |> assign(current_word: word)
-     |> assign(flipped: false)}
+     |> assign(flipped: false)
+     |> assign_example_sentence(word)}
   end
 
   def handle_event("filter_category", %{"category" => cat_value}, socket) do
@@ -226,7 +236,8 @@ defmodule OhmywordWeb.FlashcardLive do
     {:noreply,
      socket
      |> assign(current_word: word)
-     |> assign(flipped: false)}
+     |> assign(flipped: false)
+     |> assign_example_sentence(word)}
   end
 
   defp update_available_options(socket) do
@@ -271,4 +282,14 @@ defmodule OhmywordWeb.FlashcardLive do
 
   defp empty_state_message(_pos, _cat),
     do: "No words match the current filters. Try a different combination."
+
+  defp assign_example_sentence(socket, nil), do: assign(socket, example_sentence: nil)
+
+  defp assign_example_sentence(socket, word) do
+    sentence =
+      Exercises.get_sentences_for_word(word.id, limit: 1)
+      |> List.first()
+
+    assign(socket, example_sentence: sentence)
+  end
 end

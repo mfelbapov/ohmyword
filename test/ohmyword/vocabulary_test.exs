@@ -147,9 +147,7 @@ defmodule Ohmyword.VocabularyTest do
         animate: true,
         declension_class: "consonant",
         grammar_metadata: %{"fleeting_a" => true},
-        categories: ["animals", "pets"],
-        example_sentence_rs: "Pas laje.",
-        example_sentence_en: "The dog barks."
+        categories: ["animals", "pets"]
       }
 
       assert {:ok, %Word{} = word} = Vocabulary.create_word(attrs)

@@ -7,69 +7,26 @@ defmodule Ohmyword.ExercisesTest do
   import Ohmyword.ExercisesFixtures
   import Ohmyword.VocabularyFixtures
 
-  describe "list_sentences/1" do
-    test "returns all sentences when no filters" do
-      sentence1 = sentence_fixture()
-      sentence2 = sentence_fixture()
-
-      sentences = Exercises.list_sentences()
-
-      assert length(sentences) == 2
-      ids = Enum.map(sentences, & &1.id)
-      assert sentence1.id in ids
-      assert sentence2.id in ids
+  describe "tokenize/1" do
+    test "splits sentence into word tokens" do
+      assert Exercises.tokenize("Vidim velikog psa.") == ["Vidim", "velikog", "psa"]
     end
 
-    test "filters by word_id" do
-      word1 = noun_fixture()
-      word2 = noun_fixture()
-      sentence1 = sentence_fixture(%{word: word1})
-      _sentence2 = sentence_fixture(%{word: word2})
-
-      sentences = Exercises.list_sentences(word_id: word1.id)
-
-      assert length(sentences) == 1
-      assert hd(sentences).id == sentence1.id
+    test "handles punctuation" do
+      assert Exercises.tokenize("Da, to je on!") == ["Da", "to", "je", "on"]
     end
 
-    test "filters by part_of_speech" do
-      noun = noun_fixture()
-      verb = verb_fixture()
-      sentence_noun = sentence_fixture(%{word: noun})
-      _sentence_verb = sentence_fixture(%{word: verb})
-
-      sentences = Exercises.list_sentences(part_of_speech: :noun)
-
-      assert length(sentences) == 1
-      assert hd(sentences).id == sentence_noun.id
-    end
-
-    test "preloads word association" do
-      sentence = sentence_fixture()
-
-      [fetched] = Exercises.list_sentences()
-
-      assert fetched.id == sentence.id
-      assert %Ohmyword.Vocabulary.Word{} = fetched.word
+    test "handles diacritical characters" do
+      assert Exercises.tokenize("Čitam knjigu.") == ["Čitam", "knjigu"]
     end
   end
 
   describe "get_sentence!/1" do
-    test "returns the sentence with given id" do
+    test "returns the sentence with preloaded sentence_words" do
       sentence = sentence_fixture()
-
       fetched = Exercises.get_sentence!(sentence.id)
-
       assert fetched.id == sentence.id
-      assert fetched.text == sentence.text
-    end
-
-    test "preloads word association" do
-      sentence = sentence_fixture()
-
-      fetched = Exercises.get_sentence!(sentence.id)
-
-      assert %Ohmyword.Vocabulary.Word{} = fetched.word
+      assert is_list(fetched.sentence_words)
     end
 
     test "raises Ecto.NoResultsError for non-existent id" do
@@ -89,124 +46,149 @@ defmodule Ohmyword.ExercisesTest do
       assert Exercises.get_random_sentence() == nil
     end
 
-    test "filters by part_of_speech" do
+    test "filters by part_of_speech through sentence_words" do
       noun = noun_fixture()
       verb = verb_fixture()
-      sentence_noun = sentence_fixture(%{word: noun})
-      _sentence_verb = sentence_fixture(%{word: verb})
+      sentence_with_words_fixture(%{word: noun, text_rs: "Vidim psa.", position: 1})
+      sentence_with_words_fixture(%{word: verb, text_rs: "Pisem tekst.", position: 0})
 
-      # Run multiple times to increase confidence
       for _ <- 1..10 do
         result = Exercises.get_random_sentence(part_of_speech: :noun)
-        assert result.id == sentence_noun.id
+        assert result != nil
+        word_ids = Enum.map(result.sentence_words, & &1.word_id)
+        assert noun.id in word_ids
       end
     end
 
-    test "preloads word association" do
-      sentence_fixture()
-
+    test "preloads sentence_words and their words" do
+      sentence_with_words_fixture()
       result = Exercises.get_random_sentence()
+      assert is_list(result.sentence_words)
 
-      assert %Ohmyword.Vocabulary.Word{} = result.word
+      for sw <- result.sentence_words do
+        assert %Ohmyword.Vocabulary.Word{} = sw.word
+      end
     end
   end
 
   describe "create_sentence/1" do
     test "creates a sentence with valid attrs" do
-      word = noun_fixture()
-
-      attrs = %{
-        text: "Imam {blank}.",
-        translation: "I have a thing.",
-        blank_form_tag: "acc_sg",
-        word_id: word.id
-      }
-
+      attrs = %{text_rs: "Nova rečenica.", text_en: "New sentence."}
       assert {:ok, %Sentence{} = sentence} = Exercises.create_sentence(attrs)
-      assert sentence.text == "Imam {blank}."
-      assert sentence.translation == "I have a thing."
-      assert sentence.blank_form_tag == "acc_sg"
-      assert sentence.word_id == word.id
-    end
-
-    test "creates a sentence with optional hint" do
-      word = noun_fixture()
-
-      attrs = %{
-        text: "Vidim {blank}.",
-        translation: "I see.",
-        blank_form_tag: "acc_sg",
-        hint: "accusative singular",
-        word_id: word.id
-      }
-
-      assert {:ok, %Sentence{} = sentence} = Exercises.create_sentence(attrs)
-      assert sentence.hint == "accusative singular"
-    end
-
-    test "returns error when text missing {blank}" do
-      word = noun_fixture()
-
-      attrs = %{
-        text: "No blank here.",
-        translation: "Test",
-        blank_form_tag: "acc_sg",
-        word_id: word.id
-      }
-
-      assert {:error, changeset} = Exercises.create_sentence(attrs)
-      assert "must contain {blank} placeholder" in errors_on(changeset).text
+      assert sentence.text_rs == "Nova rečenica."
+      assert sentence.text_en == "New sentence."
     end
 
     test "returns error for missing required fields" do
       assert {:error, changeset} = Exercises.create_sentence(%{})
-      assert errors_on(changeset).text
-      assert errors_on(changeset).translation
-      assert errors_on(changeset).blank_form_tag
-      assert errors_on(changeset).word_id
+      assert errors_on(changeset).text_rs
+      assert errors_on(changeset).text_en
     end
   end
 
-  describe "update_sentence/2" do
-    test "updates the sentence with valid attrs" do
-      sentence = sentence_fixture()
+  describe "get_sentences_for_word/2" do
+    test "returns sentences containing the given word" do
+      word = noun_fixture(%{term: "pas"})
+      s = sentence_with_words_fixture(%{word: word})
 
-      assert {:ok, updated} = Exercises.update_sentence(sentence, %{translation: "updated"})
-      assert updated.translation == "updated"
+      result = Exercises.get_sentences_for_word(word.id)
+      assert length(result) == 1
+      assert hd(result).id == s.id
     end
 
-    test "returns error for invalid attrs" do
-      sentence = sentence_fixture()
-      assert {:error, %Ecto.Changeset{}} = Exercises.update_sentence(sentence, %{text: nil})
+    test "respects limit option" do
+      word = noun_fixture(%{term: "pas"})
+      sentence_with_words_fixture(%{word: word, text_rs: "Sentence one.", text_en: "One."})
+      sentence_with_words_fixture(%{word: word, text_rs: "Sentence two.", text_en: "Two."})
+
+      result = Exercises.get_sentences_for_word(word.id, limit: 1)
+      assert length(result) == 1
+    end
+
+    test "returns empty list when word has no sentences" do
+      word = noun_fixture()
+      assert Exercises.get_sentences_for_word(word.id) == []
     end
   end
 
-  describe "delete_sentence/1" do
-    test "deletes the sentence" do
-      sentence = sentence_fixture()
-      assert {:ok, %Sentence{}} = Exercises.delete_sentence(sentence)
+  describe "get_sentence_map_for_words/1" do
+    test "returns map of word_id to sentences" do
+      word1 = noun_fixture(%{term: "pas"})
+      word2 = noun_fixture(%{term: "mačka"})
+      sentence_with_words_fixture(%{word: word1, text_rs: "Vidim psa.", text_en: "I see a dog."})
 
-      assert_raise Ecto.NoResultsError, fn ->
-        Exercises.get_sentence!(sentence.id)
-      end
+      sentence_with_words_fixture(%{
+        word: word2,
+        text_rs: "Vidim mačku.",
+        text_en: "I see a cat."
+      })
+
+      result = Exercises.get_sentence_map_for_words([word1.id, word2.id])
+
+      assert Map.has_key?(result, word1.id)
+      assert Map.has_key?(result, word2.id)
+    end
+
+    test "returns empty map for empty input" do
+      assert Exercises.get_sentence_map_for_words([]) == %{}
+    end
+  end
+
+  describe "select_blanks/2" do
+    test "difficulty 1 returns one blank" do
+      word = noun_fixture(%{term: "pas"})
+      sentence = sentence_with_words_fixture(%{word: word})
+      # Add a second word
+      word2 = noun_fixture(%{term: "mačka"})
+      sentence_word_fixture(%{sentence: sentence, word: word2, position: 2, form_tag: "nom_sg"})
+      sentence = Repo.preload(sentence, [sentence_words: :word], force: true)
+
+      blanks = Exercises.select_blanks(sentence, 1)
+      assert length(blanks) == 1
+    end
+
+    test "difficulty 3 returns all blanks" do
+      word = noun_fixture(%{term: "pas"})
+      sentence = sentence_with_words_fixture(%{word: word})
+      blanks = Exercises.select_blanks(sentence, 3)
+      assert length(blanks) == length(sentence.sentence_words)
+    end
+
+    test "difficulty 2 returns approximately half" do
+      word = noun_fixture(%{term: "pas"})
+      sentence = sentence_with_words_fixture(%{word: word})
+      # Add more words
+      word2 = noun_fixture(%{term: "mačka"})
+      word3 = verb_fixture(%{term: "gledati"})
+      word4 = noun_fixture(%{term: "kuća"})
+      sentence_word_fixture(%{sentence: sentence, word: word2, position: 2, form_tag: "nom_sg"})
+      sentence_word_fixture(%{sentence: sentence, word: word3, position: 3, form_tag: "pres_1sg"})
+      sentence_word_fixture(%{sentence: sentence, word: word4, position: 4, form_tag: "acc_sg"})
+      sentence = Repo.preload(sentence, [sentence_words: :word], force: true)
+
+      blanks = Exercises.select_blanks(sentence, 2)
+      assert length(blanks) >= 1
+      assert length(blanks) <= length(sentence.sentence_words)
     end
   end
 
   describe "check_answer/2" do
-    test "returns correct when input matches expected form exactly" do
+    test "returns correct when input matches expected form" do
       word = noun_fixture(%{term: "pas"})
       search_term_fixture(%{word: word, term: "psa", display_form: "psa", form_tag: "acc_sg"})
-      sentence = sentence_fixture(%{word: word, blank_form_tag: "acc_sg"})
+      sentence = sentence_with_words_fixture(%{word: word, form_tag: "acc_sg"})
 
-      assert {:correct, "psa"} = Exercises.check_answer(sentence, "psa")
+      sw = hd(sentence.sentence_words)
+      assert {:correct, "psa"} = Exercises.check_answer(sw, "psa")
     end
 
     test "returns correct for case-insensitive match" do
       word = noun_fixture(%{term: "pas"})
       search_term_fixture(%{word: word, term: "psa", display_form: "psa", form_tag: "acc_sg"})
-      sentence = sentence_fixture(%{word: word, blank_form_tag: "acc_sg"})
+      sentence = sentence_with_words_fixture(%{word: word, form_tag: "acc_sg"})
 
-      assert {:correct, "psa"} = Exercises.check_answer(sentence, "PSA")
+      sw = hd(sentence.sentence_words)
+      assert {:correct, "psa"} = Exercises.check_answer(sw, "PSA")
     end
 
     test "returns correct for diacritic-insensitive match" do
@@ -219,40 +201,69 @@ defmodule Ohmyword.ExercisesTest do
         form_tag: "acc_sg"
       })
 
-      sentence = sentence_fixture(%{word: word, blank_form_tag: "acc_sg"})
+      sentence = sentence_with_words_fixture(%{word: word, form_tag: "acc_sg"})
 
-      assert {:correct, "čoveka"} = Exercises.check_answer(sentence, "coveka")
+      sw = hd(sentence.sentence_words)
+      assert {:correct, "čoveka"} = Exercises.check_answer(sw, "coveka")
     end
 
-    test "returns correct for cyrillic input matching latin form" do
+    test "returns correct for cyrillic input" do
       word = noun_fixture(%{term: "pas"})
       search_term_fixture(%{word: word, term: "psa", display_form: "psa", form_tag: "acc_sg"})
-      sentence = sentence_fixture(%{word: word, blank_form_tag: "acc_sg"})
+      sentence = sentence_with_words_fixture(%{word: word, form_tag: "acc_sg"})
 
-      assert {:correct, "psa"} = Exercises.check_answer(sentence, "пса")
+      sw = hd(sentence.sentence_words)
+      assert {:correct, "psa"} = Exercises.check_answer(sw, "пса")
     end
 
     test "returns incorrect with expected forms when no match" do
       word = noun_fixture(%{term: "pas"})
       search_term_fixture(%{word: word, term: "psa", display_form: "psa", form_tag: "acc_sg"})
-      sentence = sentence_fixture(%{word: word, blank_form_tag: "acc_sg"})
+      sentence = sentence_with_words_fixture(%{word: word, form_tag: "acc_sg"})
 
-      assert {:incorrect, ["psa"]} = Exercises.check_answer(sentence, "wrong")
+      sw = hd(sentence.sentence_words)
+      assert {:incorrect, ["psa"]} = Exercises.check_answer(sw, "wrong")
     end
 
     test "returns error when no forms found" do
       word = noun_fixture(%{term: "pas"})
-      sentence = sentence_fixture(%{word: word, blank_form_tag: "nonexistent_tag"})
+      sentence = sentence_with_words_fixture(%{word: word, form_tag: "nonexistent_tag"})
 
-      assert {:error, :no_forms} = Exercises.check_answer(sentence, "anything")
+      sw = hd(sentence.sentence_words)
+      assert {:error, :no_forms} = Exercises.check_answer(sw, "anything")
     end
 
     test "trims whitespace from input" do
       word = noun_fixture(%{term: "pas"})
       search_term_fixture(%{word: word, term: "psa", display_form: "psa", form_tag: "acc_sg"})
-      sentence = sentence_fixture(%{word: word, blank_form_tag: "acc_sg"})
+      sentence = sentence_with_words_fixture(%{word: word, form_tag: "acc_sg"})
 
-      assert {:correct, "psa"} = Exercises.check_answer(sentence, "  psa  ")
+      sw = hd(sentence.sentence_words)
+      assert {:correct, "psa"} = Exercises.check_answer(sw, "  psa  ")
+    end
+  end
+
+  describe "check_all_answers/2" do
+    test "checks multiple answers at once" do
+      word = noun_fixture(%{term: "pas"})
+      search_term_fixture(%{word: word, term: "psa", display_form: "psa", form_tag: "acc_sg"})
+      sentence = sentence_with_words_fixture(%{word: word, form_tag: "acc_sg"})
+
+      sw = hd(sentence.sentence_words)
+      results = Exercises.check_all_answers(sentence, %{sw.position => "psa"})
+
+      assert {:correct, "psa"} = results[sw.position]
+    end
+
+    test "handles string position keys" do
+      word = noun_fixture(%{term: "pas"})
+      search_term_fixture(%{word: word, term: "psa", display_form: "psa", form_tag: "acc_sg"})
+      sentence = sentence_with_words_fixture(%{word: word, form_tag: "acc_sg"})
+
+      sw = hd(sentence.sentence_words)
+      results = Exercises.check_all_answers(sentence, %{"#{sw.position}" => "psa"})
+
+      assert {:correct, "psa"} = results[sw.position]
     end
   end
 
@@ -260,34 +271,18 @@ defmodule Ohmyword.ExercisesTest do
     test "returns display forms for matching form_tag" do
       word = noun_fixture(%{term: "pas"})
       search_term_fixture(%{word: word, term: "psa", display_form: "psa", form_tag: "acc_sg"})
-      sentence = sentence_fixture(%{word: word, blank_form_tag: "acc_sg"})
+      sentence = sentence_with_words_fixture(%{word: word, form_tag: "acc_sg"})
 
-      assert ["psa"] = Exercises.get_expected_forms(sentence)
-    end
-
-    test "returns multiple forms when multiple search terms match" do
-      word = noun_fixture(%{term: "pas"})
-      search_term_fixture(%{word: word, term: "pasa", display_form: "pasa", form_tag: "gen_sg"})
-      search_term_fixture(%{word: word, term: "pasa2", display_form: "pasa", form_tag: "gen_sg"})
-      sentence = sentence_fixture(%{word: word, blank_form_tag: "gen_sg"})
-
-      forms = Exercises.get_expected_forms(sentence)
-      assert length(forms) == 2
+      sw = hd(sentence.sentence_words)
+      assert ["psa"] = Exercises.get_expected_forms(sw)
     end
 
     test "returns empty list when no forms match" do
       word = noun_fixture(%{term: "pas"})
-      sentence = sentence_fixture(%{word: word, blank_form_tag: "nonexistent"})
+      sentence = sentence_with_words_fixture(%{word: word, form_tag: "nonexistent"})
 
-      assert [] = Exercises.get_expected_forms(sentence)
-    end
-
-    test "is case insensitive for form_tag" do
-      word = noun_fixture(%{term: "pas"})
-      search_term_fixture(%{word: word, term: "psa", display_form: "psa", form_tag: "acc_sg"})
-      sentence = sentence_fixture(%{word: word, blank_form_tag: "ACC_SG"})
-
-      assert ["psa"] = Exercises.get_expected_forms(sentence)
+      sw = hd(sentence.sentence_words)
+      assert [] = Exercises.get_expected_forms(sw)
     end
   end
 
@@ -299,22 +294,11 @@ defmodule Ohmyword.ExercisesTest do
     test "returns distinct parts of speech sorted" do
       noun = noun_fixture()
       verb = verb_fixture()
-      sentence_fixture(%{word: noun})
-      sentence_fixture(%{word: verb})
+      sentence_with_words_fixture(%{word: noun})
+      sentence_with_words_fixture(%{word: verb})
 
       result = Exercises.list_available_parts_of_speech()
-
       assert result == [:noun, :verb]
-    end
-
-    test "does not include POS without sentences" do
-      noun = noun_fixture()
-      _verb = verb_fixture()
-      sentence_fixture(%{word: noun})
-
-      result = Exercises.list_available_parts_of_speech()
-
-      assert result == [:noun]
     end
   end
 end

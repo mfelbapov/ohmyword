@@ -44,8 +44,6 @@ defmodule Ohmyword.Vocabulary.Word do
     field :grammar_metadata, :map, default: %{}
 
     # Content
-    field :example_sentence_rs, :string
-    field :example_sentence_en, :string
     field :audio_url, :string
     field :image_url, :string
     field :usage_notes, :string
@@ -60,8 +58,7 @@ defmodule Ohmyword.Vocabulary.Word do
   @optional_fields ~w(
     translations proficiency_level gender animate declension_class
     verb_aspect conjugation_class reflexive transitive aspect_pair_id
-    grammar_metadata example_sentence_rs example_sentence_en
-    audio_url image_url usage_notes categories
+    grammar_metadata audio_url image_url usage_notes categories
   )a
 
   def changeset(word, attrs) do
