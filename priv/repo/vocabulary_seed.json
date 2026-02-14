@@ -816,6 +816,77 @@
     "translation": "library"
   },
   {
+    "animate": false,
+    "categories": [
+      "Places & Travel"
+    ],
+    "declension_class": "consonant",
+    "forms": [
+      {
+        "form_tag": "nom_sg",
+        "term": "bioskop"
+      },
+      {
+        "form_tag": "gen_sg",
+        "term": "bioskopa"
+      },
+      {
+        "form_tag": "dat_sg",
+        "term": "bioskopu"
+      },
+      {
+        "form_tag": "acc_sg",
+        "term": "bioskop"
+      },
+      {
+        "form_tag": "voc_sg",
+        "term": "bioskope"
+      },
+      {
+        "form_tag": "ins_sg",
+        "term": "bioskopom"
+      },
+      {
+        "form_tag": "loc_sg",
+        "term": "bioskopu"
+      },
+      {
+        "form_tag": "nom_pl",
+        "term": "bioskopi"
+      },
+      {
+        "form_tag": "gen_pl",
+        "term": "bioskopa"
+      },
+      {
+        "form_tag": "dat_pl",
+        "term": "bioskopima"
+      },
+      {
+        "form_tag": "acc_pl",
+        "term": "bioskope"
+      },
+      {
+        "form_tag": "voc_pl",
+        "term": "bioskopi"
+      },
+      {
+        "form_tag": "ins_pl",
+        "term": "bioskopima"
+      },
+      {
+        "form_tag": "loc_pl",
+        "term": "bioskopima"
+      }
+    ],
+    "gender": "masculine",
+    "grammar_metadata": {},
+    "part_of_speech": "noun",
+    "proficiency_level": 2,
+    "term": "bioskop",
+    "translation": "cinema"
+  },
+  {
     "categories": [
       "Actions & Activities"
     ],
@@ -3648,6 +3719,100 @@
   },
   {
     "categories": [
+      "Actions & Activities",
+      "Places & Travel"
+    ],
+    "conjugation_class": "i-verb",
+    "forms": [
+      {
+        "form_tag": "inf",
+        "term": "dolaziti"
+      },
+      {
+        "form_tag": "pres_1sg",
+        "term": "dolazim"
+      },
+      {
+        "form_tag": "pres_2sg",
+        "term": "dolaziš"
+      },
+      {
+        "form_tag": "pres_3sg",
+        "term": "dolazi"
+      },
+      {
+        "form_tag": "pres_1pl",
+        "term": "dolazimo"
+      },
+      {
+        "form_tag": "pres_2pl",
+        "term": "dolazite"
+      },
+      {
+        "form_tag": "pres_3pl",
+        "term": "dolaze"
+      },
+      {
+        "form_tag": "past_m_sg",
+        "term": "dolazio"
+      },
+      {
+        "form_tag": "past_f_sg",
+        "term": "dolazila"
+      },
+      {
+        "form_tag": "past_n_sg",
+        "term": "dolazilo"
+      },
+      {
+        "form_tag": "past_m_pl",
+        "term": "dolazili"
+      },
+      {
+        "form_tag": "past_f_pl",
+        "term": "dolazile"
+      },
+      {
+        "form_tag": "past_n_pl",
+        "term": "dolazila"
+      },
+      {
+        "form_tag": "imp_2sg",
+        "term": "dolazi"
+      },
+      {
+        "form_tag": "imp_1pl",
+        "term": "dolazimo"
+      },
+      {
+        "form_tag": "imp_2pl",
+        "term": "dolazite"
+      },
+      {
+        "form_tag": "pres_adv_part",
+        "term": "dolazeći"
+      },
+      {
+        "form_tag": "past_adv_part",
+        "term": "dolazivši"
+      }
+    ],
+    "grammar_metadata": {
+      "no_passive_participle": true
+    },
+    "part_of_speech": "verb",
+    "proficiency_level": 1,
+    "reflexive": false,
+    "term": "dolaziti",
+    "transitive": false,
+    "translation": "to come",
+    "translations": [
+      "to arrive"
+    ],
+    "verb_aspect": "imperfective"
+  },
+  {
+    "categories": [
       "Places & Travel"
     ],
     "forms": [
@@ -5823,6 +5988,77 @@
     "proficiency_level": 1,
     "term": "hleb",
     "translation": "bread"
+  },
+  {
+    "animate": false,
+    "categories": [
+      "Places & Travel"
+    ],
+    "declension_class": "consonant",
+    "forms": [
+      {
+        "form_tag": "nom_sg",
+        "term": "hotel"
+      },
+      {
+        "form_tag": "gen_sg",
+        "term": "hotela"
+      },
+      {
+        "form_tag": "dat_sg",
+        "term": "hotelu"
+      },
+      {
+        "form_tag": "acc_sg",
+        "term": "hotel"
+      },
+      {
+        "form_tag": "voc_sg",
+        "term": "hotele"
+      },
+      {
+        "form_tag": "ins_sg",
+        "term": "hotelom"
+      },
+      {
+        "form_tag": "loc_sg",
+        "term": "hotelu"
+      },
+      {
+        "form_tag": "nom_pl",
+        "term": "hoteli"
+      },
+      {
+        "form_tag": "gen_pl",
+        "term": "hotela"
+      },
+      {
+        "form_tag": "dat_pl",
+        "term": "hotelima"
+      },
+      {
+        "form_tag": "acc_pl",
+        "term": "hotele"
+      },
+      {
+        "form_tag": "voc_pl",
+        "term": "hoteli"
+      },
+      {
+        "form_tag": "ins_pl",
+        "term": "hotelima"
+      },
+      {
+        "form_tag": "loc_pl",
+        "term": "hotelima"
+      }
+    ],
+    "gender": "masculine",
+    "grammar_metadata": {},
+    "part_of_speech": "noun",
+    "proficiency_level": 2,
+    "term": "hotel",
+    "translation": "hotel"
   },
   {
     "categories": [
@@ -13181,6 +13417,77 @@
     ]
   },
   {
+    "animate": false,
+    "categories": [
+      "Places & Travel"
+    ],
+    "declension_class": "consonant",
+    "forms": [
+      {
+        "form_tag": "nom_sg",
+        "term": "muzej"
+      },
+      {
+        "form_tag": "gen_sg",
+        "term": "muzeja"
+      },
+      {
+        "form_tag": "dat_sg",
+        "term": "muzeju"
+      },
+      {
+        "form_tag": "acc_sg",
+        "term": "muzej"
+      },
+      {
+        "form_tag": "voc_sg",
+        "term": "muzeje"
+      },
+      {
+        "form_tag": "ins_sg",
+        "term": "muzejom"
+      },
+      {
+        "form_tag": "loc_sg",
+        "term": "muzeju"
+      },
+      {
+        "form_tag": "nom_pl",
+        "term": "muzeji"
+      },
+      {
+        "form_tag": "gen_pl",
+        "term": "muzeja"
+      },
+      {
+        "form_tag": "dat_pl",
+        "term": "muzejima"
+      },
+      {
+        "form_tag": "acc_pl",
+        "term": "muzeje"
+      },
+      {
+        "form_tag": "voc_pl",
+        "term": "muzeji"
+      },
+      {
+        "form_tag": "ins_pl",
+        "term": "muzejima"
+      },
+      {
+        "form_tag": "loc_pl",
+        "term": "muzejima"
+      }
+    ],
+    "gender": "masculine",
+    "grammar_metadata": {},
+    "part_of_speech": "noun",
+    "proficiency_level": 2,
+    "term": "muzej",
+    "translation": "museum"
+  },
+  {
     "categories": [],
     "forms": [
       {
@@ -18852,6 +19159,76 @@
     "proficiency_level": 1,
     "term": "povrće",
     "translation": "vegetables"
+  },
+  {
+    "categories": [
+      "Places & Travel"
+    ],
+    "declension_class": "e-stem",
+    "forms": [
+      {
+        "form_tag": "nom_sg",
+        "term": "pozorište"
+      },
+      {
+        "form_tag": "gen_sg",
+        "term": "pozorišta"
+      },
+      {
+        "form_tag": "dat_sg",
+        "term": "pozorištu"
+      },
+      {
+        "form_tag": "acc_sg",
+        "term": "pozorište"
+      },
+      {
+        "form_tag": "voc_sg",
+        "term": "pozorište"
+      },
+      {
+        "form_tag": "ins_sg",
+        "term": "pozorištem"
+      },
+      {
+        "form_tag": "loc_sg",
+        "term": "pozorištu"
+      },
+      {
+        "form_tag": "nom_pl",
+        "term": "pozorišta"
+      },
+      {
+        "form_tag": "gen_pl",
+        "term": "pozorišta"
+      },
+      {
+        "form_tag": "dat_pl",
+        "term": "pozorištima"
+      },
+      {
+        "form_tag": "acc_pl",
+        "term": "pozorišta"
+      },
+      {
+        "form_tag": "voc_pl",
+        "term": "pozorišta"
+      },
+      {
+        "form_tag": "ins_pl",
+        "term": "pozorištima"
+      },
+      {
+        "form_tag": "loc_pl",
+        "term": "pozorištima"
+      }
+    ],
+    "gender": "neuter",
+    "grammar_metadata": {},
+    "part_of_speech": "noun",
+    "proficiency_level": 2,
+    "term": "pozorište",
+    "translation": "theater"
   },
   {
     "categories": [
@@ -32444,6 +32821,122 @@
     "proficiency_level": 1,
     "term": "voz",
     "translation": "train"
+  },
+  {
+    "categories": [
+      "Actions & Activities",
+      "Places & Travel"
+    ],
+    "conjugation_class": "i-verb",
+    "forms": [
+      {
+        "form_tag": "inf",
+        "term": "voziti"
+      },
+      {
+        "form_tag": "pres_1sg",
+        "term": "vozim"
+      },
+      {
+        "form_tag": "pres_2sg",
+        "term": "voziš"
+      },
+      {
+        "form_tag": "pres_3sg",
+        "term": "vozi"
+      },
+      {
+        "form_tag": "pres_1pl",
+        "term": "vozimo"
+      },
+      {
+        "form_tag": "pres_2pl",
+        "term": "vozite"
+      },
+      {
+        "form_tag": "pres_3pl",
+        "term": "voze"
+      },
+      {
+        "form_tag": "past_m_sg",
+        "term": "vozio"
+      },
+      {
+        "form_tag": "past_f_sg",
+        "term": "vozila"
+      },
+      {
+        "form_tag": "past_n_sg",
+        "term": "vozilo"
+      },
+      {
+        "form_tag": "past_m_pl",
+        "term": "vozili"
+      },
+      {
+        "form_tag": "past_f_pl",
+        "term": "vozile"
+      },
+      {
+        "form_tag": "past_n_pl",
+        "term": "vozila"
+      },
+      {
+        "form_tag": "imp_2sg",
+        "term": "vozi"
+      },
+      {
+        "form_tag": "imp_1pl",
+        "term": "vozimo"
+      },
+      {
+        "form_tag": "imp_2pl",
+        "term": "vozite"
+      },
+      {
+        "form_tag": "pass_part_m_sg",
+        "term": "vožen"
+      },
+      {
+        "form_tag": "pass_part_f_sg",
+        "term": "vožena"
+      },
+      {
+        "form_tag": "pass_part_n_sg",
+        "term": "voženo"
+      },
+      {
+        "form_tag": "pass_part_m_pl",
+        "term": "voženi"
+      },
+      {
+        "form_tag": "pass_part_f_pl",
+        "term": "vožene"
+      },
+      {
+        "form_tag": "pass_part_n_pl",
+        "term": "vožena"
+      },
+      {
+        "form_tag": "pres_adv_part",
+        "term": "vozeći"
+      },
+      {
+        "form_tag": "past_adv_part",
+        "term": "vozivši"
+      }
+    ],
+    "grammar_metadata": {},
+    "part_of_speech": "verb",
+    "proficiency_level": 2,
+    "reflexive": false,
+    "term": "voziti",
+    "transitive": true,
+    "translation": "to drive",
+    "translations": [
+      "to ride"
+    ],
+    "verb_aspect": "imperfective"
   },
   {
     "categories": [

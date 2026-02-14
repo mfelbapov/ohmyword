@@ -1,159 +1,2272 @@
 [
   {
-    "text_rs": "Vidim velikog psa u parku.",
     "text_en": "I see a big dog in the park.",
+    "text_rs": "Vidim velikog psa u parku.",
     "words": [
-      {"word": "Vidim", "word_term": "videti", "form_tag": "pres_1sg"},
-      {"word": "velikog", "word_term": "velik", "form_tag": "def_acc_sg_m"},
-      {"word": "psa", "word_term": "pas", "form_tag": "acc_sg"},
-      {"word": "u", "word_term": "u", "form_tag": "invariable"},
-      {"word": "parku", "word_term": "park", "form_tag": "loc_sg"}
+      {
+        "form_tag": "pres_1sg",
+        "word": "Vidim",
+        "word_term": "videti"
+      },
+      {
+        "form_tag": "def_acc_sg_m",
+        "word": "velikog",
+        "word_term": "velik"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "psa",
+        "word_term": "pas"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "u",
+        "word_term": "u"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "parku",
+        "word_term": "park"
+      }
     ]
   },
   {
-    "text_rs": "To je pas mog komšije.",
     "text_en": "That is my neighbor's dog.",
+    "text_rs": "To je pas mog komšije.",
     "words": [
-      {"word": "pas", "word_term": "pas", "form_tag": "nom_sg"}
+      {
+        "form_tag": "nom_sg",
+        "word": "pas",
+        "word_term": "pas"
+      }
     ]
   },
   {
-    "text_rs": "Dajem hranu mačci.",
     "text_en": "I give food to the cat.",
+    "text_rs": "Dajem hranu mačci.",
     "words": [
-      {"word": "hranu", "word_term": "hrana", "form_tag": "acc_sg"},
-      {"word": "mačci", "word_term": "mačka", "form_tag": "dat_sg"}
+      {
+        "form_tag": "acc_sg",
+        "word": "hranu",
+        "word_term": "hrana"
+      },
+      {
+        "form_tag": "dat_sg",
+        "word": "mačci",
+        "word_term": "mačka"
+      }
     ]
   },
   {
-    "text_rs": "Idem u kuću.",
     "text_en": "I am going to the house.",
+    "text_rs": "Idem u kuću.",
     "words": [
-      {"word": "kuću", "word_term": "kuća", "form_tag": "acc_sg"}
+      {
+        "form_tag": "acc_sg",
+        "word": "kuću",
+        "word_term": "kuća"
+      }
     ]
   },
   {
-    "text_rs": "Imam veliku kuću.",
     "text_en": "I have a big house.",
+    "text_rs": "Imam veliku kuću.",
     "words": [
-      {"word": "veliku", "word_term": "velik", "form_tag": "indef_acc_sg_f"},
-      {"word": "kuću", "word_term": "kuća", "form_tag": "acc_sg"}
+      {
+        "form_tag": "indef_acc_sg_f",
+        "word": "veliku",
+        "word_term": "velik"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "kuću",
+        "word_term": "kuća"
+      }
     ]
   },
   {
-    "text_rs": "Pijem vodu.",
     "text_en": "I am drinking water.",
+    "text_rs": "Pijem vodu.",
     "words": [
-      {"word": "Pijem", "word_term": "piti", "form_tag": "pres_1sg"},
-      {"word": "vodu", "word_term": "voda", "form_tag": "acc_sg"}
+      {
+        "form_tag": "pres_1sg",
+        "word": "Pijem",
+        "word_term": "piti"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "vodu",
+        "word_term": "voda"
+      }
     ]
   },
   {
-    "text_rs": "Pričam sa bratom.",
     "text_en": "I am talking with my brother.",
+    "text_rs": "Pričam sa bratom.",
     "words": [
-      {"word": "bratom", "word_term": "brat", "form_tag": "ins_sg"}
+      {
+        "form_tag": "ins_sg",
+        "word": "bratom",
+        "word_term": "brat"
+      }
     ]
   },
   {
-    "text_rs": "Idem sa sestrom.",
     "text_en": "I am going with my sister.",
+    "text_rs": "Idem sa sestrom.",
     "words": [
-      {"word": "sestrom", "word_term": "sestra", "form_tag": "ins_sg"}
+      {
+        "form_tag": "ins_sg",
+        "word": "sestrom",
+        "word_term": "sestra"
+      }
     ]
   },
   {
-    "text_rs": "Vozim novi auto.",
     "text_en": "I am driving a new car.",
+    "text_rs": "Vozim novi auto.",
     "words": [
-      {"word": "novi", "word_term": "nov", "form_tag": "indef_acc_sg_m"},
-      {"word": "auto", "word_term": "auto", "form_tag": "acc_sg"}
+      {
+        "form_tag": "indef_acc_sg_m",
+        "word": "novi",
+        "word_term": "nov"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "auto",
+        "word_term": "auto"
+      }
     ]
   },
   {
-    "text_rs": "Čitam knjigu.",
     "text_en": "I am reading a book.",
+    "text_rs": "Čitam knjigu.",
     "words": [
-      {"word": "Čitam", "word_term": "čitati", "form_tag": "pres_1sg"},
-      {"word": "knjigu", "word_term": "knjiga", "form_tag": "acc_sg"}
+      {
+        "form_tag": "pres_1sg",
+        "word": "Čitam",
+        "word_term": "čitati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "knjigu",
+        "word_term": "knjiga"
+      }
     ]
   },
   {
-    "text_rs": "Ovo je knjiga moje sestre.",
     "text_en": "This is my sister's book.",
+    "text_rs": "Ovo je knjiga moje sestre.",
     "words": [
-      {"word": "knjiga", "word_term": "knjiga", "form_tag": "nom_sg"},
-      {"word": "sestre", "word_term": "sestra", "form_tag": "gen_sg"}
+      {
+        "form_tag": "nom_sg",
+        "word": "knjiga",
+        "word_term": "knjiga"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "sestre",
+        "word_term": "sestra"
+      }
     ]
   },
   {
-    "text_rs": "Vidim čoveka.",
     "text_en": "I see a man.",
+    "text_rs": "Vidim čoveka.",
     "words": [
-      {"word": "Vidim", "word_term": "videti", "form_tag": "pres_1sg"},
-      {"word": "čoveka", "word_term": "čovek", "form_tag": "acc_sg"}
+      {
+        "form_tag": "pres_1sg",
+        "word": "Vidim",
+        "word_term": "videti"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "čoveka",
+        "word_term": "čovek"
+      }
     ]
   },
   {
-    "text_rs": "Govorim sa ženom.",
     "text_en": "I am speaking with a woman.",
+    "text_rs": "Govorim sa ženom.",
     "words": [
-      {"word": "Govorim", "word_term": "govoriti", "form_tag": "pres_1sg"},
-      {"word": "ženom", "word_term": "žena", "form_tag": "ins_sg"}
+      {
+        "form_tag": "pres_1sg",
+        "word": "Govorim",
+        "word_term": "govoriti"
+      },
+      {
+        "form_tag": "ins_sg",
+        "word": "ženom",
+        "word_term": "žena"
+      }
     ]
   },
   {
-    "text_rs": "Igram se sa detetom.",
     "text_en": "I am playing with a child.",
+    "text_rs": "Igram se sa detetom.",
     "words": [
-      {"word": "detetom", "word_term": "dete", "form_tag": "ins_sg"}
+      {
+        "form_tag": "ins_sg",
+        "word": "detetom",
+        "word_term": "dete"
+      }
     ]
   },
   {
-    "text_rs": "On je dobar čovek.",
     "text_en": "He is a good man.",
+    "text_rs": "On je dobar čovek.",
     "words": [
-      {"word": "dobar", "word_term": "dobar", "form_tag": "indef_nom_sg_m"},
-      {"word": "čovek", "word_term": "čovek", "form_tag": "nom_sg"}
+      {
+        "form_tag": "indef_nom_sg_m",
+        "word": "dobar",
+        "word_term": "dobar"
+      },
+      {
+        "form_tag": "nom_sg",
+        "word": "čovek",
+        "word_term": "čovek"
+      }
     ]
   },
   {
-    "text_rs": "To je lep grad.",
     "text_en": "That is a beautiful city.",
+    "text_rs": "To je lep grad.",
     "words": [
-      {"word": "lep", "word_term": "lep", "form_tag": "indef_nom_sg_m"},
-      {"word": "grad", "word_term": "grad", "form_tag": "nom_sg"}
+      {
+        "form_tag": "indef_nom_sg_m",
+        "word": "lep",
+        "word_term": "lep"
+      },
+      {
+        "form_tag": "nom_sg",
+        "word": "grad",
+        "word_term": "grad"
+      }
     ]
   },
   {
-    "text_rs": "Kupujem nov auto.",
     "text_en": "I am buying a new car.",
+    "text_rs": "Kupujem nov auto.",
     "words": [
-      {"word": "nov", "word_term": "nov", "form_tag": "indef_acc_sg_m"},
-      {"word": "auto", "word_term": "auto", "form_tag": "acc_sg"}
+      {
+        "form_tag": "indef_acc_sg_m",
+        "word": "nov",
+        "word_term": "nov"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "auto",
+        "word_term": "auto"
+      }
     ]
   },
   {
-    "text_rs": "Imam veliku kuću.",
     "text_en": "I have a big house.",
+    "text_rs": "Imam veliku kuću.",
     "words": [
-      {"word": "veliku", "word_term": "velik", "form_tag": "indef_acc_sg_f"},
-      {"word": "kuću", "word_term": "kuća", "form_tag": "acc_sg"}
+      {
+        "form_tag": "indef_acc_sg_f",
+        "word": "veliku",
+        "word_term": "velik"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "kuću",
+        "word_term": "kuća"
+      }
     ]
   },
   {
-    "text_rs": "Ja gledam televiziju.",
     "text_en": "I am watching television.",
+    "text_rs": "Ja gledam televiziju.",
     "words": [
-      {"word": "gledam", "word_term": "gledati", "form_tag": "pres_1sg"}
+      {
+        "form_tag": "pres_1sg",
+        "word": "gledam",
+        "word_term": "gledati"
+      }
     ]
   },
   {
-    "text_rs": "Mi imamo kuću.",
     "text_en": "We have a house.",
+    "text_rs": "Mi imamo kuću.",
     "words": [
-      {"word": "imamo", "word_term": "imati", "form_tag": "pres_1pl"},
-      {"word": "kuću", "word_term": "kuća", "form_tag": "acc_sg"}
+      {
+        "form_tag": "pres_1pl",
+        "word": "imamo",
+        "word_term": "imati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "kuću",
+        "word_term": "kuća"
+      }
+    ]
+  },
+  {
+    "text_en": "I am going to the airport.",
+    "text_rs": "Idem na aerodrom.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Idem",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "aerodrom",
+        "word_term": "aerodrom"
+      }
+    ]
+  },
+  {
+    "text_en": "I am waiting at the airport.",
+    "text_rs": "Čekam na aerodromu.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Čekam",
+        "word_term": "čekati"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "aerodromu",
+        "word_term": "aerodrom"
+      }
+    ]
+  },
+  {
+    "text_en": "I am coming from the airport.",
+    "text_rs": "Dolazim sa aerodroma.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Dolazim",
+        "word_term": "dolaziti"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "sa",
+        "word_term": "sa"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "aerodroma",
+        "word_term": "aerodrom"
+      }
+    ]
+  },
+  {
+    "text_en": "The airport is far from the city.",
+    "text_rs": "Aerodrom je daleko od grada.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Aerodrom",
+        "word_term": "aerodrom"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "daleko",
+        "word_term": "daleko"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "grada",
+        "word_term": "grad"
+      }
+    ]
+  },
+  {
+    "text_en": "I am driving to the airport.",
+    "text_rs": "Vozim do aerodroma.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Vozim",
+        "word_term": "voziti"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "do",
+        "word_term": "do"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "aerodroma",
+        "word_term": "aerodrom"
+      }
+    ]
+  },
+  {
+    "text_en": "The children go to school.",
+    "text_rs": "Deca idu u školu.",
+    "words": [
+      {
+        "form_tag": "nom_pl",
+        "word": "Deca",
+        "word_term": "dete"
+      },
+      {
+        "form_tag": "pres_3pl",
+        "word": "idu",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "školu",
+        "word_term": "škola"
+      }
+    ]
+  },
+  {
+    "text_en": "I study at school.",
+    "text_rs": "Učim u školi.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Učim",
+        "word_term": "učiti"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "školi",
+        "word_term": "škola"
+      }
+    ]
+  },
+  {
+    "text_en": "The school is near the park.",
+    "text_rs": "Škola je blizu parka.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Škola",
+        "word_term": "škola"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "blizu",
+        "word_term": "blizu"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "parka",
+        "word_term": "park"
+      }
+    ]
+  },
+  {
+    "text_en": "The doctor works at the hospital.",
+    "text_rs": "Doktor radi u bolnici.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Doktor",
+        "word_term": "doktor"
+      },
+      {
+        "form_tag": "pres_3sg",
+        "word": "radi",
+        "word_term": "raditi"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "bolnici",
+        "word_term": "bolnica"
+      }
+    ]
+  },
+  {
+    "text_en": "The hospital is next to the park.",
+    "text_rs": "Bolnica je pored parka.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Bolnica",
+        "word_term": "bolnica"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "pored",
+        "word_term": "pored"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "parka",
+        "word_term": "park"
+      }
+    ]
+  },
+  {
+    "text_en": "We eat at the restaurant.",
+    "text_rs": "Jedemo u restoranu.",
+    "words": [
+      {
+        "form_tag": "pres_1pl",
+        "word": "Jedemo",
+        "word_term": "jesti"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "u",
+        "word_term": "u"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "restoranu",
+        "word_term": "restoran"
+      }
+    ]
+  },
+  {
+    "text_en": "The restaurant is near the hotel.",
+    "text_rs": "Restoran je blizu hotela.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Restoran",
+        "word_term": "restoran"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "blizu",
+        "word_term": "blizu"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "hotela",
+        "word_term": "hotel"
+      }
+    ]
+  },
+  {
+    "text_en": "I am eating fish at the restaurant.",
+    "text_rs": "Jedem ribu u restoranu.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Jedem",
+        "word_term": "jesti"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "ribu",
+        "word_term": "riba"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "restoranu",
+        "word_term": "restoran"
+      }
+    ]
+  },
+  {
+    "text_en": "I am buying bread at the store.",
+    "text_rs": "Kupujem hleb u prodavnici.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Kupujem",
+        "word_term": "kupovati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "hleb",
+        "word_term": "hleb"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "prodavnici",
+        "word_term": "prodavnica"
+      }
+    ]
+  },
+  {
+    "text_en": "I am going to the store.",
+    "text_rs": "Idem u prodavnicu.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Idem",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "prodavnicu",
+        "word_term": "prodavnica"
+      }
+    ]
+  },
+  {
+    "text_en": "I am waiting at the bank.",
+    "text_rs": "Čekam u banci.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Čekam",
+        "word_term": "čekati"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "banci",
+        "word_term": "banka"
+      }
+    ]
+  },
+  {
+    "text_en": "The bank is in front of the post office.",
+    "text_rs": "Banka je ispred pošte.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Banka",
+        "word_term": "banka"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "ispred",
+        "word_term": "ispred"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "pošte",
+        "word_term": "pošta"
+      }
+    ]
+  },
+  {
+    "text_en": "I am sending a letter at the post office.",
+    "text_rs": "Šaljem pismo na pošti.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Šaljem",
+        "word_term": "slati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "pismo",
+        "word_term": "pismo"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "pošti",
+        "word_term": "pošta"
+      }
+    ]
+  },
+  {
+    "text_en": "I am going to the post office.",
+    "text_rs": "Idem na poštu.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Idem",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "poštu",
+        "word_term": "pošta"
+      }
+    ]
+  },
+  {
+    "text_en": "The pharmacy is next to the hospital.",
+    "text_rs": "Apoteka je pored bolnice.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Apoteka",
+        "word_term": "apoteka"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "pored",
+        "word_term": "pored"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "bolnice",
+        "word_term": "bolnica"
+      }
+    ]
+  },
+  {
+    "text_en": "I am going to the pharmacy.",
+    "text_rs": "Idem u apoteku.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Idem",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "apoteku",
+        "word_term": "apoteka"
+      }
+    ]
+  },
+  {
+    "text_en": "I am reading books at the library.",
+    "text_rs": "Čitam knjige u biblioteci.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Čitam",
+        "word_term": "čitati"
+      },
+      {
+        "form_tag": "acc_pl",
+        "word": "knjige",
+        "word_term": "knjiga"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "biblioteci",
+        "word_term": "biblioteka"
+      }
+    ]
+  },
+  {
+    "text_en": "We are going to the cinema.",
+    "text_rs": "Idemo u bioskop.",
+    "words": [
+      {
+        "form_tag": "pres_1pl",
+        "word": "Idemo",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "bioskop",
+        "word_term": "bioskop"
+      }
+    ]
+  },
+  {
+    "text_en": "We are waiting in front of the cinema.",
+    "text_rs": "Čekamo ispred bioskopa.",
+    "words": [
+      {
+        "form_tag": "pres_1pl",
+        "word": "Čekamo",
+        "word_term": "čekati"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "ispred",
+        "word_term": "ispred"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "bioskopa",
+        "word_term": "bioskop"
+      }
+    ]
+  },
+  {
+    "text_en": "We are going to the museum.",
+    "text_rs": "Idemo u muzej.",
+    "words": [
+      {
+        "form_tag": "pres_1pl",
+        "word": "Idemo",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "muzej",
+        "word_term": "muzej"
+      }
+    ]
+  },
+  {
+    "text_en": "The museum is old.",
+    "text_rs": "Muzej je star.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Muzej",
+        "word_term": "muzej"
+      },
+      {
+        "form_tag": "indef_nom_sg_m",
+        "word": "star",
+        "word_term": "star"
+      }
+    ]
+  },
+  {
+    "text_en": "We are going to the theater.",
+    "text_rs": "Idemo u pozorište.",
+    "words": [
+      {
+        "form_tag": "pres_1pl",
+        "word": "Idemo",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "pozorište",
+        "word_term": "pozorište"
+      }
+    ]
+  },
+  {
+    "text_en": "The theater is in the city.",
+    "text_rs": "Pozorište je u gradu.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Pozorište",
+        "word_term": "pozorište"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "gradu",
+        "word_term": "grad"
+      }
+    ]
+  },
+  {
+    "text_en": "We are arriving at the hotel.",
+    "text_rs": "Dolazimo u hotel.",
+    "words": [
+      {
+        "form_tag": "pres_1pl",
+        "word": "Dolazimo",
+        "word_term": "dolaziti"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "hotel",
+        "word_term": "hotel"
+      }
+    ]
+  },
+  {
+    "text_en": "We are sleeping at the hotel.",
+    "text_rs": "Spavamo u hotelu.",
+    "words": [
+      {
+        "form_tag": "pres_1pl",
+        "word": "Spavamo",
+        "word_term": "spavati"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "hotelu",
+        "word_term": "hotel"
+      }
+    ]
+  },
+  {
+    "text_en": "I live in the city.",
+    "text_rs": "Živim u gradu.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Živim",
+        "word_term": "živeti"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "gradu",
+        "word_term": "grad"
+      }
+    ]
+  },
+  {
+    "text_en": "I am going to the city.",
+    "text_rs": "Idem u grad.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Idem",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "grad",
+        "word_term": "grad"
+      }
+    ]
+  },
+  {
+    "text_en": "I am walking through the city.",
+    "text_rs": "Šetam kroz grad.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Šetam",
+        "word_term": "šetati"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "kroz",
+        "word_term": "kroz"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "grad",
+        "word_term": "grad"
+      }
+    ]
+  },
+  {
+    "text_en": "We live in the village.",
+    "text_rs": "Živimo u selu.",
+    "words": [
+      {
+        "form_tag": "pres_1pl",
+        "word": "Živimo",
+        "word_term": "živeti"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "selu",
+        "word_term": "selo"
+      }
+    ]
+  },
+  {
+    "text_en": "The village is small.",
+    "text_rs": "Selo je malo.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Selo",
+        "word_term": "selo"
+      },
+      {
+        "form_tag": "def_nom_sg_n",
+        "word": "malo",
+        "word_term": "mali"
+      }
+    ]
+  },
+  {
+    "text_en": "I am walking in the park.",
+    "text_rs": "Šetam u parku.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Šetam",
+        "word_term": "šetati"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "parku",
+        "word_term": "park"
+      }
+    ]
+  },
+  {
+    "text_en": "The children are playing in the park.",
+    "text_rs": "Deca se igraju u parku.",
+    "words": [
+      {
+        "form_tag": "nom_pl",
+        "word": "Deca",
+        "word_term": "dete"
+      },
+      {
+        "form_tag": "pres_3pl",
+        "word": "igraju",
+        "word_term": "igrati"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "parku",
+        "word_term": "park"
+      }
+    ]
+  },
+  {
+    "text_en": "I am drinking coffee at the café.",
+    "text_rs": "Pijem kafu u kafiću.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Pijem",
+        "word_term": "piti"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "kafu",
+        "word_term": "kafa"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "kafiću",
+        "word_term": "kafić"
+      }
+    ]
+  },
+  {
+    "text_en": "The café is on the street.",
+    "text_rs": "Kafić je na ulici.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Kafić",
+        "word_term": "kafić"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "na",
+        "word_term": "na"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "ulici",
+        "word_term": "ulica"
+      }
+    ]
+  },
+  {
+    "text_en": "We eat at the tavern.",
+    "text_rs": "Jedemo u kafani.",
+    "words": [
+      {
+        "form_tag": "pres_1pl",
+        "word": "Jedemo",
+        "word_term": "jesti"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "kafani",
+        "word_term": "kafana"
+      }
+    ]
+  },
+  {
+    "text_en": "The tavern is old.",
+    "text_rs": "Kafana je stara.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Kafana",
+        "word_term": "kafana"
+      },
+      {
+        "form_tag": "indef_nom_sg_f",
+        "word": "stara",
+        "word_term": "star"
+      }
+    ]
+  },
+  {
+    "text_en": "I am buying fruit at the market.",
+    "text_rs": "Kupujem voće na pijaci.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Kupujem",
+        "word_term": "kupovati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "voće",
+        "word_term": "voće"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "pijaci",
+        "word_term": "pijaca"
+      }
+    ]
+  },
+  {
+    "text_en": "I am buying bread at the bakery.",
+    "text_rs": "Kupujem hleb u pekari.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Kupujem",
+        "word_term": "kupovati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "hleb",
+        "word_term": "hleb"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "pekari",
+        "word_term": "pekara"
+      }
+    ]
+  },
+  {
+    "text_en": "The bakery is near the house.",
+    "text_rs": "Pekara je blizu kuće.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Pekara",
+        "word_term": "pekara"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "blizu",
+        "word_term": "blizu"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "kuće",
+        "word_term": "kuća"
+      }
+    ]
+  },
+  {
+    "text_en": "The church is old.",
+    "text_rs": "Crkva je stara.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Crkva",
+        "word_term": "crkva"
+      },
+      {
+        "form_tag": "indef_nom_sg_f",
+        "word": "stara",
+        "word_term": "star"
+      }
+    ]
+  },
+  {
+    "text_en": "I am going to the church.",
+    "text_rs": "Idem u crkvu.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Idem",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "crkvu",
+        "word_term": "crkva"
+      }
+    ]
+  },
+  {
+    "text_en": "I study at the university.",
+    "text_rs": "Učim na univerzitetu.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Učim",
+        "word_term": "učiti"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "univerzitetu",
+        "word_term": "univerzitet"
+      }
+    ]
+  },
+  {
+    "text_en": "I am waiting for the bus at the station.",
+    "text_rs": "Čekam autobus na stanici.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Čekam",
+        "word_term": "čekati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "autobus",
+        "word_term": "autobus"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "stanici",
+        "word_term": "stanica"
+      }
+    ]
+  },
+  {
+    "text_en": "I am walking along the street.",
+    "text_rs": "Šetam ulicom.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Šetam",
+        "word_term": "šetati"
+      },
+      {
+        "form_tag": "ins_sg",
+        "word": "ulicom",
+        "word_term": "ulica"
+      }
+    ]
+  },
+  {
+    "text_en": "The street is quiet.",
+    "text_rs": "Ulica je tiha.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Ulica",
+        "word_term": "ulica"
+      },
+      {
+        "form_tag": "indef_nom_sg_f",
+        "word": "tiha",
+        "word_term": "tih"
+      }
+    ]
+  },
+  {
+    "text_en": "I am coming to the house.",
+    "text_rs": "Dolazim u kuću.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Dolazim",
+        "word_term": "dolaziti"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "kuću",
+        "word_term": "kuća"
+      }
+    ]
+  },
+  {
+    "text_en": "I sleep in the room.",
+    "text_rs": "Spavam u sobi.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Spavam",
+        "word_term": "spavati"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "sobi",
+        "word_term": "soba"
+      }
+    ]
+  },
+  {
+    "text_en": "The room is warm.",
+    "text_rs": "Soba je topla.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Soba",
+        "word_term": "soba"
+      },
+      {
+        "form_tag": "indef_nom_sg_f",
+        "word": "topla",
+        "word_term": "topao"
+      }
+    ]
+  },
+  {
+    "text_en": "I am driving to the parking lot.",
+    "text_rs": "Vozim do parkinga.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Vozim",
+        "word_term": "voziti"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "parkinga",
+        "word_term": "parking"
+      }
+    ]
+  },
+  {
+    "text_en": "The parking lot is full.",
+    "text_rs": "Parking je pun.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Parking",
+        "word_term": "parking"
+      },
+      {
+        "form_tag": "indef_nom_sg_m",
+        "word": "pun",
+        "word_term": "pun"
+      }
+    ]
+  },
+  {
+    "text_en": "I am looking for a nice place.",
+    "text_rs": "Tražim lepo mesto.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Tražim",
+        "word_term": "tražiti"
+      },
+      {
+        "form_tag": "indef_acc_sg_n",
+        "word": "lepo",
+        "word_term": "lep"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "mesto",
+        "word_term": "mesto"
+      }
+    ]
+  },
+  {
+    "text_en": "He is going to work.",
+    "text_rs": "On ide na posao.",
+    "words": [
+      {
+        "form_tag": "pres_3sg",
+        "word": "ide",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "posao",
+        "word_term": "posao"
+      }
+    ]
+  },
+  {
+    "text_en": "They are going to the cinema.",
+    "text_rs": "Oni idu u bioskop.",
+    "words": [
+      {
+        "form_tag": "pres_3pl",
+        "word": "idu",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "bioskop",
+        "word_term": "bioskop"
+      }
+    ]
+  },
+  {
+    "text_en": "She lives near the school.",
+    "text_rs": "Ona živi blizu škole.",
+    "words": [
+      {
+        "form_tag": "pres_3sg",
+        "word": "živi",
+        "word_term": "živeti"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "škole",
+        "word_term": "škola"
+      }
+    ]
+  },
+  {
+    "text_en": "My brother works at the bank.",
+    "text_rs": "Brat radi u banci.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Brat",
+        "word_term": "brat"
+      },
+      {
+        "form_tag": "pres_3sg",
+        "word": "radi",
+        "word_term": "raditi"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "banci",
+        "word_term": "banka"
+      }
+    ]
+  },
+  {
+    "text_en": "The doctor is coming to the hospital.",
+    "text_rs": "Doktor dolazi u bolnicu.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Doktor",
+        "word_term": "doktor"
+      },
+      {
+        "form_tag": "pres_3sg",
+        "word": "dolazi",
+        "word_term": "dolaziti"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "bolnicu",
+        "word_term": "bolnica"
+      }
+    ]
+  },
+  {
+    "text_en": "I am reading a letter at the post office.",
+    "text_rs": "Čitam pismo na pošti.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Čitam",
+        "word_term": "čitati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "pismo",
+        "word_term": "pismo"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "pošti",
+        "word_term": "pošta"
+      }
+    ]
+  },
+  {
+    "text_en": "I am driving a car to the city.",
+    "text_rs": "Vozim auto do grada.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Vozim",
+        "word_term": "voziti"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "auto",
+        "word_term": "auto"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "grada",
+        "word_term": "grad"
+      }
+    ]
+  },
+  {
+    "text_en": "I am drinking water in the park.",
+    "text_rs": "Pijem vodu u parku.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Pijem",
+        "word_term": "piti"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "vodu",
+        "word_term": "voda"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "parku",
+        "word_term": "park"
+      }
+    ]
+  },
+  {
+    "text_en": "I am waiting for the train at the station.",
+    "text_rs": "Čekam voz na stanici.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Čekam",
+        "word_term": "čekati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "voz",
+        "word_term": "voz"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "stanici",
+        "word_term": "stanica"
+      }
+    ]
+  },
+  {
+    "text_en": "I am drinking beer at the restaurant.",
+    "text_rs": "Pijem pivo u restoranu.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Pijem",
+        "word_term": "piti"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "pivo",
+        "word_term": "pivo"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "restoranu",
+        "word_term": "restoran"
+      }
+    ]
+  },
+  {
+    "text_en": "I am buying cheese at the market.",
+    "text_rs": "Kupujem sir na pijaci.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Kupujem",
+        "word_term": "kupovati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "sir",
+        "word_term": "sir"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "pijaci",
+        "word_term": "pijaca"
+      }
+    ]
+  },
+  {
+    "text_en": "I am going from school to the library.",
+    "text_rs": "Idem iz škole u biblioteku.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Idem",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "iz",
+        "word_term": "iz"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "škole",
+        "word_term": "škola"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "biblioteku",
+        "word_term": "biblioteka"
+      }
+    ]
+  },
+  {
+    "text_en": "I am coming from the city to the village.",
+    "text_rs": "Dolazim iz grada u selo.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Dolazim",
+        "word_term": "dolaziti"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "grada",
+        "word_term": "grad"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "selo",
+        "word_term": "selo"
+      }
+    ]
+  },
+  {
+    "text_en": "I am driving from home to work.",
+    "text_rs": "Vozim od kuće do posla.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Vozim",
+        "word_term": "voziti"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "kuće",
+        "word_term": "kuća"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "posla",
+        "word_term": "posao"
+      }
+    ]
+  },
+  {
+    "text_en": "I am drinking tea at the tavern.",
+    "text_rs": "Pijem čaj u kafani.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Pijem",
+        "word_term": "piti"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "čaj",
+        "word_term": "čaj"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "kafani",
+        "word_term": "kafana"
+      }
+    ]
+  },
+  {
+    "text_en": "I am reading books in the big library.",
+    "text_rs": "Čitam knjige u velikoj biblioteci.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Čitam",
+        "word_term": "čitati"
+      },
+      {
+        "form_tag": "acc_pl",
+        "word": "knjige",
+        "word_term": "knjiga"
+      },
+      {
+        "form_tag": "def_loc_sg_f",
+        "word": "velikoj",
+        "word_term": "velik"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "biblioteci",
+        "word_term": "biblioteka"
+      }
+    ]
+  },
+  {
+    "text_en": "The doctor works at the old hospital.",
+    "text_rs": "Lekar radi u staroj bolnici.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Lekar",
+        "word_term": "lekar"
+      },
+      {
+        "form_tag": "pres_3sg",
+        "word": "radi",
+        "word_term": "raditi"
+      },
+      {
+        "form_tag": "def_loc_sg_f",
+        "word": "staroj",
+        "word_term": "star"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "bolnici",
+        "word_term": "bolnica"
+      }
+    ]
+  },
+  {
+    "text_en": "We are driving through a small town.",
+    "text_rs": "Vozimo kroz mali grad.",
+    "words": [
+      {
+        "form_tag": "pres_1pl",
+        "word": "Vozimo",
+        "word_term": "voziti"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "kroz",
+        "word_term": "kroz"
+      },
+      {
+        "form_tag": "def_acc_sg_m",
+        "word": "mali",
+        "word_term": "mali"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "grad",
+        "word_term": "grad"
+      }
+    ]
+  },
+  {
+    "text_en": "I am buying milk and bread at the store.",
+    "text_rs": "Kupujem mleko i hleb u prodavnici.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Kupujem",
+        "word_term": "kupovati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "mleko",
+        "word_term": "mleko"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "hleb",
+        "word_term": "hleb"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "prodavnici",
+        "word_term": "prodavnica"
+      }
+    ]
+  },
+  {
+    "text_en": "We are eating cakes at the bakery.",
+    "text_rs": "Jedemo kolače u pekari.",
+    "words": [
+      {
+        "form_tag": "pres_1pl",
+        "word": "Jedemo",
+        "word_term": "jesti"
+      },
+      {
+        "form_tag": "acc_pl",
+        "word": "kolače",
+        "word_term": "kolač"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "pekari",
+        "word_term": "pekara"
+      }
+    ]
+  },
+  {
+    "text_en": "I am walking with my brother through the park.",
+    "text_rs": "Šetam sa bratom kroz park.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Šetam",
+        "word_term": "šetati"
+      },
+      {
+        "form_tag": "ins_sg",
+        "word": "bratom",
+        "word_term": "brat"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "kroz",
+        "word_term": "kroz"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "park",
+        "word_term": "park"
+      }
+    ]
+  },
+  {
+    "text_en": "I am waiting for my sister in front of the school.",
+    "text_rs": "Čekam sestru ispred škole.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Čekam",
+        "word_term": "čekati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "sestru",
+        "word_term": "sestra"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "ispred",
+        "word_term": "ispred"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "škole",
+        "word_term": "škola"
+      }
+    ]
+  },
+  {
+    "text_en": "I see an old church in the village.",
+    "text_rs": "Vidim staru crkvu u selu.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Vidim",
+        "word_term": "videti"
+      },
+      {
+        "form_tag": "indef_acc_sg_f",
+        "word": "staru",
+        "word_term": "star"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "crkvu",
+        "word_term": "crkva"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "selu",
+        "word_term": "selo"
+      }
+    ]
+  },
+  {
+    "text_en": "Mother buys fruit at the market.",
+    "text_rs": "Majka kupuje voće na pijaci.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Majka",
+        "word_term": "majka"
+      },
+      {
+        "form_tag": "pres_3sg",
+        "word": "kupuje",
+        "word_term": "kupovati"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "voće",
+        "word_term": "voće"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "pijaci",
+        "word_term": "pijaca"
+      }
+    ]
+  },
+  {
+    "text_en": "I am going with a friend to the museum.",
+    "text_rs": "Idem sa prijateljem u muzej.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Idem",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "ins_sg",
+        "word": "prijateljem",
+        "word_term": "prijatelj"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "muzej",
+        "word_term": "muzej"
+      }
+    ]
+  },
+  {
+    "text_en": "I love to walk along the street.",
+    "text_rs": "Volim da šetam ulicom.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Volim",
+        "word_term": "voleti"
+      },
+      {
+        "form_tag": "pres_1sg",
+        "word": "šetam",
+        "word_term": "šetati"
+      },
+      {
+        "form_tag": "ins_sg",
+        "word": "ulicom",
+        "word_term": "ulica"
+      }
+    ]
+  },
+  {
+    "text_en": "My brother works at the new restaurant.",
+    "text_rs": "Brat radi u novom restoranu.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Brat",
+        "word_term": "brat"
+      },
+      {
+        "form_tag": "pres_3sg",
+        "word": "radi",
+        "word_term": "raditi"
+      },
+      {
+        "form_tag": "def_loc_sg_m",
+        "word": "novom",
+        "word_term": "nov"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "restoranu",
+        "word_term": "restoran"
+      }
+    ]
+  },
+  {
+    "text_en": "The teacher teaches children at school.",
+    "text_rs": "Nastavnik uči decu u školi.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Nastavnik",
+        "word_term": "nastavnik"
+      },
+      {
+        "form_tag": "pres_3sg",
+        "word": "uči",
+        "word_term": "učiti"
+      },
+      {
+        "form_tag": "acc_pl",
+        "word": "decu",
+        "word_term": "dete"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "školi",
+        "word_term": "škola"
+      }
+    ]
+  },
+  {
+    "text_en": "I am traveling by bus to the village.",
+    "text_rs": "Putujem autobusom do sela.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Putujem",
+        "word_term": "putovati"
+      },
+      {
+        "form_tag": "ins_sg",
+        "word": "autobusom",
+        "word_term": "autobus"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "do",
+        "word_term": "do"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "sela",
+        "word_term": "selo"
+      }
+    ]
+  },
+  {
+    "text_en": "I am talking with a friend at the café.",
+    "text_rs": "Govorim sa prijateljem u kafiću.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Govorim",
+        "word_term": "govoriti"
+      },
+      {
+        "form_tag": "ins_sg",
+        "word": "prijateljem",
+        "word_term": "prijatelj"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "kafiću",
+        "word_term": "kafić"
+      }
+    ]
+  },
+  {
+    "text_en": "The hotel is new and beautiful.",
+    "text_rs": "Hotel je nov i lep.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Hotel",
+        "word_term": "hotel"
+      },
+      {
+        "form_tag": "indef_nom_sg_m",
+        "word": "nov",
+        "word_term": "nov"
+      },
+      {
+        "form_tag": "indef_nom_sg_m",
+        "word": "lep",
+        "word_term": "lep"
+      }
+    ]
+  },
+  {
+    "text_en": "The house is big and beautiful.",
+    "text_rs": "Kuća je velika i lepa.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Kuća",
+        "word_term": "kuća"
+      },
+      {
+        "form_tag": "indef_nom_sg_f",
+        "word": "velika",
+        "word_term": "velik"
+      },
+      {
+        "form_tag": "indef_nom_sg_f",
+        "word": "lepa",
+        "word_term": "lep"
+      }
+    ]
+  },
+  {
+    "text_en": "My friend lives in a big city.",
+    "text_rs": "Prijatelj živi u velikom gradu.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Prijatelj",
+        "word_term": "prijatelj"
+      },
+      {
+        "form_tag": "pres_3sg",
+        "word": "živi",
+        "word_term": "živeti"
+      },
+      {
+        "form_tag": "def_loc_sg_m",
+        "word": "velikom",
+        "word_term": "velik"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "gradu",
+        "word_term": "grad"
+      }
+    ]
+  },
+  {
+    "text_en": "My sister studies at the university.",
+    "text_rs": "Sestra uči na univerzitetu.",
+    "words": [
+      {
+        "form_tag": "nom_sg",
+        "word": "Sestra",
+        "word_term": "sestra"
+      },
+      {
+        "form_tag": "pres_3sg",
+        "word": "uči",
+        "word_term": "učiti"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "univerzitetu",
+        "word_term": "univerzitet"
+      }
+    ]
+  },
+  {
+    "text_en": "I want to go to the hotel.",
+    "text_rs": "Želim da idem u hotel.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Želim",
+        "word_term": "želeti"
+      },
+      {
+        "form_tag": "pres_1sg",
+        "word": "idem",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "hotel",
+        "word_term": "hotel"
+      }
+    ]
+  },
+  {
+    "text_en": "I have to go to the hospital.",
+    "text_rs": "Moram da idem u bolnicu.",
+    "words": [
+      {
+        "form_tag": "pres_1sg",
+        "word": "Moram",
+        "word_term": "morati"
+      },
+      {
+        "form_tag": "pres_1sg",
+        "word": "idem",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "bolnicu",
+        "word_term": "bolnica"
+      }
+    ]
+  },
+  {
+    "text_en": "We are traveling from the city to the village.",
+    "text_rs": "Putujemo iz grada u selo.",
+    "words": [
+      {
+        "form_tag": "pres_1pl",
+        "word": "Putujemo",
+        "word_term": "putovati"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "grada",
+        "word_term": "grad"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "selo",
+        "word_term": "selo"
+      }
+    ]
+  },
+  {
+    "text_en": "I went to school.",
+    "text_rs": "Išao sam u školu.",
+    "words": [
+      {
+        "form_tag": "past_m_sg",
+        "word": "Išao",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "školu",
+        "word_term": "škola"
+      }
+    ]
+  },
+  {
+    "text_en": "I drove a car to the city.",
+    "text_rs": "Vozio sam auto do grada.",
+    "words": [
+      {
+        "form_tag": "past_m_sg",
+        "word": "Vozio",
+        "word_term": "voziti"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "auto",
+        "word_term": "auto"
+      },
+      {
+        "form_tag": "gen_sg",
+        "word": "grada",
+        "word_term": "grad"
+      }
+    ]
+  },
+  {
+    "text_en": "She worked at the hospital.",
+    "text_rs": "Radila je u bolnici.",
+    "words": [
+      {
+        "form_tag": "past_f_sg",
+        "word": "Radila",
+        "word_term": "raditi"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "bolnici",
+        "word_term": "bolnica"
+      }
+    ]
+  },
+  {
+    "text_en": "We lived in the village.",
+    "text_rs": "Živeli smo u selu.",
+    "words": [
+      {
+        "form_tag": "past_m_pl",
+        "word": "Živeli",
+        "word_term": "živeti"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "selu",
+        "word_term": "selo"
+      }
+    ]
+  },
+  {
+    "text_en": "Go to school!",
+    "text_rs": "Idi u školu!",
+    "words": [
+      {
+        "form_tag": "imp_2sg",
+        "word": "Idi",
+        "word_term": "ići"
+      },
+      {
+        "form_tag": "acc_sg",
+        "word": "školu",
+        "word_term": "škola"
+      }
+    ]
+  },
+  {
+    "text_en": "Drive slowly!",
+    "text_rs": "Vozi polako!",
+    "words": [
+      {
+        "form_tag": "imp_2sg",
+        "word": "Vozi",
+        "word_term": "voziti"
+      },
+      {
+        "form_tag": "invariable",
+        "word": "polako",
+        "word_term": "polako"
+      }
+    ]
+  },
+  {
+    "text_en": "Wait at the station!",
+    "text_rs": "Čekaj na stanici!",
+    "words": [
+      {
+        "form_tag": "imp_2sg",
+        "word": "Čekaj",
+        "word_term": "čekati"
+      },
+      {
+        "form_tag": "loc_sg",
+        "word": "stanici",
+        "word_term": "stanica"
+      }
     ]
   }
 ]
