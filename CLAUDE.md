@@ -42,6 +42,8 @@ mix compile --warnings-as-errors
 mix precommit            # Run full pre-commit suite (compile, deps.unlock --unused, format, test)
 ```
 
+**IMPORTANT: Always run `mix precommit` before every commit.** This catches formatting, compilation warnings, and test failures before they reach CI.
+
 ### Assets
 ```bash
 mix assets.setup         # Install esbuild and tailwind
