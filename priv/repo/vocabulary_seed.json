@@ -19027,12 +19027,12 @@
     "forms": [
       {
         "form_tag": "invariable",
-        "term": "poslije"
+        "term": "posle"
       }
     ],
     "part_of_speech": "preposition",
     "proficiency_level": 1,
-    "term": "poslije",
+    "term": "posle",
     "translation": "after"
   },
   {
@@ -19929,12 +19929,12 @@
     "forms": [
       {
         "form_tag": "invariable",
-        "term": "prije"
+        "term": "pre"
       }
     ],
     "part_of_speech": "preposition",
     "proficiency_level": 1,
-    "term": "prije",
+    "term": "pre",
     "translation": "before"
   },
   {
@@ -25053,7 +25053,7 @@
     "forms": [
       {
         "form_tag": "nom_sg",
-        "term": "sol"
+        "term": "so"
       },
       {
         "form_tag": "gen_sg",
@@ -25065,7 +25065,7 @@
       },
       {
         "form_tag": "acc_sg",
-        "term": "sol"
+        "term": "so"
       },
       {
         "form_tag": "voc_sg",
@@ -25110,11 +25110,12 @@
     ],
     "gender": "feminine",
     "grammar_metadata": {
+      "extended_stem": "sol",
       "ins_ju": true
     },
     "part_of_speech": "noun",
     "proficiency_level": 1,
-    "term": "sol",
+    "term": "so",
     "translation": "salt"
   },
   {
@@ -28666,12 +28667,12 @@
     "forms": [
       {
         "form_tag": "invariable",
-        "term": "tijekom"
+        "term": "tokom"
       }
     ],
     "part_of_speech": "preposition",
     "proficiency_level": 2,
-    "term": "tijekom",
+    "term": "tokom",
     "translation": "during"
   },
   {
@@ -30825,12 +30826,12 @@
     "forms": [
       {
         "form_tag": "invariable",
-        "term": "uslijed"
+        "term": "usled"
       }
     ],
     "part_of_speech": "preposition",
     "proficiency_level": 2,
-    "term": "uslijed",
+    "term": "usled",
     "translation": "due to"
   },
   {
