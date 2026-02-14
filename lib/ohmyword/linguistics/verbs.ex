@@ -16,6 +16,7 @@ defmodule Ohmyword.Linguistics.Verbs do
 
   alias Ohmyword.Vocabulary.Word
   alias Ohmyword.Linguistics.SoundChanges
+  alias Ohmyword.Linguistics.Helpers
 
   # Present tense endings by conjugation class
   @a_verb_present %{
@@ -100,13 +101,7 @@ defmodule Ohmyword.Linguistics.Verbs do
         )
 
     # Apply any remaining irregular form overrides
-    Enum.map(forms, fn {form, tag} ->
-      if override = Map.get(irregular_forms, tag) do
-        {String.downcase(override), tag}
-      else
-        {form, tag}
-      end
-    end)
+    Helpers.apply_overrides(forms, metadata)
   end
 
   # Get infinitive stem by removing -ti or -ći/-ci
@@ -258,9 +253,7 @@ defmodule Ohmyword.Linguistics.Verbs do
     stem <> ending
   end
 
-  defp is_vowel?(char) when is_binary(char) do
-    char in ~w(a e i o u)
-  end
+  defp is_vowel?(char), do: Helpers.is_vowel?(char)
 
   # Generate imperative forms
   defp generate_imperative_forms(present_stem, conjugation_class, irregular_forms) do

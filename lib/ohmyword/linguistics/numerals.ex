@@ -13,6 +13,7 @@ defmodule Ohmyword.Linguistics.Numerals do
   @behaviour Ohmyword.Linguistics.Inflector
 
   alias Ohmyword.Vocabulary.Word
+  alias Ohmyword.Linguistics.Helpers
 
   @genders [:m, :f, :n]
   @numbers [:sg, :pl]
@@ -225,7 +226,7 @@ defmodule Ohmyword.Linguistics.Numerals do
         _ -> generate_cardinal_forms(word, metadata)
       end
 
-    apply_irregular_overrides(forms, metadata)
+    Helpers.apply_overrides(forms, metadata)
   end
 
   # Infer numeral type from the term if not explicitly provided
@@ -446,17 +447,5 @@ defmodule Ohmyword.Linguistics.Numerals do
     # Most collectives end in -oje or -oro
     # Just return base form if we can't determine the pattern
     [{term, "base"}]
-  end
-
-  # Apply irregular form overrides
-  defp apply_irregular_overrides(forms, metadata) do
-    irregular_forms = metadata["irregular_forms"] || %{}
-
-    Enum.map(forms, fn {form, tag} ->
-      case Map.get(irregular_forms, tag) do
-        nil -> {form, tag}
-        override -> {String.downcase(override), tag}
-      end
-    end)
   end
 end

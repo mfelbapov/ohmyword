@@ -3,6 +3,12 @@ defmodule Ohmyword.Linguistics.SoundChanges do
   Handles common sound changes in Serbian language.
   """
 
+  alias Ohmyword.Linguistics.Helpers
+
+  # Voiced → voiceless mapping for voice assimilation
+  @voiced_to_voiceless %{"ž" => "š", "z" => "s", "b" => "p", "d" => "t", "g" => "k", "đ" => "ć"}
+  @voiceless ~w(p t k s š č ć f h c)
+
   # Palatalization (k, g, h -> č, ž, š)
   # Usually triggered by: e, i, a (in some cases)
   def palatalize(stem) do
@@ -113,77 +119,16 @@ defmodule Ohmyword.Linguistics.SoundChanges do
   # 1. Voiced -> Voiceless before voiceless consonants
   # 2. Voiceless -> Voiced before voiced consonants (less common in morphological changes)
   def assimilate_voice(term) do
-    term
-    # Voiced -> Voiceless before voiceless consonants
-    # ž -> š before voiceless (k, t, s, š, č, ć, p, f, h, c)
-    |> String.replace("žk", "šk")
-    |> String.replace("žt", "št")
-    |> String.replace("žs", "šs")
-    |> String.replace("žš", "šš")
-    |> String.replace("žč", "šč")
-    |> String.replace("žć", "šć")
-    |> String.replace("žp", "šp")
-    |> String.replace("žf", "šf")
-    |> String.replace("žh", "šh")
-    |> String.replace("žc", "šc")
-    # z -> s before voiceless
-    |> String.replace("zs", "ss")
-    |> String.replace("zš", "sš")
-    |> String.replace("zk", "sk")
-    |> String.replace("zt", "st")
-    |> String.replace("zp", "sp")
-    |> String.replace("zč", "sč")
-    |> String.replace("zć", "sć")
-    |> String.replace("zf", "sf")
-    |> String.replace("zh", "sh")
-    |> String.replace("zc", "sc")
-    # b -> p before voiceless
-    |> String.replace("bt", "pt")
-    |> String.replace("bk", "pk")
-    |> String.replace("bs", "ps")
-    |> String.replace("bš", "pš")
-    |> String.replace("bč", "pč")
-    |> String.replace("bć", "pć")
-    |> String.replace("bp", "pp")
-    |> String.replace("bf", "pf")
-    |> String.replace("bh", "ph")
-    |> String.replace("bc", "pc")
-    # d -> t before voiceless
-    |> String.replace("dt", "tt")
-    |> String.replace("dk", "tk")
-    |> String.replace("ds", "ts")
-    |> String.replace("dš", "tš")
-    |> String.replace("dč", "tč")
-    |> String.replace("dć", "tć")
-    |> String.replace("dp", "tp")
-    |> String.replace("df", "tf")
-    |> String.replace("dh", "th")
-    |> String.replace("dc", "tc")
-    # g -> k before voiceless
-    |> String.replace("gt", "kt")
-    |> String.replace("gk", "kk")
-    |> String.replace("gs", "ks")
-    |> String.replace("gš", "kš")
-    |> String.replace("gč", "kč")
-    |> String.replace("gć", "kć")
-    |> String.replace("gp", "kp")
-    |> String.replace("gf", "kf")
-    |> String.replace("gh", "kh")
-    |> String.replace("gc", "kc")
-    # đ -> ć before voiceless (đ is voiced, ć is voiceless palatal)
-    |> String.replace("đk", "ćk")
-    |> String.replace("đt", "ćt")
-    |> String.replace("đs", "ćs")
-    |> String.replace("đš", "ćš")
-    |> String.replace("đč", "ćč")
-    |> String.replace("đć", "ćć")
-    |> String.replace("đp", "ćp")
-    |> String.replace("đf", "ćf")
-    |> String.replace("đh", "ćh")
-    |> String.replace("đc", "ćc")
+    result =
+      Enum.reduce(@voiced_to_voiceless, term, fn {voiced, voiceless}, acc ->
+        Enum.reduce(@voiceless, acc, fn vl, acc2 ->
+          String.replace(acc2, voiced <> vl, voiceless <> vl)
+        end)
+      end)
+
+    # Cascade: one assimilation may expose another (e.g., razžk → razšk → rasšk)
+    if result == term, do: term, else: assimilate_voice(result)
   end
 
-  def is_vowel?(char) when is_binary(char) do
-    char in ~w(a e i o u)
-  end
+  defdelegate is_vowel?(char), to: Helpers
 end

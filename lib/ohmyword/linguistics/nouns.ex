@@ -15,6 +15,7 @@ defmodule Ohmyword.Linguistics.Nouns do
 
   alias Ohmyword.Vocabulary.Word
   alias Ohmyword.Linguistics.SoundChanges
+  alias Ohmyword.Linguistics.Helpers
 
   # Cases in Serbian
   @cases [:nom, :gen, :dat, :acc, :voc, :ins, :loc]
@@ -319,52 +320,7 @@ defmodule Ohmyword.Linguistics.Nouns do
     plural_stem <> ending
   end
 
-  # Remove the fleeting 'a' from the stem
-  # e.g., "pas" -> "ps", "san" -> "sn", "vrabac" -> "vrabc"
-  defp remove_fleeting_a(term) do
-    # Find the last 'a' that's between consonants and remove it
-    graphemes = String.graphemes(term)
-    len = length(graphemes)
-
-    if len < 3 do
-      term
-    else
-      # Find position of fleeting 'a' (typically second to last position)
-      # For "pas" -> remove 'a' at position 1 -> "ps"
-      # For "vrabac" -> remove 'a' at position 4 -> "vrabc"
-      find_and_remove_fleeting_a(graphemes)
-    end
-  end
-
-  defp find_and_remove_fleeting_a(graphemes) do
-    # Iterate from the end, looking for 'a' between consonants
-    indexed = Enum.with_index(graphemes)
-
-    # Find the rightmost 'a' that is surrounded by consonants
-    result =
-      indexed
-      |> Enum.reverse()
-      |> Enum.find(fn {char, idx} ->
-        char == "a" && idx > 0 && idx < length(graphemes) - 1 &&
-          is_consonant?(Enum.at(graphemes, idx - 1)) &&
-          is_consonant?(Enum.at(graphemes, idx + 1))
-      end)
-
-    case result do
-      {_, idx} ->
-        graphemes
-        |> List.delete_at(idx)
-        |> Enum.join()
-
-      nil ->
-        Enum.join(graphemes)
-    end
-  end
-
-  defp is_consonant?(char) when is_binary(char) do
-    vowels = ~w(a e i o u)
-    char not in vowels
-  end
+  defp remove_fleeting_a(term), do: Helpers.remove_fleeting_a(term)
 
   # Check if a term is monosyllabic (has exactly one vowel)
   defp monosyllabic?(term) do

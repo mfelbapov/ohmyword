@@ -17,6 +17,7 @@ defmodule Ohmyword.Linguistics.Adjectives do
 
   alias Ohmyword.Vocabulary.Word
   alias Ohmyword.Linguistics.SoundChanges
+  alias Ohmyword.Linguistics.Helpers
 
   # Cases in Serbian
   @cases [:nom, :gen, :dat, :acc, :voc, :ins, :loc]
@@ -113,7 +114,7 @@ defmodule Ohmyword.Linguistics.Adjectives do
           maybe_generate_superlative_forms(word, metadata, soft)
 
       # Apply irregular form overrides
-      apply_irregular_overrides(forms, metadata)
+      Helpers.apply_overrides(forms, metadata)
     end
   end
 
@@ -155,47 +156,7 @@ defmodule Ohmyword.Linguistics.Adjectives do
     last_two in @soft_digraphs || last_one in @soft_consonants
   end
 
-  # Remove the fleeting 'a' from the stem
-  # e.g., "dobar" -> "dobr", "kratak" -> "kratk"
-  defp remove_fleeting_a(term) do
-    graphemes = String.graphemes(term)
-    len = length(graphemes)
-
-    if len < 3 do
-      term
-    else
-      find_and_remove_fleeting_a(graphemes)
-    end
-  end
-
-  defp find_and_remove_fleeting_a(graphemes) do
-    indexed = Enum.with_index(graphemes)
-
-    # Find the rightmost 'a' that is surrounded by consonants
-    result =
-      indexed
-      |> Enum.reverse()
-      |> Enum.find(fn {char, idx} ->
-        char == "a" && idx > 0 && idx < length(graphemes) - 1 &&
-          is_consonant?(Enum.at(graphemes, idx - 1)) &&
-          is_consonant?(Enum.at(graphemes, idx + 1))
-      end)
-
-    case result do
-      {_, idx} ->
-        graphemes
-        |> List.delete_at(idx)
-        |> Enum.join()
-
-      nil ->
-        Enum.join(graphemes)
-    end
-  end
-
-  defp is_consonant?(char) when is_binary(char) do
-    vowels = ~w(a e i o u)
-    char not in vowels
-  end
+  defp remove_fleeting_a(term), do: Helpers.remove_fleeting_a(term)
 
   # Generate 42 indefinite forms
   defp generate_indefinite_forms(stem, word, metadata, soft) do
@@ -410,17 +371,5 @@ defmodule Ohmyword.Linguistics.Adjectives do
           {form, form_tag}
         end
     end
-  end
-
-  # Apply irregular form overrides
-  defp apply_irregular_overrides(forms, metadata) do
-    irregular_forms = metadata["irregular_forms"] || %{}
-
-    Enum.map(forms, fn {form, tag} ->
-      case Map.get(irregular_forms, tag) do
-        nil -> {form, tag}
-        override -> {String.downcase(override), tag}
-      end
-    end)
   end
 end
