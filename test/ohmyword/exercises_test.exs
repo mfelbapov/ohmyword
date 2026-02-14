@@ -240,11 +240,11 @@ defmodule Ohmyword.ExercisesTest do
       assert {:incorrect, ["psa"]} = Exercises.check_answer(sentence, "wrong")
     end
 
-    test "returns incorrect with empty list when no forms found" do
+    test "returns error when no forms found" do
       word = noun_fixture(%{term: "pas"})
       sentence = sentence_fixture(%{word: word, blank_form_tag: "nonexistent_tag"})
 
-      assert {:incorrect, []} = Exercises.check_answer(sentence, "anything")
+      assert {:error, :no_forms} = Exercises.check_answer(sentence, "anything")
     end
 
     test "trims whitespace from input" do

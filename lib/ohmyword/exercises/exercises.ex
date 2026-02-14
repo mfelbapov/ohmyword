@@ -142,16 +142,21 @@ defmodule Ohmyword.Exercises do
   """
   def check_answer(%Sentence{} = sentence, user_input) do
     expected_forms = get_expected_forms(sentence)
-    normalized_input = normalize(user_input)
 
-    match =
-      Enum.find(expected_forms, fn form ->
-        normalize(form) == normalized_input
-      end)
+    if expected_forms == [] do
+      {:error, :no_forms}
+    else
+      normalized_input = normalize(user_input)
 
-    case match do
-      nil -> {:incorrect, expected_forms}
-      form -> {:correct, form}
+      match =
+        Enum.find(expected_forms, fn form ->
+          normalize(form) == normalized_input
+        end)
+
+      case match do
+        nil -> {:incorrect, expected_forms}
+        form -> {:correct, form}
+      end
     end
   end
 
