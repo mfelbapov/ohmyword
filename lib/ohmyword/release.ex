@@ -5,6 +5,8 @@ defmodule Ohmyword.Release do
   """
   @app :ohmyword
 
+  import Ecto.Query
+
   def migrate do
     load_app()
 
@@ -87,8 +89,10 @@ defmodule Ohmyword.Release do
       term = entry["term"]
       pair_term = entry["aspect_pair_term"]
 
-      with word when not is_nil(word) <- Repo.get_by(Word, term: term),
-           pair when not is_nil(pair) <- Repo.get_by(Word, term: pair_term) do
+      with word when not is_nil(word) <-
+             Repo.one(from w in Word, where: w.term == ^term, limit: 1),
+           pair when not is_nil(pair) <-
+             Repo.one(from w in Word, where: w.term == ^pair_term, limit: 1) do
         word
         |> Ecto.Changeset.change(aspect_pair_id: pair.id)
         |> Repo.update!()
@@ -131,7 +135,7 @@ defmodule Ohmyword.Release do
               word_term = annotation["word_term"]
               word_text = annotation["word"]
 
-              case Repo.get_by(Word, term: word_term) do
+              case Repo.one(from w in Word, where: w.term == ^word_term, limit: 1) do
                 nil ->
                   used
 
