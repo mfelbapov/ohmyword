@@ -58,7 +58,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
                       autocomplete="off"
                       readonly={@submitted}
                       placeholder={String.duplicate("_", String.length(token))}
-                      style={"width: #{max(3, String.length(token)) * 1.1 + 1.5}ch; letter-spacing: 0.25em"}
+                      style={"width: #{max(3, String.length(token)) * 1.35 + 1.5}ch; letter-spacing: 0.25em"}
                       id={if idx == @first_blank, do: "first-blank-#{@current_sentence.id}"}
                       phx-hook={if idx == @first_blank, do: "AutoFocus"}
                       class={[
