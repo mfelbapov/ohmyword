@@ -43,7 +43,10 @@
       "Bash(mix format:*)",
       "Bash(fly apps list:*)",
       "Bash(fly machine restart:*)",
-      "Bash(gh run watch:*)"
+      "Bash(gh run watch:*)",
+      "Bash(find:*)",
+      "Bash(wc:*)",
+      "Bash(grep:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"
