@@ -123,8 +123,8 @@ defmodule OhmywordWeb.WriteSentenceLive do
     <!-- Result feedback -->
           <%= if @submitted do %>
             <div class="mt-6 space-y-2">
-              <%= for sw <- Enum.sort_by(@blanked_words, & &1.position) do %>
-                <% result = @results[sw.position] %>
+              <%= for pos <- Enum.sort(MapSet.to_list(@blanked_positions)) do %>
+                <% result = @results[pos] %>
                 <%= if result do %>
                   <div class={[
                     "rounded-lg p-3 flex items-center gap-2",

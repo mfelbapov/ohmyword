@@ -33,11 +33,11 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
-    test "generates 84 forms (42 indefinite + 42 definite)", %{forms: forms} do
-      assert length(forms) == 84
+    test "generates 86 forms (42 indefinite + 42 definite + 2 acc alternates)", %{forms: forms} do
+      assert length(forms) == 86
     end
 
     # Indefinite singular masculine
@@ -149,7 +149,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "indefinite accusative singular masculine (animate) uses genitive", %{forms_map: fm} do
@@ -176,7 +176,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "indefinite nominative singular neuter uses -e for soft stem", %{forms_map: fm} do
@@ -205,7 +205,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "auto-detects soft stem from ending", %{forms_map: fm} do
@@ -226,7 +226,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "removes fleeting A from stem", %{forms_map: fm} do
@@ -263,12 +263,12 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
-    test "generates 168 forms (84 base + 42 comparative + 42 superlative)", %{forms: forms} do
+    test "generates 170 forms (86 base + 42 comparative + 42 superlative)", %{forms: forms} do
       # Superlative is auto-generated from comparative with naj- prefix
-      assert length(forms) == 84 + 42 + 42
+      assert length(forms) == 86 + 42 + 42
     end
 
     test "comparative nominative singular masculine", %{forms_map: fm} do
@@ -317,11 +317,11 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
-    test "generates 168 forms (84 + 42 + 42)", %{forms: forms} do
-      assert length(forms) == 168
+    test "generates 170 forms (86 + 42 + 42)", %{forms: forms} do
+      assert length(forms) == 170
     end
 
     test "uses explicit superlative stem", %{forms_map: fm} do
@@ -341,7 +341,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "returns only base form", %{forms: forms} do
@@ -366,11 +366,11 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
-    test "generates only 42 definite forms", %{forms: forms} do
-      assert length(forms) == 42
+    test "generates 43 definite forms (42 + 1 acc alternate)", %{forms: forms} do
+      assert length(forms) == 43
     end
 
     test "all forms are definite", %{forms: forms} do
@@ -401,7 +401,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "applies irregular form override", %{forms_map: fm} do
@@ -429,11 +429,11 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
-    test "generates 84 forms", %{forms: forms} do
-      assert length(forms) == 84
+    test "generates 86 forms", %{forms: forms} do
+      assert length(forms) == 86
     end
 
     test "declines regularly", %{forms_map: fm} do
@@ -453,7 +453,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       }
 
       forms = Adjectives.generate_forms(word)
-      assert length(forms) == 84
+      assert length(forms) == 86
     end
 
     test "handles empty grammar_metadata" do
@@ -466,7 +466,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       }
 
       forms = Adjectives.generate_forms(word)
-      assert length(forms) == 84
+      assert length(forms) == 86
     end
 
     test "lowercases the term" do
@@ -478,7 +478,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       }
 
       forms = Adjectives.generate_forms(word)
-      forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
+      forms_map = Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)
       assert forms_map["indef_nom_sg_m"] == "nov"
     end
 
@@ -496,7 +496,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       }
 
       forms = Adjectives.generate_forms(word)
-      forms_map = Map.new(forms, fn {form, tag} -> {tag, form} end)
+      forms_map = Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)
       assert forms_map["indef_nom_sg_m"] == "dobar"
     end
   end
@@ -518,7 +518,8 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       indef_tags =
         forms |> Enum.map(&elem(&1, 1)) |> Enum.filter(&String.starts_with?(&1, "indef_"))
 
-      assert length(indef_tags) == 42
+      # 42 base + 1 alternate for acc_sg_m
+      assert length(indef_tags) == 43
 
       Enum.each(indef_tags, fn tag ->
         assert tag =~ ~r/^indef_(nom|gen|dat|acc|voc|ins|loc)_(sg|pl)_(m|f|n)$/
@@ -528,7 +529,8 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
     test "definite tags follow pattern def_{case}_{number}_{gender}", %{forms: forms} do
       def_tags = forms |> Enum.map(&elem(&1, 1)) |> Enum.filter(&String.starts_with?(&1, "def_"))
 
-      assert length(def_tags) == 42
+      # 42 base + 1 alternate for acc_sg_m
+      assert length(def_tags) == 43
 
       Enum.each(def_tags, fn tag ->
         assert tag =~ ~r/^def_(nom|gen|dat|acc|voc|ins|loc)_(sg|pl)_(m|f|n)$/
@@ -553,7 +555,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "nominative singular neuter uses -e (soft stem)", %{forms_map: fm} do
@@ -588,7 +590,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "indefinite nominative singular masculine (citation form)", %{forms_map: fm} do
@@ -626,7 +628,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "returns only 1 form (base)", %{forms: forms} do
@@ -655,11 +657,11 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
-    test "generates 168 forms (84 base + 42 comparative + 42 superlative)", %{forms: forms} do
-      assert length(forms) == 168
+    test "generates 170 forms (86 base + 42 comparative + 42 superlative)", %{forms: forms} do
+      assert length(forms) == 170
     end
 
     test "comparative nominative singular masculine is gori", %{forms_map: fm} do
@@ -704,7 +706,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "nominative singular neuter uses -e (soft stem)", %{forms_map: fm} do
@@ -736,7 +738,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "nominative singular neuter uses -o (hard stem)", %{forms_map: fm} do
@@ -768,11 +770,11 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
-    test "generates 168 forms", %{forms: forms} do
-      assert length(forms) == 168
+    test "generates 170 forms", %{forms: forms} do
+      assert length(forms) == 170
     end
 
     test "comparative nominative singular masculine is veći", %{forms_map: fm} do
@@ -804,7 +806,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "comparative nominative singular masculine is manji", %{forms_map: fm} do
@@ -832,7 +834,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "comparative nominative singular masculine is duži", %{forms_map: fm} do
@@ -860,7 +862,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "comparative nominative singular masculine is lakši", %{forms_map: fm} do
@@ -888,7 +890,7 @@ defmodule Ohmyword.Linguistics.AdjectivesTest do
       forms = Adjectives.generate_forms(word)
 
       {:ok,
-       word: word, forms: forms, forms_map: Map.new(forms, fn {form, tag} -> {tag, form} end)}
+       word: word, forms: forms, forms_map: Enum.reduce(forms, %{}, fn {form, tag}, acc -> Map.put_new(acc, tag, form) end)}
     end
 
     test "comparative nominative singular masculine is mekši", %{forms_map: fm} do

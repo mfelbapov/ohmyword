@@ -4,8 +4,9 @@
     "text_en": "I see a big dog in the park.",
     "words": [
       {"word": "Vidim", "word_term": "videti", "form_tag": "pres_1sg"},
-      {"word": "velikog", "word_term": "velik", "form_tag": "indef_acc_sg_m"},
+      {"word": "velikog", "word_term": "velik", "form_tag": "def_acc_sg_m"},
       {"word": "psa", "word_term": "pas", "form_tag": "acc_sg"},
+      {"word": "u", "word_term": "u", "form_tag": "invariable"},
       {"word": "parku", "word_term": "park", "form_tag": "loc_sg"}
     ]
   },

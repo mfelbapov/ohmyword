@@ -188,21 +188,25 @@ defmodule Ohmyword.Linguistics.Validator do
     Enum.filter(expected, fn {_, tag} -> tag in missing_tags end)
   end
 
-  # Forms where engine has different term for same form_tag
+  # Forms where engine has different term for same form_tag.
+  # A form_tag may have multiple engine forms (e.g. animate/inanimate accusative);
+  # the expected term only needs to match ONE of them.
   defp find_wrong_forms(expected, engine) do
     expected_map = Map.new(expected, fn {term, tag} -> {tag, term} end)
-    engine_map = Map.new(engine, fn {term, tag} -> {tag, term} end)
+
+    engine_by_tag =
+      Enum.group_by(engine, fn {_term, tag} -> tag end, fn {term, _tag} -> term end)
 
     expected_map
     |> Enum.filter(fn {tag, expected_term} ->
-      case Map.get(engine_map, tag) do
+      case Map.get(engine_by_tag, tag) do
         nil -> false
-        ^expected_term -> false
-        _different -> true
+        engine_terms -> expected_term not in engine_terms
       end
     end)
     |> Enum.map(fn {tag, expected_term} ->
-      {tag, expected_term, Map.get(engine_map, tag)}
+      engine_terms = Map.get(engine_by_tag, tag, [])
+      {tag, expected_term, Enum.join(engine_terms, "/")}
     end)
   end
 

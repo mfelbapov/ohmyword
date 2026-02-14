@@ -103,6 +103,9 @@ defmodule Ohmyword.Linguistics.Adjectives do
             generate_definite_forms(stem, word, metadata, soft)
         end
 
+      # Add alternate masculine accusative singular forms (animate/inanimate pair)
+      forms = forms ++ alternate_masc_acc_sg_forms(stem, word, soft, metadata)
+
       # Add comparative and superlative if stems are provided
       forms =
         forms ++
@@ -302,6 +305,47 @@ defmodule Ohmyword.Linguistics.Adjectives do
         # Plural: always "e" (same for animate and inanimate)
         stem <> "e"
     end
+  end
+
+  # Generate alternate masculine accusative singular forms.
+  # Adjectives can modify both animate and inanimate nouns, so both
+  # accusative forms must be available. The main generation picks one
+  # based on word.animate; this adds the other variant under the same form_tag.
+  defp alternate_masc_acc_sg_forms(stem, word, soft, metadata) do
+    if metadata["no_short_form"] do
+      alternate_for_declension(stem, word, soft, :def)
+    else
+      alternate_for_declension(stem, word, soft, :indef) ++
+        alternate_for_declension(stem, word, soft, :def)
+    end
+  end
+
+  defp alternate_for_declension(stem, word, soft, declension) do
+    animate = word.animate == true
+    prefix = if declension == :indef, do: "indef", else: "def"
+    form_tag = "#{prefix}_acc_sg_m"
+
+    alt_form =
+      if animate do
+        # Main generated animate, add inanimate
+        case declension do
+          :indef ->
+            if not String.ends_with?(word.term, "i"),
+              do: String.downcase(word.term),
+              else: stem
+
+          :def ->
+            stem <> "i"
+        end
+      else
+        # Main generated inanimate, add animate
+        case declension do
+          :indef -> stem <> "a"
+          :def -> stem <> if(soft, do: "eg", else: "og")
+        end
+      end
+
+    [{alt_form, form_tag}]
   end
 
   # Generate comparative forms if comparative_stem is provided
