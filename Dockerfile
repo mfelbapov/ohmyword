@@ -51,12 +51,12 @@ COPY lib lib
 
 COPY assets assets
 
-# compile assets
-RUN mix assets.deploy
-
 # Accept version from CI build arg (e.g. v1.2.3 from git tag)
 ARG APP_VERSION="dev"
 ENV APP_VERSION=${APP_VERSION}
+
+# compile assets (also compiles Elixir code, so APP_VERSION must be set first)
+RUN mix assets.deploy
 
 # Compile the release
 RUN mix compile
