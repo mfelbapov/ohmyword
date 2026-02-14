@@ -49,7 +49,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
             <div class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
               <%= for {token, idx} <- Enum.with_index(@tokens) do %>
                 <%= if idx in @blanked_positions do %>
-                  <% sw = Enum.find(@blanked_words, & &1.position == idx) %>
+                  <% sw = Enum.find(@blanked_words, &(&1.position == idx)) %>
                   <div
                     class="inline-flex flex-col items-center mx-2 min-w-0"
                     id={"blank-#{@current_sentence.id}-#{idx}"}
@@ -365,7 +365,12 @@ defmodule OhmywordWeb.WriteSentenceLive do
   defp assign_blanks(socket) do
     case socket.assigns.current_sentence do
       nil ->
-        assign(socket, tokens: [], blanked_words: [], blanked_positions: MapSet.new(), first_blank: nil)
+        assign(socket,
+          tokens: [],
+          blanked_words: [],
+          blanked_positions: MapSet.new(),
+          first_blank: nil
+        )
 
       sentence ->
         tokens = Exercises.tokenize(sentence.text_rs)
