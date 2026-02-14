@@ -6,6 +6,8 @@ defmodule OhmywordWeb.Plugs.AppInfo do
   import Plug.Conn
 
   alias Ohmyword.Vocabulary
+  alias Ohmyword.Search
+  alias Ohmyword.Exercises
 
   @app_version (case System.get_env("APP_VERSION") do
                   nil ->
@@ -26,5 +28,7 @@ defmodule OhmywordWeb.Plugs.AppInfo do
     conn
     |> assign(:app_version, @app_version)
     |> assign(:word_count, Vocabulary.count_words())
+    |> assign(:search_term_count, Search.count_search_terms())
+    |> assign(:sentence_count, Exercises.count_sentences())
   end
 end

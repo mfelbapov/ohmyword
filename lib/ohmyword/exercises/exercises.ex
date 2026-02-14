@@ -55,6 +55,13 @@ defmodule Ohmyword.Exercises do
   end
 
   @doc """
+  Returns the total number of sentences.
+  """
+  def count_sentences do
+    Repo.aggregate(Sentence, :count)
+  end
+
+  @doc """
   Creates a sentence.
   """
   def create_sentence(attrs) do
