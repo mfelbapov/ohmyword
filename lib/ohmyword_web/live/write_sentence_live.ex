@@ -179,8 +179,20 @@ defmodule OhmywordWeb.WriteSentenceLive do
 
   def handle_event("submit_answer", %{"answer" => answer}, socket) do
     sentence = socket.assigns.current_sentence
-    result = Exercises.check_answer(sentence, answer)
-    {:noreply, assign(socket, user_answer: answer, result: result)}
+
+    case Exercises.check_answer(sentence, answer) do
+      {:error, :no_forms} ->
+        # Sentence data is stale (e.g., word was deleted/re-seeded) — skip to next
+        sentence = get_filtered_sentence(socket.assigns.pos_filter)
+
+        {:noreply,
+         socket
+         |> assign(current_sentence: sentence, user_answer: "", result: nil)
+         |> put_flash(:info, "That sentence is no longer available. Here's a new one.")}
+
+      result ->
+        {:noreply, assign(socket, user_answer: answer, result: result)}
+    end
   end
 
   def handle_event("next", _params, socket) do
