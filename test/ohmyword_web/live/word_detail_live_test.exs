@@ -3,6 +3,7 @@ defmodule OhmywordWeb.WordDetailLiveTest do
 
   import Phoenix.LiveViewTest
   import Ohmyword.VocabularyFixtures
+  import Ohmyword.ExercisesFixtures
 
   describe "WordDetailLive" do
     test "renders word detail page for a noun", %{conn: conn} do
@@ -114,19 +115,25 @@ defmodule OhmywordWeb.WordDetailLiveTest do
       assert html =~ "flat, dwelling"
     end
 
-    test "shows example sentence", %{conn: conn} do
+    test "shows example sentences from sentence bank", %{conn: conn} do
       word =
         noun_fixture(%{
           term: "grad",
           translation: "city",
           gender: :masculine,
-          animate: false,
-          example_sentence_rs: "Beograd je glavni grad.",
-          example_sentence_en: "Belgrade is the capital city."
+          animate: false
         })
+
+      sentence_with_words_fixture(%{
+        word: word,
+        text_rs: "Beograd je glavni grad.",
+        text_en: "Belgrade is the capital city.",
+        position: 3
+      })
 
       {:ok, _view, html} = live(conn, ~p"/dictionary/#{word.id}")
 
+      assert html =~ "Examples"
       assert html =~ "Beograd je glavni grad."
       assert html =~ "Belgrade is the capital city."
     end

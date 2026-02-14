@@ -415,8 +415,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
-    "example_sentence_en": "Throw me the ball.",
-    "example_sentence_rs": "Baci mi loptu.",
     "forms": [
       {
         "form_tag": "inf",
@@ -822,8 +820,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "irregular",
-    "example_sentence_en": "I am a student.",
-    "example_sentence_rs": "Ja sam ucenik.",
     "forms": [
       {
         "form_tag": "inf",
@@ -2527,8 +2523,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "The cat is fat.",
-    "example_sentence_rs": "Macka je debela.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
@@ -2955,8 +2949,6 @@
       "People & Family"
     ],
     "declension_class": "e-stem",
-    "example_sentence_en": "The child is playing in the park.",
-    "example_sentence_rs": "Dete se igra u parku.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -3184,8 +3176,6 @@
       "People & Family"
     ],
     "declension_class": "a-stem",
-    "example_sentence_en": "The girl reads a book.",
-    "example_sentence_rs": "Devojka čita knjigu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -3273,8 +3263,6 @@
       "Nature & Animals",
       "Description & Emotion"
     ],
-    "example_sentence_en": "We saw a wild bear.",
-    "example_sentence_rs": "Videli smo divljeg medveda.",
     "forms": [
       {
         "form_tag": "def_nom_sg_m",
@@ -3483,8 +3471,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "He is a good man.",
-    "example_sentence_rs": "On je dobar covek.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
@@ -3789,8 +3775,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "He is dear to me.",
-    "example_sentence_rs": "On mi je drag.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
@@ -5049,8 +5033,6 @@
       "People & Family"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "Guests are coming tonight.",
-    "example_sentence_rs": "Gosti dolaze večeras.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -5134,8 +5116,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
-    "example_sentence_en": "I speak Serbian.",
-    "example_sentence_rs": "Govorim srpski.",
     "forms": [
       {
         "form_tag": "inf",
@@ -5849,8 +5829,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "irregular",
-    "example_sentence_en": "I want to eat.",
-    "example_sentence_rs": "Hoću da jedem.",
     "forms": [
       {
         "form_tag": "inf",
@@ -6232,8 +6210,6 @@
   },
   {
     "categories": [],
-    "example_sentence_en": "Stand in front of the school.",
-    "example_sentence_rs": "Stani ispred škole.",
     "forms": [
       {
         "form_tag": "invariable",
@@ -6267,8 +6243,6 @@
   },
   {
     "categories": [],
-    "example_sentence_en": "The cat is behind the house.",
-    "example_sentence_rs": "Mačka je iza kuće.",
     "forms": [
       {
         "form_tag": "invariable",
@@ -6335,8 +6309,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "irregular",
-    "example_sentence_en": "I am going to school.",
-    "example_sentence_rs": "Idem u školu.",
     "forms": [
       {
         "form_tag": "inf",
@@ -7453,8 +7425,6 @@
       "Places & Travel"
     ],
     "declension_class": "o-stem",
-    "example_sentence_en": "The lake is calm.",
-    "example_sentence_rs": "Jezero je mirno.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -7827,8 +7797,6 @@
     "categories": [
       "Numbers & Time"
     ],
-    "example_sentence_en": "Yesterday I was at school.",
-    "example_sentence_rs": "Juče sam bio u školi.",
     "forms": [
       {
         "form_tag": "base",
@@ -8274,8 +8242,6 @@
     "categories": [
       "Food & Drink"
     ],
-    "example_sentence_en": "The lemon is sour.",
-    "example_sentence_rs": "Limun je kiseo.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
@@ -8700,8 +8666,6 @@
       "Home & Daily Life"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "Where is the key?",
-    "example_sentence_rs": "Gde je ključ?",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -8775,8 +8739,6 @@
       "Home & Daily Life"
     ],
     "declension_class": "a-stem",
-    "example_sentence_en": "I am reading an interesting book.",
-    "example_sentence_rs": "Čitam zanimljivu knjigu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -9047,8 +9009,6 @@
       "People & Family"
     ],
     "declension_class": "o-stem",
-    "example_sentence_en": "My knee hurts.",
-    "example_sentence_rs": "Boli me koleno.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -9122,8 +9082,6 @@
       "Description & Emotion"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "Give me a piece of bread.",
-    "example_sentence_rs": "Daj mi komad hleba.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -9272,8 +9230,6 @@
       "Nature & Animals"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "The horse runs across the field.",
-    "example_sentence_rs": "Konj trči po polju.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -9484,8 +9440,6 @@
       "Home & Daily Life"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "The bed is comfortable.",
-    "example_sentence_rs": "Krevet je udoban.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -10082,8 +10036,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
-    "example_sentence_en": "Mom is cooking lunch.",
-    "example_sentence_rs": "Mama kuva rucak.",
     "forms": [
       {
         "form_tag": "inf",
@@ -10320,8 +10272,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "That is an easy task.",
-    "example_sentence_rs": "To je lak zadatak.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
@@ -11043,8 +10993,6 @@
       "Home & Daily Life"
     ],
     "declension_class": "a-stem",
-    "example_sentence_en": "Turn on the lamp.",
-    "example_sentence_rs": "Upali lampu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -11189,8 +11137,6 @@
       "People & Family"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "The doctor examines the patient.",
-    "example_sentence_rs": "Lekar pregleda pacijenta.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -11355,8 +11301,6 @@
       "Nature & Animals"
     ],
     "conjugation_class": "i-verb",
-    "example_sentence_en": "Birds fly south.",
-    "example_sentence_rs": "Ptice lete na jug.",
     "forms": [
       {
         "form_tag": "inf",
@@ -11545,8 +11489,6 @@
       "Description & Emotion"
     ],
     "declension_class": "i-stem",
-    "example_sentence_en": "Love is eternal.",
-    "example_sentence_rs": "Ljubav je večna.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -12318,19 +12260,6 @@
     "forms": [
       {
         "form_tag": "invariable",
-        "term": "mesto"
-      }
-    ],
-    "part_of_speech": "preposition",
-    "proficiency_level": 2,
-    "term": "mesto",
-    "translation": "instead of"
-  },
-  {
-    "categories": [],
-    "forms": [
-      {
-        "form_tag": "invariable",
         "term": "među"
       }
     ],
@@ -12516,19 +12445,6 @@
     "verb_aspect": "imperfective"
   },
   {
-    "categories": [],
-    "forms": [
-      {
-        "form_tag": "invariable",
-        "term": "mjesto"
-      }
-    ],
-    "part_of_speech": "preposition",
-    "proficiency_level": 2,
-    "term": "mjesto",
-    "translation": "instead of"
-  },
-  {
     "categories": [
       "Description & Emotion",
       "People & Family"
@@ -12590,8 +12506,6 @@
       "Food & Drink"
     ],
     "declension_class": "o-stem",
-    "example_sentence_en": "The child drinks milk.",
-    "example_sentence_rs": "Dete pije mleko.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -12765,8 +12679,6 @@
       "People & Family"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "The young man is tall.",
-    "example_sentence_rs": "Momak je visok.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -12844,8 +12756,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
-    "example_sentence_en": "I have to go.",
-    "example_sentence_rs": "Moram da idem.",
     "forms": [
       {
         "form_tag": "inf",
@@ -12933,8 +12843,6 @@
       "Places & Travel"
     ],
     "declension_class": "e-stem",
-    "example_sentence_en": "The sea is blue.",
-    "example_sentence_rs": "More je plavo.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -13184,8 +13092,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "Maybe I'll come tomorrow.",
-    "example_sentence_rs": "Možda ću doći sutra.",
     "forms": [
       {
         "form_tag": "base",
@@ -13207,8 +13113,6 @@
       "Nature & Animals"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "The ant carries a leaf.",
-    "example_sentence_rs": "Mrav nosi list.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -13444,8 +13348,6 @@
       "Actions & Activities"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "The teacher explains the lesson.",
-    "example_sentence_rs": "Nastavnik objašnjava lekciju.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -14465,8 +14367,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "The Earth is round.",
-    "example_sentence_rs": "Zemlja je okrugla.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
@@ -15216,8 +15116,6 @@
     "categories": [
       "Numbers & Time"
     ],
-    "example_sentence_en": "You're late again.",
-    "example_sentence_rs": "Opet kasnis.",
     "forms": [
       {
         "form_tag": "base",
@@ -15938,8 +15836,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
-    "example_sentence_en": "Open the door.",
-    "example_sentence_rs": "Otvori vrata.",
     "forms": [
       {
         "form_tag": "inf",
@@ -16061,8 +15957,6 @@
       "Nature & Animals"
     ],
     "declension_class": "a-stem",
-    "example_sentence_en": "The sheep grazes on grass.",
-    "example_sentence_rs": "Ovca pase travu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -16149,8 +16043,6 @@
   },
   {
     "categories": [],
-    "example_sentence_en": "I came and then sat down.",
-    "example_sentence_rs": "Dosao sam pa sam seo.",
     "forms": [
       {
         "form_tag": "invariable",
@@ -16320,6 +16212,41 @@
     "forms": [
       {
         "form_tag": "nom_sg",
+        "term": "park"
+      },
+      {
+        "form_tag": "gen_sg",
+        "term": "parka"
+      },
+      {
+        "form_tag": "dat_sg",
+        "term": "parku"
+      },
+      {
+        "form_tag": "acc_sg",
+        "term": "park"
+      },
+      {
+        "form_tag": "loc_sg",
+        "term": "parku"
+      }
+    ],
+    "gender": "masculine",
+    "grammar_metadata": {},
+    "part_of_speech": "noun",
+    "proficiency_level": 1,
+    "term": "park",
+    "translation": "park"
+  },
+  {
+    "animate": false,
+    "categories": [
+      "Places & Travel"
+    ],
+    "declension_class": "consonant",
+    "forms": [
+      {
+        "form_tag": "nom_sg",
         "term": "parking"
       },
       {
@@ -16391,8 +16318,6 @@
       "Nature & Animals"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "The dog barks at the cat.",
-    "example_sentence_rs": "Pas laje na mačku.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -16850,8 +16775,6 @@
       "Actions & Activities"
     ],
     "declension_class": "a-stem",
-    "example_sentence_en": "The song is beautiful.",
-    "example_sentence_rs": "Pesma je lepa.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -17283,8 +17206,6 @@
       "Home & Daily Life"
     ],
     "declension_class": "i-stem",
-    "example_sentence_en": "The stove is warm.",
-    "example_sentence_rs": "Peć je topla.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -17362,8 +17283,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "e-verb",
-    "example_sentence_en": "I am baking bread.",
-    "example_sentence_rs": "Pečem hleb.",
     "forms": [
       {
         "form_tag": "inf",
@@ -17612,8 +17531,6 @@
       "Food & Drink"
     ],
     "declension_class": "e-stem",
-    "example_sentence_en": "The chick is looking for food.",
-    "example_sentence_rs": "Pile traži hranu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -17834,8 +17751,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "e-verb",
-    "example_sentence_en": "I am writing a letter.",
-    "example_sentence_rs": "Pišem pismo.",
     "forms": [
       {
         "form_tag": "inf",
@@ -18155,8 +18070,6 @@
       "Food & Drink"
     ],
     "declension_class": "o-stem",
-    "example_sentence_en": "The beer is cold.",
-    "example_sentence_rs": "Pivo je hladno.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -18229,8 +18142,6 @@
       "Description & Emotion"
     ],
     "conjugation_class": "je-verb",
-    "example_sentence_en": "The child is crying.",
-    "example_sentence_rs": "Dete plače.",
     "forms": [
       {
         "form_tag": "inf",
@@ -19769,8 +19680,6 @@
       "Places & Travel"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "Open the window.",
-    "example_sentence_rs": "Otvori prozor.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -19855,8 +19764,6 @@
       "People & Family"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "I cut my finger.",
-    "example_sentence_rs": "Posekao sam prst.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -19965,8 +19872,6 @@
       "Nature & Animals"
     ],
     "declension_class": "a-stem",
-    "example_sentence_en": "The bird sings on the branch.",
-    "example_sentence_rs": "Ptica peva na grani.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -20570,8 +20475,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "je-verb",
-    "example_sentence_en": "I love to travel.",
-    "example_sentence_rs": "Volim da putujem.",
     "forms": [
       {
         "form_tag": "inf",
@@ -20751,8 +20654,6 @@
       "Actions & Activities"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "The war is over.",
-    "example_sentence_rs": "Rat je zavrsen.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -21251,8 +21152,6 @@
       "Actions & Activities"
     ],
     "declension_class": "i-stem",
-    "example_sentence_en": "A word is powerful.",
-    "example_sentence_rs": "Reč je moćna.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -22018,8 +21917,6 @@
   },
   {
     "categories": [],
-    "example_sentence_en": "Just a little.",
-    "example_sentence_rs": "Samo malo.",
     "forms": [
       {
         "form_tag": "invariable",
@@ -22460,8 +22357,6 @@
       "Places & Travel"
     ],
     "declension_class": "o-stem",
-    "example_sentence_en": "I live in a small village.",
-    "example_sentence_rs": "Živim u malom selu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -22545,8 +22440,6 @@
       "Places & Travel"
     ],
     "conjugation_class": "e-verb",
-    "example_sentence_en": "Sit down here.",
-    "example_sentence_rs": "Sedi ovde.",
     "forms": [
       {
         "form_tag": "inf",
@@ -22644,8 +22537,6 @@
       "People & Family"
     ],
     "declension_class": "a-stem",
-    "example_sentence_en": "My sister lives in Belgrade.",
-    "example_sentence_rs": "Moja sestra živi u Beogradu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -22859,8 +22750,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "e-verb",
-    "example_sentence_en": "I went down the stairs.",
-    "example_sentence_rs": "Sišao sam niz stepenice.",
     "forms": [
       {
         "form_tag": "inf",
@@ -22958,8 +22847,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "This bag is expensive.",
-    "example_sentence_rs": "Ova torba je skupa.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
@@ -24105,8 +23992,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "je-verb",
-    "example_sentence_en": "I'm sending you a message.",
-    "example_sentence_rs": "Šaljem ti poruku.",
     "forms": [
       {
         "form_tag": "inf",
@@ -24418,8 +24303,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "je-verb",
-    "example_sentence_en": "The children are laughing.",
-    "example_sentence_rs": "Deca se smeju u parku.",
     "forms": [
       {
         "form_tag": "inf",
@@ -25178,8 +25061,6 @@
       "Home & Daily Life"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "The book is on the table.",
-    "example_sentence_rs": "Knjiga je na stolu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -25346,8 +25227,6 @@
       "Actions & Activities"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "The student studies for the exam.",
-    "example_sentence_rs": "Student uci za ispit.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -25496,8 +25375,6 @@
       "Actions & Activities"
     ],
     "declension_class": "a-stem",
-    "example_sentence_en": "The judge delivers the verdict.",
-    "example_sentence_rs": "Sudija donosi presudu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -25571,8 +25448,6 @@
       "Nature & Animals"
     ],
     "declension_class": "e-stem",
-    "example_sentence_en": "The sun is shining.",
-    "example_sentence_rs": "Sunce sija.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -25689,8 +25564,6 @@
     "categories": [
       "Numbers & Time"
     ],
-    "example_sentence_en": "Tomorrow I go to work.",
-    "example_sentence_rs": "Sutra idem na posao.",
     "forms": [
       {
         "form_tag": "base",
@@ -26061,8 +25934,6 @@
       "Description & Emotion",
       "Food & Drink"
     ],
-    "example_sentence_en": "The bread is fresh.",
-    "example_sentence_rs": "Hleb je svež.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
@@ -26907,8 +26778,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "The wall is thin.",
-    "example_sentence_rs": "Zid je tanak.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
@@ -27341,8 +27210,6 @@
       "People & Family"
     ],
     "declension_class": "a-stem",
-    "example_sentence_en": "Dad came home.",
-    "example_sentence_rs": "Tata je došao kući.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -27784,8 +27651,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "e-verb",
-    "example_sentence_en": "The river flows fast.",
-    "example_sentence_rs": "Reka teče brzo.",
     "forms": [
       {
         "form_tag": "inf",
@@ -28450,8 +28315,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "Today is a warm day.",
-    "example_sentence_rs": "Danas je topao dan.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
@@ -28839,8 +28702,6 @@
       "Home & Daily Life"
     ],
     "declension_class": "a-stem",
-    "example_sentence_en": "Put the books in the bag.",
-    "example_sentence_rs": "Stavi knjige u torbu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -29306,8 +29167,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
-    "example_sentence_en": "I run every day.",
-    "example_sentence_rs": "Trčim svaki dan.",
     "forms": [
       {
         "form_tag": "inf",
@@ -29394,8 +29253,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "That is someone else's problem.",
-    "example_sentence_rs": "To je tuđi problem.",
     "forms": [
       {
         "form_tag": "def_nom_sg_m",
@@ -30380,19 +30237,6 @@
     "forms": [
       {
         "form_tag": "invariable",
-        "term": "umjesto"
-      }
-    ],
-    "part_of_speech": "preposition",
-    "proficiency_level": 1,
-    "term": "umjesto",
-    "translation": "instead of"
-  },
-  {
-    "categories": [],
-    "forms": [
-      {
-        "form_tag": "invariable",
         "term": "unatoč"
       }
     ],
@@ -30861,8 +30705,6 @@
   },
   {
     "categories": [],
-    "example_sentence_en": "Wow, how beautiful!",
-    "example_sentence_rs": "Vau, kako je lepo!",
     "forms": [
       {
         "form_tag": "invariable",
@@ -30973,8 +30815,6 @@
       "Description & Emotion"
     ],
     "conjugation_class": "je-verb",
-    "example_sentence_en": "I believe you.",
-    "example_sentence_rs": "Verujem ti.",
     "forms": [
       {
         "form_tag": "inf",
@@ -31060,8 +30900,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "He is a cheerful person.",
-    "example_sentence_rs": "On je veseo covek.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
@@ -31487,8 +31325,6 @@
     "categories": [
       "Numbers & Time"
     ],
-    "example_sentence_en": "I've already finished.",
-    "example_sentence_rs": "Već sam završio.",
     "forms": [
       {
         "form_tag": "base",
@@ -32205,8 +32041,6 @@
       "Places & Travel",
       "Description & Emotion"
     ],
-    "example_sentence_en": "The bird flies high.",
-    "example_sentence_rs": "Ptica leti visoko.",
     "forms": [
       {
         "form_tag": "base",
@@ -32389,8 +32223,6 @@
       "Actions & Activities"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "The soldier guards the border.",
-    "example_sentence_rs": "Vojnik čuva granicu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -32857,8 +32689,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "The tea is hot.",
-    "example_sentence_rs": "Čaj je vrući.",
     "forms": [
       {
         "form_tag": "def_nom_sg_m",
@@ -33171,8 +33001,6 @@
   },
   {
     "categories": [],
-    "example_sentence_en": "I am tired, therefore I'm going to sleep.",
-    "example_sentence_rs": "Umoran sam, zato idem da spavam.",
     "forms": [
       {
         "form_tag": "invariable",
@@ -33573,8 +33401,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
-    "example_sentence_en": "Close the door.",
-    "example_sentence_rs": "Zatvori vrata.",
     "forms": [
       {
         "form_tag": "inf",
@@ -34705,8 +34531,6 @@
     "categories": [
       "Numbers & Time"
     ],
-    "example_sentence_en": "I often go to the cinema.",
-    "example_sentence_rs": "Često idem u bioskop.",
     "forms": [
       {
         "form_tag": "base",
@@ -34977,8 +34801,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
-    "example_sentence_en": "I am reading a book.",
-    "example_sentence_rs": "Čitam zanimljivu knjigu.",
     "forms": [
       {
         "form_tag": "inf",
@@ -35133,8 +34955,6 @@
       "People & Family"
     ],
     "declension_class": "consonant",
-    "example_sentence_en": "A man walks down the street.",
-    "example_sentence_rs": "Čovek hoda ulicom.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -35220,8 +35040,6 @@
       "Description & Emotion"
     ],
     "conjugation_class": "je-verb",
-    "example_sentence_en": "Do you hear me?",
-    "example_sentence_rs": "Da li me čuješ?",
     "forms": [
       {
         "form_tag": "inf",
@@ -35577,8 +35395,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "a-verb",
-    "example_sentence_en": "We are walking around the park.",
-    "example_sentence_rs": "Šetamo po parku.",
     "forms": [
       {
         "form_tag": "inf",
@@ -35752,8 +35568,6 @@
     "categories": [
       "Description & Emotion"
     ],
-    "example_sentence_en": "The road is wide.",
-    "example_sentence_rs": "Put je širok.",
     "forms": [
       {
         "form_tag": "indef_nom_sg_m",
@@ -36715,8 +36529,6 @@
       "Description & Emotion"
     ],
     "conjugation_class": "i-verb",
-    "example_sentence_en": "I want to go home.",
-    "example_sentence_rs": "Želim da idem kući.",
     "forms": [
       {
         "form_tag": "inf",
@@ -36800,8 +36612,6 @@
       "People & Family"
     ],
     "declension_class": "a-stem",
-    "example_sentence_en": "The woman reads a book.",
-    "example_sentence_rs": "Žena čita knjigu.",
     "forms": [
       {
         "form_tag": "nom_sg",
@@ -36874,8 +36684,6 @@
       "Actions & Activities"
     ],
     "conjugation_class": "i-verb",
-    "example_sentence_en": "I live in Belgrade.",
-    "example_sentence_rs": "Živim u Beogradu.",
     "forms": [
       {
         "form_tag": "inf",

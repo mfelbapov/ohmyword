@@ -57,6 +57,13 @@ defmodule Ohmyword.Search do
 
   # Normalizes search input:
   # 1. Convert Cyrillic to Latin
+  @doc """
+  Returns the total number of search terms.
+  """
+  def count_search_terms do
+    Repo.aggregate(SearchTerm, :count)
+  end
+
   # 2. Strip diacritics (č→c, š→s, etc.)
   # 3. Lowercase
   defp normalize_query(query) do

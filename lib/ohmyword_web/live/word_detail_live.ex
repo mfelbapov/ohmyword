@@ -9,6 +9,7 @@ defmodule OhmywordWeb.WordDetailLive do
   import OhmywordWeb.WordComponents
 
   alias Ohmyword.Vocabulary
+  alias Ohmyword.Exercises
   alias Ohmyword.Linguistics.Dispatcher
 
   @noun_cases ~w(nom gen dat acc voc ins loc)
@@ -154,17 +155,21 @@ defmodule OhmywordWeb.WordDetailLive do
         </div>
       </div>
 
-      <%!-- Example sentence --%>
-      <%= if @word.example_sentence_rs do %>
+      <%!-- Example sentences from sentence bank --%>
+      <%= if @sentences != [] do %>
         <div class="mt-8">
-          <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Example</h2>
-          <div class="mt-2 rounded-lg bg-zinc-50 p-4 dark:bg-zinc-800">
-            <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
-              {display_term(@word.example_sentence_rs, @script_mode)}
-            </p>
-            <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-              {@word.example_sentence_en}
-            </p>
+          <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Examples</h2>
+          <div class="mt-2 space-y-3">
+            <%= for sentence <- @sentences do %>
+              <div class="rounded-lg bg-zinc-50 p-4 dark:bg-zinc-800">
+                <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
+                  {display_term(sentence.text_rs, @script_mode)}
+                </p>
+                <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+                  {sentence.text_en}
+                </p>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>
@@ -199,12 +204,14 @@ defmodule OhmywordWeb.WordDetailLive do
     word = Vocabulary.get_word!(id)
     forms = Dispatcher.inflect(word)
     forms_map = Map.new(forms, fn {term, tag} -> {tag, term} end)
+    sentences = Exercises.get_sentences_for_word(word.id)
 
     {:ok,
      socket
      |> assign(word: word)
      |> assign(forms: forms)
      |> assign(forms_map: forms_map)
+     |> assign(sentences: sentences)
      |> assign(script_mode: :latin)
      |> assign_related_adjective(word)}
   end

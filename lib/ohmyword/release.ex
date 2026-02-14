@@ -99,6 +99,8 @@ defmodule Ohmyword.Release do
   defp seed_sentences do
     alias Ohmyword.Repo
     alias Ohmyword.Exercises.Sentence
+    alias Ohmyword.Exercises.SentenceWord
+    alias Ohmyword.Exercises
     alias Ohmyword.Vocabulary.Word
 
     seed_file = Path.join(:code.priv_dir(:ohmyword), "repo/sentences_seed.json")
@@ -108,29 +110,58 @@ defmodule Ohmyword.Release do
 
       Repo.transaction(
         fn ->
+          Repo.delete_all(SentenceWord)
           Repo.delete_all(Sentence)
 
           seed_file
           |> File.read!()
           |> Jason.decode!()
           |> Enum.each(fn entry ->
-            word_term = entry["word_term"]
+            {:ok, sentence} =
+              %Sentence{}
+              |> Sentence.changeset(%{
+                text_rs: entry["text_rs"],
+                text_en: entry["text_en"]
+              })
+              |> Repo.insert()
 
-            case Repo.get_by(Word, term: word_term) do
-              nil ->
-                :skip
+            tokens = Exercises.tokenize(entry["text_rs"])
 
-              word ->
-                %Sentence{}
-                |> Sentence.changeset(%{
-                  text: entry["text"],
-                  translation: entry["translation"],
-                  blank_form_tag: entry["blank_form_tag"],
-                  hint: entry["hint"],
-                  word_id: word.id
-                })
-                |> Repo.insert!()
-            end
+            Enum.reduce(entry["words"] || [], MapSet.new(), fn annotation, used ->
+              word_term = annotation["word_term"]
+              word_text = annotation["word"]
+
+              case Repo.get_by(Word, term: word_term) do
+                nil ->
+                  used
+
+                word ->
+                  position =
+                    tokens
+                    |> Enum.with_index()
+                    |> Enum.find(fn {token, idx} ->
+                      String.downcase(token) == String.downcase(word_text) &&
+                        idx not in used
+                    end)
+
+                  case position do
+                    {_token, idx} ->
+                      %SentenceWord{}
+                      |> SentenceWord.changeset(%{
+                        position: idx,
+                        form_tag: annotation["form_tag"],
+                        sentence_id: sentence.id,
+                        word_id: word.id
+                      })
+                      |> Repo.insert!()
+
+                      MapSet.put(used, idx)
+
+                    nil ->
+                      used
+                  end
+              end
+            end)
           end)
         end,
         timeout: :infinity

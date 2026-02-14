@@ -3,6 +3,7 @@ defmodule OhmywordWeb.FlashcardLiveTest do
 
   import Phoenix.LiveViewTest
   import Ohmyword.VocabularyFixtures
+  import Ohmyword.ExercisesFixtures
 
   describe "FlashcardLive" do
     test "renders flashcard page", %{conn: conn} do
@@ -100,21 +101,22 @@ defmodule OhmywordWeb.FlashcardLiveTest do
     end
 
     test "displays example sentences on flipped card", %{conn: conn} do
-      word =
-        word_fixture(%{
-          term: "example",
-          translation: "example",
-          example_sentence_rs: "Primer recenice.",
-          example_sentence_en: "Example sentence."
-        })
+      word = word_fixture(%{term: "example", translation: "example"})
+
+      sentence_with_words_fixture(%{
+        word: word,
+        text_rs: "Primer rečenice.",
+        text_en: "Example sentence.",
+        position: 0
+      })
 
       {:ok, view, _html} = live(conn, ~p"/flashcards")
 
       # Flip card
       html = view |> element("div[phx-click=flip]") |> render_click()
 
-      assert html =~ word.example_sentence_rs
-      assert html =~ word.example_sentence_en
+      assert html =~ "Primer rečenice."
+      assert html =~ "Example sentence."
     end
 
     test "displays alternative translations on flipped card", %{conn: conn} do

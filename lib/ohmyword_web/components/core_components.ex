@@ -667,6 +667,45 @@ defmodule OhmywordWeb.CoreComponents do
   end
 
   @doc """
+  Renders a difficulty level selector for sentence exercises.
+
+  ## Examples
+
+      <.difficulty_selector difficulty={@difficulty} />
+  """
+  attr :difficulty, :integer, required: true
+
+  def difficulty_selector(assigns) do
+    labels = %{1 => "1 blank", 2 => "Some", 3 => "All"}
+    assigns = assign(assigns, labels: labels)
+
+    ~H"""
+    <div class="inline-flex rounded-md shadow-sm" role="group">
+      <%= for level <- [1, 2, 3] do %>
+        <button
+          type="button"
+          phx-click="set_difficulty"
+          phx-value-level={level}
+          class={[
+            "px-3 py-2 text-sm font-medium border",
+            if(level == 1, do: "rounded-l-md", else: ""),
+            if(level == 3, do: "rounded-r-md", else: ""),
+            if(@difficulty == level,
+              do:
+                "bg-zinc-900 text-white border-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 dark:border-zinc-100",
+              else:
+                "bg-white text-zinc-700 border-zinc-300 hover:bg-zinc-50 dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-600 dark:hover:bg-zinc-700"
+            )
+          ]}
+        >
+          {@labels[level]}
+        </button>
+      <% end %>
+    </div>
+    """
+  end
+
+  @doc """
   Translates an error message using gettext.
   """
   def translate_error({msg, opts}) do

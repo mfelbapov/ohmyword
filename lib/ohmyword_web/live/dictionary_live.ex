@@ -14,6 +14,7 @@ defmodule OhmywordWeb.DictionaryLive do
   import OhmywordWeb.WordComponents
 
   alias Ohmyword.Search
+  alias Ohmyword.Exercises
 
   @impl true
   def render(assigns) do
@@ -102,13 +103,13 @@ defmodule OhmywordWeb.DictionaryLive do
                   </p>
                 <% end %>
 
-                <%= if result.word.example_sentence_rs do %>
+                <%= if sentence = @sentence_map[result.word.id] |> List.wrap() |> List.first() do %>
                   <div class="mt-4 rounded-lg bg-zinc-50 p-4 dark:bg-zinc-800">
                     <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
-                      {display_term(result.word.example_sentence_rs, @script_mode)}
+                      {display_term(sentence.text_rs, @script_mode)}
                     </p>
                     <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-                      {result.word.example_sentence_en}
+                      {sentence.text_en}
                     </p>
                   </div>
                 <% end %>
@@ -137,7 +138,8 @@ defmodule OhmywordWeb.DictionaryLive do
      |> assign(query: "")
      |> assign(results: [])
      |> assign(searched: false)
-     |> assign(script_mode: :latin)}
+     |> assign(script_mode: :latin)
+     |> assign(sentence_map: %{})}
   end
 
   @impl true
@@ -155,14 +157,18 @@ defmodule OhmywordWeb.DictionaryLive do
     |> assign(query: query)
     |> assign(results: [])
     |> assign(searched: false)
+    |> assign(sentence_map: %{})
   end
 
   defp perform_search(socket, query) do
     results = Search.lookup(query)
+    word_ids = results |> Enum.map(& &1.word.id) |> Enum.uniq()
+    sentence_map = Exercises.get_sentence_map_for_words(word_ids)
 
     socket
     |> assign(query: query)
     |> assign(results: results)
     |> assign(searched: true)
+    |> assign(sentence_map: sentence_map)
   end
 end
