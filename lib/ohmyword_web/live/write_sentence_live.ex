@@ -29,7 +29,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
           <%= if @direction_mode == :english_to_serbian do %>
             Fill in the blanks with the correct Serbian forms
           <% else %>
-            Fill in the blanks using the English translation hints
+            Translate the highlighted Serbian words into English
           <% end %>
         </:subtitle>
       </.header>
@@ -73,12 +73,16 @@ defmodule OhmywordWeb.WriteSentenceLive do
                         class="size-5 text-green-600 dark:text-green-400"
                       />
                       <span class="text-green-800 dark:text-green-200">
-                        {display_result_form(elem(result, 1), @script_mode)}
+                        {display_result_form(elem(result, 1), @script_mode, @direction_mode)}
                       </span>
                     <% else %>
                       <.icon name="hero-x-circle" class="size-5 text-red-600 dark:text-red-400" />
                       <span class="text-red-800 dark:text-red-200">
-                        Expected: {display_expected_forms(elem(result, 1), @script_mode)}
+                        Expected: {display_expected_forms(
+                          elem(result, 1),
+                          @script_mode,
+                          @direction_mode
+                        )}
                       </span>
                     <% end %>
                   </div>
@@ -186,46 +190,62 @@ defmodule OhmywordWeb.WriteSentenceLive do
     """
   end
 
-  # SR→EN mode: English hint sentence, Serbian blanks with English translation hints
+  # SR→EN mode: full Serbian sentence with highlighted words, English translation inputs below
   defp render_sr_to_en(assigns) do
     ~H"""
-    <!-- English hint sentence -->
+    <!-- Full Serbian sentence with highlighted annotated words -->
     <div class="text-center">
-      <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
-        {@current_sentence.text_en}
-      </p>
-    </div>
-
-    <!-- Serbian sentence with blanks (answer is Serbian, hint is English translation) -->
-    <form phx-submit="submit_answers" class="flex flex-col items-center space-y-6">
-      <div class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
+      <p class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
         <%= for {token, idx} <- Enum.with_index(@tokens) do %>
           <%= if idx in @blanked_positions do %>
-            <% sw = Enum.find(@blanked_words, &(&1.position == idx)) %>
-            <.single_text_answer_box
-              id={"blank-#{@current_sentence.id}-#{idx}"}
-              name={"answer[#{idx}]"}
-              answer={@answers[idx]}
-              length={String.length(token)}
-              submitted={@submitted}
-              autofocus={idx == @first_blank}
-              result={@results[idx]}
-              hint={if @difficulty == 1 && sw, do: sw.word.translation}
-            />
+            <span class="font-bold text-indigo-600 underline dark:text-indigo-400">
+              {display_term(token, @script_mode)}
+            </span>
           <% else %>
             <span class="mx-0.5">
               {display_term(token, @script_mode)}
             </span>
           <% end %>
         <% end %>
+      </p>
+    </div>
+
+    <!-- English translation inputs for each blanked word -->
+    <form phx-submit="submit_answers" class="flex flex-col items-center space-y-6">
+      <div class="flex flex-wrap items-center justify-center gap-6">
+        <%= for sw <- Enum.sort_by(@blanked_words, & &1.position) do %>
+          <div class="flex flex-col items-center gap-1">
+            <span class="text-sm font-medium text-zinc-500 dark:text-zinc-400">
+              {display_term(Enum.at(@tokens, sw.position), @script_mode)} =
+            </span>
+            <.single_text_answer_box
+              id={"blank-#{@current_sentence.id}-#{sw.position}"}
+              name={"answer[#{sw.position}]"}
+              answer={@answers[sw.position]}
+              length={translation_length(sw.word)}
+              submitted={@submitted}
+              autofocus={sw.position == @first_blank}
+              result={@results[sw.position]}
+            />
+          </div>
+        <% end %>
       </div>
       
-    <!-- Word info badges (Easy only — POS only, no translation) -->
+    <!-- Word info badges (Easy only — POS only, translation is the answer) -->
       <%= if @difficulty == 1 do %>
         <div class="flex flex-wrap items-center justify-center gap-2">
           <%= for sw <- @blanked_words do %>
             <.pos_badge part_of_speech={sw.word.part_of_speech} />
           <% end %>
+        </div>
+      <% end %>
+      
+    <!-- Revealed English sentence after submission -->
+      <%= if @submitted do %>
+        <div class="text-center">
+          <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
+            {@current_sentence.text_en}
+          </p>
         </div>
       <% end %>
       
@@ -418,6 +438,14 @@ defmodule OhmywordWeb.WriteSentenceLive do
   # Private functions
 
   defp check_answers(socket, answers) do
+    if socket.assigns.direction_mode == :serbian_to_english do
+      check_answers_sr_to_en(socket, answers)
+    else
+      check_answers_en_to_sr(socket, answers)
+    end
+  end
+
+  defp check_answers_en_to_sr(socket, answers) do
     sentence = socket.assigns.current_sentence
     tokens = socket.assigns.tokens
     annotated_positions = MapSet.new(socket.assigns.blanked_words, & &1.position)
@@ -439,6 +467,20 @@ defmodule OhmywordWeb.WriteSentenceLive do
     Map.merge(annotated_results, unannotated_results)
   end
 
+  defp check_answers_sr_to_en(socket, answers) do
+    blanked_words = socket.assigns.blanked_words
+
+    Map.new(answers, fn {pos, input} ->
+      case Enum.find(blanked_words, &(&1.position == pos)) do
+        nil ->
+          {pos, {:error, "No word at position"}}
+
+        sw ->
+          {pos, Exercises.check_flashcard_answer(sw.word, input, :serbian_to_english)}
+      end
+    end)
+  end
+
   defp assign_blanks(socket) do
     case socket.assigns.current_sentence do
       nil ->
@@ -454,9 +496,10 @@ defmodule OhmywordWeb.WriteSentenceLive do
         blanked = Exercises.select_blanks(sentence, socket.assigns.difficulty)
         annotated_positions = MapSet.new(blanked, & &1.position)
 
-        # Difficulty 3 (Hard): blank ALL token positions in both modes
+        # Difficulty 3 (Hard): blank ALL tokens in EN→SR, only annotated in SR→EN
         blanked_positions =
-          if socket.assigns.difficulty == 3 do
+          if socket.assigns.difficulty == 3 &&
+               socket.assigns.direction_mode == :english_to_serbian do
             MapSet.new(0..(length(tokens) - 1))
           else
             annotated_positions
@@ -486,10 +529,17 @@ defmodule OhmywordWeb.WriteSentenceLive do
     end
   end
 
-  defp display_result_form(form, script_mode),
+  defp display_result_form(form, _script_mode, :serbian_to_english), do: form
+
+  defp display_result_form(form, script_mode, _direction_mode),
     do: display_term(form, script_mode)
 
-  defp display_expected_forms(forms, script_mode) do
+  defp display_expected_forms(forms, _script_mode, :serbian_to_english) do
+    forms
+    |> Enum.join(" / ")
+  end
+
+  defp display_expected_forms(forms, script_mode, _direction_mode) do
     forms
     |> Enum.map(&display_term(&1, script_mode))
     |> Enum.join(" / ")
@@ -515,6 +565,10 @@ defmodule OhmywordWeb.WriteSentenceLive do
     |> Ohmyword.Utils.Transliteration.to_latin()
     |> Ohmyword.Utils.Transliteration.strip_diacritics()
     |> String.downcase()
+  end
+
+  defp translation_length(word) do
+    word.translation |> String.replace(" ", "") |> String.length()
   end
 
   defp empty_state_message(:all),

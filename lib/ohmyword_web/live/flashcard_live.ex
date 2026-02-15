@@ -263,7 +263,7 @@ defmodule OhmywordWeb.FlashcardLive do
      |> assign(current_word: word)
      |> assign(flipped: false)
      |> assign(history: [])
-     |> assign(direction_mode: :serbian_to_english)
+     |> assign(direction_mode: :english_to_serbian)
      |> assign(pos_filter: :all)
      |> assign(available_pos: Vocabulary.list_available_parts_of_speech())
      |> assign(category_filter: "all")

@@ -640,21 +640,21 @@ defmodule OhmywordWeb.CoreComponents do
     >
       <span class={[
         "rounded-md px-3 py-1.5 text-sm transition-colors",
-        if(@direction_mode == :serbian_to_english,
-          do: "bg-zinc-700 font-semibold text-white dark:bg-zinc-300 dark:text-zinc-900",
-          else: "text-zinc-500 dark:text-zinc-400"
-        )
-      ]}>
-        SR → EN
-      </span>
-      <span class={[
-        "rounded-md px-3 py-1.5 text-sm transition-colors",
         if(@direction_mode == :english_to_serbian,
           do: "bg-zinc-700 font-semibold text-white dark:bg-zinc-300 dark:text-zinc-900",
           else: "text-zinc-500 dark:text-zinc-400"
         )
       ]}>
         EN → SR
+      </span>
+      <span class={[
+        "rounded-md px-3 py-1.5 text-sm transition-colors",
+        if(@direction_mode == :serbian_to_english,
+          do: "bg-zinc-700 font-semibold text-white dark:bg-zinc-300 dark:text-zinc-900",
+          else: "text-zinc-500 dark:text-zinc-400"
+        )
+      ]}>
+        SR → EN
       </span>
     </button>
     """
