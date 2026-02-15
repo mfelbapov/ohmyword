@@ -197,20 +197,10 @@ defmodule OhmywordWeb.WriteSentenceLive do
   # SR→EN mode: full Serbian sentence with highlighted words, English sentence with inline blanks
   defp render_sr_to_en(assigns) do
     ~H"""
-    <!-- Full Serbian sentence with highlighted annotated words -->
+    <!-- Full Serbian sentence -->
     <div class="text-center">
-      <p class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
-        <%= for {token, idx} <- Enum.with_index(@tokens) do %>
-          <%= if idx in @blanked_positions do %>
-            <span class="font-bold">
-              {display_term(token, @script_mode)}
-            </span>
-          <% else %>
-            <span class="mx-0.5">
-              {display_term(token, @script_mode)}
-            </span>
-          <% end %>
-        <% end %>
+      <p class="text-2xl font-medium text-zinc-900 dark:text-zinc-100">
+        {display_term(@current_sentence.text_rs, @script_mode)}
       </p>
     </div>
 
@@ -241,7 +231,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
             <div class="flex items-center gap-1">
               <.pos_badge part_of_speech={sw.word.part_of_speech} />
               <span class="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                {display_term(sw.word.term, @script_mode)}
+                {sw.word.translation}
               </span>
             </div>
           <% end %>
