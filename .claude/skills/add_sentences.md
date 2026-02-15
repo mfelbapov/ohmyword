@@ -160,12 +160,67 @@ Sentences also appear as example sentences:
 - **Word detail page:** Up to 3 sentences per word
 - **Flashcards:** One sentence per word, used as context on card face
 
-## Language Rules
+## Language Rules — Serbian Ekavski Standard
 
-All sentences MUST follow **Serbian ekavski** standard:
-- Use ekavski jat reflex: "mleko" not "mlijeko", "reka" not "rijeka", "lepo" not "lijepo"
-- Use Serbian vocabulary: "hleb" not "kruh", "voz" not "vlak", "vazduh" not "zrak"
-- Both base terms and inflected forms must be ekavski
+**Every sentence MUST be pure Serbian ekavski.** This is the single most important quality requirement. A grammatically perfect sentence is worthless if it uses Croatian vocabulary or ijekavski forms.
+
+### Ekavski jat reflex (e, never ije/je)
+
+The jat vowel is always **e** in ekavski. This applies to all word categories and all inflected forms:
+
+| Category | Correct (ekavski) | Wrong (ijekavski) |
+|----------|-------------------|-------------------|
+| Nouns | mleko, reka, dete, vreme, mesto, pesma, svet, telo, vera, cvet | mlijeko, rijeka, dijete, vrijeme, mjesto, pjesma, svijet, tijelo, vjera, cvijet |
+| Verbs | videti, voleti, hteti, smeti, razumeti, sedeti, leteti, trpeti | vidjeti, voljeti, htjeti, smjeti, razumjeti, sjediti, letjeti, trpjeti |
+| L-participle | video, voleo, hteo, razumeo, sedeo | vidio, volio, htio, razumio, sjedio |
+| Adjectives | lep, beo, ceo, slep, levo | lijep, bijel, cijel, slijep, lijevo |
+| Adverbs | lepo, ovde, gde, negde | lijepo, ovdje, gdje, negdje |
+| Prefixed | prevod, pregled, predlog, prenos | prijevod, pregled, prijedlog, prijenos |
+
+**Watch for subtle jat words** that are easy to miss: "deo" (not "dio"), "sneg" (not "snijeg"), "beg" (not "bijeg"), "smer" (not "smjer"), "svet" (not "svijet"), "stena" (not "stijena").
+
+### Serbian lexicon (not Croatian, Bosnian, or Montenegrin)
+
+Use standard Serbian vocabulary. Many words differ from Croatian even when the jat reflex is the same:
+
+| Serbian | Croatian/Other | Meaning |
+|---------|---------------|---------|
+| hleb | kruh | bread |
+| voz | vlak | train |
+| vazduh | zrak | air |
+| so | sol | salt |
+| sto | stol | table |
+| hiljada | tisuća | thousand |
+| pozorište | kazalište | theater |
+| fudbal | nogomet | football |
+| hemija | kemija | chemistry |
+| istorija | povijest | history |
+| geografija | zemljopis | geography |
+| avion | zrakoplov | airplane |
+| univerzitet | sveučilište | university |
+| uslov | uvjet | condition |
+| saobračaj | promet | traffic |
+| železnica | željeznica | railway |
+| opština | općina | municipality |
+| tačka | točka | point/period |
+| tačno | točno | exactly |
+| potrebno | potrebito | necessary |
+
+### Serbian grammar patterns
+
+Serbian has distinct grammatical preferences that differ from Croatian:
+
+- **"Da + present" construction:** Serbian strongly prefers "da + present" over bare infinitive in many contexts. "Moram da idem" (not "moram ići"), "Hoću da čitam" (not "hoću čitati"), "Počeo je da radi" (not "počeo je raditi"). The infinitive is fine in isolation or with modal verbs where both are standard, but when in doubt prefer "da + present".
+- **"Da li" for yes/no questions:** Serbian uses "da li" (e.g., "Da li si gladan?") or verb-first inversion. Avoid the Croatian "je li" as a general question particle (though "je li" is acceptable specifically for "je" → "je li on tu?").
+- **"Trebati" conjugation:** Serbian conjugates "trebati" impersonally: "Treba mi pomoć" (I need help), "Treba da učiš" (You should study). Avoid the Croatian personal conjugation "Trebam pomoć".
+- **Future tense:** Both "Ja ću da čitam" and "Ja ću čitati" are acceptable in Serbian. The short form "čitaću" (clitic fusion) is also standard Serbian.
+- **Reflexive "se" placement:** In Serbian, "se" can come before the verb in emphasis: "Ja se nadam" is natural.
+
+### Modern standard Serbian vocabulary
+
+- Stick to standard modern Serbian. Avoid archaic or dialectal forms unless the vocabulary seed specifically includes them.
+- Use standard Serbian word formation: "-nje" for verbal nouns (čitanje, pisanje), "-ost" for abstract nouns (lepota uses -ota, but radost, mladost use -ost), "-lac"/"-telj" for agent nouns.
+- For international/technical terms, use the Serbian standard form: "kompjuter" (not "računalo"), "telefon", "internet".
 
 ## Validation Checklist
 
@@ -203,4 +258,6 @@ Before adding each sentence, verify:
 - **word_term not in vocabulary:** The seed loader silently skips these — always verify.
 - **Tokenization mismatch:** Punctuation attached to words gets stripped by `[\p{L}]+`. So in "parku." the token is "parku", and `word` should be "parku" (without period). But "parku." would also work since matching is case-insensitive against the token.
 - **Verb form confusion:** L-participle (`past_*`) forms are NOT the same as present tense forms. "čitao" is `past_m_sg` (he read), "čita" is `pres_3sg` (he reads).
-- **Using Croatian/ijekavski forms:** Always use ekavski. "video" not "vidio", "hteo" not "htio".
+- **Using Croatian/ijekavski forms:** Always use ekavski. "video" not "vidio", "hteo" not "htio", "lepo" not "lijepo", "ovde" not "ovdje". This applies to ALL inflected forms too — "videla" not "vidjela", "lepog" not "lijepog".
+- **Using Croatian vocabulary:** "hleb" not "kruh", "voz" not "vlak", "tačno" not "točno". See the full vocabulary table in the Language Rules section above.
+- **Croatian grammar patterns:** Using bare infinitive where Serbian prefers "da + present" ("moram da idem" not "moram ići"), using personal "trebam" instead of impersonal "treba mi", using "je li" as a general question word instead of "da li".
