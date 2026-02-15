@@ -608,7 +608,7 @@ defmodule OhmywordWeb.CoreComponents do
           else: "text-zinc-500 dark:text-zinc-400"
         )
       ]}>
-        Ćč
+        Ćć
       </span>
       <span class={[
         "rounded-md px-5 py-1.5 text-sm transition-colors",

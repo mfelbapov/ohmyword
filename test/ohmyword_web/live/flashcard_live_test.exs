@@ -63,7 +63,7 @@ defmodule OhmywordWeb.FlashcardLiveTest do
       {:ok, view, html} = live(conn, ~p"/flashcards")
 
       # Initially in Latin mode
-      assert html =~ "Ćč"
+      assert html =~ "Ćć"
       assert html =~ "ljubav"
 
       # Toggle to Cyrillic

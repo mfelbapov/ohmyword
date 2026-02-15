@@ -82,7 +82,7 @@ defmodule OhmywordWeb.WordDetailLiveTest do
 
       {:ok, view, html} = live(conn, ~p"/dictionary/#{word.id}")
 
-      assert html =~ "Ćč"
+      assert html =~ "Ćć"
       assert html =~ "ljubav"
 
       html = view |> element("button[phx-click=toggle_script]") |> render_click()
