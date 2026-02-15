@@ -82,12 +82,12 @@ defmodule OhmywordWeb.WordDetailLiveTest do
 
       {:ok, view, html} = live(conn, ~p"/dictionary/#{word.id}")
 
-      assert html =~ "LAT"
+      assert html =~ "Ćč"
       assert html =~ "ljubav"
 
       html = view |> element("button[phx-click=toggle_script]") |> render_click()
 
-      assert html =~ "ЋИР"
+      assert html =~ "Ћћ"
       assert html =~ "љубав"
     end
 

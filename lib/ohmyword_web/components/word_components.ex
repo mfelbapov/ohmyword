@@ -156,7 +156,7 @@ defmodule OhmywordWeb.WordComponents do
             readonly={@submitted}
             placeholder="_"
             class={[
-              "w-8 h-10 rounded border text-2xl text-center focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:bg-zinc-800 dark:text-zinc-100",
+              "w-9 h-10 rounded border text-2xl text-center focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:bg-zinc-800 dark:text-zinc-100 placeholder:text-sm placeholder:leading-[2.5rem] focus:placeholder-transparent",
               char_border_class(@result, @submitted)
             ]}
           />

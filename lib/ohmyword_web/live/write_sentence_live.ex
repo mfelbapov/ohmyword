@@ -37,57 +37,58 @@ defmodule OhmywordWeb.WriteSentenceLive do
 
       <%= if @current_sentence do %>
         <div class="mt-6 rounded-xl border-2 border-zinc-300 bg-white card-spacious shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
-          <!-- Translation -->
-          <div class="text-center mb-6">
-            <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
-              {@current_sentence.text_en}
-            </p>
-          </div>
-          
-    <!-- Sentence with blanks -->
-          <form phx-submit="submit_answers" class="space-y-6">
-            <div class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
-              <%= for {token, idx} <- Enum.with_index(@tokens) do %>
-                <%= if idx in @blanked_positions do %>
-                  <% sw = Enum.find(@blanked_words, &(&1.position == idx)) %>
-                  <.single_text_answer_box
-                    id={"blank-#{@current_sentence.id}-#{idx}"}
-                    name={"answer[#{idx}]"}
-                    answer={@answers[idx]}
-                    length={String.length(token)}
-                    submitted={@submitted}
-                    autofocus={idx == @first_blank}
-                    result={@results[idx]}
-                    form_tag={if @difficulty == 1 && sw, do: sw.form_tag}
-                  />
-                <% else %>
-                  <span class="mx-0.5">
-                    {display_term(token, @script_mode)}
-                  </span>
-                <% end %>
-              <% end %>
+          <!-- Sentence + input + button: fixed-height section -->
+          <div class="flex min-h-64 flex-col items-center justify-center space-y-6">
+            <!-- Translation -->
+            <div class="text-center">
+              <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
+                {@current_sentence.text_en}
+              </p>
             </div>
             
-    <!-- Word info badges (Easy only) -->
-            <%= if @difficulty == 1 do %>
-              <div class="flex flex-wrap items-center justify-center gap-2">
-                <%= for sw <- @blanked_words do %>
-                  <div class="flex items-center gap-1">
-                    <.pos_badge part_of_speech={sw.word.part_of_speech} />
-                    <span class="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                      {display_term(sw.word.term, @script_mode)} = {sw.word.translation}
+    <!-- Sentence with blanks -->
+            <form phx-submit="submit_answers" class="flex flex-col items-center space-y-6">
+              <div class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
+                <%= for {token, idx} <- Enum.with_index(@tokens) do %>
+                  <%= if idx in @blanked_positions do %>
+                    <% sw = Enum.find(@blanked_words, &(&1.position == idx)) %>
+                    <.single_text_answer_box
+                      id={"blank-#{@current_sentence.id}-#{idx}"}
+                      name={"answer[#{idx}]"}
+                      answer={@answers[idx]}
+                      length={String.length(token)}
+                      submitted={@submitted}
+                      autofocus={idx == @first_blank}
+                      result={@results[idx]}
+                      form_tag={if @difficulty == 1 && sw, do: sw.form_tag}
+                    />
+                  <% else %>
+                    <span class="mx-0.5">
+                      {display_term(token, @script_mode)}
                     </span>
-                  </div>
+                  <% end %>
                 <% end %>
               </div>
-            <% end %>
-            
+              
+    <!-- Word info badges (Easy only) -->
+              <%= if @difficulty == 1 do %>
+                <div class="flex flex-wrap items-center justify-center gap-2">
+                  <%= for sw <- @blanked_words do %>
+                    <div class="flex items-center gap-1">
+                      <.pos_badge part_of_speech={sw.word.part_of_speech} />
+                      <span class="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+                        {display_term(sw.word.term, @script_mode)} = {sw.word.translation}
+                      </span>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+              
     <!-- Submit / Next button -->
-            <div class="flex justify-center">
               <button
                 type="submit"
                 class={[
-                  "rounded-lg px-6 py-3 text-lg font-semibold",
+                  "rounded-md px-4 py-2 text-sm font-semibold",
                   if(@submitted,
                     do:
                       "bg-zinc-700 text-white hover:bg-zinc-600 dark:bg-zinc-200 dark:text-zinc-900 dark:hover:bg-zinc-300",
@@ -98,8 +99,8 @@ defmodule OhmywordWeb.WriteSentenceLive do
               >
                 {if @submitted, do: "Next →", else: "Check"}
               </button>
-            </div>
-          </form>
+            </form>
+          </div>
           
     <!-- Result feedback -->
           <%= if @submitted do %>
@@ -140,13 +141,13 @@ defmodule OhmywordWeb.WriteSentenceLive do
           <button
             phx-click="previous"
             disabled={@history == []}
-            class="inline-flex items-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+            class="inline-flex w-32 items-center justify-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
           >
             <.icon name="hero-arrow-left" class="mr-2 size-4" /> Previous
           </button>
           <button
             phx-click="next"
-            class="inline-flex items-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+            class="inline-flex w-32 items-center justify-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
           >
             Next <.icon name="hero-arrow-right" class="ml-2 size-4" />
           </button>

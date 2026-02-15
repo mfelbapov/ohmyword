@@ -124,9 +124,9 @@ defmodule OhmywordWeb.FlashcardLive do
           </div>
         <% else %>
           <!-- Write mode -->
-          <div class="mt-6 min-h-80 rounded-xl border-2 border-zinc-300 bg-white card-spacious shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
-            <div class="flex flex-col items-center justify-center">
-              <!-- Prompt -->
+          <div class="mt-6 rounded-xl border-2 border-zinc-300 bg-white card-spacious shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
+            <!-- Prompt + input + button: fixed-height section -->
+            <div class="flex min-h-64 flex-col items-center justify-center">
               <%= if @direction_mode == :serbian_to_english do %>
                 <div class="mb-4 flex flex-wrap gap-2 justify-center">
                   <.pos_badge part_of_speech={@current_word.part_of_speech} />
@@ -153,8 +153,7 @@ defmodule OhmywordWeb.FlashcardLive do
                   <% end %>
                 </p>
               <% end %>
-              
-    <!-- Answer input -->
+
               <form phx-submit="submit_answer" class="flex flex-col items-center gap-4">
                 <.single_text_answer_box
                   id={"flashcard-answer-#{@current_word.id}-#{@answer_key}"}
@@ -168,7 +167,7 @@ defmodule OhmywordWeb.FlashcardLive do
                 <button
                   type="submit"
                   class={[
-                    "rounded-lg px-6 py-3 text-lg font-semibold",
+                    "rounded-md px-4 py-2 text-sm font-semibold",
                     if(@submitted,
                       do:
                         "bg-zinc-700 text-white hover:bg-zinc-600 dark:bg-zinc-200 dark:text-zinc-900 dark:hover:bg-zinc-300",
@@ -180,48 +179,48 @@ defmodule OhmywordWeb.FlashcardLive do
                   {if @submitted, do: "Next →", else: "Check"}
                 </button>
               </form>
-              
-    <!-- Result feedback -->
-              <%= if @submitted do %>
-                <div class="mt-4 w-full">
-                  <div class={[
-                    "rounded-lg p-3 flex items-center gap-2",
-                    if(elem(@result, 0) == :correct,
-                      do: "bg-green-100 dark:bg-green-900/30",
-                      else: "bg-red-100 dark:bg-red-900/30"
-                    )
-                  ]}>
-                    <%= if elem(@result, 0) == :correct do %>
-                      <.icon
-                        name="hero-check-circle"
-                        class="size-5 text-green-600 dark:text-green-400"
-                      />
-                      <span class="text-green-800 dark:text-green-200">
-                        Correct!
-                      </span>
-                    <% else %>
-                      <.icon
-                        name="hero-x-circle"
-                        class="size-5 text-red-600 dark:text-red-400"
-                      />
-                      <span class="text-red-800 dark:text-red-200">
-                        Expected: {display_expected(elem(@result, 1), @direction_mode, @script_mode)}
-                      </span>
-                    <% end %>
-                  </div>
-                </div>
-                <%= if @example_sentence do %>
-                  <div class="mt-4 w-full rounded-lg bg-zinc-100 card-compact dark:bg-zinc-800">
-                    <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
-                      {display_term(@example_sentence.text_rs, @script_mode)}
-                    </p>
-                    <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-                      {@example_sentence.text_en}
-                    </p>
-                  </div>
-                <% end %>
-              <% end %>
             </div>
+            
+    <!-- Result feedback -->
+            <%= if @submitted do %>
+              <div class="mt-6 w-full">
+                <div class={[
+                  "rounded-lg p-3 flex items-center gap-2",
+                  if(elem(@result, 0) == :correct,
+                    do: "bg-green-100 dark:bg-green-900/30",
+                    else: "bg-red-100 dark:bg-red-900/30"
+                  )
+                ]}>
+                  <%= if elem(@result, 0) == :correct do %>
+                    <.icon
+                      name="hero-check-circle"
+                      class="size-5 text-green-600 dark:text-green-400"
+                    />
+                    <span class="text-green-800 dark:text-green-200">
+                      Correct!
+                    </span>
+                  <% else %>
+                    <.icon
+                      name="hero-x-circle"
+                      class="size-5 text-red-600 dark:text-red-400"
+                    />
+                    <span class="text-red-800 dark:text-red-200">
+                      Expected: {display_expected(elem(@result, 1), @direction_mode, @script_mode)}
+                    </span>
+                  <% end %>
+                </div>
+              </div>
+              <%= if @example_sentence do %>
+                <div class="mt-4 w-full rounded-lg bg-zinc-100 card-compact dark:bg-zinc-800">
+                  <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
+                    {display_term(@example_sentence.text_rs, @script_mode)}
+                  </p>
+                  <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+                    {@example_sentence.text_en}
+                  </p>
+                </div>
+              <% end %>
+            <% end %>
           </div>
         <% end %>
 
@@ -229,15 +228,15 @@ defmodule OhmywordWeb.FlashcardLive do
           <button
             phx-click="previous"
             disabled={@history == []}
-            class="inline-flex items-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+            class="inline-flex w-32 items-center justify-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
           >
             <.icon name="hero-arrow-left" class="mr-2 size-4" /> Previous
           </button>
           <button
             phx-click="next"
-            class="inline-flex items-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
+            class="inline-flex w-32 items-center justify-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
           >
-            Next Card <.icon name="hero-arrow-right" class="ml-2 size-4" />
+            Next <.icon name="hero-arrow-right" class="ml-2 size-4" />
           </button>
         </div>
       <% else %>
