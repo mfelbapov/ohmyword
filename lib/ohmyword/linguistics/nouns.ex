@@ -190,14 +190,20 @@ defmodule Ohmyword.Linguistics.Nouns do
 
   # I-stem declension (feminine consonant nouns)
   defp decline_i_stem(term, case_atom, number, metadata) do
+    extended_stem = metadata["extended_stem"]
+
+    # Nominative and accusative singular use the base term
+    is_direct = number == :sg and case_atom in [:nom, :acc]
+
+    stem = if extended_stem && !is_direct, do: extended_stem, else: term
+
     # Handle instrumental singular with iotation + -u (ins_ju)
     if number == :sg and case_atom == :ins and metadata["ins_ju"] == true do
-      # Apply iotation to the stem then add -u
-      iotated = SoundChanges.iotate(term)
+      iotated = SoundChanges.iotate(stem)
       iotated <> "u"
     else
       ending = @i_stem_endings[number][case_atom]
-      term <> ending
+      stem <> ending
     end
   end
 
