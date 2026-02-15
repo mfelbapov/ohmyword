@@ -712,7 +712,7 @@ defmodule OhmywordWeb.CoreComponents do
     <form phx-change="filter_pos">
       <select
         name="pos"
-        class="rounded-md border-0 bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+        class="h-10 rounded-md border-0 bg-zinc-100 px-3 text-sm font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
       >
         <option value="all" selected={@pos_filter == :all}>All types</option>
         <%= for pos <- @available_pos do %>
@@ -736,7 +736,7 @@ defmodule OhmywordWeb.CoreComponents do
     <form phx-change="filter_category">
       <select
         name="category"
-        class="rounded-md border-0 bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+        class="h-10 rounded-md border-0 bg-zinc-100 px-3 text-sm font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
       >
         <option value="all" selected={@category_filter == "all"}>All categories</option>
         <%= if @available_categories == [] do %>
@@ -767,21 +767,17 @@ defmodule OhmywordWeb.CoreComponents do
     assigns = assign(assigns, labels: labels)
 
     ~H"""
-    <div class="inline-flex rounded-md shadow-sm" role="group">
+    <div class="inline-flex rounded-lg bg-zinc-100 p-1 dark:bg-zinc-800">
       <%= for level <- [1, 2, 3] do %>
         <button
           type="button"
           phx-click="set_difficulty"
           phx-value-level={level}
           class={[
-            "min-w-[5rem] text-center px-3 py-2 text-sm font-medium border",
-            if(level == 1, do: "rounded-l-md", else: ""),
-            if(level == 3, do: "rounded-r-md", else: ""),
+            "rounded-md px-3 py-1.5 text-sm transition-colors",
             if(@difficulty == level,
-              do:
-                "bg-zinc-900 text-white border-zinc-900 dark:bg-zinc-100 dark:text-zinc-900 dark:border-zinc-100",
-              else:
-                "bg-white text-zinc-700 border-zinc-300 hover:bg-zinc-50 dark:bg-zinc-800 dark:text-zinc-300 dark:border-zinc-600 dark:hover:bg-zinc-700"
+              do: "bg-zinc-700 font-semibold text-white dark:bg-zinc-300 dark:text-zinc-900",
+              else: "text-zinc-500 dark:text-zinc-400"
             )
           ]}
         >
