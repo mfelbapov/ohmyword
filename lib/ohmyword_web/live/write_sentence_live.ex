@@ -89,14 +89,6 @@ defmodule OhmywordWeb.WriteSentenceLive do
                 <% end %>
               <% end %>
             </div>
-
-            <%= if @direction_mode == :serbian_to_english && @submitted do %>
-              <div class="mt-4 rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20">
-                <p class="text-sm text-blue-800 dark:text-blue-200">
-                  <span class="font-semibold">Translation:</span> {@current_sentence.text_en}
-                </p>
-              </div>
-            <% end %>
           <% end %>
         </div>
         
@@ -201,6 +193,13 @@ defmodule OhmywordWeb.WriteSentenceLive do
   # SR→EN mode: inline blanks replacing highlighted words, with Serbian word as hint
   defp render_sr_to_en(assigns) do
     ~H"""
+    <!-- English hint sentence -->
+    <div class="text-center">
+      <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
+        {@current_sentence.text_en}
+      </p>
+    </div>
+
     <!-- Sentence with inline blanks replacing highlighted words -->
     <form phx-submit="submit_answers" class="flex flex-col items-center space-y-6">
       <div class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">

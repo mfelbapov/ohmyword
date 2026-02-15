@@ -332,7 +332,7 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       assert html =~ "hero-check-circle"
     end
 
-    test "SR→EN reveals full English translation after submission", %{conn: conn} do
+    test "SR→EN shows English hint sentence", %{conn: conn} do
       word = noun_fixture(%{term: "pas", translation: "dog"})
 
       sentence_with_words_fixture(%{
@@ -345,12 +345,9 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       {:ok, view, _html} = live(conn, ~p"/write")
 
       # Toggle to SR→EN
-      view |> element("button[phx-click=toggle_direction]") |> render_click()
+      html = view |> element("button[phx-click=toggle_direction]") |> render_click()
 
-      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "dog"}})
-
-      # Full English translation should be revealed
-      assert html =~ "Translation:"
+      # English sentence should be visible as context
       assert html =~ "I see a dog."
     end
 
