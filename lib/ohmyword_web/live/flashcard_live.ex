@@ -60,9 +60,15 @@ defmodule OhmywordWeb.FlashcardLive do
                         <.animate_badge />
                       <% end %>
                     </div>
-                    <p class="text-center text-prompt font-bold text-zinc-900 dark:text-zinc-100">
-                      {display_term(@current_word.term, @script_mode)}
-                    </p>
+                    <%= if @example_sentence do %>
+                      <p class="text-center text-2xl font-medium text-zinc-900 dark:text-zinc-100 px-6">
+                        {display_term(@example_sentence.text_rs, @script_mode)}
+                      </p>
+                    <% else %>
+                      <p class="text-center text-prompt font-bold text-zinc-900 dark:text-zinc-100">
+                        {display_term(@current_word.term, @script_mode)}
+                      </p>
+                    <% end %>
                   <% else %>
                     <p class="text-center text-prompt font-bold text-zinc-900 dark:text-zinc-100">
                       {@current_word.translation}
@@ -108,7 +114,7 @@ defmodule OhmywordWeb.FlashcardLive do
                       {display_term(@current_word.term, @script_mode)}
                     </p>
                   <% end %>
-                  <%= if @example_sentence do %>
+                  <%= if @example_sentence && @direction_mode == :english_to_serbian do %>
                     <div class="mt-6 w-full rounded-lg bg-zinc-100 card-compact dark:bg-zinc-800">
                       <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
                         {display_term(@example_sentence.text_rs, @script_mode)}
@@ -140,9 +146,15 @@ defmodule OhmywordWeb.FlashcardLive do
                     <.animate_badge />
                   <% end %>
                 </div>
-                <p class="text-center text-prompt font-bold text-zinc-900 dark:text-zinc-100 mb-6">
-                  {display_term(@current_word.term, @script_mode)}
-                </p>
+                <%= if @example_sentence do %>
+                  <p class="text-center text-2xl font-medium text-zinc-900 dark:text-zinc-100 mb-6 px-6">
+                    {display_term(@example_sentence.text_rs, @script_mode)}
+                  </p>
+                <% else %>
+                  <p class="text-center text-prompt font-bold text-zinc-900 dark:text-zinc-100 mb-6">
+                    {display_term(@current_word.term, @script_mode)}
+                  </p>
+                <% end %>
               <% else %>
                 <p class="text-center text-prompt font-bold text-zinc-900 dark:text-zinc-100 mb-2">
                   {@current_word.translation}
@@ -210,7 +222,7 @@ defmodule OhmywordWeb.FlashcardLive do
                   <% end %>
                 </div>
               </div>
-              <%= if @example_sentence do %>
+              <%= if @example_sentence && @direction_mode == :english_to_serbian do %>
                 <div class="mt-4 w-full rounded-lg bg-zinc-100 card-compact dark:bg-zinc-800">
                   <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
                     {display_term(@example_sentence.text_rs, @script_mode)}

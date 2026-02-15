@@ -47,7 +47,8 @@
       "Bash(find:*)",
       "Bash(wc:*)",
       "Bash(grep:*)",
-      "Bash(gh pr checks:*)"
+      "Bash(gh pr checks:*)",
+      "Bash(elixir -e:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"
