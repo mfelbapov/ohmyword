@@ -57,7 +57,11 @@ defmodule OhmywordWeb.WriteSentenceLive do
     <!-- Result feedback -->
           <%= if @submitted do %>
             <div class="mt-6 space-y-2">
-              <%= for pos <- Enum.sort(MapSet.to_list(@blanked_positions)) do %>
+              <% result_positions =
+                if @direction_mode == :serbian_to_english,
+                  do: @english_blanked_positions,
+                  else: @blanked_positions %>
+              <%= for pos <- Enum.sort(MapSet.to_list(result_positions)) do %>
                 <% result = @results[pos] %>
                 <%= if result do %>
                   <div class={[
@@ -213,20 +217,20 @@ defmodule OhmywordWeb.WriteSentenceLive do
     <!-- English sentence with inline blanks -->
     <form phx-submit="submit_answers" class="flex flex-col items-center space-y-6">
       <div class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
-        <%= for segment <- @english_segments do %>
-          <%= case segment do %>
-            <% {:text, word} -> %>
-              <span class="mx-0.5">{word}</span>
-            <% {:blank, sw} -> %>
-              <.single_text_answer_box
-                id={"blank-#{@current_sentence.id}-#{sw.position}"}
-                name={"answer[#{sw.position}]"}
-                answer={@answers[sw.position]}
-                length={translation_length(sw.word)}
-                submitted={@submitted}
-                autofocus={sw.position == @first_blank}
-                result={@results[sw.position]}
-              />
+        <%= for {token, idx} <- Enum.with_index(@english_tokens) do %>
+          <%= if idx in @english_blanked_positions do %>
+            <% sw = @english_annotation_map[idx] %>
+            <.single_text_answer_box
+              id={"blank-#{@current_sentence.id}-en-#{idx}"}
+              name={"answer[#{idx}]"}
+              answer={@answers[idx]}
+              length={if sw, do: translation_length(sw.word), else: String.length(token)}
+              submitted={@submitted}
+              autofocus={idx == @first_blank}
+              result={@results[idx]}
+            />
+          <% else %>
+            <span class="mx-0.5">{token}</span>
           <% end %>
         <% end %>
       </div>
@@ -347,7 +351,11 @@ defmodule OhmywordWeb.WriteSentenceLive do
             direction_mode: socket.assigns.direction_mode,
             blanked_words: socket.assigns.blanked_words,
             blanked_positions: socket.assigns.blanked_positions,
-            tokens: socket.assigns.tokens
+            tokens: socket.assigns.tokens,
+            english_tokens: socket.assigns.english_tokens,
+            english_annotation_map: socket.assigns.english_annotation_map,
+            english_blanked_positions: socket.assigns.english_blanked_positions,
+            first_blank: socket.assigns.first_blank
           }
           | socket.assigns.history
         ]
@@ -379,6 +387,10 @@ defmodule OhmywordWeb.WriteSentenceLive do
         blanked_words: prev.blanked_words,
         blanked_positions: prev.blanked_positions,
         tokens: prev.tokens,
+        english_tokens: prev.english_tokens,
+        english_annotation_map: prev.english_annotation_map,
+        english_blanked_positions: prev.english_blanked_positions,
+        first_blank: prev.first_blank,
         submitted: false,
         answers: %{},
         results: %{},
@@ -473,14 +485,18 @@ defmodule OhmywordWeb.WriteSentenceLive do
   end
 
   defp check_answers_sr_to_en(socket, answers) do
-    blanked_words = socket.assigns.blanked_words
+    annotation_map = socket.assigns.english_annotation_map
+    english_tokens = socket.assigns.english_tokens
 
     Map.new(answers, fn {pos, input} ->
-      case Enum.find(blanked_words, &(&1.position == pos)) do
+      case Map.get(annotation_map, pos) do
         nil ->
-          {pos, {:error, "No word at position"}}
+          # Unannotated blank (hard mode): simple string match
+          expected = Enum.at(english_tokens, pos)
+          {pos, check_simple_answer(input, expected || "")}
 
         sw ->
+          # Annotated blank: check via translation
           {pos, Exercises.check_flashcard_answer(sw.word, input, :serbian_to_english)}
       end
     end)
@@ -494,7 +510,9 @@ defmodule OhmywordWeb.WriteSentenceLive do
           blanked_words: [],
           blanked_positions: MapSet.new(),
           first_blank: nil,
-          english_segments: []
+          english_tokens: [],
+          english_annotation_map: %{},
+          english_blanked_positions: MapSet.new()
         )
 
       sentence ->
@@ -502,7 +520,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
         blanked = Exercises.select_blanks(sentence, socket.assigns.difficulty)
         annotated_positions = MapSet.new(blanked, & &1.position)
 
-        # Difficulty 3 (Hard): blank ALL tokens in EN→SR, only annotated in SR→EN
+        # Difficulty 3 (Hard): blank ALL tokens in EN→SR
         blanked_positions =
           if socket.assigns.difficulty == 3 &&
                socket.assigns.direction_mode == :english_to_serbian do
@@ -511,15 +529,32 @@ defmodule OhmywordWeb.WriteSentenceLive do
             annotated_positions
           end
 
-        first_blank = blanked_positions |> Enum.min(fn -> nil end)
-        english_segments = build_english_segments(sentence.text_en, blanked)
+        # English token data for SR→EN mode
+        english_tokens = Exercises.tokenize(sentence.text_en)
+        english_annotation_map = match_english_annotations(english_tokens, blanked)
+
+        english_blanked_positions =
+          if socket.assigns.difficulty == 3 do
+            MapSet.new(0..(length(english_tokens) - 1))
+          else
+            MapSet.new(Map.keys(english_annotation_map))
+          end
+
+        first_blank =
+          if socket.assigns.direction_mode == :serbian_to_english do
+            english_blanked_positions |> Enum.min(fn -> nil end)
+          else
+            blanked_positions |> Enum.min(fn -> nil end)
+          end
 
         assign(socket,
           tokens: tokens,
           blanked_words: blanked,
           blanked_positions: blanked_positions,
           first_blank: first_blank,
-          english_segments: english_segments
+          english_tokens: english_tokens,
+          english_annotation_map: english_annotation_map,
+          english_blanked_positions: english_blanked_positions
         )
     end
   end
@@ -585,64 +620,34 @@ defmodule OhmywordWeb.WriteSentenceLive do
   defp empty_state_message(_pos),
     do: "No sentences match the current filter. Try a different type."
 
-  defp build_english_segments(text_en, blanked_words) do
-    raw_segments =
-      Enum.reduce(blanked_words, [{:text, text_en}], fn sw, segments ->
-        replace_in_segments(segments, sw)
+  defp match_english_annotations(english_tokens, blanked_words) do
+    tokens_with_idx = Enum.with_index(english_tokens)
+
+    {annotation_map, _claimed} =
+      Enum.reduce(blanked_words, {%{}, MapSet.new()}, fn sw, {map, claimed} ->
+        candidates =
+          [sw.word.translation | sw.word.translations || []]
+          |> Enum.map(&strip_verb_prefix/1)
+          |> Enum.reject(&(&1 == ""))
+          |> Enum.uniq()
+          |> Enum.sort_by(&(-String.length(&1)))
+
+        case find_matching_token(tokens_with_idx, candidates, claimed) do
+          nil -> {map, claimed}
+          idx -> {Map.put(map, idx, sw), MapSet.put(claimed, idx)}
+        end
       end)
 
-    # Split text segments into individual words for flex wrapping
-    Enum.flat_map(raw_segments, fn
-      {:blank, _} = blank ->
-        [blank]
-
-      {:text, text} ->
-        text
-        |> String.split(" ")
-        |> Enum.reject(&(&1 == ""))
-        |> Enum.map(&{:text, &1})
-    end)
+    annotation_map
   end
 
-  defp replace_in_segments(segments, sw) do
-    Enum.flat_map(segments, fn
-      {:blank, _} = blank ->
-        [blank]
-
-      {:text, text} ->
-        case split_on_translation(text, sw.word) do
-          {before, _matched, after_text} ->
-            parts = if before != "", do: [{:text, before}], else: []
-            parts = parts ++ [{:blank, sw}]
-            if after_text != "", do: parts ++ [{:text, after_text}], else: parts
-
-          nil ->
-            [{:text, text}]
-        end
-    end)
-  end
-
-  defp split_on_translation(text, word) do
-    candidates =
-      [word.translation | word.translations || []]
-      |> Enum.map(&strip_verb_prefix/1)
-      |> Enum.reject(&(&1 == ""))
-      |> Enum.uniq()
-      |> Enum.sort_by(&(-String.length(&1)))
-
+  defp find_matching_token(tokens_with_idx, candidates, claimed) do
     Enum.find_value(candidates, fn candidate ->
-      pattern =
-        if String.contains?(candidate, " ") do
-          ~r/\b#{Regex.escape(candidate)}\b/i
-        else
-          ~r/\b#{Regex.escape(candidate)}\w*/i
-        end
+      pattern = ~r/^#{Regex.escape(candidate)}\w*$/i
 
-      case Regex.split(pattern, text, parts: 2, include_captures: true) do
-        [^text] -> nil
-        [before, matched, after_text] -> {before, matched, after_text}
-        _ -> nil
-      end
+      Enum.find_value(tokens_with_idx, fn {token, idx} ->
+        if !MapSet.member?(claimed, idx) && Regex.match?(pattern, token), do: idx
+      end)
     end)
   end
 

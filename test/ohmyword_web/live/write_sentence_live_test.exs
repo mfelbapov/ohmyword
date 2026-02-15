@@ -297,8 +297,8 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Toggle to SR→EN
       view |> element("button[phx-click=toggle_direction]") |> render_click()
 
-      # Answer is English translation
-      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "dog"}})
+      # Answer is English translation (position 3 = "dog" in ["I", "see", "a", "dog"])
+      html = render_submit(view, "submit_answers", %{"answer" => %{"3" => "dog"}})
 
       assert html =~ "hero-check-circle"
       assert html =~ "dog"
@@ -322,7 +322,7 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Toggle to SR→EN
       view |> element("button[phx-click=toggle_direction]") |> render_click()
 
-      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "wrong"}})
+      html = render_submit(view, "submit_answers", %{"answer" => %{"3" => "wrong"}})
 
       assert html =~ "Expected: dog"
     end
@@ -344,8 +344,8 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Toggle to SR→EN
       view |> element("button[phx-click=toggle_direction]") |> render_click()
 
-      # Alternative translation should be accepted
-      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "hound"}})
+      # Alternative translation should be accepted (position 3 = "dog" in English tokens)
+      html = render_submit(view, "submit_answers", %{"answer" => %{"3" => "hound"}})
 
       assert html =~ "hero-check-circle"
       assert html =~ "hound"
@@ -367,11 +367,11 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Toggle to SR→EN
       html = view |> element("button[phx-click=toggle_direction]") |> render_click()
 
-      # English sentence should NOT be visible before submission
+      # English sentence should NOT be fully visible before submission (dog is blanked)
       refute html =~ "I see a dog."
 
-      # Submit answer
-      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "dog"}})
+      # Submit answer (position 3 = "dog")
+      html = render_submit(view, "submit_answers", %{"answer" => %{"3" => "dog"}})
 
       # English sentence should now be visible
       assert html =~ "I see a dog."
