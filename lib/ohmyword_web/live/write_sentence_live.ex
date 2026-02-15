@@ -193,10 +193,10 @@ defmodule OhmywordWeb.WriteSentenceLive do
   # SR→EN mode: inline blanks replacing highlighted words, with Serbian word as hint
   defp render_sr_to_en(assigns) do
     ~H"""
-    <!-- Serbian hint sentence (full, no blanks) -->
+    <!-- English hint sentence -->
     <div class="text-center">
       <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
-        {display_term(@current_sentence.text_rs, @script_mode)}
+        {@current_sentence.text_en}
       </p>
     </div>
 

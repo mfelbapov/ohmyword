@@ -332,7 +332,7 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       assert html =~ "hero-check-circle"
     end
 
-    test "SR→EN shows full Serbian sentence as hint", %{conn: conn} do
+    test "SR→EN shows English hint sentence", %{conn: conn} do
       word = noun_fixture(%{term: "pas", translation: "dog"})
 
       sentence_with_words_fixture(%{
@@ -347,9 +347,8 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Toggle to SR→EN
       html = view |> element("button[phx-click=toggle_direction]") |> render_click()
 
-      # Full Serbian sentence should be visible as hint (not English)
-      assert html =~ "Vidim psa."
-      refute html =~ "I see a dog."
+      # English sentence should be visible as context
+      assert html =~ "I see a dog."
     end
 
     test "SR→EN easy mode shows POS badge but not translation", %{conn: conn} do
