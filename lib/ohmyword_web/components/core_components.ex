@@ -600,15 +600,24 @@ defmodule OhmywordWeb.CoreComponents do
 
   def script_toggle(assigns) do
     ~H"""
-    <button
-      phx-click="toggle_script"
-      class="inline-flex items-center rounded-md bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
-    >
-      <span class="mr-2">Ćć</span>
-      <span class="text-zinc-400 dark:text-zinc-500">↔</span>
-      <span class="ml-2">Ћћ</span>
-      <span class="ml-2 rounded bg-zinc-200 px-1.5 py-0.5 text-xs dark:bg-zinc-700">
-        {if @script_mode == :latin, do: "LAT", else: "ЋИР"}
+    <button phx-click="toggle_script" class="inline-flex rounded-lg bg-zinc-100 p-1 dark:bg-zinc-800">
+      <span class={[
+        "rounded-md px-3 py-1.5 text-sm transition-colors",
+        if(@script_mode == :latin,
+          do: "bg-zinc-700 font-semibold text-white dark:bg-zinc-300 dark:text-zinc-900",
+          else: "text-zinc-500 dark:text-zinc-400"
+        )
+      ]}>
+        Ćč LAT
+      </span>
+      <span class={[
+        "rounded-md px-3 py-1.5 text-sm transition-colors",
+        if(@script_mode == :cyrillic,
+          do: "bg-zinc-700 font-semibold text-white dark:bg-zinc-300 dark:text-zinc-900",
+          else: "text-zinc-500 dark:text-zinc-400"
+        )
+      ]}>
+        Ћћ ЋИР
       </span>
     </button>
     """
@@ -627,13 +636,25 @@ defmodule OhmywordWeb.CoreComponents do
     ~H"""
     <button
       phx-click="toggle_direction"
-      class="inline-flex items-center rounded-md bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+      class="inline-flex rounded-lg bg-zinc-100 p-1 dark:bg-zinc-800"
     >
-      <span class="mr-2">SR</span>
-      <span class="text-zinc-400 dark:text-zinc-500">↔</span>
-      <span class="ml-2">EN</span>
-      <span class="ml-2 rounded bg-zinc-200 px-1.5 py-0.5 text-xs dark:bg-zinc-700">
-        {if @direction_mode == :serbian_to_english, do: "SR→EN", else: "EN→SR"}
+      <span class={[
+        "rounded-md px-3 py-1.5 text-sm transition-colors",
+        if(@direction_mode == :serbian_to_english,
+          do: "bg-zinc-700 font-semibold text-white dark:bg-zinc-300 dark:text-zinc-900",
+          else: "text-zinc-500 dark:text-zinc-400"
+        )
+      ]}>
+        SR → EN
+      </span>
+      <span class={[
+        "rounded-md px-3 py-1.5 text-sm transition-colors",
+        if(@direction_mode == :english_to_serbian,
+          do: "bg-zinc-700 font-semibold text-white dark:bg-zinc-300 dark:text-zinc-900",
+          else: "text-zinc-500 dark:text-zinc-400"
+        )
+      ]}>
+        EN → SR
       </span>
     </button>
     """
@@ -652,14 +673,25 @@ defmodule OhmywordWeb.CoreComponents do
     ~H"""
     <button
       phx-click="toggle_practice_mode"
-      class="inline-flex items-center rounded-md bg-zinc-100 px-3 py-2 text-sm font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+      class="inline-flex rounded-lg bg-zinc-100 p-1 dark:bg-zinc-800"
     >
-      <.icon
-        name={if @practice_mode == :flip, do: "hero-eye", else: "hero-pencil"}
-        class="mr-2 size-4"
-      />
-      <span class="rounded bg-zinc-200 px-1.5 py-0.5 text-xs dark:bg-zinc-700">
-        {if @practice_mode == :flip, do: "Flip", else: "Write"}
+      <span class={[
+        "inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm transition-colors",
+        if(@practice_mode == :flip,
+          do: "bg-zinc-700 font-semibold text-white dark:bg-zinc-300 dark:text-zinc-900",
+          else: "text-zinc-500 dark:text-zinc-400"
+        )
+      ]}>
+        <.icon name="hero-eye" class="size-4" /> Flip
+      </span>
+      <span class={[
+        "inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm transition-colors",
+        if(@practice_mode == :write,
+          do: "bg-zinc-700 font-semibold text-white dark:bg-zinc-300 dark:text-zinc-900",
+          else: "text-zinc-500 dark:text-zinc-400"
+        )
+      ]}>
+        <.icon name="hero-pencil" class="size-4" /> Write
       </span>
     </button>
     """
