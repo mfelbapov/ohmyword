@@ -52,7 +52,9 @@
       "Bash(ls:*)",
       "Bash(chmod:*)",
       "Bash(bash -n:*)",
-      "Bash(/Users/mfelbapov/Projects/ohmyword/scripts/run_parallel.sh:*)"
+      "Bash(/Users/mfelbapov/Projects/ohmyword/scripts/run_parallel.sh:*)",
+      "Bash(MIX_ENV=dev mix run:*)",
+      "Bash(fly checks list:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"
