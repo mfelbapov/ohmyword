@@ -35,12 +35,12 @@ defmodule OhmywordWeb.WriteSentenceLive do
       </.header>
 
       <div class="mt-6 flex items-center justify-between gap-2">
-        <.pos_filter pos_filter={@pos_filter} available_pos={@available_pos} />
         <div class="flex items-center gap-2">
           <.direction_toggle direction_mode={@direction_mode} />
           <.difficulty_selector difficulty={@difficulty} />
-          <.script_toggle script_mode={@script_mode} />
+          <.pos_filter pos_filter={@pos_filter} available_pos={@available_pos} />
         </div>
+        <.script_toggle script_mode={@script_mode} />
       </div>
 
       <%= if @current_sentence do %>
