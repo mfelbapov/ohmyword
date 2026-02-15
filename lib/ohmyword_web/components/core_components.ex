@@ -602,22 +602,22 @@ defmodule OhmywordWeb.CoreComponents do
     ~H"""
     <button phx-click="toggle_script" class="inline-flex rounded-lg bg-zinc-100 p-1 dark:bg-zinc-800">
       <span class={[
-        "rounded-md px-3 py-1.5 text-sm transition-colors",
+        "rounded-md px-5 py-1.5 text-sm transition-colors",
         if(@script_mode == :latin,
           do: "bg-zinc-700 font-semibold text-white dark:bg-zinc-300 dark:text-zinc-900",
           else: "text-zinc-500 dark:text-zinc-400"
         )
       ]}>
-        Ćč LAT
+        Ćč
       </span>
       <span class={[
-        "rounded-md px-3 py-1.5 text-sm transition-colors",
+        "rounded-md px-5 py-1.5 text-sm transition-colors",
         if(@script_mode == :cyrillic,
           do: "bg-zinc-700 font-semibold text-white dark:bg-zinc-300 dark:text-zinc-900",
           else: "text-zinc-500 dark:text-zinc-400"
         )
       ]}>
-        Ћћ ЋИР
+        Ћћ
       </span>
     </button>
     """

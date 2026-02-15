@@ -63,14 +63,14 @@ defmodule OhmywordWeb.FlashcardLiveTest do
       {:ok, view, html} = live(conn, ~p"/flashcards")
 
       # Initially in Latin mode
-      assert html =~ "LAT"
+      assert html =~ "Ćč"
       assert html =~ "ljubav"
 
       # Toggle to Cyrillic
       html = view |> element("button[phx-click=toggle_script]") |> render_click()
 
       # Now shows Cyrillic indicator and transliterated text
-      assert html =~ "ЋИР"
+      assert html =~ "Ћћ"
       assert html =~ "љубав"
     end
 

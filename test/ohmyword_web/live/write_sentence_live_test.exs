@@ -144,12 +144,12 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       {:ok, view, html} = live(conn, ~p"/write")
 
       # Initially Latin
-      assert html =~ "LAT"
+      assert html =~ "Ćč"
 
       # Toggle to Cyrillic
       html = view |> element("button[phx-click=toggle_script]") |> render_click()
 
-      assert html =~ "ЋИР"
+      assert html =~ "Ћћ"
     end
 
     test "POS filter shows available types", %{conn: conn} do
