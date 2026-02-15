@@ -93,11 +93,11 @@
 
 /* Design tokens */
 @theme {
-  --container-auth: 24rem;
-  --container-narrow: 36rem;
-  --container-content: 42rem;
-  --container-wide: 48rem;
-  --container-dashboard: 56rem;
+  --container-auth: 32rem;
+  --container-narrow: 48rem;
+  --container-content: 60rem;
+  --container-wide: 68rem;
+  --container-dashboard: 80rem;
 
   --font-size-display: clamp(1.875rem, 1.5rem + 1.5vw, 2.25rem);
   --font-size-prompt: clamp(1.5rem, 1.25rem + 1.25vw, 2.25rem);
