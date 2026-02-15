@@ -135,6 +135,7 @@ defmodule OhmywordWeb.WordComponents do
   attr :autofocus, :boolean, default: false
   attr :result, :any, default: nil
   attr :form_tag, :string, default: nil
+  attr :hint, :string, default: nil
 
   def single_text_answer_box(assigns) do
     ~H"""
@@ -166,6 +167,11 @@ defmodule OhmywordWeb.WordComponents do
       <%= if @form_tag do %>
         <span class={"mt-1 text-xs font-medium #{case_color_classes(@form_tag)}"}>
           {humanize_form_tag(@form_tag)}
+        </span>
+      <% end %>
+      <%= if @hint do %>
+        <span class="mt-1 text-xs font-medium text-zinc-500 dark:text-zinc-400">
+          {@hint}
         </span>
       <% end %>
     </div>

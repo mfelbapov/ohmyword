@@ -198,44 +198,30 @@ defmodule OhmywordWeb.WriteSentenceLive do
     """
   end
 
-  # SR→EN mode: show full Serbian sentence with highlighted words, English translation inputs below
+  # SR→EN mode: inline blanks replacing highlighted words, with Serbian word as hint
   defp render_sr_to_en(assigns) do
     ~H"""
-    <!-- Full Serbian sentence with highlighted words -->
-    <div class="text-center">
-      <p class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
+    <!-- Sentence with inline blanks replacing highlighted words -->
+    <form phx-submit="submit_answers" class="flex flex-col items-center space-y-6">
+      <div class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
         <%= for {token, idx} <- Enum.with_index(@tokens) do %>
           <%= if idx in @blanked_positions do %>
-            <span class="font-bold text-indigo-600 underline decoration-2 underline-offset-4 dark:text-indigo-400">
-              {display_term(token, @script_mode)}
-            </span>
+            <% sw = Enum.find(@blanked_words, &(&1.position == idx)) %>
+            <.single_text_answer_box
+              id={"blank-#{@current_sentence.id}-#{idx}"}
+              name={"answer[#{idx}]"}
+              answer={@answers[idx]}
+              length={translation_length(sw.word)}
+              submitted={@submitted}
+              autofocus={idx == @first_blank}
+              result={@results[idx]}
+              hint={if @difficulty == 1, do: display_term(token, @script_mode)}
+            />
           <% else %>
             <span class="mx-0.5">
               {display_term(token, @script_mode)}
             </span>
           <% end %>
-        <% end %>
-      </p>
-    </div>
-
-    <!-- Translation inputs for each highlighted word -->
-    <form phx-submit="submit_answers" class="flex flex-col items-center space-y-6">
-      <div class="flex flex-col items-center gap-4">
-        <%= for sw <- Enum.sort_by(@blanked_words, & &1.position) do %>
-          <div class="flex items-center gap-3">
-            <span class="text-sm font-medium text-zinc-500 dark:text-zinc-400 min-w-24 text-right">
-              {display_term(Enum.at(@tokens, sw.position), @script_mode)} =
-            </span>
-            <.single_text_answer_box
-              id={"blank-#{@current_sentence.id}-#{sw.position}"}
-              name={"answer[#{sw.position}]"}
-              answer={@answers[sw.position]}
-              length={translation_length(sw.word)}
-              submitted={@submitted}
-              autofocus={sw.position == @first_blank}
-              result={@results[sw.position]}
-            />
-          </div>
         <% end %>
       </div>
       

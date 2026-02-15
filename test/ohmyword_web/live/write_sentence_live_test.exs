@@ -239,7 +239,7 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       assert html =~ "Translate the highlighted Serbian words into English"
     end
 
-    test "SR→EN shows full Serbian sentence with highlighted words", %{conn: conn} do
+    test "SR→EN shows inline blanks with non-blanked words visible", %{conn: conn} do
       word = noun_fixture(%{term: "pas", translation: "dog"})
       sentence_with_words_fixture(%{word: word, text_rs: "Vidim psa.", text_en: "I see a dog."})
 
@@ -248,13 +248,11 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Toggle to SR→EN
       html = view |> element("button[phx-click=toggle_direction]") |> render_click()
 
-      # The annotated word should be highlighted (shown in the sentence, not blanked)
-      assert html =~ "text-indigo-600"
-      # The Serbian sentence tokens should all be visible
+      # Non-blanked Serbian words should still be visible
       assert html =~ "Vidim"
     end
 
-    test "SR→EN shows Serbian form label next to input", %{conn: conn} do
+    test "SR→EN easy mode shows Serbian word as hint under blank", %{conn: conn} do
       word = noun_fixture(%{term: "pas", translation: "dog"})
 
       sentence_with_words_fixture(%{
@@ -269,7 +267,7 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Toggle to SR→EN
       html = view |> element("button[phx-click=toggle_direction]") |> render_click()
 
-      # Should show "psa =" label next to the input
+      # Should show "psa" as hint under the input box
       assert html =~ "psa"
     end
 
@@ -470,11 +468,9 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
         |> render_click()
 
       # In SR→EN mode, difficulty 3 should only blank annotated words (not all tokens)
-      # "Vidim" and "velikog" should still be visible as non-highlighted text
+      # "Vidim" and "velikog" should still be visible as non-blanked text
       assert html =~ "Vidim"
       assert html =~ "velikog"
-      # The annotated word should be highlighted
-      assert html =~ "text-indigo-600"
     end
   end
 end
