@@ -36,7 +36,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
       </div>
 
       <%= if @current_sentence do %>
-        <div class="mt-6 rounded-xl border-2 border-zinc-300 bg-white card-spacious shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
+        <div class="mt-6 min-h-80 flex flex-col rounded-xl border-2 border-zinc-300 bg-white card-spacious shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
           <!-- Translation -->
           <div class="text-center mb-6">
             <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
@@ -45,7 +45,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
           </div>
           
     <!-- Sentence with blanks -->
-          <form phx-submit="submit_answers" class="space-y-6">
+          <form phx-submit="submit_answers" class="flex flex-1 flex-col space-y-6">
             <div class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
               <%= for {token, idx} <- Enum.with_index(@tokens) do %>
                 <%= if idx in @blanked_positions do %>
@@ -83,7 +83,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
             <% end %>
             
     <!-- Submit / Next button -->
-            <div class="flex justify-center">
+            <div class="mt-auto flex justify-center">
               <button
                 type="submit"
                 class={[
