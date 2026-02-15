@@ -48,7 +48,11 @@
       "Bash(wc:*)",
       "Bash(grep:*)",
       "Bash(gh pr checks:*)",
-      "Bash(elixir -e:*)"
+      "Bash(elixir -e:*)",
+      "Bash(ls:*)",
+      "Bash(chmod:*)",
+      "Bash(bash -n:*)",
+      "Bash(/Users/mfelbapov/Projects/ohmyword/scripts/run_parallel.sh:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"
