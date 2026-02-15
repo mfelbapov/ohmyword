@@ -128,7 +128,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
     ~H"""
     <!-- Translation -->
     <div class="text-center">
-      <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
+      <p class="text-2xl font-medium text-zinc-900 dark:text-zinc-100">
         {@current_sentence.text_en}
       </p>
     </div>
@@ -198,7 +198,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
       <p class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
         <%= for {token, idx} <- Enum.with_index(@tokens) do %>
           <%= if idx in @blanked_positions do %>
-            <span class="font-bold text-indigo-600 underline dark:text-indigo-400">
+            <span class="font-bold">
               {display_term(token, @script_mode)}
             </span>
           <% else %>
