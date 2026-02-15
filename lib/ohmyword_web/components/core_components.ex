@@ -656,7 +656,7 @@ defmodule OhmywordWeb.CoreComponents do
     >
       <.icon
         name={if @practice_mode == :flip, do: "hero-eye", else: "hero-pencil"}
-        class="mr-2 h-4 w-4"
+        class="mr-2 size-4"
       />
       <span class="rounded bg-zinc-200 px-1.5 py-0.5 text-xs dark:bg-zinc-700">
         {if @practice_mode == :flip, do: "Flip", else: "Write"}

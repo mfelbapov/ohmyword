@@ -16,18 +16,18 @@ defmodule OhmywordWeb.WordDetailLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="mx-auto max-w-3xl">
+    <.page_container max_width="wide">
       <div class="mb-6">
         <.link
           navigate={~p"/dictionary"}
           class="inline-flex items-center text-sm text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
         >
-          <.icon name="hero-arrow-left" class="mr-1 h-4 w-4" /> Back to Dictionary
+          <.icon name="hero-arrow-left" class="mr-1 size-4" /> Back to Dictionary
         </.link>
       </div>
 
       <div class="flex flex-wrap items-center gap-3">
-        <h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+        <h1 class="text-display font-bold text-zinc-900 dark:text-zinc-100">
           {display_term(@word.term, @script_mode)}
         </h1>
         <.pos_badge part_of_speech={@word.part_of_speech} />
@@ -62,14 +62,14 @@ defmodule OhmywordWeb.WordDetailLive do
           <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100">
             Related Adjective
           </h2>
-          <div class="mt-2 rounded-lg bg-zinc-50 p-4 dark:bg-zinc-800">
+          <div class="mt-2 rounded-lg bg-zinc-50 card-compact dark:bg-zinc-800">
             <div class="flex items-center gap-2">
               <.link
                 navigate={~p"/dictionary/#{@related_adjective.word.id}"}
                 class="text-base font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
               >
                 {display_term(@related_adjective.word.term, @script_mode)}
-                <.icon name="hero-arrow-right" class="ml-1 inline h-4 w-4" />
+                <.icon name="hero-arrow-right" class="ml-1 inline size-4" />
               </.link>
               <span class="text-sm text-zinc-500 dark:text-zinc-400">
                 {@related_adjective.word.translation}
@@ -149,7 +149,7 @@ defmodule OhmywordWeb.WordDetailLive do
           <h2 class="text-lg font-semibold text-zinc-900 dark:text-zinc-100">Examples</h2>
           <div class="mt-2 space-y-3">
             <%= for sentence <- @sentences do %>
-              <div class="rounded-lg bg-zinc-50 p-4 dark:bg-zinc-800">
+              <div class="rounded-lg bg-zinc-50 card-compact dark:bg-zinc-800">
                 <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
                   {display_term(sentence.text_rs, @script_mode)}
                 </p>
@@ -183,7 +183,7 @@ defmodule OhmywordWeb.WordDetailLive do
           </div>
         </div>
       <% end %>
-    </div>
+    </.page_container>
     """
   end
 

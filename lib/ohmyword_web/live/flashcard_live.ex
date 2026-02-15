@@ -20,7 +20,7 @@ defmodule OhmywordWeb.FlashcardLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="mx-auto max-w-2xl">
+    <.page_container>
       <.header>
         Flashcards
         <:subtitle>Practice Serbian vocabulary</:subtitle>
@@ -45,7 +45,7 @@ defmodule OhmywordWeb.FlashcardLive do
           >
             <div class={"relative h-80 perspective-1000 transform-style-3d transition-transform duration-500 #{if @flipped, do: "rotate-y-180", else: ""}"}>
               <!-- Front of card -->
-              <div class={"absolute inset-0 rounded-xl border-2 border-zinc-300 bg-white p-8 shadow-lg backface-hidden dark:border-zinc-700 dark:bg-zinc-900 #{if @flipped, do: "invisible", else: ""}"}>
+              <div class={"absolute inset-0 rounded-xl border-2 border-zinc-300 bg-white card-spacious shadow-lg backface-hidden dark:border-zinc-700 dark:bg-zinc-900 #{if @flipped, do: "invisible", else: ""}"}>
                 <div class="flex h-full flex-col items-center justify-center">
                   <%= if @direction_mode == :serbian_to_english do %>
                     <div class="mb-4 flex flex-wrap gap-2 justify-center">
@@ -60,11 +60,11 @@ defmodule OhmywordWeb.FlashcardLive do
                         <.animate_badge />
                       <% end %>
                     </div>
-                    <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100">
+                    <p class="text-center text-prompt font-bold text-zinc-900 dark:text-zinc-100">
                       {display_term(@current_word.term, @script_mode)}
                     </p>
                   <% else %>
-                    <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100">
+                    <p class="text-center text-prompt font-bold text-zinc-900 dark:text-zinc-100">
                       {@current_word.translation}
                     </p>
                     <%= if @current_word.translations != [] do %>
@@ -80,10 +80,10 @@ defmodule OhmywordWeb.FlashcardLive do
               </div>
               
     <!-- Back of card -->
-              <div class={"absolute inset-0 rounded-xl border-2 border-zinc-300 bg-white p-8 shadow-lg backface-hidden rotate-y-180 dark:border-zinc-700 dark:bg-zinc-900 #{if not @flipped, do: "invisible", else: ""}"}>
+              <div class={"absolute inset-0 rounded-xl border-2 border-zinc-300 bg-white card-spacious shadow-lg backface-hidden rotate-y-180 dark:border-zinc-700 dark:bg-zinc-900 #{if not @flipped, do: "invisible", else: ""}"}>
                 <div class="flex h-full flex-col items-center justify-center">
                   <%= if @direction_mode == :serbian_to_english do %>
-                    <p class="text-center text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+                    <p class="text-center text-answer font-bold text-zinc-900 dark:text-zinc-100">
                       {@current_word.translation}
                     </p>
                     <%= if @current_word.translations != [] do %>
@@ -104,12 +104,12 @@ defmodule OhmywordWeb.FlashcardLive do
                         <.animate_badge />
                       <% end %>
                     </div>
-                    <p class="text-center text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+                    <p class="text-center text-answer font-bold text-zinc-900 dark:text-zinc-100">
                       {display_term(@current_word.term, @script_mode)}
                     </p>
                   <% end %>
                   <%= if @example_sentence do %>
-                    <div class="mt-6 w-full rounded-lg bg-zinc-100 p-4 dark:bg-zinc-800">
+                    <div class="mt-6 w-full rounded-lg bg-zinc-100 card-compact dark:bg-zinc-800">
                       <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
                         {display_term(@example_sentence.text_rs, @script_mode)}
                       </p>
@@ -124,7 +124,7 @@ defmodule OhmywordWeb.FlashcardLive do
           </div>
         <% else %>
           <!-- Write mode -->
-          <div class="mt-6 min-h-80 rounded-xl border-2 border-zinc-300 bg-white p-8 shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
+          <div class="mt-6 min-h-80 rounded-xl border-2 border-zinc-300 bg-white card-spacious shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
             <div class="flex flex-col items-center justify-center">
               <!-- Prompt -->
               <%= if @direction_mode == :serbian_to_english do %>
@@ -140,11 +140,11 @@ defmodule OhmywordWeb.FlashcardLive do
                     <.animate_badge />
                   <% end %>
                 </div>
-                <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-6">
+                <p class="text-center text-prompt font-bold text-zinc-900 dark:text-zinc-100 mb-6">
                   {display_term(@current_word.term, @script_mode)}
                 </p>
               <% else %>
-                <p class="text-center text-4xl font-bold text-zinc-900 dark:text-zinc-100 mb-2">
+                <p class="text-center text-prompt font-bold text-zinc-900 dark:text-zinc-100 mb-2">
                   {@current_word.translation}
                 </p>
                 <p class="mb-6 min-h-7 text-center text-lg text-zinc-600 dark:text-zinc-400">
@@ -194,7 +194,7 @@ defmodule OhmywordWeb.FlashcardLive do
                     <%= if elem(@result, 0) == :correct do %>
                       <.icon
                         name="hero-check-circle"
-                        class="h-5 w-5 text-green-600 dark:text-green-400"
+                        class="size-5 text-green-600 dark:text-green-400"
                       />
                       <span class="text-green-800 dark:text-green-200">
                         Correct!
@@ -202,7 +202,7 @@ defmodule OhmywordWeb.FlashcardLive do
                     <% else %>
                       <.icon
                         name="hero-x-circle"
-                        class="h-5 w-5 text-red-600 dark:text-red-400"
+                        class="size-5 text-red-600 dark:text-red-400"
                       />
                       <span class="text-red-800 dark:text-red-200">
                         Expected: {display_expected(elem(@result, 1), @direction_mode, @script_mode)}
@@ -211,7 +211,7 @@ defmodule OhmywordWeb.FlashcardLive do
                   </div>
                 </div>
                 <%= if @example_sentence do %>
-                  <div class="mt-4 w-full rounded-lg bg-zinc-100 p-4 dark:bg-zinc-800">
+                  <div class="mt-4 w-full rounded-lg bg-zinc-100 card-compact dark:bg-zinc-800">
                     <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
                       {display_term(@example_sentence.text_rs, @script_mode)}
                     </p>
@@ -231,18 +231,18 @@ defmodule OhmywordWeb.FlashcardLive do
             disabled={@history == []}
             class="inline-flex items-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
           >
-            <.icon name="hero-arrow-left" class="mr-2 h-4 w-4" /> Previous
+            <.icon name="hero-arrow-left" class="mr-2 size-4" /> Previous
           </button>
           <button
             phx-click="next"
             class="inline-flex items-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
           >
-            Next Card <.icon name="hero-arrow-right" class="ml-2 h-4 w-4" />
+            Next Card <.icon name="hero-arrow-right" class="ml-2 size-4" />
           </button>
         </div>
       <% else %>
-        <div class="mt-8 rounded-lg border-2 border-dashed border-zinc-300 p-12 text-center dark:border-zinc-700">
-          <.icon name="hero-book-open" class="mx-auto h-12 w-12 text-zinc-400" />
+        <div class="mt-8 rounded-lg border-2 border-dashed border-zinc-300 card-empty text-center dark:border-zinc-700">
+          <.icon name="hero-book-open" class="mx-auto size-12 text-zinc-400" />
           <h3 class="mt-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
             {empty_state_title(@pos_filter, @category_filter)}
           </h3>
@@ -251,7 +251,7 @@ defmodule OhmywordWeb.FlashcardLive do
           </p>
         </div>
       <% end %>
-    </div>
+    </.page_container>
     """
   end
 

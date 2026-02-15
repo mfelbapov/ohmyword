@@ -21,7 +21,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="mx-auto max-w-2xl">
+    <.page_container>
       <.header>
         Write the Word
         <:subtitle>Fill in the blanks with the correct Serbian forms</:subtitle>
@@ -36,7 +36,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
       </div>
 
       <%= if @current_sentence do %>
-        <div class="mt-6 rounded-xl border-2 border-zinc-300 bg-white p-8 shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
+        <div class="mt-6 rounded-xl border-2 border-zinc-300 bg-white card-spacious shadow-lg dark:border-zinc-700 dark:bg-zinc-900">
           <!-- Translation -->
           <div class="text-center mb-6">
             <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
@@ -117,13 +117,13 @@ defmodule OhmywordWeb.WriteSentenceLive do
                     <%= if elem(result, 0) == :correct do %>
                       <.icon
                         name="hero-check-circle"
-                        class="h-5 w-5 text-green-600 dark:text-green-400"
+                        class="size-5 text-green-600 dark:text-green-400"
                       />
                       <span class="text-green-800 dark:text-green-200">
                         {display_term(elem(result, 1), @script_mode)}
                       </span>
                     <% else %>
-                      <.icon name="hero-x-circle" class="h-5 w-5 text-red-600 dark:text-red-400" />
+                      <.icon name="hero-x-circle" class="size-5 text-red-600 dark:text-red-400" />
                       <span class="text-red-800 dark:text-red-200">
                         Expected: {display_expected_forms(elem(result, 1), @script_mode)}
                       </span>
@@ -142,18 +142,18 @@ defmodule OhmywordWeb.WriteSentenceLive do
             disabled={@history == []}
             class="inline-flex items-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 disabled:opacity-50 disabled:cursor-not-allowed dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
           >
-            <.icon name="hero-arrow-left" class="mr-2 h-4 w-4" /> Previous
+            <.icon name="hero-arrow-left" class="mr-2 size-4" /> Previous
           </button>
           <button
             phx-click="next"
             class="inline-flex items-center rounded-md bg-zinc-900 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-zinc-700 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
           >
-            Next <.icon name="hero-arrow-right" class="ml-2 h-4 w-4" />
+            Next <.icon name="hero-arrow-right" class="ml-2 size-4" />
           </button>
         </div>
       <% else %>
-        <div class="mt-8 rounded-lg border-2 border-dashed border-zinc-300 p-12 text-center dark:border-zinc-700">
-          <.icon name="hero-pencil-square" class="mx-auto h-12 w-12 text-zinc-400" />
+        <div class="mt-8 rounded-lg border-2 border-dashed border-zinc-300 card-empty text-center dark:border-zinc-700">
+          <.icon name="hero-pencil-square" class="mx-auto size-12 text-zinc-400" />
           <h3 class="mt-2 text-sm font-semibold text-zinc-900 dark:text-zinc-100">
             {empty_state_title(@pos_filter)}
           </h3>
@@ -162,7 +162,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
           </p>
         </div>
       <% end %>
-    </div>
+    </.page_container>
     """
   end
 

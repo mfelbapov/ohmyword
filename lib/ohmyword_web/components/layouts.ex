@@ -31,14 +31,15 @@ defmodule OhmywordWeb.Layouts do
     default: nil,
     doc: "the current [scope](https://hexdocs.pm/phoenix/scopes.html)"
 
+  attr :max_width, :string, default: "content"
   slot :inner_block, required: true
 
   def app(assigns) do
     ~H"""
-    <main class="px-4 py-20 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl space-y-4">
+    <main class="py-20">
+      <.page_container max_width={@max_width} class="space-y-4">
         {render_slot(@inner_block)}
-      </div>
+      </.page_container>
     </main>
 
     <.flash_group flash={@flash} />

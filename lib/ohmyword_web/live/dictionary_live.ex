@@ -19,7 +19,7 @@ defmodule OhmywordWeb.DictionaryLive do
   @impl true
   def render(assigns) do
     ~H"""
-    <div class="mx-auto max-w-2xl">
+    <.page_container>
       <.header>
         Dictionary
         <:subtitle>Look up Serbian vocabulary</:subtitle>
@@ -43,7 +43,7 @@ defmodule OhmywordWeb.DictionaryLive do
 
       <%= if not @searched do %>
         <div class="mt-12 text-center">
-          <.icon name="hero-book-open" class="mx-auto h-12 w-12 text-zinc-400" />
+          <.icon name="hero-book-open" class="mx-auto size-12 text-zinc-400" />
           <p class="mt-4 text-zinc-600 dark:text-zinc-400">
             Enter a Serbian word to look up its meaning
           </p>
@@ -54,7 +54,7 @@ defmodule OhmywordWeb.DictionaryLive do
       <% else %>
         <%= if @results == [] do %>
           <div class="mt-12 text-center">
-            <.icon name="hero-magnifying-glass" class="mx-auto h-12 w-12 text-zinc-400" />
+            <.icon name="hero-magnifying-glass" class="mx-auto size-12 text-zinc-400" />
             <p class="mt-4 text-zinc-600 dark:text-zinc-400">
               No words found for "{@query}"
             </p>
@@ -65,7 +65,7 @@ defmodule OhmywordWeb.DictionaryLive do
         <% else %>
           <div class="mt-6 space-y-4">
             <%= for result <- @results do %>
-              <div class="rounded-xl border border-zinc-200 bg-white p-6 shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
+              <div class="rounded-xl border border-zinc-200 bg-white card-default shadow-sm dark:border-zinc-700 dark:bg-zinc-900">
                 <div class="flex flex-wrap items-center gap-2">
                   <h3 class="text-xl font-bold text-zinc-900 dark:text-zinc-100">
                     {display_term(result.word.term, @script_mode)}
@@ -104,7 +104,7 @@ defmodule OhmywordWeb.DictionaryLive do
                 <% end %>
 
                 <%= if sentence = @sentence_map[result.word.id] |> List.wrap() |> List.first() do %>
-                  <div class="mt-4 rounded-lg bg-zinc-50 p-4 dark:bg-zinc-800">
+                  <div class="mt-4 rounded-lg bg-zinc-50 card-compact dark:bg-zinc-800">
                     <p class="text-sm italic text-zinc-700 dark:text-zinc-300">
                       {display_term(sentence.text_rs, @script_mode)}
                     </p>
@@ -119,7 +119,7 @@ defmodule OhmywordWeb.DictionaryLive do
                     navigate={~p"/dictionary/#{result.word.id}"}
                     class="inline-flex items-center text-sm font-medium text-zinc-500 hover:text-zinc-700 dark:text-zinc-400 dark:hover:text-zinc-200"
                   >
-                    View all forms <.icon name="hero-arrow-right" class="ml-1 h-4 w-4" />
+                    View all forms <.icon name="hero-arrow-right" class="ml-1 size-4" />
                   </.link>
                 </div>
               </div>
@@ -127,7 +127,7 @@ defmodule OhmywordWeb.DictionaryLive do
           </div>
         <% end %>
       <% end %>
-    </div>
+    </.page_container>
     """
   end
 
