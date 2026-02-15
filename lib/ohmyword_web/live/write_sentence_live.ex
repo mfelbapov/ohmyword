@@ -454,11 +454,9 @@ defmodule OhmywordWeb.WriteSentenceLive do
         blanked = Exercises.select_blanks(sentence, socket.assigns.difficulty)
         annotated_positions = MapSet.new(blanked, & &1.position)
 
-        # Difficulty 3 in EN→SR: blank ALL token positions
-        # Difficulty 3 in SR→EN: blank only annotated words (unannotated have no word to check)
+        # Difficulty 3 (Hard): blank ALL token positions in both modes
         blanked_positions =
-          if socket.assigns.difficulty == 3 &&
-               socket.assigns.direction_mode == :english_to_serbian do
+          if socket.assigns.difficulty == 3 do
             MapSet.new(0..(length(tokens) - 1))
           else
             annotated_positions

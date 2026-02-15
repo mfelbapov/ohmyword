@@ -374,7 +374,7 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       assert html =~ "Fill in the blanks using the English translation hints"
     end
 
-    test "SR→EN difficulty 3 blanks only annotated words", %{conn: conn} do
+    test "SR→EN difficulty 3 blanks all words", %{conn: conn} do
       word = noun_fixture(%{term: "pas", translation: "dog"})
 
       sentence =
@@ -393,10 +393,10 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
         |> element(~s(button[phx-click="set_difficulty"][phx-value-level="3"]))
         |> render_click()
 
-      # In SR→EN mode, difficulty 3 should only blank annotated words (not all tokens)
-      # "Vidim" and "velikog" should still be visible as non-blanked text
-      assert html =~ "Vidim"
-      assert html =~ "velikog"
+      # In SR→EN mode, difficulty 3 should blank ALL words (same as EN→SR)
+      # "Vidim" and "velikog" should NOT be visible as plain text
+      refute html =~ "Vidim"
+      refute html =~ "velikog"
     end
   end
 end
