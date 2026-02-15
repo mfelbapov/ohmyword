@@ -39,7 +39,7 @@ defmodule OhmywordWeb.DictionaryLive do
             type="search"
             name="query"
             value={@query}
-            placeholder="Search Serbian words..."
+            placeholder="Search Serbian or English words..."
             phx-debounce="300"
             class="w-full rounded-xl border border-zinc-200 bg-white py-2.5 pl-10 pr-4 text-zinc-900 shadow-sm placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:ring-zinc-500"
             autofocus
@@ -51,10 +51,10 @@ defmodule OhmywordWeb.DictionaryLive do
         <div class="mt-12 text-center">
           <.icon name="hero-book-open" class="mx-auto size-12 text-zinc-400" />
           <p class="mt-4 text-zinc-600 dark:text-zinc-400">
-            Enter a Serbian word to look up its meaning
+            Enter a Serbian or English word to look up its meaning
           </p>
           <p class="mt-1 text-sm text-zinc-500 dark:text-zinc-500">
-            Works with Latin or Cyrillic script, and inflected forms
+            Works with Latin or Cyrillic script, inflected forms, and English translations
           </p>
         </div>
       <% else %>
@@ -88,16 +88,29 @@ defmodule OhmywordWeb.DictionaryLive do
                   <% end %>
                 </div>
 
-                <%= if result.matched_form != result.word.term do %>
+                <%= if result.form_tag == "translation" do %>
                   <div class="mt-2 flex items-center gap-2">
-                    <span class={"inline-flex items-center rounded-full px-3 py-1 text-sm font-medium #{case_color_classes(result.form_tag)}"}>
-                      {humanize_form_tag(result.form_tag)}
+                    <span class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 dark:bg-blue-900/30 dark:text-blue-300">
+                      English match
                     </span>
                     <span class="text-sm text-zinc-500 dark:text-zinc-400">
-                      →
-                      <span class="font-mono">{display_term(result.matched_form, @script_mode)}</span>
+                      → <span class="font-mono">{result.matched_form}</span>
                     </span>
                   </div>
+                <% else %>
+                  <%= if result.matched_form != result.word.term do %>
+                    <div class="mt-2 flex items-center gap-2">
+                      <span class={"inline-flex items-center rounded-full px-3 py-1 text-sm font-medium #{case_color_classes(result.form_tag)}"}>
+                        {humanize_form_tag(result.form_tag)}
+                      </span>
+                      <span class="text-sm text-zinc-500 dark:text-zinc-400">
+                        →
+                        <span class="font-mono">
+                          {display_term(result.matched_form, @script_mode)}
+                        </span>
+                      </span>
+                    </div>
+                  <% end %>
                 <% end %>
 
                 <p class="mt-3 text-lg text-zinc-800 dark:text-zinc-200">

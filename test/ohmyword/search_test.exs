@@ -326,6 +326,88 @@ defmodule Ohmyword.SearchTest do
       assert hd(results).matched_form == "čovek"
     end
 
+    test "English fallback finds word by primary translation" do
+      word = word_fixture(%{term: "pas", translation: "dog", part_of_speech: :adverb})
+
+      results = Search.lookup("dog")
+
+      assert [result] = results
+      assert result.word.id == word.id
+      assert result.matched_form == "dog"
+      assert result.form_tag == "translation"
+    end
+
+    test "English fallback finds word by alternative translation" do
+      word =
+        word_fixture(%{
+          term: "kuca",
+          translation: "house",
+          translations: ["home", "dwelling"],
+          part_of_speech: :adverb
+        })
+
+      results = Search.lookup("home")
+
+      assert [result] = results
+      assert result.word.id == word.id
+      assert result.matched_form == "home"
+      assert result.form_tag == "translation"
+    end
+
+    test "English search is case-insensitive" do
+      word = word_fixture(%{term: "pas", translation: "dog", part_of_speech: :adverb})
+
+      results = Search.lookup("Dog")
+
+      assert [result] = results
+      assert result.word.id == word.id
+      assert result.form_tag == "translation"
+    end
+
+    test "English search matches individual words in multi-word translations" do
+      word =
+        word_fixture(%{term: "baciti", translation: "to throw", part_of_speech: :adverb})
+
+      results = Search.lookup("throw")
+
+      assert [result] = results
+      assert result.word.id == word.id
+      assert result.matched_form == "to throw"
+    end
+
+    test "English search does not match partial words" do
+      _word =
+        word_fixture(%{term: "baciti", translation: "to throw", part_of_speech: :adverb})
+
+      assert Search.lookup("thro") == []
+    end
+
+    test "Serbian results take priority over English" do
+      word = word_fixture(%{term: "put", translation: "road", part_of_speech: :adverb})
+
+      search_term_fixture(%{word: word, term: "put", display_form: "put", form_tag: "nom_sg"})
+
+      results = Search.lookup("put")
+
+      assert [result] = results
+      assert result.form_tag == "nom_sg"
+    end
+
+    test "English search does not duplicate words found in primary and alternative translations" do
+      word =
+        word_fixture(%{
+          term: "kuca",
+          translation: "home",
+          translations: ["home sweet home"],
+          part_of_speech: :adverb
+        })
+
+      results = Search.lookup("home")
+
+      assert length(results) == 1
+      assert hd(results).word.id == word.id
+    end
+
     test "finds word with various Serbian diacritics" do
       word1 = feminine_noun_fixture(%{term: "šuma", translation: "forest"})
       word2 = feminine_noun_fixture(%{term: "žena", translation: "woman"})
