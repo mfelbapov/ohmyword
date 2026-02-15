@@ -46,7 +46,8 @@
       "Bash(gh run watch:*)",
       "Bash(find:*)",
       "Bash(wc:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(gh pr checks:*)"
     ],
     "deny": [
       "Bash(fly deploy:*)"
