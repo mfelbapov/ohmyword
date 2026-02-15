@@ -167,7 +167,7 @@ defmodule OhmywordWeb.FlashcardLive do
                 <button
                   type="submit"
                   class={[
-                    "rounded-lg px-6 py-3 text-lg font-semibold",
+                    "rounded-md px-4 py-2 text-sm font-semibold",
                     if(@submitted,
                       do:
                         "bg-zinc-700 text-white hover:bg-zinc-600 dark:bg-zinc-200 dark:text-zinc-900 dark:hover:bg-zinc-300",
