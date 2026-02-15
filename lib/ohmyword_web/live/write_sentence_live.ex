@@ -190,7 +190,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
     """
   end
 
-  # SR→EN mode: full Serbian sentence with highlighted words, English translation inputs below
+  # SR→EN mode: full Serbian sentence with highlighted words, English sentence with inline blanks
   defp render_sr_to_en(assigns) do
     ~H"""
     <!-- Full Serbian sentence with highlighted annotated words -->
@@ -210,40 +210,47 @@ defmodule OhmywordWeb.WriteSentenceLive do
       </p>
     </div>
 
-    <!-- English sentence hint (blanked before submission, full after) -->
-    <div class="text-center">
-      <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
-        {if @submitted, do: @current_sentence.text_en, else: @blanked_english_text}
-      </p>
-    </div>
-
-    <!-- English translation inputs for each blanked word -->
+    <!-- English sentence with inline blanks -->
     <form phx-submit="submit_answers" class="flex flex-col items-center space-y-6">
-      <div class="flex flex-wrap items-center justify-center gap-6">
-        <%= for sw <- Enum.sort_by(@blanked_words, & &1.position) do %>
-          <div class="flex flex-col items-center gap-1">
-            <span class="text-sm font-medium text-zinc-500 dark:text-zinc-400">
-              {display_term(Enum.at(@tokens, sw.position), @script_mode)} =
-            </span>
-            <.single_text_answer_box
-              id={"blank-#{@current_sentence.id}-#{sw.position}"}
-              name={"answer[#{sw.position}]"}
-              answer={@answers[sw.position]}
-              length={translation_length(sw.word)}
-              submitted={@submitted}
-              autofocus={sw.position == @first_blank}
-              result={@results[sw.position]}
-            />
-          </div>
+      <div class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
+        <%= for segment <- @english_segments do %>
+          <%= case segment do %>
+            <% {:text, word} -> %>
+              <span class="mx-0.5">{word}</span>
+            <% {:blank, sw} -> %>
+              <.single_text_answer_box
+                id={"blank-#{@current_sentence.id}-#{sw.position}"}
+                name={"answer[#{sw.position}]"}
+                answer={@answers[sw.position]}
+                length={translation_length(sw.word)}
+                submitted={@submitted}
+                autofocus={sw.position == @first_blank}
+                result={@results[sw.position]}
+              />
+          <% end %>
         <% end %>
       </div>
       
-    <!-- Word info badges (Easy only — POS only, translation is the answer) -->
+    <!-- Word info badges (Easy only) -->
       <%= if @difficulty == 1 do %>
         <div class="flex flex-wrap items-center justify-center gap-2">
           <%= for sw <- @blanked_words do %>
-            <.pos_badge part_of_speech={sw.word.part_of_speech} />
+            <div class="flex items-center gap-1">
+              <.pos_badge part_of_speech={sw.word.part_of_speech} />
+              <span class="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+                {display_term(sw.word.term, @script_mode)}
+              </span>
+            </div>
           <% end %>
+        </div>
+      <% end %>
+      
+    <!-- Revealed English sentence after submission -->
+      <%= if @submitted do %>
+        <div class="text-center">
+          <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
+            {@current_sentence.text_en}
+          </p>
         </div>
       <% end %>
       
@@ -487,7 +494,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
           blanked_words: [],
           blanked_positions: MapSet.new(),
           first_blank: nil,
-          blanked_english_text: nil
+          english_segments: []
         )
 
       sentence ->
@@ -505,14 +512,14 @@ defmodule OhmywordWeb.WriteSentenceLive do
           end
 
         first_blank = blanked_positions |> Enum.min(fn -> nil end)
-        blanked_english_text = blank_english_text(sentence.text_en, blanked)
+        english_segments = build_english_segments(sentence.text_en, blanked)
 
         assign(socket,
           tokens: tokens,
           blanked_words: blanked,
           blanked_positions: blanked_positions,
           first_blank: first_blank,
-          blanked_english_text: blanked_english_text
+          english_segments: english_segments
         )
     end
   end
@@ -578,31 +585,63 @@ defmodule OhmywordWeb.WriteSentenceLive do
   defp empty_state_message(_pos),
     do: "No sentences match the current filter. Try a different type."
 
-  defp blank_english_text(text_en, blanked_words) do
-    Enum.reduce(blanked_words, text_en, fn sw, text ->
-      blank_word_in_text(text, sw.word)
+  defp build_english_segments(text_en, blanked_words) do
+    raw_segments =
+      Enum.reduce(blanked_words, [{:text, text_en}], fn sw, segments ->
+        replace_in_segments(segments, sw)
+      end)
+
+    # Split text segments into individual words for flex wrapping
+    Enum.flat_map(raw_segments, fn
+      {:blank, _} = blank ->
+        [blank]
+
+      {:text, text} ->
+        text
+        |> String.split(" ")
+        |> Enum.reject(&(&1 == ""))
+        |> Enum.map(&{:text, &1})
     end)
   end
 
-  defp blank_word_in_text(text, word) do
+  defp replace_in_segments(segments, sw) do
+    Enum.flat_map(segments, fn
+      {:blank, _} = blank ->
+        [blank]
+
+      {:text, text} ->
+        case split_on_translation(text, sw.word) do
+          {before, _matched, after_text} ->
+            parts = if before != "", do: [{:text, before}], else: []
+            parts = parts ++ [{:blank, sw}]
+            if after_text != "", do: parts ++ [{:text, after_text}], else: parts
+
+          nil ->
+            [{:text, text}]
+        end
+    end)
+  end
+
+  defp split_on_translation(text, word) do
     candidates =
-      [word.translation | Map.get(word, :translations, []) || []]
+      [word.translation | word.translations || []]
       |> Enum.map(&strip_verb_prefix/1)
       |> Enum.reject(&(&1 == ""))
       |> Enum.uniq()
       |> Enum.sort_by(&(-String.length(&1)))
 
-    Enum.reduce_while(candidates, text, fn candidate, acc ->
-      {pattern, replacement} =
+    Enum.find_value(candidates, fn candidate ->
+      pattern =
         if String.contains?(candidate, " ") do
-          {~r/\b#{Regex.escape(candidate)}\b/i, "____"}
+          ~r/\b#{Regex.escape(candidate)}\b/i
         else
-          {~r/\b#{Regex.escape(candidate)}\w*/i, "____"}
+          ~r/\b#{Regex.escape(candidate)}\w*/i
         end
 
-      case Regex.run(pattern, acc) do
-        nil -> {:cont, acc}
-        _ -> {:halt, Regex.replace(pattern, acc, replacement, global: false)}
+      case Regex.split(pattern, text, parts: 2, include_captures: true) do
+        [^text] -> nil
+        [before, matched, after_text] -> {before, matched, after_text}
+        _ -> nil
       end
     end)
   end
