@@ -6,9 +6,9 @@ defmodule Ohmyword.Vocabulary.Metadata.SeedValidationTest do
   @seed_path "priv/repo/vocabulary_seed.json"
 
   describe "seed data validation" do
-    test "all 525 seed words pass Word.changeset/2 validation" do
+    test "all seed words pass Word.changeset/2 validation" do
       words = @seed_path |> File.read!() |> Jason.decode!()
-      assert length(words) == 525
+      assert length(words) >= 1000
 
       failures =
         words
