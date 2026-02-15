@@ -231,7 +231,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
             <div class="flex items-center gap-1">
               <.pos_badge part_of_speech={sw.word.part_of_speech} />
               <span class="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                {display_term(sw.word.term, @script_mode)}
+                {sw.word.translation}
               </span>
             </div>
           <% end %>

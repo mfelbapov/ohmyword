@@ -255,7 +255,7 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       refute html =~ "I see a dog."
     end
 
-    test "SR→EN easy mode shows POS badge with term but not translation", %{conn: conn} do
+    test "SR→EN easy mode shows POS badge with translation hint", %{conn: conn} do
       word = noun_fixture(%{term: "pas", translation: "dog"})
 
       sentence_with_words_fixture(%{
@@ -272,12 +272,11 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
 
       # Should show POS badge
       assert html =~ "Noun"
-      # Should show term in badge (without translation — that's the answer)
-      assert html =~ "pas"
-      refute html =~ "pas = dog"
+      # Should show English translation as hint (not the Serbian term)
+      assert html =~ "dog"
       # English sentence words shown inline (not as "psa =" label)
       refute html =~ "psa ="
-      # "I see a" should be visible, "dog" should be blanked
+      # "I see a" should be visible
       assert html =~ "see"
     end
 
