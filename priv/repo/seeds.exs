@@ -105,6 +105,7 @@ end
 
 # Sentences seeding
 defmodule SentencesSeed do
+  import Ecto.Query
   alias Ohmyword.Repo
   alias Ohmyword.Exercises.Sentence
   alias Ohmyword.Exercises.SentenceWord
@@ -156,12 +157,12 @@ defmodule SentencesSeed do
       word_term = annotation["word_term"]
       form_tag = annotation["form_tag"]
 
-      case Repo.get_by(Word, term: word_term) do
-        nil ->
+      case Repo.all(from(w in Word, where: w.term == ^word_term, limit: 1)) do
+        [] ->
           IO.puts("    SKIPPED word: '#{word_term}' not found in vocabulary")
           used_positions
 
-        word ->
+        [word] ->
           # Find position by matching token (case-insensitive), skipping used positions
           position =
             tokens
