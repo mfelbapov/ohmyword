@@ -29,16 +29,22 @@ defmodule OhmywordWeb.DictionaryLive do
         <.script_toggle script_mode={@script_mode} />
       </div>
 
-      <form phx-change="search" phx-submit="search" class="mt-6">
-        <input
-          type="search"
-          name="query"
-          value={@query}
-          placeholder="Search Serbian words..."
-          phx-debounce="300"
-          class="input input-bordered w-full"
-          autofocus
-        />
+      <form phx-change="search" phx-submit="search" class="mt-2">
+        <div class="relative">
+          <.icon
+            name="hero-magnifying-glass"
+            class="pointer-events-none absolute left-3 top-1/2 size-5 -translate-y-1/2 text-zinc-400 dark:text-zinc-500"
+          />
+          <input
+            type="search"
+            name="query"
+            value={@query}
+            placeholder="Search Serbian words..."
+            phx-debounce="300"
+            class="w-full rounded-xl border border-zinc-200 bg-white py-2.5 pl-10 pr-4 text-zinc-900 shadow-sm placeholder:text-zinc-400 focus:outline-none focus:ring-2 focus:ring-zinc-400 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100 dark:placeholder:text-zinc-500 dark:focus:ring-zinc-500"
+            autofocus
+          />
+        </div>
       </form>
 
       <%= if not @searched do %>
