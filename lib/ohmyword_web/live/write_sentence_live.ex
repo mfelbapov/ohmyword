@@ -219,12 +219,11 @@ defmodule OhmywordWeb.WriteSentenceLive do
       <div class="flex flex-wrap items-baseline gap-1 text-2xl font-medium text-zinc-900 dark:text-zinc-100 justify-center">
         <%= for {token, idx} <- Enum.with_index(@english_tokens) do %>
           <%= if idx in @english_blanked_positions do %>
-            <% sw = @english_annotation_map[idx] %>
             <.single_text_answer_box
               id={"blank-#{@current_sentence.id}-en-#{idx}"}
               name={"answer[#{idx}]"}
               answer={@answers[idx]}
-              length={if sw, do: translation_length(sw.word), else: String.length(token)}
+              length={String.length(token)}
               submitted={@submitted}
               autofocus={idx == @first_blank}
               result={@results[idx]}
@@ -485,20 +484,11 @@ defmodule OhmywordWeb.WriteSentenceLive do
   end
 
   defp check_answers_sr_to_en(socket, answers) do
-    annotation_map = socket.assigns.english_annotation_map
     english_tokens = socket.assigns.english_tokens
 
     Map.new(answers, fn {pos, input} ->
-      case Map.get(annotation_map, pos) do
-        nil ->
-          # Unannotated blank (hard mode): simple string match
-          expected = Enum.at(english_tokens, pos)
-          {pos, check_simple_answer(input, expected || "")}
-
-        sw ->
-          # Annotated blank: check via translation
-          {pos, Exercises.check_flashcard_answer(sw.word, input, :serbian_to_english)}
-      end
+      expected = Enum.at(english_tokens, pos)
+      {pos, check_simple_answer(input, expected || "")}
     end)
   end
 
@@ -608,10 +598,6 @@ defmodule OhmywordWeb.WriteSentenceLive do
     |> Ohmyword.Utils.Transliteration.to_latin()
     |> Ohmyword.Utils.Transliteration.strip_diacritics()
     |> String.downcase()
-  end
-
-  defp translation_length(word) do
-    word.translation |> String.replace(" ", "") |> String.length()
   end
 
   defp empty_state_message(:all),

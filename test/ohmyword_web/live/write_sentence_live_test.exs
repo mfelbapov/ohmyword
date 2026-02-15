@@ -327,7 +327,7 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       assert html =~ "Expected: dog"
     end
 
-    test "SR→EN accepts alternative translations", %{conn: conn} do
+    test "SR→EN checks against exact English token, not dictionary translation", %{conn: conn} do
       word =
         noun_fixture(%{term: "pas", translation: "dog", translations: ["hound", "canine"]})
 
@@ -344,11 +344,11 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Toggle to SR→EN
       view |> element("button[phx-click=toggle_direction]") |> render_click()
 
-      # Alternative translation should be accepted (position 3 = "dog" in English tokens)
+      # Alternative translation should NOT be accepted — only the exact English word
       html = render_submit(view, "submit_answers", %{"answer" => %{"3" => "hound"}})
 
-      assert html =~ "hero-check-circle"
-      assert html =~ "hound"
+      assert html =~ "hero-x-circle"
+      assert html =~ "Expected: dog"
     end
 
     test "SR→EN English sentence revealed only after submission", %{conn: conn} do
