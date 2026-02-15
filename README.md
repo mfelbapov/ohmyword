@@ -57,7 +57,7 @@ All data is stored in **Latin script**. Cyrillic is rendered dynamically via tra
 
 This project was built using AI-assisted development with detailed specification prompts.
 
-**See:** [docs/MASTER_PROMPT.md](docs/MASTER_PROMPT.md)
+**See:** [MASTER_PROMPT.md](MASTER_PROMPT.md)
 
 The Master Prompt is a comprehensive technical specification that defines:
 - Database schema with linguistic accuracy
@@ -115,7 +115,7 @@ Visit `http://localhost:4000`
 
 ## Documentation
 
-- [Master Prompt](docs/MASTER_PROMPT.md) — The specification that guided development
+- [Master Prompt](MASTER_PROMPT.md) — The specification that guided development
 
 ---
 
