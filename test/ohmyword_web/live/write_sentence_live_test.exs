@@ -171,9 +171,9 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
 
       {:ok, _view, html} = live(conn, ~p"/write")
 
-      assert html =~ "1 blank"
-      assert html =~ "Some"
-      assert html =~ "All"
+      assert html =~ "Easy"
+      assert html =~ "Medium"
+      assert html =~ "Hard"
     end
 
     test "changing difficulty re-selects blanks", %{conn: conn} do

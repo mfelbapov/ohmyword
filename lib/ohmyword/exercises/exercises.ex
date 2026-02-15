@@ -129,9 +129,9 @@ defmodule Ohmyword.Exercises do
   Selects which sentence_words to blank based on difficulty.
 
   Difficulty levels:
-    * `1` - One random blank
-    * `2` - Approximately half the annotated words
-    * `3` - All annotated words
+    * `1` (Easy) - One random blank, hints shown
+    * `2` (Medium) - One random blank, no hints
+    * `3` (Hard) - All annotated words, no hints
   """
   def select_blanks(%Sentence{sentence_words: sentence_words}, difficulty) do
     case difficulty do
@@ -143,11 +143,11 @@ defmodule Ohmyword.Exercises do
         end
 
       2 ->
-        count = max(1, div(length(sentence_words), 2))
-
-        sentence_words
-        |> Enum.shuffle()
-        |> Enum.take(count)
+        if sentence_words == [] do
+          []
+        else
+          [Enum.random(sentence_words)]
+        end
 
       3 ->
         sentence_words

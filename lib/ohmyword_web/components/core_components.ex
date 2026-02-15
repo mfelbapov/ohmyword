@@ -32,6 +32,35 @@ defmodule OhmywordWeb.CoreComponents do
   alias Phoenix.LiveView.JS
 
   @doc """
+  Renders a responsive page container with consistent max-width and horizontal padding.
+
+  ## Examples
+
+      <.page_container>Content here</.page_container>
+      <.page_container max_width="wide">Wide content</.page_container>
+  """
+  attr :max_width, :string,
+    default: "content",
+    values: ~w(auth narrow content wide dashboard)
+
+  attr :class, :string, default: nil
+  slot :inner_block, required: true
+
+  def page_container(assigns) do
+    ~H"""
+    <div class={["mx-auto px-4 sm:px-6 lg:px-8", container_max_width(@max_width), @class]}>
+      {render_slot(@inner_block)}
+    </div>
+    """
+  end
+
+  defp container_max_width("auth"), do: "container-auth"
+  defp container_max_width("narrow"), do: "container-narrow"
+  defp container_max_width("content"), do: "container-content"
+  defp container_max_width("wide"), do: "container-wide"
+  defp container_max_width("dashboard"), do: "container-dashboard"
+
+  @doc """
   Renders flash notices.
 
   ## Examples
@@ -702,7 +731,7 @@ defmodule OhmywordWeb.CoreComponents do
   attr :difficulty, :integer, required: true
 
   def difficulty_selector(assigns) do
-    labels = %{1 => "1 blank", 2 => "Some", 3 => "All"}
+    labels = %{1 => "Easy", 2 => "Medium", 3 => "Hard"}
     assigns = assign(assigns, labels: labels)
 
     ~H"""
@@ -713,7 +742,7 @@ defmodule OhmywordWeb.CoreComponents do
           phx-click="set_difficulty"
           phx-value-level={level}
           class={[
-            "px-3 py-2 text-sm font-medium border",
+            "min-w-[5rem] text-center px-3 py-2 text-sm font-medium border",
             if(level == 1, do: "rounded-l-md", else: ""),
             if(level == 3, do: "rounded-r-md", else: ""),
             if(@difficulty == level,

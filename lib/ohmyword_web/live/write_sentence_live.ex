@@ -58,7 +58,7 @@ defmodule OhmywordWeb.WriteSentenceLive do
                     submitted={@submitted}
                     autofocus={idx == @first_blank}
                     result={@results[idx]}
-                    form_tag={if sw, do: sw.form_tag}
+                    form_tag={if @difficulty == 1 && sw, do: sw.form_tag}
                   />
                 <% else %>
                   <span class="mx-0.5">
@@ -68,17 +68,19 @@ defmodule OhmywordWeb.WriteSentenceLive do
               <% end %>
             </div>
             
-    <!-- Word info badges -->
-            <div class="flex flex-wrap items-center justify-center gap-2">
-              <%= for sw <- @blanked_words do %>
-                <div class="flex items-center gap-1">
-                  <.pos_badge part_of_speech={sw.word.part_of_speech} />
-                  <span class="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
-                    {display_term(sw.word.term, @script_mode)} = {sw.word.translation}
-                  </span>
-                </div>
-              <% end %>
-            </div>
+    <!-- Word info badges (Easy only) -->
+            <%= if @difficulty == 1 do %>
+              <div class="flex flex-wrap items-center justify-center gap-2">
+                <%= for sw <- @blanked_words do %>
+                  <div class="flex items-center gap-1">
+                    <.pos_badge part_of_speech={sw.word.part_of_speech} />
+                    <span class="rounded-full bg-zinc-100 px-2 py-0.5 text-xs text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300">
+                      {display_term(sw.word.term, @script_mode)} = {sw.word.translation}
+                    </span>
+                  </div>
+                <% end %>
+              </div>
+            <% end %>
             
     <!-- Submit / Next button -->
             <div class="flex justify-center">

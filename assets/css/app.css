@@ -91,6 +91,39 @@
   --noise: 0;
 }
 
+/* Design tokens */
+@theme {
+  --container-auth: 24rem;
+  --container-narrow: 36rem;
+  --container-content: 42rem;
+  --container-wide: 48rem;
+  --container-dashboard: 56rem;
+
+  --font-size-display: clamp(1.875rem, 1.5rem + 1.5vw, 2.25rem);
+  --font-size-prompt: clamp(1.5rem, 1.25rem + 1.25vw, 2.25rem);
+  --font-size-answer: clamp(1.25rem, 1rem + 1vw, 1.875rem);
+
+  --spacing-card-compact: 1rem;
+  --spacing-card-default: 1.5rem;
+  --spacing-card-spacious: 2rem;
+  --spacing-card-empty: 3rem;
+}
+
+@utility container-auth { max-width: var(--container-auth); }
+@utility container-narrow { max-width: var(--container-narrow); }
+@utility container-content { max-width: var(--container-content); }
+@utility container-wide { max-width: var(--container-wide); }
+@utility container-dashboard { max-width: var(--container-dashboard); }
+
+@utility text-display { font-size: var(--font-size-display); }
+@utility text-prompt { font-size: var(--font-size-prompt); }
+@utility text-answer { font-size: var(--font-size-answer); }
+
+@utility card-compact { padding: var(--spacing-card-compact); }
+@utility card-default { padding: var(--spacing-card-default); }
+@utility card-spacious { padding: var(--spacing-card-spacious); }
+@utility card-empty { padding: var(--spacing-card-empty); }
+
 /* Add variants based on LiveView classes */
 @custom-variant phx-click-loading (.phx-click-loading&, .phx-click-loading &);
 @custom-variant phx-submit-loading (.phx-submit-loading&, .phx-submit-loading &);
