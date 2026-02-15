@@ -236,10 +236,10 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       html = view |> element("button[phx-click=toggle_direction]") |> render_click()
 
       # Subtitle should change
-      assert html =~ "Translate the highlighted Serbian words into English"
+      assert html =~ "Fill in the blanks using the English translation hints"
     end
 
-    test "SR→EN shows inline blanks with non-blanked words visible", %{conn: conn} do
+    test "SR→EN shows English hint sentence and inline blanks", %{conn: conn} do
       word = noun_fixture(%{term: "pas", translation: "dog"})
       sentence_with_words_fixture(%{word: word, text_rs: "Vidim psa.", text_en: "I see a dog."})
 
@@ -248,11 +248,13 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Toggle to SR→EN
       html = view |> element("button[phx-click=toggle_direction]") |> render_click()
 
+      # English hint sentence at top
+      assert html =~ "I see a dog."
       # Non-blanked Serbian words should still be visible
       assert html =~ "Vidim"
     end
 
-    test "SR→EN easy mode shows Serbian word as hint under blank", %{conn: conn} do
+    test "SR→EN easy mode shows English translation as hint under blank", %{conn: conn} do
       word = noun_fixture(%{term: "pas", translation: "dog"})
 
       sentence_with_words_fixture(%{
@@ -267,17 +269,47 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Toggle to SR→EN
       html = view |> element("button[phx-click=toggle_direction]") |> render_click()
 
-      # Should show "psa" as hint under the input box
+      # Should show English translation "dog" as hint under the input box
+      assert html =~ "dog"
+      # Should show POS badge
+      assert html =~ "Noun"
+      # Should NOT show "term = translation" badge (that's EN→SR style)
+      refute html =~ "pas = dog"
+    end
+
+    test "SR→EN correct Serbian answer shows success", %{conn: conn} do
+      word = noun_fixture(%{term: "pas", translation: "dog"})
+      search_term_fixture(%{word: word, term: "psa", display_form: "psa", form_tag: "acc_sg"})
+
+      sentence_with_words_fixture(%{
+        word: word,
+        text_rs: "Vidim psa.",
+        text_en: "I see a dog.",
+        form_tag: "acc_sg",
+        position: 1
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/write")
+
+      # Toggle to SR→EN
+      view |> element("button[phx-click=toggle_direction]") |> render_click()
+
+      # Answer is Serbian (same as EN→SR)
+      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "psa"}})
+
+      assert html =~ "hero-check-circle"
       assert html =~ "psa"
     end
 
-    test "SR→EN correct English answer shows success", %{conn: conn} do
+    test "SR→EN incorrect answer shows expected Serbian form", %{conn: conn} do
       word = noun_fixture(%{term: "pas", translation: "dog"})
+      search_term_fixture(%{word: word, term: "psa", display_form: "psa", form_tag: "acc_sg"})
 
       sentence_with_words_fixture(%{
         word: word,
         text_rs: "Vidim psa.",
         text_en: "I see a dog.",
+        form_tag: "acc_sg",
         position: 1
       })
 
@@ -286,90 +318,9 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Toggle to SR→EN
       view |> element("button[phx-click=toggle_direction]") |> render_click()
 
-      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "dog"}})
+      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "wrong"}})
 
-      assert html =~ "hero-check-circle"
-      assert html =~ "dog"
-    end
-
-    test "SR→EN incorrect English answer shows expected", %{conn: conn} do
-      word = noun_fixture(%{term: "pas", translation: "dog"})
-
-      sentence_with_words_fixture(%{
-        word: word,
-        text_rs: "Vidim psa.",
-        text_en: "I see a dog.",
-        position: 1
-      })
-
-      {:ok, view, _html} = live(conn, ~p"/write")
-
-      # Toggle to SR→EN
-      view |> element("button[phx-click=toggle_direction]") |> render_click()
-
-      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "cat"}})
-
-      assert html =~ "Expected: dog"
-    end
-
-    test "SR→EN accepts case-insensitive answers", %{conn: conn} do
-      word = noun_fixture(%{term: "pas", translation: "dog"})
-
-      sentence_with_words_fixture(%{
-        word: word,
-        text_rs: "Vidim psa.",
-        text_en: "I see a dog.",
-        position: 1
-      })
-
-      {:ok, view, _html} = live(conn, ~p"/write")
-
-      # Toggle to SR→EN
-      view |> element("button[phx-click=toggle_direction]") |> render_click()
-
-      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "DOG"}})
-
-      assert html =~ "hero-check-circle"
-    end
-
-    test "SR→EN shows English hint sentence", %{conn: conn} do
-      word = noun_fixture(%{term: "pas", translation: "dog"})
-
-      sentence_with_words_fixture(%{
-        word: word,
-        text_rs: "Vidim psa.",
-        text_en: "I see a dog.",
-        position: 1
-      })
-
-      {:ok, view, _html} = live(conn, ~p"/write")
-
-      # Toggle to SR→EN
-      html = view |> element("button[phx-click=toggle_direction]") |> render_click()
-
-      # English sentence should be visible as context
-      assert html =~ "I see a dog."
-    end
-
-    test "SR→EN easy mode shows POS badge but not translation", %{conn: conn} do
-      word = noun_fixture(%{term: "pas", translation: "dog"})
-
-      sentence_with_words_fixture(%{
-        word: word,
-        text_rs: "Vidim psa.",
-        text_en: "I see a dog.",
-        position: 1
-      })
-
-      {:ok, view, _html} = live(conn, ~p"/write")
-
-      # Toggle to SR→EN
-      html = view |> element("button[phx-click=toggle_direction]") |> render_click()
-
-      # Should show POS badge
-      assert html =~ "Noun"
-      # Should NOT show translation (that's the answer!)
-      refute html =~ "pas = dog"
+      assert html =~ "Expected: psa"
     end
 
     test "toggle direction resets submitted state", %{conn: conn} do
@@ -419,30 +370,8 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       # Click previous — should restore SR→EN mode
       html = view |> element("button[phx-click=previous]") |> render_click()
 
-      # Should still be in SR→EN mode (highlighted words visible)
-      assert html =~ "Translate the highlighted Serbian words into English"
-    end
-
-    test "SR→EN accepts alternative translations", %{conn: conn} do
-      word =
-        noun_fixture(%{term: "stan", translation: "apartment", translations: ["flat", "condo"]})
-
-      sentence_with_words_fixture(%{
-        word: word,
-        text_rs: "Vidim stan.",
-        text_en: "I see an apartment.",
-        position: 1
-      })
-
-      {:ok, view, _html} = live(conn, ~p"/write")
-
-      # Toggle to SR→EN
-      view |> element("button[phx-click=toggle_direction]") |> render_click()
-
-      # "flat" should be accepted as alternative
-      html = render_submit(view, "submit_answers", %{"answer" => %{"1" => "flat"}})
-
-      assert html =~ "hero-check-circle"
+      # Should still be in SR→EN mode
+      assert html =~ "Fill in the blanks using the English translation hints"
     end
 
     test "SR→EN difficulty 3 blanks only annotated words", %{conn: conn} do
