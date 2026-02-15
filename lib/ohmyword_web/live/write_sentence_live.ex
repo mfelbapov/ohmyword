@@ -210,6 +210,13 @@ defmodule OhmywordWeb.WriteSentenceLive do
       </p>
     </div>
 
+    <!-- English sentence hint (blanked before submission, full after) -->
+    <div class="text-center">
+      <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
+        {if @submitted, do: @current_sentence.text_en, else: @blanked_english_text}
+      </p>
+    </div>
+
     <!-- English translation inputs for each blanked word -->
     <form phx-submit="submit_answers" class="flex flex-col items-center space-y-6">
       <div class="flex flex-wrap items-center justify-center gap-6">
@@ -237,15 +244,6 @@ defmodule OhmywordWeb.WriteSentenceLive do
           <%= for sw <- @blanked_words do %>
             <.pos_badge part_of_speech={sw.word.part_of_speech} />
           <% end %>
-        </div>
-      <% end %>
-      
-    <!-- Revealed English sentence after submission -->
-      <%= if @submitted do %>
-        <div class="text-center">
-          <p class="text-lg text-zinc-500 dark:text-zinc-400 italic">
-            {@current_sentence.text_en}
-          </p>
         </div>
       <% end %>
       
@@ -488,7 +486,8 @@ defmodule OhmywordWeb.WriteSentenceLive do
           tokens: [],
           blanked_words: [],
           blanked_positions: MapSet.new(),
-          first_blank: nil
+          first_blank: nil,
+          blanked_english_text: nil
         )
 
       sentence ->
@@ -506,12 +505,14 @@ defmodule OhmywordWeb.WriteSentenceLive do
           end
 
         first_blank = blanked_positions |> Enum.min(fn -> nil end)
+        blanked_english_text = blank_english_text(sentence.text_en, blanked)
 
         assign(socket,
           tokens: tokens,
           blanked_words: blanked,
           blanked_positions: blanked_positions,
-          first_blank: first_blank
+          first_blank: first_blank,
+          blanked_english_text: blanked_english_text
         )
     end
   end
@@ -576,4 +577,36 @@ defmodule OhmywordWeb.WriteSentenceLive do
 
   defp empty_state_message(_pos),
     do: "No sentences match the current filter. Try a different type."
+
+  defp blank_english_text(text_en, blanked_words) do
+    Enum.reduce(blanked_words, text_en, fn sw, text ->
+      blank_word_in_text(text, sw.word)
+    end)
+  end
+
+  defp blank_word_in_text(text, word) do
+    candidates =
+      [word.translation | Map.get(word, :translations, []) || []]
+      |> Enum.map(&strip_verb_prefix/1)
+      |> Enum.reject(&(&1 == ""))
+      |> Enum.uniq()
+      |> Enum.sort_by(&(-String.length(&1)))
+
+    Enum.reduce_while(candidates, text, fn candidate, acc ->
+      {pattern, replacement} =
+        if String.contains?(candidate, " ") do
+          {~r/\b#{Regex.escape(candidate)}\b/i, "____"}
+        else
+          {~r/\b#{Regex.escape(candidate)}\w*/i, "____"}
+        end
+
+      case Regex.run(pattern, acc) do
+        nil -> {:cont, acc}
+        _ -> {:halt, Regex.replace(pattern, acc, replacement, global: false)}
+      end
+    end)
+  end
+
+  defp strip_verb_prefix("to " <> rest), do: rest
+  defp strip_verb_prefix(other), do: other
 end
