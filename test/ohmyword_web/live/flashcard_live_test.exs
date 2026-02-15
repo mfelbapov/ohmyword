@@ -63,7 +63,7 @@ defmodule OhmywordWeb.FlashcardLiveTest do
       {:ok, view, html} = live(conn, ~p"/flashcards")
 
       # Initially in Latin mode
-      assert html =~ "Ćč"
+      assert html =~ "Ćć"
       assert html =~ "ljubav"
 
       # Toggle to Cyrillic
@@ -390,7 +390,7 @@ defmodule OhmywordWeb.FlashcardLiveTest do
       view |> element("button[phx-click=toggle_practice_mode]") |> render_click()
 
       html =
-        view |> element("form[phx-submit=submit_answer]") |> render_submit(%{"answer" => "dog"})
+        view |> element("form[phx-submit=submit_answer]") |> render_submit(%{"answer" => "pas"})
 
       assert html =~ "Correct!"
       assert html =~ "Next →"
@@ -460,16 +460,16 @@ defmodule OhmywordWeb.FlashcardLiveTest do
       refute html =~ "Next →"
     end
 
-    test "write mode works in EN→SR direction", %{conn: conn} do
+    test "write mode works in SR→EN direction", %{conn: conn} do
       word_fixture(%{term: "pas", translation: "dog"})
       {:ok, view, _html} = live(conn, ~p"/flashcards")
 
-      # Switch to EN→SR direction and write mode
+      # Switch to SR→EN direction and write mode
       view |> element("button[phx-click=toggle_direction]") |> render_click()
       view |> element("button[phx-click=toggle_practice_mode]") |> render_click()
 
       html =
-        view |> element("form[phx-submit=submit_answer]") |> render_submit(%{"answer" => "pas"})
+        view |> element("form[phx-submit=submit_answer]") |> render_submit(%{"answer" => "dog"})
 
       assert html =~ "Correct!"
     end

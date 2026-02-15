@@ -144,7 +144,7 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
       {:ok, view, html} = live(conn, ~p"/write")
 
       # Initially Latin
-      assert html =~ "Ćč"
+      assert html =~ "Ćć"
 
       # Toggle to Cyrillic
       html = view |> element("button[phx-click=toggle_script]") |> render_click()
@@ -210,6 +210,249 @@ defmodule OhmywordWeb.WriteSentenceLiveTest do
 
       # Result should be cleared
       refute html =~ "Expected:"
+    end
+  end
+
+  describe "SR→EN direction" do
+    test "direction toggle renders and defaults to EN→SR", %{conn: conn} do
+      word = noun_fixture(%{term: "pas", translation: "dog"})
+      sentence_with_words_fixture(%{word: word})
+
+      {:ok, _view, html} = live(conn, ~p"/write")
+
+      # Direction toggle should be present
+      assert html =~ "SR → EN"
+      assert html =~ "EN → SR"
+      # Default subtitle for EN→SR
+      assert html =~ "Fill in the blanks"
+    end
+
+    test "toggling direction switches to SR→EN mode", %{conn: conn} do
+      word = noun_fixture(%{term: "pas", translation: "dog"})
+      sentence_with_words_fixture(%{word: word, text_rs: "Vidim psa.", text_en: "I see a dog."})
+
+      {:ok, view, _html} = live(conn, ~p"/write")
+
+      html = view |> element("button[phx-click=toggle_direction]") |> render_click()
+
+      # Subtitle should change to new SR→EN subtitle
+      assert html =~ "Translate the highlighted Serbian words into English"
+    end
+
+    test "SR→EN shows all Serbian words visible (highlighted, not blanked)", %{conn: conn} do
+      word = noun_fixture(%{term: "pas", translation: "dog"})
+      sentence_with_words_fixture(%{word: word, text_rs: "Vidim psa.", text_en: "I see a dog."})
+
+      {:ok, view, _html} = live(conn, ~p"/write")
+
+      # Toggle to SR→EN
+      html = view |> element("button[phx-click=toggle_direction]") |> render_click()
+
+      # ALL Serbian words should be visible (highlighted, not blanked)
+      assert html =~ "Vidim"
+      assert html =~ "psa"
+      # English sentence should NOT be shown before submission
+      refute html =~ "I see a dog."
+    end
+
+    test "SR→EN easy mode shows POS badge with term but not translation", %{conn: conn} do
+      word = noun_fixture(%{term: "pas", translation: "dog"})
+
+      sentence_with_words_fixture(%{
+        word: word,
+        text_rs: "Vidim psa.",
+        text_en: "I see a dog.",
+        position: 1
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/write")
+
+      # Toggle to SR→EN
+      html = view |> element("button[phx-click=toggle_direction]") |> render_click()
+
+      # Should show POS badge
+      assert html =~ "Noun"
+      # Should show term in badge (without translation — that's the answer)
+      assert html =~ "pas"
+      refute html =~ "pas = dog"
+      # English sentence words shown inline (not as "psa =" label)
+      refute html =~ "psa ="
+      # "I see a" should be visible, "dog" should be blanked
+      assert html =~ "see"
+    end
+
+    test "SR→EN correct English answer shows success", %{conn: conn} do
+      word = noun_fixture(%{term: "pas", translation: "dog"})
+
+      sentence_with_words_fixture(%{
+        word: word,
+        text_rs: "Vidim psa.",
+        text_en: "I see a dog.",
+        form_tag: "acc_sg",
+        position: 1
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/write")
+
+      # Toggle to SR→EN
+      view |> element("button[phx-click=toggle_direction]") |> render_click()
+
+      # Answer is English translation (position 3 = "dog" in ["I", "see", "a", "dog"])
+      html = render_submit(view, "submit_answers", %{"answer" => %{"3" => "dog"}})
+
+      assert html =~ "hero-check-circle"
+      assert html =~ "dog"
+      # English sentence should be revealed after submission
+      assert html =~ "I see a dog."
+    end
+
+    test "SR→EN incorrect answer shows expected English form", %{conn: conn} do
+      word = noun_fixture(%{term: "pas", translation: "dog"})
+
+      sentence_with_words_fixture(%{
+        word: word,
+        text_rs: "Vidim psa.",
+        text_en: "I see a dog.",
+        form_tag: "acc_sg",
+        position: 1
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/write")
+
+      # Toggle to SR→EN
+      view |> element("button[phx-click=toggle_direction]") |> render_click()
+
+      html = render_submit(view, "submit_answers", %{"answer" => %{"3" => "wrong"}})
+
+      assert html =~ "Expected: dog"
+    end
+
+    test "SR→EN checks against exact English token, not dictionary translation", %{conn: conn} do
+      word =
+        noun_fixture(%{term: "pas", translation: "dog", translations: ["hound", "canine"]})
+
+      sentence_with_words_fixture(%{
+        word: word,
+        text_rs: "Vidim psa.",
+        text_en: "I see a dog.",
+        form_tag: "acc_sg",
+        position: 1
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/write")
+
+      # Toggle to SR→EN
+      view |> element("button[phx-click=toggle_direction]") |> render_click()
+
+      # Alternative translation should NOT be accepted — only the exact English word
+      html = render_submit(view, "submit_answers", %{"answer" => %{"3" => "hound"}})
+
+      assert html =~ "hero-x-circle"
+      assert html =~ "Expected: dog"
+    end
+
+    test "SR→EN English sentence revealed only after submission", %{conn: conn} do
+      word = noun_fixture(%{term: "pas", translation: "dog"})
+
+      sentence_with_words_fixture(%{
+        word: word,
+        text_rs: "Vidim psa.",
+        text_en: "I see a dog.",
+        form_tag: "acc_sg",
+        position: 1
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/write")
+
+      # Toggle to SR→EN
+      html = view |> element("button[phx-click=toggle_direction]") |> render_click()
+
+      # English sentence should NOT be fully visible before submission (dog is blanked)
+      refute html =~ "I see a dog."
+
+      # Submit answer (position 3 = "dog")
+      html = render_submit(view, "submit_answers", %{"answer" => %{"3" => "dog"}})
+
+      # English sentence should now be visible
+      assert html =~ "I see a dog."
+    end
+
+    test "toggle direction resets submitted state", %{conn: conn} do
+      word = noun_fixture(%{term: "pas", translation: "dog"})
+      search_term_fixture(%{word: word, term: "psa", display_form: "psa", form_tag: "acc_sg"})
+
+      sentence_with_words_fixture(%{
+        word: word,
+        text_rs: "Vidim psa.",
+        text_en: "I see a dog.",
+        form_tag: "acc_sg",
+        position: 1
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/write")
+
+      # Submit in EN→SR mode
+      render_submit(view, "submit_answers", %{"answer" => %{"1" => "psa"}})
+
+      # Toggle direction should reset
+      html = view |> element("button[phx-click=toggle_direction]") |> render_click()
+
+      # Result feedback should be gone
+      refute html =~ "hero-check-circle"
+      refute html =~ "Expected:"
+    end
+
+    test "history preserves direction across next/previous", %{conn: conn} do
+      word1 = noun_fixture(%{term: "pas", translation: "dog"})
+      word2 = noun_fixture(%{term: "kuća", translation: "house"})
+      sentence_with_words_fixture(%{word: word1, text_rs: "Vidim psa.", text_en: "I see a dog."})
+
+      sentence_with_words_fixture(%{
+        word: word2,
+        text_rs: "Vidim kuću.",
+        text_en: "I see a house."
+      })
+
+      {:ok, view, _html} = live(conn, ~p"/write")
+
+      # Toggle to SR→EN
+      view |> element("button[phx-click=toggle_direction]") |> render_click()
+
+      # Click next
+      view |> element("button[phx-click=next]") |> render_click()
+
+      # Click previous — should restore SR→EN mode
+      html = view |> element("button[phx-click=previous]") |> render_click()
+
+      # Should still be in SR→EN mode
+      assert html =~ "Translate the highlighted Serbian words into English"
+    end
+
+    test "SR→EN difficulty 3 only blanks annotated words", %{conn: conn} do
+      word = noun_fixture(%{term: "pas", translation: "dog"})
+
+      sentence =
+        sentence_fixture(%{text_rs: "Vidim velikog psa.", text_en: "I see a big dog."})
+
+      sentence_word_fixture(%{sentence: sentence, word: word, position: 2, form_tag: "acc_sg"})
+
+      {:ok, view, _html} = live(conn, ~p"/write")
+
+      # Toggle to SR→EN
+      view |> element("button[phx-click=toggle_direction]") |> render_click()
+
+      # Switch to difficulty 3
+      html =
+        view
+        |> element(~s(button[phx-click="set_difficulty"][phx-value-level="3"]))
+        |> render_click()
+
+      # In SR→EN mode, difficulty 3 should only blank annotated words
+      # Unannotated words "Vidim" and "velikog" should still be visible
+      assert html =~ "Vidim"
+      assert html =~ "velikog"
+      # Annotated word "psa" should also be visible (highlighted, not blanked)
+      assert html =~ "psa"
     end
   end
 end

@@ -262,22 +262,6 @@
     ]
   },
   {
-    "text_en": "I have a big house.",
-    "text_rs": "Imam veliku kuću.",
-    "words": [
-      {
-        "form_tag": "indef_acc_sg_f",
-        "word": "veliku",
-        "word_term": "velik"
-      },
-      {
-        "form_tag": "acc_sg",
-        "word": "kuću",
-        "word_term": "kuća"
-      }
-    ]
-  },
-  {
     "text_en": "I am watching television.",
     "text_rs": "Ja gledam televiziju.",
     "words": [
